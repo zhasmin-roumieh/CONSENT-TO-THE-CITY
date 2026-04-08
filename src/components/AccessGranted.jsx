@@ -45,42 +45,40 @@ export default function AccessGranted({ loc, cityKey, ownerData, userTerms, iden
     <>
       <div className="panel-accent" style={{ background: `linear-gradient(90deg, #1D9E75, #0f6e5688)` }} />
 
-      {photoSrc && (
-        <div className="loc-photo-wrap">
-          <img
-            className="loc-photo"
-            src={photoSrc}
-            alt={loc.name[lang]}
-            onError={e => { e.currentTarget.closest('.loc-photo-wrap').style.display = 'none'; }}
-          />
-        </div>
-      )}
-
       <div className="panel-inner">
-        <div className="grant-header">
-          <span className="grant-check">✔</span>
-          <span className="grant-title">{t.accessGranted}</span>
-        </div>
-        {identity ? (
-          <div className="identity-badge">
-            <span style={{ opacity: 0.6, fontSize: 9 }}>▲</span>
-            <span>{identity.name}</span>
-            <span style={{ opacity: 0.5 }}>·</span>
-            <span style={{ opacity: 0.7 }}>{t.identityCategories.find(c => c.value === identity.category)?.label || identity.category}</span>
+        <div className="loc-hero">
+          {photoSrc && (
+            <img
+              className="loc-hero-img"
+              src={photoSrc}
+              alt={loc.name[lang]}
+              onError={e => { e.currentTarget.style.display = 'none'; }}
+            />
+          )}
+          <div className="loc-hero-text">
+            <div className="loc-hero-city">{cityName}</div>
+            <div className="loc-hero-name">{loc.name[lang]}</div>
+            <div style={{ marginTop: 6, display: 'flex', alignItems: 'center', gap: 6 }}>
+              <span className="grant-check" style={{ fontSize: 13 }}>✔</span>
+              <span className="grant-title" style={{ fontSize: 12 }}>{t.accessGranted}</span>
+            </div>
+            {identity ? (
+              <div className="identity-badge" style={{ marginTop: 4 }}>
+                <span style={{ opacity: 0.6, fontSize: 9 }}>▲</span>
+                <span>{identity.name}</span>
+                <span style={{ opacity: 0.5 }}>·</span>
+                <span style={{ opacity: 0.7 }}>{t.identityCategories.find(c => c.value === identity.category)?.label || identity.category}</span>
+              </div>
+            ) : (
+              <div className="identity-badge" style={{ opacity: 0.55, marginTop: 4 }}>
+                <span style={{ fontSize: 9 }}>○</span>
+                <span>{t.identityIncognito}</span>
+              </div>
+            )}
           </div>
-        ) : (
-          <div className="identity-badge" style={{ opacity: 0.55 }}>
-            <span style={{ fontSize: 9 }}>○</span>
-            <span>{t.identityIncognito}</span>
-          </div>
-        )}
-        <div className="loc-pill">
-          <span className="loc-pill-dot" style={{ background: '#1D9E75' }} />
-          <span>{loc.name[lang]}</span>
-          <span className="loc-pill-city">{cityName}</span>
         </div>
 
-        <div className="section-hdr" style={{ marginTop: 0 }}>{t.ownershipDist}</div>
+        <div className="section-hdr" style={{ marginTop: '0.25rem' }}>{t.ownershipDist}</div>
         <Bar label={t.nonHuman}   pct={ownerData.nh} color="#3DB847" />
         <Bar label={t.historical} pct={ownerData.gh} color="#888780" />
         <Bar label={t.algorithmic}pct={ownerData.al} color="#7C5CE8" />

@@ -15,24 +15,23 @@ export default function TermsScreen({ loc, cityKey, tcHtml, lang, onAccept, onDe
     <>
       <div className="panel-accent" style={{ background: `linear-gradient(90deg, ${color}, ${color}88)` }} />
 
-      {photoSrc && (
-        <div className="loc-photo-wrap">
-          <img
-            className="loc-photo"
-            src={photoSrc}
-            alt={loc.name[lang]}
-            onError={e => { e.currentTarget.closest('.loc-photo-wrap').style.display = 'none'; }}
-          />
-        </div>
-      )}
-
       <div className="panel-inner">
-        <div className="loc-pill">
-          <span className="loc-pill-dot" style={{ background: color }} />
-          <span>{loc.name[lang]}</span>
-          <span className="loc-pill-city">{cityName}</span>
+        <div className="loc-hero">
+          {photoSrc && (
+            <img
+              className="loc-hero-img"
+              src={photoSrc}
+              alt={loc.name[lang]}
+              onError={e => { e.currentTarget.style.display = 'none'; }}
+            />
+          )}
+          <div className="loc-hero-text">
+            <div className="loc-hero-city">{cityName}</div>
+            <div className="loc-hero-name">{loc.name[lang]}</div>
+            <div className="loc-hero-atmo">{loc.atmo[lang]}</div>
+          </div>
         </div>
-        <div className="atmo">{loc.atmo[lang]}</div>
+
         <div className="warn-box">
           ⚠ <strong>{t.termsTitle}</strong><br />
           <span style={{ fontSize: '10px', opacity: 0.85 }}>{t.termsSubtitle}</span>

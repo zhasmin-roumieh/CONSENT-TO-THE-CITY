@@ -3,17 +3,17 @@
 export const WIKI_TITLES = {
   // ── Berlin ──────────────────────────────────────────
   brandenburger:       'Brandenburg Gate',
-  tiergarten:          'Tiergarten',
+  tiergarten:          'Tiergarten (park)',
   hackescher:          'Hackescher Markt',
   tempelhof:           'Tempelhofer Feld',
   kreuzberg:           'Kreuzberg',
-  museumsinsel:        'Museum Island (Berlin)',
+  museumsinsel:        'Museum Island',
   'east-side-gallery': 'East Side Gallery',
   'potsdamer-platz':   'Potsdamer Platz',
 
   // ── Paris ───────────────────────────────────────────
   eiffel:              'Eiffel Tower',
-  marais:              'Le Marais',
+  marais:              'Place des Vosges',
   bastille:            'Place de la Bastille',
   canal:               'Canal Saint-Martin',
   montmartre:          'Montmartre',
@@ -33,7 +33,7 @@ export const WIKI_TITLES = {
 
   // ── London ──────────────────────────────────────────
   borough:             'Borough Market',
-  southbank:           'South Bank, London',
+  southbank:           'Tate Modern',
   'hyde-park':         'Hyde Park, London',
   'brick-lane':        'Brick Lane',
   trafalgar:           'Trafalgar Square',
@@ -53,7 +53,7 @@ export const WIKI_TITLES = {
   tahrir:              'Tahrir Square',
   'khan-khalili':      'Khan el-Khalili',
   'nile-corniche':     'Nile Corniche',
-  'city-of-dead':      'City of the Dead, Cairo',
+  'city-of-dead':      'Mosque of Ibn Tulun',
   giza:                'Giza pyramid complex',
   'al-azhar-park':     'Al-Azhar Park',
 
@@ -62,15 +62,15 @@ export const WIKI_TITLES = {
   'marine-drive':      'Marine Drive, Mumbai',
   gateway:             'Gateway of India',
   'dhobi-ghat':        'Dhobi Ghat (Mumbai)',
-  juhu:                'Juhu Beach',
-  colaba:              'Colaba',
+  juhu:                'Juhu',
+  colaba:              'Sassoon Docks',
 
   // ── Beirut ───────────────────────────────────────────
-  'martyrs-square':    "Martyrs' Square, Beirut",
+  'martyrs-square':    'Mohammad Al-Amin Mosque',
   hamra:               'Hamra, Beirut',
-  gemmayzeh:           'Gemmayzeh',
-  'corniche-beirut':   'Corniche (Beirut)',
-  'mar-mikhael':       'Mar Mikhael',
+  gemmayzeh:           'Achrafieh',
+  'corniche-beirut':   'Corniche Beirut',
+  'mar-mikhael':       'Sursock Museum',
   raouche:             'Raouché',
   'bourj-hammoud':     'Bourj Hammoud',
 };
