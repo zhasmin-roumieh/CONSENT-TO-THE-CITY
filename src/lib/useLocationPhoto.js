@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { WIKI_TITLES } from '../data/wikiTitles';
 
-// Fetches the Wikipedia thumbnail for a location and returns the URL.
-// Returns null while loading or if no photo is available.
+// Fetches the Wikipedia thumbnail for a location.
+// Uses the Pageimages API so we can request a specific size directly
+// without hacking the URL — much more reliable than the summary endpoint.
 export function useLocationPhoto(locId) {
   const [src, setSrc] = useState(null);
 
@@ -13,18 +14,26 @@ export function useLocationPhoto(locId) {
 
     let cancelled = false;
 
-    fetch(
-      `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`,
-      { headers: { Accept: 'application/json' } }
-    )
+    const url =
+      'https://en.wikipedia.org/w/api.php?' +
+      new URLSearchParams({
+        action: 'query',
+        titles: title,
+        prop: 'pageimages',
+        format: 'json',
+        pithumbsize: 800,
+        origin: '*',   // required for browser CORS requests
+      });
+
+    fetch(url)
       .then(r => r.json())
       .then(data => {
         if (cancelled) return;
-        const thumb = data.thumbnail?.source;
-        if (thumb) {
-          // Swap the size part of the URL to get a wider image
-          setSrc(thumb.replace(/\/\d+px-/, '/800px-'));
-        }
+        const pages = data.query?.pages;
+        if (!pages) return;
+        const page = Object.values(pages)[0];
+        const imgSrc = page?.thumbnail?.source;
+        if (imgSrc) setSrc(imgSrc);
       })
       .catch(() => {});
 

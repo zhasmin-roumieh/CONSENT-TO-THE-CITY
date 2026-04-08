@@ -17,7 +17,12 @@ export default function TermsScreen({ loc, cityKey, tcHtml, lang, onAccept, onDe
 
       {photoSrc && (
         <div className="loc-photo-wrap">
-          <img className="loc-photo" src={photoSrc} alt={loc.name[lang]} />
+          <img
+            className="loc-photo"
+            src={photoSrc}
+            alt={loc.name[lang]}
+            onError={e => { e.currentTarget.closest('.loc-photo-wrap').style.display = 'none'; }}
+          />
           <div className="loc-photo-gradient" />
         </div>
       )}
