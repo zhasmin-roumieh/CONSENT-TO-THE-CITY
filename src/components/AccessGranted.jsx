@@ -64,7 +64,7 @@ export default function AccessGranted({ loc, cityKey, ownerData, userTerms, lang
         <div className="section-hdr">{t.currentOwners}</div>
         {owners.map((o, i) => (
           <div key={i} className="owner-item">
-            <span className="owner-lbl">{t.activeTag} <span className="tag tag-a">{t.activeTag}</span></span>
+            <span className="owner-lbl"><span className="tag tag-a">{t.activeTag}</span></span>
             <span className="owner-val">{o}</span>
           </div>
         ))}

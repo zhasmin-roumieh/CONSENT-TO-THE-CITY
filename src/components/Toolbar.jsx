@@ -8,7 +8,7 @@ const LANGS = [
   { code: 'ar', label: 'AR' },
 ];
 
-export default function Toolbar({ currentCity, lang, locCount, onCityChange, onLangChange, onRandom }) {
+export default function Toolbar({ currentCity, lang, locCount, isDark, onCityChange, onLangChange, onRandom, onThemeToggle }) {
   const t = UI[lang];
 
   return (
@@ -39,6 +39,14 @@ export default function Toolbar({ currentCity, lang, locCount, onCityChange, onL
           </button>
         ))}
       </div>
+
+      <button
+        className="theme-btn"
+        onClick={onThemeToggle}
+        title={isDark ? t.switchToLight : t.switchToDark}
+      >
+        {isDark ? '☀' : '◑'}
+      </button>
 
       <span className="loc-count">{locCount} {t.locations}</span>
     </div>

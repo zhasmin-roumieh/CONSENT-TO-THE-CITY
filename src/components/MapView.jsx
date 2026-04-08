@@ -4,11 +4,8 @@ import L from 'leaflet';
 import { CITIES } from '../data/cities';
 import { TYPE_COLORS } from '../lib/utils';
 
-const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-const TILE_URL = isDark
-  ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
-  : 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
+const DARK_TILE  = 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
+const LIGHT_TILE = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
 
 function makeIcon(type, active) {
   const c = TYPE_COLORS[type] || '#888888';
@@ -38,9 +35,10 @@ function CityFlyTo({ city }) {
   return null;
 }
 
-export default function MapView({ currentCity, currentLocId, lang, onLocationSelect }) {
+export default function MapView({ currentCity, currentLocId, lang, isDark, onLocationSelect }) {
   const city = CITIES[currentCity];
   const markersRef = useRef({});
+  const tileUrl = isDark ? DARK_TILE : LIGHT_TILE;
 
   // Update marker icons when selection changes
   useEffect(() => {
@@ -61,7 +59,8 @@ export default function MapView({ currentCity, currentLocId, lang, onLocationSel
         attributionControl={true}
       >
         <TileLayer
-          url={TILE_URL}
+          key={tileUrl}
+          url={tileUrl}
           attribution='&copy; <a href="https://carto.com">CARTO</a> &copy; <a href="https://www.openstreetmap.org/copyright">OSM</a>'
           subdomains="abcd"
           maxZoom={19}

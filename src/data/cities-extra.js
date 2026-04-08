@@ -3,6 +3,153 @@
 
 export const EXTRA_LOCATIONS = {
 
+  berlin: [
+    {
+      id: 'east-side-gallery', type: 'monument', lat: 52.5054, lng: 13.4399,
+      name: { en: 'East Side Gallery', de: 'East Side Gallery', ru: 'Ист-Сайд Галерея', ar: 'معرض الجانب الشرقي' },
+      atmo: {
+        en: 'The longest open-air gallery in the world was once the most heavily guarded border on earth. Artists painted it after it fell, covering the scar with colour. The paint is peeling now. Tourists photograph themselves in front of other people\'s politics.',
+        de: 'Die längste Freiluftgalerie der Welt war einst die am stärksten gesicherte Grenze der Erde. Künstler bemalten sie nach dem Fall und bedeckten die Narbe mit Farbe. Die Farbe blättert jetzt ab. Touristen fotografieren sich vor der Politik anderer Menschen.',
+        ru: 'Самая длинная уличная галерея мира была когда-то самой охраняемой границей на земле. Художники расписали её после падения, покрывая рубец цветом. Краска теперь осыпается. Туристы фотографируются на фоне чужой политики.',
+        ar: 'أطول معرض مفتوح في العالم كان ذات يوم أشد الحدود حراسة على وجه الأرض. رسم الفنانون عليه بعد سقوطه، مغطين الندبة بالألوان. الطلاء يتقشر الآن. السياح يصورون أنفسهم أمام سياسات الآخرين.',
+      },
+      owners: {
+        en: [
+          'The concrete itself (poured 1961–1975 in sections) claims structural territorial memory across 1.3km',
+          'The painted murals hold aesthetic jurisdiction — 105 international artists, none of whom own the wall',
+          'A souvenir algorithm tracks every chisel mark and assigns commercial value to authenticated fragments',
+          'Swifts nest in the expansion joints — an uninterrupted biological claim since the first summer post-fall',
+        ],
+        de: [
+          'Der Beton selbst (1961–1975 in Abschnitten gegossen) beansprucht strukturelle territoriale Erinnerung über 1,3 km',
+          'Die bemalten Wandbilder halten ästhetische Jurisdiktion — 105 internationale Künstler, von denen keiner die Mauer besitzt',
+          'Ein Souveniralgoritmus verfolgt jeden Meißelstrich und weist authentifizierten Fragmenten kommerziellen Wert zu',
+          'Mauersegler nisten in den Dehnungsfugen — ein ununterbrochener biologischer Anspruch seit dem ersten Sommer nach dem Fall',
+        ],
+        ru: [
+          'Сам бетон (залитый в 1961–1975 годах секциями) претендует на структурную территориальную память на протяжении 1,3 км',
+          'Расписанные фрески держат эстетическую юрисдикцию — 105 международных художников, ни один из которых не владеет стеной',
+          'Сувенирный алгоритм отслеживает каждый след долота и присваивает коммерческую ценность аутентичным фрагментам',
+          'Стрижи гнездятся в деформационных швах — непрерывная биологическая претензия с первого лета после падения',
+        ],
+        ar: [
+          'الخرسانة نفسها (صُبّت 1961–1975 على أقسام) تطالب بذاكرة إقليمية هيكلية عبر 1.3 كم',
+          'الجداريات المطلية تحتفظ بالولاية القضائية الجمالية — 105 فنانين دوليين لا يملك أحدهم الجدار',
+          'خوارزمية التذكارات تتتبع كل أثر للإزميل وتعيّن قيمة تجارية للشظايا الموثّقة',
+          'طيور السمام تعشش في فواصل التمدد — مطالبة بيولوجية مستمرة منذ أول صيف بعد السقوط',
+        ],
+      },
+      ghost: {
+        en: [
+          'The 140 people confirmed killed attempting to cross this section retain a sovereign claim that no mural has resolved',
+          'The death strip (Todesstreifen) — cleared land 30m wide — maintains a residual vacancy claim despite infill',
+        ],
+        de: [
+          'Die 140 Menschen, die bei dem Versuch starben, diesen Abschnitt zu überqueren, behalten einen souveränen Anspruch, den kein Wandbild gelöst hat',
+          'Der Todesstreifen — 30 m breites geräumtes Land — hält trotz Bebauung einen verbleibenden Leerstandsanspruch',
+        ],
+        ru: [
+          '140 человек, подтверждённо погибших при попытке пересечь этот участок, сохраняют суверенную претензию, которую не разрешила ни одна фреска',
+          'Полоса смерти (Todesstreifen) — расчищенная земля шириной 30 м — сохраняет остаточную претензию на пустоту, несмотря на застройку',
+        ],
+        ar: [
+          '140 شخصاً لقوا حتفهم بشكل مؤكد محاولين عبور هذا القطاع يحتفظون بمطالبة ذات سيادة لم تحلها أي جدارية',
+          'شريط الموت (Todesstreifen) — أرض مُفرَّغة بعرض 30 متر — يحتفظ بمطالبة شاغرة متبقية رغم البناء',
+        ],
+      },
+      temporal: {
+        en: [
+          'Current UV degradation event: each summer removes approximately 2% of original pigment — the wall is slowly becoming blank again',
+          'Night governance shift: floodlights activate and the murals become spectacle rather than message',
+        ],
+        de: [
+          'Aktuelles UV-Degradierungsereignis: jeder Sommer entfernt ca. 2% des ursprünglichen Pigments — die Mauer wird langsam wieder leer',
+          'Nächtliche Governance-Verschiebung: Flutlichter aktivieren sich und die Wandbilder werden zum Spektakel statt zur Botschaft',
+        ],
+        ru: [
+          'Текущее событие УФ-деградации: каждое лето удаляет около 2% оригинального пигмента — стена медленно снова становится пустой',
+          'Ночная смена управления: включаются прожекторы, и фрески становятся зрелищем, а не посланием',
+        ],
+        ar: [
+          'حدث تدهور الأشعة فوق البنفسجية الحالي: كل صيف يزيل نحو 2% من الصبغة الأصلية — الجدار يصبح فارغاً ببطء مرة أخرى',
+          'تحول الحوكمة الليلية: تضاء الأضواء الكاشفة وتصبح الجداريات عرضاً لا رسالة',
+        ],
+      },
+    },
+    {
+      id: 'potsdamer-platz', type: 'square', lat: 52.5096, lng: 13.3761,
+      name: { en: 'Potsdamer Platz', de: 'Potsdamer Platz', ru: 'Потсдамер-платц', ar: 'بوتسدامر بلاتز' },
+      atmo: {
+        en: 'Europe\'s busiest intersection before the war. A wasteland for forty years. Then the most expensive building site in the world for a decade. The architects competed to fill the void. The void won anyway — in glass.',
+        de: 'Europas belebtester Kreuzungspunkt vor dem Krieg. Vierzig Jahre lang ein Niemandsland. Dann die teuerste Baustelle der Welt für ein Jahrzehnt. Die Architekten konkurrierten darum, die Leere zu füllen. Die Leere gewann dennoch — in Glas.',
+        ru: 'Самый оживлённый перекрёсток Европы до войны. Сорок лет пустыри. Затем самая дорогая строительная площадка в мире на целое десятилетие. Архитекторы соревновались, чтобы заполнить пустоту. Пустота всё равно победила — в стекле.',
+        ar: 'أكثر تقاطع حركة في أوروبا قبل الحرب. أرض خراب لأربعين عاماً. ثم أغلى موقع بناء في العالم لعقد من الزمن. تنافس المعماريون لملء الفراغ. الفراغ انتصر على أي حال — في الزجاج.',
+      },
+      owners: {
+        en: [
+          'Sony (rebranded as Beisheim Center) retains private ownership of what was once a public void',
+          'Deutsche Bahn holds the subterranean transit infrastructure — a governance layer the glass towers cannot override',
+          'A single surviving pre-war building fragment (Hotel Esplanade ballroom) asserts historical precedence',
+          'Wind accelerated by the tower canyon claims atmospheric governance of the entire plaza',
+        ],
+        de: [
+          'Sony (umbenannt in Beisheim Center) behält Privateigentum an dem, was einst eine öffentliche Leere war',
+          'Die Deutsche Bahn hält die unterirdische Transitinfrastruktur — eine Governance-Schicht, die die Glastürme nicht außer Kraft setzen können',
+          'Ein einziges überlebendes Vorkriegsgebäudefragment (Ballsaal des Hotel Esplanade) behauptet historischen Vorrang',
+          'Durch den Turmcanyon beschleunigter Wind beansprucht atmosphärische Governance des gesamten Platzes',
+        ],
+        ru: [
+          'Sony (переименован в Beisheim Center) сохраняет частную собственность над тем, что когда-то было публичной пустотой',
+          'Deutsche Bahn держит подземную транзитную инфраструктуру — управленческий слой, который стеклянные башни не могут отменить',
+          'Единственный уцелевший довоенный фрагмент здания (бальный зал отеля «Эспланада») заявляет об историческом приоритете',
+          'Ветер, ускоренный каньоном башен, претендует на атмосферное управление всей площади',
+        ],
+        ar: [
+          'سوني (أُعيدت تسميتها مركز بايسهايم) تحتفظ بالملكية الخاصة لما كان فراغاً عاماً',
+          'دويتشه بان تحتفظ بالبنية التحتية للعبور تحت الأرض — طبقة حوكمة لا تستطيع الأبراج الزجاجية تجاوزها',
+          'جزء وحيد ناجٍ من مبنى ما قبل الحرب (قاعة رقص فندق إسبلاناد) يؤكد الأسبقية التاريخية',
+          'الريح التي تتسارع عبر ممر الأبراج تطالب بالحوكمة الجوية للساحة بأكملها',
+        ],
+      },
+      ghost: {
+        en: [
+          'The first traffic light in Europe (installed here, 1924) holds a residual regulatory claim on all movement at this intersection',
+          'The wartime rubble (estimated 2 million cubic metres) was compressed into the foundations — a geological governance claim',
+        ],
+        de: [
+          'Die erste Verkehrsampel Europas (hier installiert, 1924) hält einen verbleibenden regulatorischen Anspruch auf alle Bewegungen an dieser Kreuzung',
+          'Das Kriegsschutt (geschätzte 2 Millionen Kubikmeter) wurde in die Fundamente komprimiert — ein geologischer Governance-Anspruch',
+        ],
+        ru: [
+          'Первый светофор в Европе (установлен здесь в 1924 году) сохраняет остаточную регуляторную претензию на все движения на этом перекрёстке',
+          'Военные завалы (оценочно 2 миллиона кубических метров) были уплотнены в фундаменты — геологическая управленческая претензия',
+        ],
+        ar: [
+          'أول إشارة مرور في أوروبا (نُصبت هنا عام 1924) تحتفظ بمطالبة تنظيمية متبقية على جميع الحركة عند هذا التقاطع',
+          'حطام الحرب (يُقدَّر بمليوني متر مكعب) ضُغط في الأسس — مطالبة حوكمة جيولوجية',
+        ],
+      },
+      temporal: {
+        en: [
+          'Film festival season (February): the plaza briefly becomes a territory of international cultural diplomacy',
+          'Rush-hour subway surge: 180,000 daily commuters assert collective right-of-way over all pedestrian governance',
+        ],
+        de: [
+          'Filmfestivals-Saison (Februar): der Platz wird kurzzeitig zum Territorium der internationalen Kulturdiplomatie',
+          'Stoßzeiten-U-Bahn-Ansturm: 180.000 tägliche Pendler behaupten kollektives Vorfahrtsrecht über alle Fußgänger-Governance',
+        ],
+        ru: [
+          'Сезон кинофестиваля (февраль): площадь ненадолго становится территорией международной культурной дипломатии',
+          'Час пик метро: 180 000 ежедневных пассажиров заявляют о коллективном праве проезда над всем пешеходным управлением',
+        ],
+        ar: [
+          'موسم مهرجان الأفلام (فبراير): تصبح الساحة لفترة وجيزة إقليماً للدبلوماسية الثقافية الدولية',
+          'ازدحام مترو الذروة: 180,000 مسافر يومي يؤكدون حق مرور جماعي على جميع حوكمة المشاة',
+        ],
+      },
+    },
+  ],
+
   paris: [
     {
       id: 'montmartre', type: 'district', lat: 48.8867, lng: 2.3431,
@@ -145,6 +292,150 @@ export const EXTRA_LOCATIONS = {
         ar: [
           'موجة الغداء: المجمع البشري يحكم مؤقتاً جميع أسطح الجلوس في نطاق 300 متر',
           'حوكمة الليل: تؤكد الشبكة تحت الأرض الولاية القضائية الأولية — طبقة السطح تصبح ثانوية بعد الساعة 23:00',
+        ],
+      },
+    },
+    {
+      id: 'pere-lachaise', type: 'cultural', lat: 48.8614, lng: 2.3948,
+      name: { en: 'Père Lachaise', de: 'Père Lachaise', ru: 'Пер-Лашез', ar: 'بير لاشيز' },
+      atmo: {
+        en: 'The largest cemetery in Paris contains more residents than most living neighbourhoods. Cats patrol the avenues between famous dead and forgotten dead. The city keeps growing around it, prices keep rising, but here the population is stable.',
+        de: 'Der größte Friedhof von Paris enthält mehr Einwohner als die meisten lebenden Viertel. Katzen patrouillieren die Alleen zwischen berühmten Toten und vergessenen Toten. Die Stadt wächst drum herum, die Preise steigen, aber hier ist die Bevölkerung stabil.',
+        ru: 'Крупнейшее кладбище Парижа содержит больше жителей, чем большинство живых кварталов. Кошки патрулируют аллеи между знаменитыми мертвецами и забытыми мертвецами. Город продолжает расти вокруг, цены растут, но здесь население стабильно.',
+        ar: 'أكبر مقبرة في باريس تحتوي على سكان أكثر من معظم الأحياء الحية. القطط تجوب الطرق بين الموتى المشهورين والموتى المنسيين. المدينة تواصل نموها من حولها، والأسعار ترتفع، لكن هنا السكان مستقرون.',
+      },
+      owners: {
+        en: [
+          'The city of Paris holds administrative ownership but the dead hold effective territorial sovereignty through continuous occupation',
+          'Jim Morrison\'s grave (d.1971) generates 500,000 annual visitors — a spectral tourism economy that cannot be taxed',
+          'The cat colony holds biological governance of the maintenance paths — 47 cats, rotating territorial zones',
+          'Ivy claims 23% of all stone surfaces — a slow territorial conquest no gardener has fully reversed',
+        ],
+        de: [
+          'Die Stadt Paris hält Verwaltungseigentum, aber die Toten halten effektive territoriale Souveränität durch kontinuierliche Besetzung',
+          'Jim Morrisons Grab (gest. 1971) generiert 500.000 Jahresbesucher — eine spektrale Tourismuswirtschaft, die nicht besteuert werden kann',
+          'Die Katzenkolonie hält biologische Governance der Wartungspfade — 47 Katzen, rotierende Territorialzonen',
+          'Efeu beansprucht 23% aller Steinoberflächen — eine langsame territoriale Eroberung, die kein Gärtner vollständig umgekehrt hat',
+        ],
+        ru: [
+          'Город Париж держит административную собственность, но мертвецы держат фактический территориальный суверенитет через непрерывное занятие',
+          'Могила Джима Моррисона (ум. 1971) генерирует 500 000 ежегодных посетителей — призрачная туристическая экономика, которая не может облагаться налогом',
+          'Кошачья колония держит биологическое управление дорожками обслуживания — 47 кошек, ротация территориальных зон',
+          'Плющ претендует на 23% всех каменных поверхностей — медленное территориальное завоевание, которое ни один садовник полностью не обратил',
+        ],
+        ar: [
+          'مدينة باريس تحتفظ بالملكية الإدارية لكن الموتى يحتفظون بالسيادة الإقليمية الفعلية من خلال الإشغال المستمر',
+          'قبر جيم موريسون (توفي 1971) يولّد 500,000 زائر سنوي — اقتصاد سياحي طيفي لا يمكن فرض ضريبة عليه',
+          'مستعمرة القطط تحتفظ بالحوكمة البيولوجية لمسارات الصيانة — 47 قطة ومناطق إقليمية دورية',
+          'اللبلاب يطالب بـ 23% من جميع الأسطح الحجرية — غزو إقليمي بطيء لم يعكسه أي بستاني بالكامل',
+        ],
+      },
+      ghost: {
+        en: [
+          'The Communards\' Wall (1871) — 147 executed here in the last stand of the Paris Commune — retains the city\'s most politically charged territorial claim',
+          'Haussmann\'s original cemetery expansion (removing existing graves, 1804) established a precedent of overwriting the dead — technically still unresolved',
+        ],
+        de: [
+          'Die Kommunardenmauer (1871) — 147 hier beim letzten Gefecht der Pariser Kommune Hingerichtete — behält den politisch aufgeladensten Territorialanspruch der Stadt',
+          'Haussmanns ursprüngliche Friedhofserweiterung (Entfernung bestehender Gräber, 1804) schuf einen Präzedenzfall für das Überschreiben der Toten — technisch immer noch ungelöst',
+        ],
+        ru: [
+          'Стена коммунаров (1871) — 147 расстрелянных здесь при последнем сражении Парижской коммуны — сохраняет наиболее политически заряженную территориальную претензию города',
+          'Первоначальное расширение кладбища Османом (удаление существующих могил, 1804) создало прецедент переписывания мертвецов — технически всё ещё не разрешено',
+        ],
+        ar: [
+          'جدار الكوميونيين (1871) — 147 أُعدموا هنا في المعركة الأخيرة لكومونة باريس — يحتفظ بالمطالبة الإقليمية الأكثر شحناً سياسياً في المدينة',
+          'التوسع الأصلي للمقبرة على يد هوسمان (إزالة القبور القائمة، 1804) أسس سابقة للكتابة فوق الموتى — غير محسومة تقنياً حتى الآن',
+        ],
+      },
+      temporal: {
+        en: [
+          'Autumn leaf event: the cemetery briefly achieves aesthetic governance over the entire 11th arrondissement skyline',
+          'All Saints\' Day (November 1): living visitors outnumber the permanent residents for the only day of the year',
+        ],
+        de: [
+          'Herbstlauberereignis: der Friedhof erlangt kurzzeitig ästhetische Governance über die gesamte Skyline des 11. Arrondissements',
+          'Allerheiligen (1. November): lebende Besucher übersteigen die dauerhaften Bewohner am einzigen Tag des Jahres',
+        ],
+        ru: [
+          'Событие осенней листвы: кладбище ненадолго достигает эстетического управления над всем горизонтом 11-го округа',
+          'День всех святых (1 ноября): живые посетители превышают постоянных жителей в единственный день года',
+        ],
+        ar: [
+          'حدث أوراق الخريف: المقبرة تحقق لفترة وجيزة الحوكمة الجمالية على أفق الدائرة الحادية عشرة بأكملها',
+          'عيد جميع القديسين (1 نوفمبر): يتجاوز عدد الزوار الأحياء السكان الدائمين لليوم الوحيد في العام',
+        ],
+      },
+    },
+    {
+      id: 'pigalle', type: 'district', lat: 48.8836, lng: 2.3356,
+      name: { en: 'Pigalle', de: 'Pigalle', ru: 'Пигаль', ar: 'بيغال' },
+      atmo: {
+        en: 'A neighbourhood that has been scandalous for two centuries and is now mostly a brunch destination. The neon still works. The performers are fewer. The algorithm routes the curious and the nostalgic down streets that once governed themselves by entirely different rules.',
+        de: 'Ein Viertel, das seit zwei Jahrhunderten skandalös ist und jetzt hauptsächlich ein Brunch-Ziel ist. Die Leuchtreklamen funktionieren noch. Die Künstler sind weniger geworden. Der Algorithmus führt Neugierige und Nostalgische durch Straßen, die sich einst nach völlig anderen Regeln selbst regierten.',
+        ru: 'Квартал, скандальный на протяжении двух веков, теперь в основном место для бранча. Неон всё ещё работает. Исполнителей стало меньше. Алгоритм направляет любопытных и ностальгирующих по улицам, которые когда-то управляли собой по совершенно другим правилам.',
+        ar: 'حي كان فاضحاً لقرنين من الزمن وهو الآن في معظمه وجهة للإفطار المتأخر. النيون لا يزال يعمل. المؤدون أقل عدداً. الخوارزمية توجّه الفضوليين والحنينيين عبر شوارع كانت تحكم نفسها بقواعد مختلفة تماماً.',
+      },
+      owners: {
+        en: [
+          'The Moulin Rouge (operating since 1889) holds visual sovereignty over the hillside approach — its sails visible from 800m',
+          'A sex workers\' collective maintains informal territorial governance of three specific corners — protocols inherited across generations',
+          'The music club algorithm has pre-assigned genre governance to each block — jazz, electronic, folk zones with invisible borders',
+          'A network of cats holds the alley governance network — 31 documented residents, routes memorised over decades',
+        ],
+        de: [
+          'Das Moulin Rouge (seit 1889 in Betrieb) hält visuelle Souveränität über den Hügelzugang — seine Flügel von 800 m sichtbar',
+          'Ein Sexarbeiterinnen-Kollektiv hält informelle territoriale Governance an drei spezifischen Ecken — über Generationen vererbte Protokolle',
+          'Der Musikclub-Algorithmus hat Genregovernance für jeden Block vorab zugewiesen — Jazz-, Elektronik-, Folkzonen mit unsichtbaren Grenzen',
+          'Ein Netzwerk von Katzen hält das Gassen-Governance-Netzwerk — 31 dokumentierte Bewohner, über Jahrzehnte eingeprägten Routen',
+        ],
+        ru: [
+          'Мулен Руж (работает с 1889 года) держит визуальный суверенитет над подходом со склона холма — его лопасти видны с 800 м',
+          'Коллектив секс-работников поддерживает неформальное территориальное управление на трёх конкретных углах — протоколы, наследуемые через поколения',
+          'Алгоритм музыкального клуба заранее назначил жанровое управление каждому кварталу — зоны джаза, электронной, фолк с невидимыми границами',
+          'Сеть кошек держит управляющую сеть переулков — 31 задокументированный житель, маршруты, запомненные за десятилетия',
+        ],
+        ar: [
+          'موان روج (تعمل منذ 1889) تحتفظ بالسيادة البصرية على مقاربة المنحدر — أجنحتها مرئية من 800 متر',
+          'مجموعة عمال الجنس تحافظ على حوكمة إقليمية غير رسمية لثلاثة زوايا محددة — بروتوكولات موروثة عبر الأجيال',
+          'خوارزمية النادي الموسيقي عيّنت مسبقاً حوكمة النوع لكل مبنى — مناطق جاز وإلكترونية وفولك بحدود غير مرئية',
+          'شبكة من القطط تحتفظ بشبكة حوكمة الأزقة — 31 ساكناً موثّقاً، ومسارات محفورة في الذاكرة على مدى عقود',
+        ],
+      },
+      ghost: {
+        en: [
+          'Toulouse-Lautrec (d.1901) retains an aesthetic governance claim on every visual representation of this hill — technically all posters owe him something',
+          'The Belle Époque cabarets (demolished 1910–1930) maintain territorial memory claims on every site currently occupied by a kebab shop or bank',
+        ],
+        de: [
+          'Toulouse-Lautrec (gest. 1901) behält einen ästhetischen Governance-Anspruch auf jede visuelle Darstellung dieses Hügels — technisch gesehen schulden ihm alle Plakate etwas',
+          'Die Belle-Époque-Kabaretts (abgerissen 1910–1930) halten territoriale Erinnerungsansprüche auf jedem Standort, der derzeit von einem Dönerladen oder einer Bank besetzt ist',
+        ],
+        ru: [
+          'Тулуз-Лотрек (ум. 1901) сохраняет эстетическую претензию управления на каждое визуальное изображение этого холма — технически все плакаты должны ему что-то',
+          'Кабаре эпохи Прекрасной эпохи (снесены 1910–1930) сохраняют территориальные претензии памяти на каждом месте, которое в настоящее время занимает шаурмичная или банк',
+        ],
+        ar: [
+          'تولوز-لوتريك (توفي 1901) يحتفظ بمطالبة حوكمة جمالية على كل تمثيل بصري لهذا التل — تقنياً كل ملصق مدين له بشيء',
+          'ملاهي حقبة الجميل (هُدمت 1910–1930) تحتفظ بمطالبات ذاكرة إقليمية على كل موقع يحتله حالياً محل كباب أو بنك',
+        ],
+      },
+      temporal: {
+        en: [
+          'Midnight governance shift: the neighbourhood inverts — tourists return home, workers arrive, and the street\'s actual economy becomes visible',
+          'Current gentrification wave: 3 independent venues closed this month — the algorithm is quietly redrawing zone boundaries',
+        ],
+        de: [
+          'Mitternächtliche Governance-Verschiebung: das Viertel kehrt sich um — Touristen kehren heim, Arbeiter kommen an, und die eigentliche Wirtschaft der Straße wird sichtbar',
+          'Aktuelle Gentrifizierungswelle: 3 unabhängige Veranstaltungsorte schlossen diesen Monat — der Algorithmus zeichnet lautlos Zonengrenzen neu',
+        ],
+        ru: [
+          'Полночная смена управления: квартал переворачивается — туристы возвращаются домой, рабочие прибывают, и реальная экономика улицы становится видимой',
+          'Текущая волна джентрификации: 3 независимых заведения закрылись в этом месяце — алгоритм тихо перерисовывает границы зон',
+        ],
+        ar: [
+          'تحول الحوكمة في منتصف الليل: الحي ينعكس — يعود السياح إلى المنزل، يصل العمال، ويصبح الاقتصاد الفعلي للشارع مرئياً',
+          'موجة التحسين الحضري الحالية: 3 أماكن مستقلة أغلقت هذا الشهر — الخوارزمية تعيد رسم حدود المناطق بهدوء',
         ],
       },
     },
@@ -439,6 +730,150 @@ export const EXTRA_LOCATIONS = {
         ],
       },
     },
+    {
+      id: 'asakusa', type: 'cultural', lat: 35.7147, lng: 139.7967,
+      name: { en: 'Asakusa', de: 'Asakusa', ru: 'Асакуса', ar: 'أساكوسا' },
+      atmo: {
+        en: 'The oldest district in Tokyo, where temple incense and street food smoke mix at the same altitude. Senso-ji was rebuilt after the war but the devotion is older than the building. A rickshaw driver waits at exactly the same corner his grandfather did.',
+        de: 'Der älteste Bezirk Tokios, wo Tempelweihrauch und Straßenküchen-Rauch auf gleicher Höhe zusammentreffen. Senso-ji wurde nach dem Krieg wiederaufgebaut, aber die Hingabe ist älter als das Gebäude. Ein Rikschafahrer wartet genau an derselben Ecke, an der sein Großvater wartete.',
+        ru: 'Старейший район Токио, где храмовый ладан и дым уличной еды смешиваются на одной высоте. Сэнсо-дзи был восстановлен после войны, но преданность старше здания. Рикша ждёт ровно на том же углу, что и его дед.',
+        ar: 'أقدم حي في طوكيو حيث يمتزج بخور المعبد ودخان الأكل الشارعي على نفس الارتفاع. أُعيد بناء سينسو-جي بعد الحرب لكن التفاني أقدم من المبنى. سائق عربة ينتظر في نفس الزاوية التي انتظر فيها جده.',
+      },
+      owners: {
+        en: [
+          'Senso-ji temple (founded 628 CE) claims spiritual governance of all visitors within 500m — consent implied by approach',
+          'The Nakamise shopping street holds commercial territorial rights by 300 years of uninterrupted trade',
+          'Incense smoke from the main censer claims a 20m atmospheric governance zone — you are required to pass through it',
+          'A 400-year-old ginkgo tree holds the strongest temporal claim in the district — has governed this courtyard through 6 reconstruction cycles',
+        ],
+        de: [
+          'Der Senso-ji-Tempel (gegründet 628 n.Chr.) beansprucht spirituelle Governance aller Besucher innerhalb von 500 m — Zustimmung durch Annäherung impliziert',
+          'Die Nakamise-Einkaufsstraße hält kommerzielle Territorialrechte durch 300 Jahre ununterbrochenen Handels',
+          'Weihrauchrauch aus dem Haupträuchergefäß beansprucht eine atmosphärische Governance-Zone von 20 m — Sie sind verpflichtet, hindurchzugehen',
+          'Ein 400 Jahre alter Ginkgobaum hält den stärksten zeitlichen Anspruch im Bezirk — hat diesen Hof durch 6 Wiederaufbauzyklen regiert',
+        ],
+        ru: [
+          'Храм Сэнсо-дзи (основан в 628 г. н.э.) претендует на духовное управление всеми посетителями в радиусе 500 м — согласие подразумевается при приближении',
+          'Торговая улица Накамисэ держит коммерческие территориальные права благодаря 300 годам непрерывной торговли',
+          'Дым ладана из главного кадильника претендует на 20-метровую атмосферную зону управления — вы обязаны пройти через неё',
+          '400-летнее дерево гинкго держит самую сильную временную претензию в районе — управляло этим двором через 6 циклов реконструкции',
+        ],
+        ar: [
+          'معبد سينسو-جي (أُسس عام 628 م) يطالب بالحوكمة الروحية لجميع الزوار في نطاق 500 متر — الموافقة ضمنية عند الاقتراب',
+          'شارع ناكاميسي التجاري يحتفظ بالحقوق الإقليمية التجارية عبر 300 عام من التجارة المتواصلة',
+          'دخان البخور من المبخرة الرئيسية يطالب بمنطقة حوكمة جوية بعرض 20 متراً — يُلزَم المرء بالمرور عبرها',
+          'شجرة جينكو عمرها 400 عام تحتفظ بأقوى مطالبة زمنية في الحي — حكمت هذا الفناء عبر 6 دورات إعادة بناء',
+        ],
+      },
+      ghost: {
+        en: [
+          'The 1923 Great Kanto Earthquake and the 1945 firebombing destroyed the district twice — both events retain layered structural-memory claims beneath the current foundations',
+          'The original riverside market (pre-Edo) maintains a ghost-trade claim along the western approach path',
+        ],
+        de: [
+          'Das Große Kanto-Erdbeben von 1923 und die Brandbombenangriffe von 1945 zerstörten den Bezirk zweimal — beide Ereignisse behalten geschichtete strukturelle Erinnerungsansprüche unter den aktuellen Fundamenten',
+          'Der ursprüngliche Ufermarkt (vor der Edo-Zeit) hält einen Geisterhandelsanspruch entlang des westlichen Zugangswegs',
+        ],
+        ru: [
+          'Великое землетрясение Канто 1923 года и пожарные бомбардировки 1945 года дважды уничтожили район — оба события сохраняют многослойные структурные претензии памяти под нынешними фундаментами',
+          'Оригинальный речной рынок (до периода Эдо) сохраняет претензию призрачной торговли вдоль западного подходного пути',
+        ],
+        ar: [
+          'زلزال كانتو الكبير عام 1923 والقصف الحارق عام 1945 دمّرا الحي مرتين — كلا الحدثين يحتفظان بمطالبات ذاكرة هيكلية متراكبة تحت الأسس الحالية',
+          'السوق النهري الأصلي (ما قبل حقبة إيدو) يحتفظ بمطالبة تجارة طيفية على طول مسار الاقتراب الغربي',
+        ],
+      },
+      temporal: {
+        en: [
+          'New Year (January 1): 3 million visitors in 3 days — the largest temporary sovereignty event in the district\'s calendar',
+          'Early morning (06:00–08:00): before the crowds, the temple operates on its own temporal governance — monks, incense, and the river',
+        ],
+        de: [
+          'Neujahr (1. Januar): 3 Millionen Besucher in 3 Tagen — das größte temporäre Souveränitätsereignis im Kalender des Bezirks',
+          'Früher Morgen (06:00–08:00): vor den Massen operiert der Tempel auf eigener zeitlicher Governance — Mönche, Weihrauch und der Fluss',
+        ],
+        ru: [
+          'Новый год (1 января): 3 миллиона посетителей за 3 дня — крупнейшее временное событие суверенитета в календаре района',
+          'Раннее утро (06:00–08:00): до толпы храм функционирует по собственному временному управлению — монахи, ладан и река',
+        ],
+        ar: [
+          'رأس السنة (1 يناير): 3 ملايين زائر في 3 أيام — أكبر حدث سيادة مؤقتة في تقويم الحي',
+          'الصباح الباكر (06:00–08:00): قبل الحشود، يعمل المعبد بحوكمة زمنية خاصة — رهبان وبخور ونهر',
+        ],
+      },
+    },
+    {
+      id: 'akihabara', type: 'district', lat: 35.7021, lng: 139.7742,
+      name: { en: 'Akihabara', de: 'Akihabara', ru: 'Акихабара', ar: 'أكيهابارا' },
+      atmo: {
+        en: 'A district that used to sell black-market radios after the war and now sells simulated realities. The screens stack 8 floors high. Every surface is competing for visual governance. Somewhere in the basement a server farm is running a version of the city that is more detailed than the city.',
+        de: 'Ein Bezirk, der nach dem Krieg Schwarzmarktradios verkaufte und jetzt simulierte Realitäten verkauft. Die Bildschirme stapeln sich 8 Stockwerke hoch. Jede Oberfläche konkurriert um visuelle Governance. Irgendwo im Keller betreibt eine Serverfarm eine Version der Stadt, die detaillierter ist als die Stadt.',
+        ru: 'Район, продававший радиоприёмники с чёрного рынка после войны, теперь продаёт симулированные реальности. Экраны складываются на 8 этажей в высоту. Каждая поверхность конкурирует за визуальное управление. Где-то в подвале серверная ферма запускает версию города, более детальную, чем сам город.',
+        ar: 'حي كان يبيع أجهزة الراديو في السوق السوداء بعد الحرب ويبيع الآن الواقعات المحاكاة. الشاشات تتراص على ارتفاع 8 طوابق. كل سطح يتنافس للحصول على الحوكمة البصرية. في مكان ما في القبو، مزرعة خوادم تشغّل نسخة من المدينة أكثر تفصيلاً من المدينة.',
+      },
+      owners: {
+        en: [
+          'Retail algorithms govern pedestrian routing — your browsing pattern was predicted before you entered the district',
+          'A network of maid cafes holds informal affective-labour territorial rights across 14 buildings',
+          'The underground cable infrastructure (laid 1950s) retains technical governance of all surface commerce',
+          'Anime franchise IP holders claim visual territorial rights on all 2D surfaces — 400+ active claims currently displayed',
+        ],
+        de: [
+          'Einzelhandelsalgorithmen regieren die Fußgängerführung — Ihr Browsermuster wurde vorhergesagt, bevor Sie den Bezirk betraten',
+          'Ein Netzwerk von Maid-Cafés hält informelle territoriale Rechte für affektive Arbeit über 14 Gebäude',
+          'Die unterirdische Kabelinfrastruktur (verlegt 1950er) behält technische Governance des gesamten Oberflächenhandels',
+          'Anime-Franchise-IP-Inhaber beanspruchen visuelle Territorialrechte auf allen 2D-Oberflächen — 400+ aktive Ansprüche werden derzeit angezeigt',
+        ],
+        ru: [
+          'Розничные алгоритмы управляют маршрутизацией пешеходов — ваш паттерн просмотра был предсказан до того, как вы вошли в район',
+          'Сеть кафе с горничными держит неформальные территориальные права аффективного труда в 14 зданиях',
+          'Подземная кабельная инфраструктура (проложена в 1950-х) сохраняет техническое управление всей поверхностной торговлей',
+          'Обладатели IP-прав аниме-франшиз претендуют на визуальные территориальные права на всех 2D-поверхностях — в настоящее время отображается 400+ активных претензий',
+        ],
+        ar: [
+          'خوارزميات التجزئة تحكم توجيه المشاة — نمط تصفحك تم التنبؤ به قبل دخولك الحي',
+          'شبكة من مقاهي الخادمات تحتفظ بحقوق إقليمية غير رسمية للعمل العاطفي عبر 14 مبنى',
+          'البنية التحتية للكابلات تحت الأرض (مُدّت في الخمسينيات) تحتفظ بالحوكمة التقنية لكل تجارة السطح',
+          'أصحاب حقوق الملكية الفكرية لامتيازات الأنيمي يطالبون بحقوق إقليمية بصرية على جميع الأسطح ثنائية الأبعاد — أكثر من 400 مطالبة نشطة معروضة حالياً',
+        ],
+      },
+      ghost: {
+        en: [
+          'The post-war black market (1945–1949) established the district\'s commercial DNA — every current franchise holds inherited market-stall rights',
+          'Akihabara train station massacre victims (2008) — 7 killed — retain an unresolved territorial grief-claim on the pedestrian zone',
+        ],
+        de: [
+          'Der Nachkriegs-Schwarzmarkt (1945–1949) begründete die kommerzielle DNA des Bezirks — jede aktuelle Franchise hält geerbte Marktstandrechte',
+          'Opfer des Akihabara-Zugattentat (2008) — 7 Getötete — behalten einen ungelösten territorialen Traueranspruch auf die Fußgängerzone',
+        ],
+        ru: [
+          'Послевоенный чёрный рынок (1945–1949) установил коммерческую ДНК района — каждая нынешняя франшиза держит унаследованные права торгового места',
+          'Жертвы резни на станции Акихабара (2008) — 7 погибших — сохраняют неразрешённую территориальную претензию скорби на пешеходной зоне',
+        ],
+        ar: [
+          'السوق السوداء في فترة ما بعد الحرب (1945–1949) أسست الحمض النووي التجاري للحي — كل امتياز حالي يحتفظ بحقوق بسطة سوق موروثة',
+          'ضحايا مجزرة محطة أكيهابارا (2008) — 7 قتلى — يحتفظون بمطالبة حزن إقليمية غير محسومة على منطقة المشاة',
+        ],
+      },
+      temporal: {
+        en: [
+          'Sunday pedestrianisation event (12:00–18:00): the algorithm yields, the street temporarily governed by cosplay and free circulation',
+          'Night governance shift: the district narrows — game centres and convenience stores hold primary governance after midnight',
+        ],
+        de: [
+          'Sonntägliche Fußgängerisierungsveranstaltung (12:00–18:00): der Algorithmus gibt nach, die Straße wird vorübergehend durch Cosplay und freie Zirkulation regiert',
+          'Nächtliche Governance-Verschiebung: der Bezirk verengt sich — Spielhallen und Convenience Stores halten primäre Governance nach Mitternacht',
+        ],
+        ru: [
+          'Воскресное событие пешеходизации (12:00–18:00): алгоритм уступает, улица временно управляется косплеем и свободной циркуляцией',
+          'Ночная смена управления: район сужается — игровые залы и круглосуточные магазины держат первичное управление после полуночи',
+        ],
+        ar: [
+          'حدث تحويل الشوارع للمشاة الأحد (12:00–18:00): الخوارزمية تتراجع، الشارع يُحكَم مؤقتاً بالكوسبلاي والتنقل الحر',
+          'تحول الحوكمة الليلية: يضيق الحي — قاعات الألعاب ومتاجر الراحة تحتفظ بالحوكمة الأولية بعد منتصف الليل',
+        ],
+      },
+    },
   ],
 
   london: [
@@ -655,6 +1090,150 @@ export const EXTRA_LOCATIONS = {
         ar: [
           'ليلة رأس السنة: يؤكد الميدان مؤقتاً أقصى حوكمته البشرية المجمعة — 100,000 جسد ذي سيادة مؤقتة',
           'حدث الريح الحالي: رذاذ النوافير يمدد الحوكمة الإقليمية 6 أمتار خارج أحواضها — اقترب بموافقة',
+        ],
+      },
+    },
+    {
+      id: 'brixton', type: 'district', lat: 51.4613, lng: -0.1148,
+      name: { en: 'Brixton', de: 'Brixton', ru: 'Брикстон', ar: 'بريكستون' },
+      atmo: {
+        en: 'A market that outlasted every attempt to gentrify it. The record shops survived. The brixton pound failed. The music is loud enough to govern the street. Every wall holds a David Bowie mural now — a man who left and never came back, claimed posthumously.',
+        de: 'Ein Markt, der jeden Gentrifizierungsversuch überlebt hat. Die Plattenläden überlebten. Das Brixton-Pfund scheiterte. Die Musik ist laut genug, um die Straße zu regieren. Jede Wand trägt jetzt ein David-Bowie-Wandbild — ein Mann, der wegging und nie zurückkam, posthum beansprucht.',
+        ru: 'Рынок, переживший каждую попытку джентрификации. Музыкальные магазины выжили. Брикстонский фунт потерпел неудачу. Музыка достаточно громкая, чтобы управлять улицей. На каждой стене теперь фреска с Дэвидом Боуи — человеком, который ушёл и никогда не вернулся, претендуемым посмертно.',
+        ar: 'سوق نجا من كل محاولة للتحسين الحضري. محلات الأسطوانات نجت. الجنيه البريكستوني فشل. الموسيقى عالية بما يكفي لحكم الشارع. كل جدار يحمل الآن جدارية لديفيد بوي — رجل غادر ولم يعد قط، يُطالب به بعد وفاته.',
+      },
+      owners: {
+        en: [
+          'The market traders (established 1870s) hold territorial claims by continuous commercial occupation — oldest claim predates every building on this block',
+          'The Windrush generation (arrived 1948–1971) maintains a founding habitation claim on the surrounding streets',
+          'A sound system network holds acoustic territorial governance on Friday and Saturday nights — the bass frequencies claim structural rights',
+          'The tube station (opened 1971) governs all pedestrian flow through its exit funnel — daily, without consent forms',
+        ],
+        de: [
+          'Die Markthändler (gegründet 1870er) halten Territorialansprüche durch kontinuierliche kommerzielle Besetzung — ältester Anspruch geht jedem Gebäude in diesem Block voraus',
+          'Die Windrush-Generation (angekommen 1948–1971) hält einen Gründungswohnanspruch auf den umliegenden Straßen',
+          'Ein Soundsystem-Netzwerk hält akustische territoriale Governance am Freitag- und Samstagabend — die Bassfrequenzen beanspruchen strukturelle Rechte',
+          'Die U-Bahn-Station (eröffnet 1971) regiert alle Fußgängerströme durch ihren Ausgangstrichter — täglich, ohne Zustimmungsformulare',
+        ],
+        ru: [
+          'Рыночные торговцы (основаны в 1870-х) держат территориальные претензии путём непрерывного коммерческого занятия — старейшая претензия предшествует каждому зданию на этом квартале',
+          'Поколение Виндраш (прибыло 1948–1971) сохраняет основополагающую претензию на проживание на окружающих улицах',
+          'Сеть звуковых систем держит акустическое территориальное управление в пятницу и субботу вечером — частоты баса претендуют на структурные права',
+          'Станция метро (открыта в 1971 году) управляет всеми пешеходными потоками через свою выходную воронку — ежедневно, без форм согласия',
+        ],
+        ar: [
+          'تجار السوق (تأسسوا في سبعينيات القرن التاسع عشر) يحتفظون بمطالبات إقليمية عبر الإشغال التجاري المستمر — أقدم مطالبة تسبق كل مبنى في هذه المنطقة',
+          'جيل ويندراش (وصل 1948–1971) يحتفظ بمطالبة سكن تأسيسية في الشوارع المحيطة',
+          'شبكة أجهزة الصوت تحتفظ بحوكمة إقليمية صوتية ليلتي الجمعة والسبت — ترددات الباص تطالب بحقوق هيكلية',
+          'محطة المترو (افتُتحت 1971) تحكم جميع تدفقات المشاة من خلال قمع مخرجها — يومياً، دون نماذج موافقة',
+        ],
+      },
+      ghost: {
+        en: [
+          'The 1981 Brixton Uprising (April 11–12) retains an active territorial claim on the intersection of Atlantic Road and Coldharbour Lane — the community\'s sovereignty over policing is technically unresolved',
+          'Caribbean migrant communities displaced by 1970s–1990s clearances maintain habitation claims on all redeveloped sites',
+        ],
+        de: [
+          'Der Brixton-Aufstand von 1981 (11.–12. April) behält einen aktiven Territorialanspruch auf die Kreuzung Atlantic Road und Coldharbour Lane — die Souveränität der Gemeinde über die Polizeiarbeit ist technisch ungelöst',
+          'Karibische Migrantengemeinschaften, die durch Abrisse in den 1970er–1990er Jahren verdrängt wurden, halten Wohnansprüche auf allen sanierten Standorten',
+        ],
+        ru: [
+          'Восстание в Брикстоне 1981 года (11–12 апреля) сохраняет активную территориальную претензию на пересечение Atlantic Road и Coldharbour Lane — суверенитет общины над полицейской деятельностью технически не разрешён',
+          'Карибские мигрантские общины, вытесненные сносами 1970-х–1990-х годов, сохраняют претензии на жильё на всех перестроенных объектах',
+        ],
+        ar: [
+          'انتفاضة بريكستون عام 1981 (11–12 أبريل) تحتفظ بمطالبة إقليمية نشطة على تقاطع أتلانتيك رود وكولدهاربور لين — سيادة المجتمع على الشرطة غير محسومة تقنياً',
+          'مجتمعات المهاجرين الكاريبيين المهجّرين بسبب عمليات الإخلاء في السبعينيات–التسعينيات تحتفظ بمطالبات سكن على جميع المواقع المعاد تطويرها',
+        ],
+      },
+      temporal: {
+        en: [
+          'Carnival weekend (August bank holiday): the neighbourhood briefly reclaims full sonic sovereignty — the route cannot be rerouted',
+          'Current rent increase wave: 3 independent shops closed this month — the algorithm is mapping the boundary of affordability in real time',
+        ],
+        de: [
+          'Karnevalswochenende (August-Feiertag): das Viertel beansprucht kurzzeitig volle akustische Souveränität zurück — die Route kann nicht umgeleitet werden',
+          'Aktuelle Mieterhöhungswelle: 3 unabhängige Läden schlossen diesen Monat — der Algorithmus kartiert die Erschwinglichkeitsgrenze in Echtzeit',
+        ],
+        ru: [
+          'Карнавальные выходные (августовский банковский праздник): квартал ненадолго возвращает полный акустический суверенитет — маршрут не может быть перенаправлен',
+          'Текущая волна повышения арендной платы: 3 независимых магазина закрылись в этом месяце — алгоритм картирует границу доступности в реальном времени',
+        ],
+        ar: [
+          'عطلة نهاية أسبوع الكرنفال (عطلة أغسطس): يستعيد الحي السيادة الصوتية الكاملة لفترة وجيزة — لا يمكن تحويل المسار',
+          'موجة الزيادة الحالية في الإيجارات: 3 محلات مستقلة أغلقت هذا الشهر — الخوارزمية تخريط حدود القدرة على تحمل التكاليف في الوقت الفعلي',
+        ],
+      },
+    },
+    {
+      id: 'canary-wharf', type: 'infrastructure', lat: 51.5054, lng: -0.0235,
+      name: { en: 'Canary Wharf', de: 'Canary Wharf', ru: 'Кэнэри-Уорф', ar: 'كاناري وارف' },
+      atmo: {
+        en: 'A financial district built on a former dock on a former island. The land is reclaimed. The water is still visible at the edges, trying to remember. The towers are identical and the people in them are different every few years. The soil does not know any of these buildings.',
+        de: 'Ein Finanzviertel, das auf einem ehemaligen Dock auf einer ehemaligen Insel gebaut wurde. Das Land ist wiedergewonnen. Das Wasser ist noch an den Rändern sichtbar und versucht sich zu erinnern. Die Türme sind identisch und die Menschen in ihnen wechseln alle paar Jahre. Der Boden kennt keines dieser Gebäude.',
+        ru: 'Финансовый район, построенный на бывших доках на бывшем острове. Земля отвоёвана. Вода всё ещё видна по краям, пытаясь вспомнить. Башни одинаковые, и люди в них меняются каждые несколько лет. Почва не знает ни одного из этих зданий.',
+        ar: 'حي مالي مبني على حوض قديم في جزيرة قديمة. الأرض مُستردة. الماء لا يزال مرئياً عند الحواف محاولاً التذكر. الأبراج متطابقة والناس فيها يتغيرون كل بضع سنوات. التربة لا تعرف أياً من هذه المباني.',
+      },
+      owners: {
+        en: [
+          'Canary Wharf Group (private consortium) holds surface governance over 97 acres of what was public dock land',
+          'The tidal Thames retains a subsurface claim — the entire site is built on river fill and the river has not relinquished memory',
+          'HSBC, Barclays, Citi and 34 other institutions hold vertical territorial governance — floor by floor, jurisdiction by jurisdiction',
+          'The DLR railway claims an elevated corridor of movement governance through the entire district — its path cuts every property boundary',
+        ],
+        de: [
+          'Die Canary Wharf Group (privates Konsortium) hält Oberflächengovernance über 39 Hektar ehemaliges öffentliches Dockland',
+          'Die Gezeitenthemse behält einen unterirdischen Anspruch — das gesamte Gelände ist auf Flussfüllung gebaut, und der Fluss hat die Erinnerung nicht aufgegeben',
+          'HSBC, Barclays, Citi und 34 weitere Institutionen halten vertikale territoriale Governance — Stockwerk für Stockwerk, Jurisdiktion für Jurisdiktion',
+          'Die DLR-Bahn beansprucht einen erhöhten Bewegungsgovernance-Korridor durch den gesamten Bezirk — ihr Weg schneidet jede Eigentumsgrenze',
+        ],
+        ru: [
+          'Canary Wharf Group (частный консорциум) держит поверхностное управление над 39 гектарами того, что было публичными доками',
+          'Приливная Темза сохраняет подземную претензию — весь объект построен на речной засыпке, и река не отказалась от памяти',
+          'HSBC, Barclays, Citi и 34 другие организации держат вертикальное территориальное управление — этаж за этажом, юрисдикция за юрисдикцией',
+          'Железная дорога DLR претендует на приподнятый коридор управления движением через весь район — её путь пересекает каждую границу собственности',
+        ],
+        ar: [
+          'مجموعة كاناري وارف (اتحاد خاص) تحتفظ بحوكمة السطح على 39 هكتاراً مما كان أرض رصيف عام',
+          'نهر التايمز المدي يحتفظ بمطالبة تحت السطحية — الموقع بأكمله مبني على ردم نهري والنهر لم يتخلَّ عن الذاكرة',
+          'HSBC وباركليز وسيتي و34 مؤسسة أخرى تحتفظ بحوكمة إقليمية عمودية — طابقاً طابقاً، ولاية قضائية تلو أخرى',
+          'سكة حديد DLR تطالب بممر حوكمة حركة مرتفع عبر الحي بأكمله — مسارها يقطع كل حدود ملكية',
+        ],
+      },
+      ghost: {
+        en: [
+          'The West India Docks (1802–1980) — built on enslaved labour wealth — retain an unresolved foundational governance claim on all current commerce conducted here',
+          'Dock workers displaced in the 1980s redevelopment retain habitation and labour-rights claims that have never been formally addressed',
+        ],
+        de: [
+          'Die West India Docks (1802–1980) — gebaut auf dem Reichtum versklavter Arbeit — behalten einen ungelösten grundlegenden Governance-Anspruch auf allen hier durchgeführten aktuellen Handel',
+          'Dockarbeiter, die durch die Sanierung der 1980er Jahre verdrängt wurden, behalten Wohn- und Arbeitsrechtsansprüche, die nie formal angesprochen wurden',
+        ],
+        ru: [
+          'West India Docks (1802–1980) — построенные на богатстве порабощённого труда — сохраняют неразрешённую основополагающую претензию управления на всю нынешнюю торговлю, ведущуюся здесь',
+          'Портовые рабочие, перемещённые в ходе редевелопмента 1980-х, сохраняют претензии на жильё и трудовые права, которые никогда официально не рассматривались',
+        ],
+        ar: [
+          'أرصفة الهند الغربية (1802–1980) — مبنية على ثروة العمل المستعبَد — تحتفظ بمطالبة حوكمة تأسيسية غير محسومة على كل التجارة الحالية التي تُمارَس هنا',
+          'عمال الرصيف المهجّرون في إعادة التطوير في الثمانينيات يحتفظون بمطالبات حقوق السكن والعمل التي لم يُعالَج بها رسمياً قط',
+        ],
+      },
+      temporal: {
+        en: [
+          'Daily market open (08:00): financial algorithms assume territorial governance of all capital flows — 480 billion dollars transits this district before lunch',
+          'Flood-surge warning: Thames Barrier governs this district\'s survival — a single infrastructure claim that overrides every other ownership',
+        ],
+        de: [
+          'Tägliche Markteröffnung (08:00): Finanzalgorithmen übernehmen territoriale Governance aller Kapitalflüsse — 480 Milliarden Dollar durchqueren diesen Bezirk vor dem Mittagessen',
+          'Flutwarnung: Das Themse-Sperrwerk regiert das Überleben dieses Bezirks — ein einziger Infrastrukturanspruch, der alle anderen Eigentumsrechte außer Kraft setzt',
+        ],
+        ru: [
+          'Ежедневное открытие рынка (08:00): финансовые алгоритмы принимают территориальное управление всеми потоками капитала — 480 миллиардов долларов проходят через этот район до обеда',
+          'Предупреждение о паводке: Барьер Темзы управляет выживанием этого района — единственная претензия инфраструктуры, которая отменяет все остальные права собственности',
+        ],
+        ar: [
+          'افتتاح السوق اليومي (08:00): الخوارزميات المالية تتولى الحوكمة الإقليمية لجميع تدفقات رأس المال — 480 مليار دولار تعبر هذا الحي قبل الغداء',
+          'تحذير ارتفاع الفيضانات: حاجز التايمز يحكم بقاء هذا الحي — مطالبة بنية تحتية واحدة تُبطل كل ملكية أخرى',
         ],
       },
     },
@@ -877,6 +1456,150 @@ export const EXTRA_LOCATIONS = {
         ],
       },
     },
+    {
+      id: 'washington-square', type: 'square', lat: 40.7308, lng: -73.9973,
+      name: { en: 'Washington Square Park', de: 'Washington Square Park', ru: 'Вашингтон-сквер-парк', ar: 'حديقة واشنطن سكوير' },
+      atmo: {
+        en: 'A park that has been a cemetery, an execution ground, a military parade field, and now an outdoor living room for a university that surrounds it on all sides. The arch belongs to no one. The chess players have been here longer than the arch.',
+        de: 'Ein Park, der ein Friedhof, ein Hinrichtungsplatz, ein Militärparadenfeld war und jetzt ein Outdoor-Wohnzimmer für eine Universität ist, die ihn von allen Seiten umgibt. Der Bogen gehört niemandem. Die Schachspieler sind länger hier als der Bogen.',
+        ru: 'Парк, бывший кладбищем, местом казни, военным плацем, а теперь уличной гостиной для университета, окружающего его со всех сторон. Арка никому не принадлежит. Шахматисты здесь дольше, чем арка.',
+        ar: 'حديقة كانت مقبرة وساحة إعدام وميداناً للعرض العسكري وهي الآن غرفة معيشة خارجية لجامعة تحيط بها من كل الجوانب. القوس لا ينتمي لأحد. لاعبو الشطرنج هنا منذ أطول من القوس.',
+      },
+      owners: {
+        en: [
+          'NYU surrounds the park on three sides and has been attempting to acquire governance since 1969 — the community has blocked every formal annexation attempt',
+          'The chess players at the southwest corner hold informal territorial governance — recognised by the park authority as customary right',
+          'A dog run in the northwest corner has its own micro-governance body — the Dog Owners\' Association sets entrance protocols and settles disputes',
+          'The fountain algorithm tracks gathering patterns and has pre-assigned spatial governance zones for: performers, students, tourists, and residents',
+        ],
+        de: [
+          'NYU umgibt den Park an drei Seiten und versucht seit 1969, Governance zu erlangen — die Gemeinde hat jeden formalen Annexionsversuch blockiert',
+          'Die Schachspieler an der Südwestecke halten informelle territoriale Governance — von der Parkverwaltung als Gewohnheitsrecht anerkannt',
+          'Ein Hundeauslauf in der Nordwestecke hat seinen eigenen Micro-Governance-Körper — der Hundebesitzerverein setzt Eingangsprotokoll und schlegt Streitigkeiten',
+          'Der Brunnenalgoritmus verfolgt Versammlungsmuster und hat räumliche Governance-Zonen vorab zugewiesen: Darsteller, Studenten, Touristen und Einwohner',
+        ],
+        ru: [
+          'NYU окружает парк с трёх сторон и пытается получить управление с 1969 года — общество заблокировало каждую попытку формальной аннексии',
+          'Шахматисты в юго-западном углу держат неформальное территориальное управление — признанное администрацией парка как обычное право',
+          'Площадка для выгула собак в северо-западном углу имеет собственный орган микро-управления — Ассоциация владельцев собак устанавливает протоколы входа и разрешает споры',
+          'Алгоритм фонтана отслеживает паттерны сборищ и заранее назначил пространственные зоны управления: артистам, студентам, туристам и жителям',
+        ],
+        ar: [
+          'NYU تحيط بالحديقة من ثلاثة جوانب وتحاول الحصول على الحوكمة منذ 1969 — المجتمع أحبط كل محاولة ضم رسمية',
+          'لاعبو الشطرنج في الزاوية الجنوبية الغربية يحتفظون بحوكمة إقليمية غير رسمية — معترف بها من قِبل سلطة الحديقة كحق عرفي',
+          'منطقة الكلاب في الزاوية الشمالية الغربية لديها هيئة حوكمة صغيرة خاصة — جمعية أصحاب الكلاب تضع بروتوكولات الدخول وتفض النزاعات',
+          'خوارزمية النافورة تتتبع أنماط التجمع وعيّنت مسبقاً مناطق حوكمة مكانية: للمؤدين والطلاب والسياح والمقيمين',
+        ],
+      },
+      ghost: {
+        en: [
+          'Over 20,000 people buried here (1797–1825), primarily enslaved people and the poor — the park is a burial ground that has never been formally decommissioned',
+          'The hanging elm tree (pre-1820) retains a judicial territorial memory — the state\'s earliest recorded use of the site as a place of execution',
+        ],
+        de: [
+          'Über 20.000 hier begrabene Menschen (1797–1825), hauptsächlich versklavte Menschen und Arme — der Park ist ein Friedhof, der nie formell stillgelegt wurde',
+          'Der hängende Ulmenbaum (vor 1820) behält eine justizielle territoriale Erinnerung — die früheste aufgezeichnete staatliche Nutzung des Geländes als Hinrichtungsplatz',
+        ],
+        ru: [
+          'Более 20 000 человек, захороненных здесь (1797–1825), преимущественно порабощённые люди и бедняки — парк является захоронением, которое никогда официально не было выведено из эксплуатации',
+          'Дерево вяза для повешений (до 1820 года) сохраняет судебную территориальную память — самое раннее зафиксированное использование территории государством как места казни',
+        ],
+        ar: [
+          'أكثر من 20,000 شخص مدفون هنا (1797–1825)، في معظمهم أناس مستعبَدون وفقراء — الحديقة هي أرض دفن لم تُوقَف رسمياً عن الخدمة قط',
+          'شجرة الدردار المشنقة (قبل 1820) تحتفظ بذاكرة إقليمية قضائية — أقدم استخدام مسجل للدولة للموقع كمكان إعدام',
+        ],
+      },
+      temporal: {
+        en: [
+          'Summer weekend: 40 simultaneous performers assert competing acoustic governance zones — the park has no mechanism for resolving the overlap',
+          'Winter (01:00): the park reverts to an older governance pattern — shelter-seeking, survival, and the pigeons',
+        ],
+        de: [
+          'Sommerwochenende: 40 gleichzeitige Darsteller behaupten konkurrierende akustische Governance-Zonen — der Park hat keinen Mechanismus zur Lösung der Überlappung',
+          'Winter (01:00): der Park kehrt zu einem älteren Governance-Muster zurück — Schutzsuche, Überleben und die Tauben',
+        ],
+        ru: [
+          'Летние выходные: 40 одновременных исполнителей заявляют конкурирующие акустические зоны управления — у парка нет механизма для разрешения перекрытия',
+          'Зима (01:00): парк возвращается к более старому паттерну управления — поиск укрытия, выживание и голуби',
+        ],
+        ar: [
+          'عطلة نهاية أسبوع الصيف: 40 مؤدياً في وقت واحد يؤكدون مناطق حوكمة صوتية متنافسة — ليس للحديقة آلية لحل التداخل',
+          'الشتاء (01:00): تعود الحديقة إلى نمط حوكمة أقدم — البحث عن المأوى والبقاء والحمام',
+        ],
+      },
+    },
+    {
+      id: 'coney-island', type: 'waterfront', lat: 40.5755, lng: -73.9707,
+      name: { en: 'Coney Island', de: 'Coney Island', ru: 'Кони-Айленд', ar: 'كوني آيلاند' },
+      atmo: {
+        en: 'A peninsula that used to be an island. The Brooklyn working class came here every summer for a century and the sand remembers all of them. Most of the old rides are gone. The new ones are smaller. The ocean does not know about any of this and does not care.',
+        de: 'Eine Halbinsel, die früher eine Insel war. Die Brooklyner Arbeiterklasse kam hier jeden Sommer für ein Jahrhundert, und der Sand erinnert sich an alle. Die meisten alten Fahrgeschäfte sind weg. Die neuen sind kleiner. Der Ozean weiß nichts davon und kümmert sich nicht darum.',
+        ru: 'Полуостров, который раньше был островом. Рабочий класс Бруклина приходил сюда каждое лето на протяжении века, и песок помнит всех их. Большинство старых аттракционов исчезло. Новые меньше. Океан ничего об этом не знает и не заботится.',
+        ar: 'شبه جزيرة كانت ذات يوم جزيرة. الطبقة العاملة في بروكلين كانت تأتي هنا كل صيف لقرن من الزمن والرمال تتذكرهم جميعاً. معظم الألعاب القديمة اختفت. الجديدة أصغر. المحيط لا يعرف شيئاً عن هذا ولا يهتم.',
+      },
+      owners: {
+        en: [
+          'The Atlantic Ocean holds primary territorial governance of the beach — its annual claim expands and contracts with storm and season',
+          'Nathan\'s Famous (operating since 1916) holds the longest commercial territorial claim on the boardwalk — 108 years of uninterrupted hot dog governance',
+          'A colony of horseshoe crabs asserts ancient biological territorial rights on the eastern beach — breeding season claim predates every human settlement',
+          'The MTA subway line holds a linear territorial claim extending 45km back to Manhattan — the governance of arrival and departure',
+        ],
+        de: [
+          'Der Atlantische Ozean hält primäre territoriale Governance des Strandes — sein jährlicher Anspruch dehnt sich aus und zieht sich mit Sturm und Jahreszeit zusammen',
+          'Nathan\'s Famous (seit 1916 in Betrieb) hält den längsten kommerziellen Territorialanspruch auf der Promenade — 108 Jahre ununterbrochene Hotdog-Governance',
+          'Eine Kolonie von Pfeilschwanzkrebsen behauptet uralte biologische Territorialrechte am Oststrand — der Brutanspruch geht jeder menschlichen Siedlung voraus',
+          'Die MTA-U-Bahnlinie hält einen linearen Territorialanspruch, der sich 45 km zurück nach Manhattan erstreckt — die Governance von Ankunft und Abfahrt',
+        ],
+        ru: [
+          'Атлантический океан держит первичное территориальное управление пляжем — его ежегодная претензия расширяется и сжимается со штормом и сезоном',
+          'Nathan\'s Famous (работает с 1916 года) держит самую длинную коммерческую территориальную претензию на набережной — 108 лет непрерывного управления хот-догами',
+          'Колония подковообразных крабов заявляет об древних биологических территориальных правах на восточном пляже — сезонная претензия размножения предшествует каждому человеческому поселению',
+          'Линия метро MTA держит линейную территориальную претензию, простирающуюся на 45 км обратно до Манхэттена — управление прибытием и отбытием',
+        ],
+        ar: [
+          'المحيط الأطلسي يحتفظ بالحوكمة الإقليمية الأولية للشاطئ — مطالبته السنوية تتوسع وتتقلص مع العواصف والمواسم',
+          'Nathan\'s Famous (تعمل منذ 1916) تحتفظ بأطول مطالبة إقليمية تجارية على الواجهة البحرية — 108 سنة من حوكمة النقانق المتواصلة',
+          'مستعمرة سرطانات حدوة الحصان تؤكد حقوقاً إقليمية بيولوجية قديمة في الشاطئ الشرقي — مطالبة موسم التكاثر تسبق كل مستوطنة بشرية',
+          'خط مترو MTA يحتفظ بمطالبة إقليمية خطية تمتد 45 كيلومتراً عائدة إلى مانهاتن — حوكمة الوصول والمغادرة',
+        ],
+      },
+      ghost: {
+        en: [
+          'Dreamland (burnt 1911), Luna Park (burnt 1944), Steeplechase Park (demolished 1966) — three amusement parks that governed this shoreline retain overlapping spectral pleasure-claims',
+          'A displaced Lenape fishing community\'s seasonal claim on the tidal zone predates all subsequent governance by centuries',
+        ],
+        de: [
+          'Dreamland (verbrannt 1911), Luna Park (verbrannt 1944), Steeplechase Park (abgerissen 1966) — drei Vergnügungsparks, die diese Küstenlinie beherrschten, behalten überlappende spektrale Vergnügungsansprüche',
+          'Der saisonale Anspruch einer vertriebenen Lenape-Fischergemeinschaft auf die Gezeitenzone geht jeder nachfolgenden Governance um Jahrhunderte voraus',
+        ],
+        ru: [
+          'Dreamland (сгорел 1911), Luna Park (сгорел 1944), Steeplechase Park (снесён 1966) — три парка развлечений, управлявших этой береговой линией, сохраняют перекрывающиеся призрачные претензии на удовольствие',
+          'Сезонная претензия перемещённой общины рыбаков ленапе на приливную зону предшествует всему последующему управлению на века',
+        ],
+        ar: [
+          'دريملاند (احترق 1911)، لونا بارك (احترق 1944)، ستيبلتشيس بارك (هُدم 1966) — ثلاثة مدن ملاهٍ حكمت هذا الشاطئ تحتفظ بمطالبات متداخلة طيفية للمتعة',
+          'المطالبة الموسمية لمجتمع صيادي لينابي المهجّرين على منطقة المد والجزر تسبق كل حوكمة لاحقة بقرون',
+        ],
+      },
+      temporal: {
+        en: [
+          'Summer (July 4): the beach claims maximum human density — 1 million bodies temporarily govern 3km of shoreline with no formal agreement',
+          'Winter (November–March): the ocean reclaims governance — boardwalk shuttered, resident pelicans assert their seasonal sovereignty',
+        ],
+        de: [
+          'Sommer (4. Juli): der Strand beansprucht maximale menschliche Dichte — 1 Million Körper regieren vorübergehend 3 km Küstenlinie ohne formelle Vereinbarung',
+          'Winter (November–März): der Ozean beansprucht Governance zurück — Promenade geschlossen, ansässige Pelikane behaupten ihre saisonale Souveränität',
+        ],
+        ru: [
+          'Лето (4 июля): пляж претендует на максимальную человеческую плотность — 1 миллион тел временно управляет 3 км береговой линии без формального соглашения',
+          'Зима (ноябрь–март): океан возвращает управление — набережная закрыта, местные пеликаны заявляют о своём сезонном суверенитете',
+        ],
+        ar: [
+          'الصيف (4 يوليو): الشاطئ يطالب بأقصى كثافة بشرية — مليون جسد يحكم مؤقتاً 3 كيلومترات من الشاطئ بدون اتفاق رسمي',
+          'الشتاء (نوفمبر–مارس): المحيط يستعيد الحوكمة — الواجهة البحرية مغلقة، والبجع المقيم يؤكد سيادته الموسمية',
+        ],
+      },
+    },
   ],
 
   cairo: [
@@ -1096,6 +1819,150 @@ export const EXTRA_LOCATIONS = {
         ],
       },
     },
+    {
+      id: 'giza', type: 'monument', lat: 29.9773, lng: 31.1325,
+      name: { en: 'Giza Plateau', de: 'Gizeh-Plateau', ru: 'Плато Гиза', ar: 'هضبة الجيزة' },
+      atmo: {
+        en: 'Three tombs that became the most recognised silhouette on earth. The desert has been trying to reclaim them for 4,500 years. The sphinx is missing its nose — the absence is now as famous as anything that remains. The algorithm routes 15,000 tourists here daily.',
+        de: 'Drei Gräber, die zur bekanntesten Silhouette der Erde wurden. Die Wüste versucht seit 4.500 Jahren, sie zurückzugewinnen. Der Sphinx fehlt seine Nase — die Abwesenheit ist jetzt so berühmt wie alles, was übrig bleibt. Der Algorithmus leitet täglich 15.000 Touristen hierher.',
+        ru: 'Три гробницы, ставшие наиболее узнаваемым силуэтом на земле. Пустыня пытается вернуть их 4500 лет. У Сфинкса нет носа — отсутствие теперь так же знаменито, как всё, что осталось. Алгоритм направляет сюда 15 000 туристов ежедневно.',
+        ar: 'ثلاثة مقابر أصبحت أكثر الصور الظلية شهرة على وجه الأرض. الصحراء تحاول استردادها منذ 4500 عام. الأبو الهول تنقصه أنفه — الغياب الآن بشهرة كل ما تبقى. الخوارزمية توجّه 15,000 سائح هنا يومياً.',
+      },
+      owners: {
+        en: [
+          'The Egyptian state claims administrative governance but the pyramids have always governed themselves — no bureaucracy survives longer than the stones',
+          'The desert wind holds atmospheric sovereignty over the plateau — it has been filling the structures with sand since construction ended',
+          'A camel-riding network holds informal territorial governance of the approach routes — claims inherited across generations, older than the tourism industry',
+          'The Supreme Council of Antiquities controls all photographic territorial rights — every image taken here is technically licensed',
+        ],
+        de: [
+          'Der ägyptische Staat beansprucht administrative Governance, aber die Pyramiden haben sich immer selbst regiert — keine Bürokratie überlebt länger als die Steine',
+          'Der Wüstenwind hält atmosphärische Souveränität über das Plateau — er füllt die Strukturen seit Bauabschluss mit Sand',
+          'Ein Kamelreitnetz hält informelle territoriale Governance der Zugangsrouten — über Generationen vererbte Ansprüche, älter als die Tourismusbranche',
+          'Der Oberste Rat für Altertümer kontrolliert alle fotografischen Territoriumsrechte — jedes hier aufgenommene Bild ist technisch lizenziert',
+        ],
+        ru: [
+          'Египетское государство претендует на административное управление, но пирамиды всегда управляли собой сами — ни одна бюрократия не переживает камни',
+          'Пустынный ветер держит атмосферный суверенитет над плато — он заполняет строения песком с момента окончания строительства',
+          'Сеть верблюдовождения держит неформальное территориальное управление маршрутами подхода — претензии, унаследованные через поколения, старше туристической отрасли',
+          'Высший совет по древностям контролирует все права на фотографию территории — каждое сделанное здесь изображение технически лицензировано',
+        ],
+        ar: [
+          'الدولة المصرية تطالب بالحوكمة الإدارية لكن الأهرامات دائماً حكمت نفسها — لا بيروقراطية تعيش أطول من الأحجار',
+          'رياح الصحراء تحتفظ بالسيادة الجوية على الهضبة — تملأ المنشآت بالرمل منذ انتهاء البناء',
+          'شبكة ركوب الجمال تحتفظ بحوكمة إقليمية غير رسمية لمسارات الاقتراب — مطالبات موروثة عبر الأجيال، أقدم من صناعة السياحة',
+          'المجلس الأعلى للآثار يتحكم في جميع حقوق التصوير الإقليمية — كل صورة تُلتقط هنا مرخّصة تقنياً',
+        ],
+      },
+      ghost: {
+        en: [
+          'The 100,000 workers who built the pyramids (per Herodotus — the actual number is disputed) retain a foundational labour claim that predates all property law',
+          'The original casing stones (stripped 1356 CE for Cairo\'s buildings) hold a dispersed territorial claim across every 14th-century structure in the city',
+        ],
+        de: [
+          'Die 100.000 Arbeiter, die die Pyramiden bauten (nach Herodot — die tatsächliche Zahl ist umstritten), behalten einen grundlegenden Arbeitsanspruch, der allem Eigentumsrecht vorausgeht',
+          'Die ursprünglichen Verkleidungssteine (1356 n.Chr. für Kairos Gebäude abgetragen) halten einen verstreuten Territorialanspruch in jedem Bauwerk des 14. Jahrhunderts in der Stadt',
+        ],
+        ru: [
+          '100 000 рабочих, строивших пирамиды (по Геродоту — фактическое число оспаривается), сохраняют основополагающую трудовую претензию, предшествующую всему имущественному праву',
+          'Оригинальные облицовочные камни (снятые в 1356 г. н.э. для зданий Каира) держат рассредоточенную территориальную претензию в каждом строении XIV века в городе',
+        ],
+        ar: [
+          '100,000 عامل بنوا الأهرامات (وفقاً لهيرودوت — العدد الفعلي محل خلاف) يحتفظون بمطالبة عمالية تأسيسية تسبق كل قانون ملكية',
+          'أحجار الكسوة الأصلية (أُزيلت عام 1356 م لمباني القاهرة) تحتفظ بمطالبة إقليمية موزعة في كل منشأة من القرن الرابع عشر في المدينة',
+        ],
+      },
+      temporal: {
+        en: [
+          'Sunrise: the plateau claims its original governance function — the stones align with celestial events that predate every human institution on earth',
+          'Desert wind event (khamsin): the plateau governance briefly reverts to sand, stone, and the wind — all tourist infrastructure becomes secondary',
+        ],
+        de: [
+          'Sonnenaufgang: das Plateau beansprucht seine ursprüngliche Governance-Funktion — die Steine richten sich an Himmelserereignissen aus, die jeder menschlichen Institution auf Erden vorangehen',
+          'Wüstenwinde (Khamsin): die Plateau-Governance kehrt kurzzeitig zu Sand, Stein und Wind zurück — alle touristische Infrastruktur wird sekundär',
+        ],
+        ru: [
+          'Рассвет: плато претендует на свою первоначальную функцию управления — камни выровнены по небесным событиям, предшествующим каждому человеческому учреждению на земле',
+          'Событие пустынного ветра (хамсин): управление плато ненадолго возвращается к песку, камню и ветру — вся туристическая инфраструктура становится второстепенной',
+        ],
+        ar: [
+          'الشروق: الهضبة تطالب بوظيفتها الحوكمية الأصلية — الأحجار تتوافق مع أحداث سماوية تسبق كل مؤسسة بشرية على وجه الأرض',
+          'حدث رياح الصحراء (الخماسين): حوكمة الهضبة تعود مؤقتاً إلى الرمل والحجر والريح — كل البنية التحتية السياحية تصبح ثانوية',
+        ],
+      },
+    },
+    {
+      id: 'al-azhar-park', type: 'park', lat: 30.0459, lng: 31.2628,
+      name: { en: 'Al-Azhar Park', de: 'Al-Azhar-Park', ru: 'Парк Аль-Азхар', ar: 'حديقة الأزهر' },
+      atmo: {
+        en: 'A park built on 500 years of rubble in the middle of Islamic Cairo. Excavation revealed a Fatimid wall no one knew was there. The trees are planted on medieval infrastructure. From here you can see the minarets of a thousand years of governance arrangements, all simultaneously.',
+        de: 'Ein Park, der auf 500 Jahre Schutt mitten im islamischen Kairo gebaut wurde. Ausgrabungen enthüllten eine fatimidische Mauer, von der niemand wusste, dass sie dort war. Die Bäume sind auf mittelalterlicher Infrastruktur gepflanzt. Von hier aus können Sie die Minarette von tausend Jahren Governance-Arrangements sehen, alle gleichzeitig.',
+        ru: 'Парк, построенный на 500-летних завалах в центре исламского Каира. Раскопки обнаружили фатимидскую стену, о которой никто не знал. Деревья посажены на средневековой инфраструктуре. Отсюда видны минареты тысячи лет управленческих устройств, всех одновременно.',
+        ar: 'حديقة مبنية على 500 عام من الركام في قلب القاهرة الإسلامية. كشف الحفر عن سور فاطمي لم يكن أحد يعلم بوجوده. الأشجار مزروعة على بنية تحتية من العصور الوسطى. من هنا يمكنك رؤية مآذن ألف عام من ترتيبات الحوكمة، كلها في وقت واحد.',
+      },
+      owners: {
+        en: [
+          'The Aga Khan Trust for Culture holds surface governance since 2005 — the first greenery on this site in five centuries',
+          'The Fatimid wall (built 1087 CE) — rediscovered during park construction — asserts structural governance beneath all landscape design',
+          'The Ayyubid-era Darb al-Ahmar neighbourhood below holds a residual visual-sovereignty claim on the park\'s eastern slope',
+          'Migratory birds hold a seasonal aerial-governance claim — the park is the only significant green corridor in this part of the city',
+        ],
+        de: [
+          'Der Aga Khan Trust for Culture hält Oberflächengovernance seit 2005 — das erste Grün an diesem Standort seit fünf Jahrhunderten',
+          'Die Fatimidenmauer (gebaut 1087 n.Chr.) — beim Parkbau wiederentdeckt — behauptet strukturelle Governance unter allem Landschaftsdesign',
+          'Das Ayyubidische Viertel Darb al-Ahmar darunter hält einen verbleibenden visuellen Souveränitätsanspruch am östlichen Hang des Parks',
+          'Zugvögel halten einen saisonalen Luftgovernance-Anspruch — der Park ist der einzige bedeutende Grünkorridor in diesem Teil der Stadt',
+        ],
+        ru: [
+          'Aga Khan Trust for Culture держит поверхностное управление с 2005 года — первая зелень на этом участке за пять веков',
+          'Фатимидская стена (построена в 1087 г. н.э.) — обнаруженная при строительстве парка — заявляет о структурном управлении под всем ландшафтным дизайном',
+          'Квартал Дарб аль-Ахмар эпохи Айюбидов внизу сохраняет остаточную претензию визуального суверенитета на восточный склон парка',
+          'Перелётные птицы держат сезонную претензию воздушного управления — парк является единственным значимым зелёным коридором в этой части города',
+        ],
+        ar: [
+          'مؤسسة الآغا خان للثقافة تحتفظ بحوكمة السطح منذ 2005 — أول خضرة في هذا الموقع منذ خمسة قرون',
+          'السور الفاطمي (بُني 1087 م) — اكتُشف أثناء إنشاء الحديقة — يؤكد الحوكمة الهيكلية تحت كل تصميم للمناظر الطبيعية',
+          'حي درب الأحمر من العصر الأيوبي الأسفل يحتفظ بمطالبة سيادة بصرية متبقية على المنحدر الشرقي للحديقة',
+          'الطيور المهاجرة تحتفظ بمطالبة حوكمة جوية موسمية — الحديقة هي الممر الأخضر الوحيد الكبير في هذا الجزء من المدينة',
+        ],
+      },
+      ghost: {
+        en: [
+          'The 500 years of rubble (1517–1984) beneath the park contains layered debris of Ottoman, Mamluk and Fatimid governance — the park is built on compressed history',
+          'A Mamluk-era aqueduct (partly buried here) retains a water-governance claim that pre-dates every institution currently operating in the city',
+        ],
+        de: [
+          'Die 500 Jahre Schutt (1517–1984) unter dem Park enthält geschichtete Trümmer osmanischer, mamlukischer und fatimidischer Governance — der Park ist auf komprimierter Geschichte gebaut',
+          'Ein mamluken-zeitlicher Aquädukt (hier teilweise begraben) behält einen Wassergovernance-Anspruch, der jeder derzeit in der Stadt tätigen Institution vorausgeht',
+        ],
+        ru: [
+          '500 лет завалов (1517–1984) под парком содержат многослойные обломки османского, мамлюкского и фатимидского управления — парк построен на уплотнённой истории',
+          'Мамлюкский акведук (частично захороненный здесь) сохраняет претензию водного управления, предшествующую каждому учреждению, действующему в настоящее время в городе',
+        ],
+        ar: [
+          '500 عام من الركام (1517–1984) تحت الحديقة يحتوي على طبقات من حطام حوكمة عثمانية ومملوكية وفاطمية — الحديقة مبنية على تاريخ مضغوط',
+          'قناة مياه من العصر المملوكي (مدفونة جزئياً هنا) تحتفظ بمطالبة حوكمة مائية تسبق كل مؤسسة تعمل حالياً في المدينة',
+        ],
+      },
+      temporal: {
+        en: [
+          'Ramadan evenings: the park becomes the primary outdoor social space for surrounding neighbourhoods — governance passes to families and extended gatherings',
+          'Midday heat (June–August): the park governance reverts to shade trees and underground water — humans yield to the temperature',
+        ],
+        de: [
+          'Ramadan-Abende: der Park wird zum primären Outdoor-Sozialraum der umliegenden Viertel — Governance übergeht an Familien und erweiterte Zusammenkünfte',
+          'Mittagshitze (Juni–August): die Parkgovernance kehrt zu Schattenbäumen und unterirdischem Wasser zurück — Menschen weichen der Temperatur',
+        ],
+        ru: [
+          'Вечера Рамадана: парк становится основным уличным социальным пространством для окружающих кварталов — управление переходит к семьям и расширенным собраниям',
+          'Полуденная жара (июнь–август): управление парком возвращается к тенистым деревьям и подземной воде — люди уступают температуре',
+        ],
+        ar: [
+          'أمسيات رمضان: تصبح الحديقة المساحة الاجتماعية الخارجية الأساسية للأحياء المحيطة — تنتقل الحوكمة إلى الأسر والتجمعات الموسّعة',
+          'حرارة الظهيرة (يونيو–أغسطس): حوكمة الحديقة تعود إلى الأشجار المظلّلة والمياه تحت الأرض — يستسلم البشر لدرجة الحرارة',
+        ],
+      },
+    },
   ],
 
   mumbai: [
@@ -1312,6 +2179,150 @@ export const EXTRA_LOCATIONS = {
         ar: [
           'الفجر (05:00–08:00): الغات يؤكد الحوكمة الأولية — نشاط الغسيل يطالب بكل إقليم الصوت والرائحة والحركة',
           'فترة التجفيف (10:00–15:00): حوكمة اللون — 1,000 قطعة ملابس تخلق سيادة كروماتية مؤقتة مرئية من المدار',
+        ],
+      },
+    },
+    {
+      id: 'juhu', type: 'waterfront', lat: 19.0954, lng: 72.8307,
+      name: { en: 'Juhu Beach', de: 'Juhu Beach', ru: 'Пляж Джуху', ar: 'شاطئ جوهو' },
+      atmo: {
+        en: 'The beach where Bollywood and bhelpuri exist simultaneously. On any given evening, a film star might be walking past a food cart past a cricket match past a religious offering being made to the sea. The Arabian Sea does not distinguish between any of these activities.',
+        de: 'Der Strand, wo Bollywood und Bhelpuri gleichzeitig existieren. An einem bestimmten Abend könnte ein Filmstar an einem Imbisswagen vorbeilaufen, an einem Cricket-Spiel, an einer religiösen Gabe, die dem Meer dargebracht wird. Das Arabische Meer unterscheidet keine dieser Aktivitäten.',
+        ru: 'Пляж, где Болливуд и бхелпури сосуществуют одновременно. В любой вечер кинозвезда может проходить мимо тележки с едой, мимо матча по крикету, мимо религиозного приношения, совершаемого морю. Аравийское море не различает ни одного из этих занятий.',
+        ar: 'الشاطئ حيث يتعايش بوليوود والبهيل بوري في آنٍ واحد. في أي مساء، قد تمر نجمة أفلام أمام عربة طعام أمام مباراة كريكت أمام قربان ديني يُقدَّم للبحر. بحر العرب لا يميّز بين أيٍّ من هذه الأنشطة.',
+      },
+      owners: {
+        en: [
+          'The Arabian Sea claims the intertidal zone — its seasonal boundary shift during monsoon asserts a 50m territorial expansion',
+          'Street food vendors hold territorial governance of the evening esplanade — cooking oil smoke marks the boundary more reliably than any official sign',
+          'A Ganesh immersion network claims the beach for 11 days every year — the most organised periodic sovereignty event in the city',
+          'Film industry location scouts have informally designated several sections as set-territory — no permit, but effective exclusion during shoots',
+        ],
+        de: [
+          'Das Arabische Meer beansprucht die Gezeitenzone — seine saisonale Grenzverschiebung während des Monsuns behauptet eine territoriale Expansion von 50 m',
+          'Straßenimbissverkäufer halten territoriale Governance der Abendpromenade — Kochölrauch markiert die Grenze zuverlässiger als jedes offizielle Schild',
+          'Ein Ganesh-Eintauchungsnetzwerk beansprucht den Strand jedes Jahr für 11 Tage — das am besten organisierte periodische Souveränitätsereignis in der Stadt',
+          'Filmbranche-Location-Scouts haben informell mehrere Abschnitte als Set-Territorium designiert — keine Genehmigung, aber effektiver Ausschluss während der Dreharbeiten',
+        ],
+        ru: [
+          'Аравийское море претендует на приливно-отливную зону — его сезонный сдвиг границы во время муссона заявляет о территориальном расширении на 50 м',
+          'Уличные торговцы едой держат территориальное управление вечерней набережной — дым кулинарного масла отмечает границу надёжнее, чем любой официальный знак',
+          'Сеть погружения Ганеши претендует на пляж на 11 дней каждый год — самое организованное периодическое событие суверенитета в городе',
+          'Скауты кино-индустрии по поиску локаций неофициально обозначили несколько секций как территорию съёмочных площадок — нет разрешения, но эффективное исключение во время съёмок',
+        ],
+        ar: [
+          'بحر العرب يطالب بمنطقة المد والجزر — التحول الموسمي لحدوده أثناء موسم الأمطار يؤكد توسعاً إقليمياً بمقدار 50 متراً',
+          'باعة الأكل الشارعي يحتفظون بحوكمة إقليمية لشارع المشاة المسائي — دخان زيت الطهي يحدد الحدود بشكل أكثر موثوقية من أي لافتة رسمية',
+          'شبكة غمر جانيش تطالب بالشاطئ لمدة 11 يوماً كل عام — أكثر حدث سيادة دوري تنظيماً في المدينة',
+          'كشّافو مواقع التصوير السينمائي حددوا بشكل غير رسمي عدة أقسام كإقليم مجموعة تصوير — لا تصريح، لكن استبعاد فعلي أثناء التصوير',
+        ],
+      },
+      ghost: {
+        en: [
+          'The original Koli fishing village (pre-colonial) retains coastal habitation rights on the northern section — a legal dispute active since 1947',
+          'The 1899 plague clearances removed an entire settlement from this beachfront — the displaced community\'s territorial claim was never compensated',
+        ],
+        de: [
+          'Das ursprüngliche Koli-Fischerdorf (vorkolonial) behält Küstenwohnrechte im nördlichen Abschnitt — ein Rechtsstreit aktiv seit 1947',
+          'Die Pestbereinigungen von 1899 entfernten eine gesamte Siedlung von dieser Strandfront — der Territorialanspruch der vertriebenen Gemeinde wurde nie entschädigt',
+        ],
+        ru: [
+          'Оригинальная рыбацкая деревня Коли (доколониальная) сохраняет прибрежные права на жильё в северном секторе — правовой спор активен с 1947 года',
+          'Расчистки от чумы 1899 года удалили целое поселение с этой набережной — территориальная претензия перемещённого сообщества так и не была компенсирована',
+        ],
+        ar: [
+          'قرية الصيادين الكولية الأصلية (ما قبل الاستعمار) تحتفظ بحقوق سكن ساحلية في القسم الشمالي — نزاع قانوني نشط منذ 1947',
+          'عمليات الإخلاء من الطاعون عام 1899 أزالت مستوطنة كاملة من هذه الواجهة البحرية — مطالبة المجتمع المهجّر الإقليمية لم تُعوَّض قط',
+        ],
+      },
+      temporal: {
+        en: [
+          'Ganesh Chaturthi (August/September): 11 days of collective territorial reclamation — the beach governance completely inverted',
+          'Monsoon (June–September): the sea expands its territorial claim by approximately 30m and the beach governance collapses entirely',
+        ],
+        de: [
+          'Ganesh Chaturthi (August/September): 11 Tage kollektiver territorialer Rückforderung — die Strand-Governance vollständig umgekehrt',
+          'Monsun (Juni–September): das Meer erweitert seinen Territorialanspruch um ca. 30 m und die Strand-Governance bricht vollständig zusammen',
+        ],
+        ru: [
+          'Ганеш-чатурти (август/сентябрь): 11 дней коллективного территориального возврата — управление пляжем полностью перевёрнуто',
+          'Муссон (июнь–сентябрь): море расширяет свою территориальную претензию примерно на 30 м и управление пляжем полностью рушится',
+        ],
+        ar: [
+          'غانيش تشاتورثي (أغسطس/سبتمبر): 11 يوماً من الاسترداد الإقليمي الجماعي — حوكمة الشاطئ تنقلب كلياً',
+          'موسم الأمطار (يونيو–سبتمبر): البحر يوسّع مطالبته الإقليمية بنحو 30 متراً وتنهار حوكمة الشاطئ كلياً',
+        ],
+      },
+    },
+    {
+      id: 'colaba', type: 'district', lat: 18.9176, lng: 72.8328,
+      name: { en: 'Colaba', de: 'Colaba', ru: 'Колаба', ar: 'كولابا' },
+      atmo: {
+        en: 'The southern tip of Mumbai, where the city remembers being a cluster of islands. The Causeway is one of the oldest streets still in continuous commercial use. Behind every tourist-facing facade is a building in which five different uses are happening on different floors simultaneously.',
+        de: 'Die südliche Spitze Mumbais, wo die Stadt daran erinnert, eine Inselgruppe zu sein. Der Causeway ist eine der ältesten Straßen, die noch kontinuierlich kommerziell genutzt werden. Hinter jeder touristenorientierten Fassade befindet sich ein Gebäude, in dem fünf verschiedene Nutzungen auf verschiedenen Etagen gleichzeitig stattfinden.',
+        ru: 'Южная оконечность Мумбаи, где город помнит, что был кластером островов. Дамба — одна из старейших улиц, всё ещё находящихся в непрерывном коммерческом использовании. За каждым фасадом, обращённым к туристам, есть здание, в котором пять различных видов использования происходят на разных этажах одновременно.',
+        ar: 'الطرف الجنوبي من مومباي حيث تتذكر المدينة أنها كانت مجموعة جزر. الجسر هو أحد أقدم الشوارع لا تزال في استخدام تجاري مستمر. خلف كل واجهة موجهة للسياح يوجد مبنى يجري فيه خمسة استخدامات مختلفة في طوابق مختلفة في وقت واحد.',
+      },
+      owners: {
+        en: [
+          'The Indian Navy holds governance of the entire southern peninsula below the Taj — a military territorial claim that overrides tourism at any moment',
+          'The Taj Mahal Palace Hotel (built 1903) holds visual sovereignty over the waterfront — its silhouette governs the approach from every direction',
+          'Afghan gem traders hold informal territorial governance of the eastern Causeway — a continuous commercial presence since the 1960s',
+          'Feral cats hold the governance of the back lanes — 200+ documented animals, territorial zones inherited over multiple cat generations',
+        ],
+        de: [
+          'Die indische Marine hält Governance über die gesamte südliche Halbinsel unterhalb des Taj — ein militärischer Territorialanspruch, der den Tourismus jederzeit außer Kraft setzt',
+          'Das Taj Mahal Palace Hotel (gebaut 1903) hält visuelle Souveränität über die Uferpromenade — seine Silhouette regiert die Annäherung aus jeder Richtung',
+          'Afghanische Edelsteinhändler halten informelle territoriale Governance des östlichen Causeways — eine kontinuierliche kommerzielle Präsenz seit den 1960er Jahren',
+          'Verwilderte Katzen halten die Governance der Hintergassen — 200+ dokumentierte Tiere, Territorialzonen über mehrere Katzengenerationen vererbt',
+        ],
+        ru: [
+          'Индийский военно-морской флот держит управление всем южным полуостровом ниже Тадж — военная территориальная претензия, отменяющая туризм в любой момент',
+          'Отель «Тадж-Махал Палас» (построен в 1903 году) держит визуальный суверенитет над набережной — его силуэт управляет подходом со всех сторон',
+          'Афганские торговцы драгоценными камнями держат неформальное территориальное управление восточной дамбой — непрерывное коммерческое присутствие с 1960-х годов',
+          'Бродячие кошки держат управление задними переулками — 200+ задокументированных животных, территориальные зоны, унаследованные через несколько поколений кошек',
+        ],
+        ar: [
+          'البحرية الهندية تحتفظ بحوكمة شبه الجزيرة الجنوبية بأكملها أسفل تاج — مطالبة إقليمية عسكرية تُبطل السياحة في أي لحظة',
+          'فندق تاج محل بالاس (بُني 1903) يحتفظ بالسيادة البصرية على الواجهة البحرية — صورته الظلية تحكم الاقتراب من كل اتجاه',
+          'تجار الأحجار الكريمة الأفغان يحتفظون بحوكمة إقليمية غير رسمية للجسر الشرقي — حضور تجاري مستمر منذ الستينيات',
+          'القطط البرية تحتفظ بحوكمة الأزقة الخلفية — أكثر من 200 حيوان موثّق، مناطق إقليمية موروثة عبر أجيال متعددة من القطط',
+        ],
+      },
+      ghost: {
+        en: [
+          'The original Koli island settlement (pre-reclamation) retains a submerged territorial claim beneath the causeway landfill — the land was sea within living memory of 1900',
+          'The 2008 Mumbai attacks — Taj Hotel, Leopold Cafe, CST station — left a governance trauma-claim across multiple sites that tourism has not resolved',
+        ],
+        de: [
+          'Die ursprüngliche Koli-Inselsiedlung (vor der Aufschüttung) behält einen versunkenen Territorialanspruch unter der Causeway-Aufschüttung — das Land war innerhalb lebendiger Erinnerung von 1900 Meer',
+          'Die Anschläge in Mumbai 2008 — Taj Hotel, Leopold Cafe, CST-Station — hinterließen einen Governance-Trauma-Anspruch über mehrere Standorte, den der Tourismus nicht gelöst hat',
+        ],
+        ru: [
+          'Оригинальное поселение Коли на острове (до засыпки) сохраняет затопленную территориальную претензию под засыпкой дамбы — земля была морем в живой памяти 1900 года',
+          'Теракты в Мумбаи 2008 года — отель «Тадж», кафе «Леопольд», станция CST — оставили претензию травмы управления на нескольких объектах, которую туризм не разрешил',
+        ],
+        ar: [
+          'مستوطنة جزيرة كولي الأصلية (ما قبل الردم) تحتفظ بمطالبة إقليمية مغمورة تحت ردم الجسر — الأرض كانت بحراً في ذاكرة حية لعام 1900',
+          'هجمات مومباي 2008 — فندق تاج وكافيه ليوبولد ومحطة CST — تركت مطالبة حوكمة صدمية عبر مواقع متعددة لم تحلها السياحة',
+        ],
+      },
+      temporal: {
+        en: [
+          'Evening (18:00–22:00): the Causeway shifts from tourist market to local gathering — governance passes from commerce to community',
+          'Monsoon storm surge: the southern tip reverts to its geological nature — the sea briefly remembers the islands',
+        ],
+        de: [
+          'Abend (18:00–22:00): der Causeway wechselt vom Touristenmarkt zur lokalen Versammlung — Governance geht von Handel zu Gemeinschaft über',
+          'Monsunwellensturm: die südliche Spitze kehrt zu ihrer geologischen Natur zurück — das Meer erinnert sich kurz an die Inseln',
+        ],
+        ru: [
+          'Вечер (18:00–22:00): дамба переходит от туристического рынка к местным собраниям — управление переходит от торговли к сообществу',
+          'Штормовой нагон муссона: южная оконечность возвращается к своей геологической природе — море ненадолго вспоминает острова',
+        ],
+        ar: [
+          'المساء (18:00–22:00): ينتقل الجسر من سوق سياحي إلى تجمع محلي — تنتقل الحوكمة من التجارة إلى المجتمع',
+          'عاصفة مد موسم الأمطار: الطرف الجنوبي يعود إلى طبيعته الجيولوجية — البحر يتذكر الجزر للحظة',
         ],
       },
     },

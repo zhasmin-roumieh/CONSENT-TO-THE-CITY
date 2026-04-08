@@ -41,6 +41,8 @@ export const UI = {
     conflictTag: 'conflict',
     inscribedTag: 'inscribed',
     ghostNote: 'You may return and reconsider. The city keeps no record of refusal — only the soil does.',
+    switchToLight: 'Switch to light mode',
+    switchToDark: 'Switch to dark mode',
   },
   de: {
     city: 'Stadt',
@@ -84,6 +86,8 @@ export const UI = {
     conflictTag: 'Konflikt',
     inscribedTag: 'eingeschrieben',
     ghostNote: 'Sie können zurückkehren und überdenken. Die Stadt führt keine Aufzeichnung der Ablehnung — nur der Boden tut es.',
+    switchToLight: 'Zum hellen Modus wechseln',
+    switchToDark: 'Zum dunklen Modus wechseln',
   },
   ru: {
     city: 'город',
@@ -127,6 +131,8 @@ export const UI = {
     conflictTag: 'конфликт',
     inscribedTag: 'записано',
     ghostNote: 'Вы можете вернуться и пересмотреть. Город не ведёт записей об отказе — только почва.',
+    switchToLight: 'Переключить на светлый режим',
+    switchToDark: 'Переключить на тёмный режим',
   },
   ar: {
     city: 'مدينة',
@@ -170,5 +176,7 @@ export const UI = {
     conflictTag: 'تعارض',
     inscribedTag: 'مسجل',
     ghostNote: 'يمكنك العودة وإعادة النظر. المدينة لا تحتفظ بسجل الرفض — فقط التربة تفعل ذلك.',
+    switchToLight: 'التبديل إلى الوضع الفاتح',
+    switchToDark: 'التبديل إلى الوضع الداكن',
   },
 };

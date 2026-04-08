@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import 'leaflet/dist/leaflet.css';
 import Toolbar from './components/Toolbar';
 import MapView from './components/MapView';
@@ -6,6 +6,8 @@ import Panel from './components/Panel';
 import { CITIES } from './data/cities';
 import { TC_T } from './data/content';
 import { rnd, getHr, ownerPcts } from './lib/utils';
+
+const systemDark = () => window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 export default function App() {
   const [currentCity, setCurrentCity] = useState('berlin');
@@ -15,8 +17,26 @@ export default function App() {
   const [ownerData, setOwnerData] = useState(null);
   const [userTerms, setUserTerms] = useState([]);
   const [lang, setLang] = useState('en');
+  // theme: null = follow system, 'light' = force light, 'dark' = force dark
+  const [theme, setTheme] = useState(null);
 
+  const isDark = theme === 'dark' || (theme === null && systemDark());
   const isRTL = lang === 'ar';
+
+  // Apply theme to <html> so CSS can pick it up
+  useEffect(() => {
+    const root = document.documentElement;
+    if (theme === 'dark') root.dataset.theme = 'dark';
+    else if (theme === 'light') root.dataset.theme = 'light';
+    else delete root.dataset.theme;
+  }, [theme]);
+
+  function handleThemeToggle() {
+    setTheme(prev => {
+      if (prev === null) return isDark ? 'light' : 'dark';
+      return prev === 'dark' ? 'light' : 'dark';
+    });
+  }
 
   function selectLocation(loc) {
     setCurrentLoc(loc);
@@ -81,14 +101,17 @@ export default function App() {
         currentCity={currentCity}
         lang={lang}
         locCount={CITIES[currentCity].locations.length}
+        isDark={isDark}
         onCityChange={handleCityChange}
         onLangChange={handleLangChange}
         onRandom={handleRandom}
+        onThemeToggle={handleThemeToggle}
       />
       <MapView
         currentCity={currentCity}
         currentLocId={currentLoc?.id}
         lang={lang}
+        isDark={isDark}
         onLocationSelect={selectLocation}
       />
       <Panel

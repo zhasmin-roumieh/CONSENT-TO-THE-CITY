@@ -22,8 +22,9 @@
   --color-background-info: #d6e8f5;
 }
 
+/* Auto dark: follows system when user has not manually chosen */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --color-background-primary: #151412;
     --color-background-secondary: #1e1c19;
     --color-background-tertiary: #272420;
@@ -42,6 +43,27 @@
     --color-background-warning: #3a2c08;
     --color-background-info: #0e2840;
   }
+}
+
+/* Manual dark: user explicitly chose dark mode */
+:root[data-theme="dark"] {
+  --color-background-primary: #151412;
+  --color-background-secondary: #1e1c19;
+  --color-background-tertiary: #272420;
+  --color-text-primary: #f0ede8;
+  --color-text-secondary: #c0bbb4;
+  --color-text-tertiary: #7a7570;
+  --color-text-success: #12c49a;
+  --color-text-danger: #e05555;
+  --color-text-warning: #e8a020;
+  --color-text-info: #4aabf5;
+  --color-border-primary: #3a3730;
+  --color-border-secondary: #2e2b26;
+  --color-border-tertiary: #252320;
+  --color-background-success: #0a3028;
+  --color-background-danger: #3a1818;
+  --color-background-warning: #3a2c08;
+  --color-background-info: #0e2840;
 }
 
 html, body { height: 100%; }
@@ -394,3 +416,39 @@ body {
 .intro-title { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-text-tertiary); margin-bottom: 0.6rem; }
 .intro-body { font-size: 13px; color: var(--color-text-secondary); line-height: 1.85; margin-bottom: 0.5rem; }
 .intro-sub { font-size: 11px; color: var(--color-text-tertiary); font-style: italic; }
+
+/* ── Location Photo ── */
+.loc-photo-wrap {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.loc-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.loc-photo-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 50%, var(--color-background-primary) 100%);
+}
+
+/* ── Theme Toggle Button ── */
+.theme-btn {
+  background: var(--color-background-secondary);
+  border: 0.5px solid var(--color-border-secondary);
+  border-radius: 8px;
+  padding: 5px 10px;
+  cursor: pointer;
+  color: var(--color-text-primary);
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.theme-btn:hover { background: var(--color-background-tertiary); }
