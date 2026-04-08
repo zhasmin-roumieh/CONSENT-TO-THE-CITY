@@ -23,7 +23,6 @@ export default function TermsScreen({ loc, cityKey, tcHtml, lang, onAccept, onDe
             alt={loc.name[lang]}
             onError={e => { e.currentTarget.closest('.loc-photo-wrap').style.display = 'none'; }}
           />
-          <div className="loc-photo-gradient" />
         </div>
       )}
 

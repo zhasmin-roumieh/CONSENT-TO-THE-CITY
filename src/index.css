@@ -421,20 +421,20 @@ body {
 .loc-photo-wrap {
   position: relative;
   width: 100%;
-  height: 180px;
-  overflow: hidden;
+  background: #0c0c0c;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-bottom: 0.5px solid var(--color-border-secondary);
 }
 .loc-photo {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-height: 200px;
+  object-fit: contain;
   display: block;
-}
-.loc-photo-gradient {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, transparent 50%, var(--color-background-primary) 100%);
+  filter: grayscale(100%) contrast(1.05) brightness(0.92);
 }
 
 /* ── Theme Toggle Button ── */

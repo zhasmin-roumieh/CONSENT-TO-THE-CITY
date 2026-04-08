@@ -26,7 +26,7 @@ export const WIKI_TITLES = {
   harajuku:            'Harajuku',
   shibuya:             'Shibuya Crossing',
   ueno:                'Ueno Park',
-  tsukiji:             'Tsukiji market',
+  tsukiji:             'Tsukiji',
   yanaka:              'Yanaka, Tokyo',
   asakusa:             'Asakusa',
   akihabara:           'Akihabara',
@@ -42,7 +42,7 @@ export const WIKI_TITLES = {
 
   // ── New York ─────────────────────────────────────────
   centralpark:         'Central Park',
-  highline:            'High Line (New York City)',
+  highline:            'High Line',
   'times-square':      'Times Square',
   'brooklyn-bridge':   'Brooklyn Bridge',
   harlem:              'Harlem',
@@ -52,7 +52,7 @@ export const WIKI_TITLES = {
   // ── Cairo ────────────────────────────────────────────
   tahrir:              'Tahrir Square',
   'khan-khalili':      'Khan el-Khalili',
-  'nile-corniche':     'Corniche, Cairo',
+  'nile-corniche':     'Nile Corniche',
   'city-of-dead':      'City of the Dead, Cairo',
   giza:                'Giza pyramid complex',
   'al-azhar-park':     'Al-Azhar Park',
@@ -61,7 +61,7 @@ export const WIKI_TITLES = {
   dharavi:             'Dharavi',
   'marine-drive':      'Marine Drive, Mumbai',
   gateway:             'Gateway of India',
-  'dhobi-ghat':        'Dhobi Ghat',
+  'dhobi-ghat':        'Dhobi Ghat (Mumbai)',
   juhu:                'Juhu Beach',
   colaba:              'Colaba',
 
