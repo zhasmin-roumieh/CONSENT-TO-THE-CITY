@@ -18,7 +18,7 @@ function Bar({ label, pct, color }) {
   );
 }
 
-export default function AccessGranted({ loc, cityKey, ownerData, userTerms, lang, onAddTerm, onReset }) {
+export default function AccessGranted({ loc, cityKey, ownerData, userTerms, identity, lang, onAddTerm, onReset }) {
   const t = UI[lang];
   const [year, setYear] = useState(2025);
   const [termInput, setTermInput] = useState('');
@@ -61,6 +61,19 @@ export default function AccessGranted({ loc, cityKey, ownerData, userTerms, lang
           <span className="grant-check">✔</span>
           <span className="grant-title">{t.accessGranted}</span>
         </div>
+        {identity ? (
+          <div className="identity-badge">
+            <span style={{ opacity: 0.6, fontSize: 9 }}>▲</span>
+            <span>{identity.name}</span>
+            <span style={{ opacity: 0.5 }}>·</span>
+            <span style={{ opacity: 0.7 }}>{t.identityCategories.find(c => c.value === identity.category)?.label || identity.category}</span>
+          </div>
+        ) : (
+          <div className="identity-badge" style={{ opacity: 0.55 }}>
+            <span style={{ fontSize: 9 }}>○</span>
+            <span>{t.identityIncognito}</span>
+          </div>
+        )}
         <div className="loc-pill">
           <span className="loc-pill-dot" style={{ background: '#1D9E75' }} />
           <span>{loc.name[lang]}</span>

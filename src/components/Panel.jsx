@@ -1,11 +1,12 @@
 import IntroScreen from './IntroScreen';
 import TermsScreen from './TermsScreen';
+import IdentityScreen from './IdentityScreen';
 import AccessGranted from './AccessGranted';
 import AccessDenied from './AccessDenied';
 
 export default function Panel({
-  view, loc, cityKey, tcHtml, ownerData, userTerms, lang,
-  onAccept, onDecline, onAddTerm, onReset, onReconsider,
+  view, loc, cityKey, tcHtml, ownerData, userTerms, identity, lang,
+  onAccept, onDecline, onAddTerm, onReset, onReconsider, onIdentitySet,
 }) {
   return (
     <div className="panel">
@@ -23,6 +24,16 @@ export default function Panel({
         />
       )}
 
+      {view === 'identity' && loc && (
+        <IdentityScreen
+          key={loc.id + '-identity-' + lang}
+          loc={loc}
+          cityKey={cityKey}
+          lang={lang}
+          onIdentitySet={onIdentitySet}
+        />
+      )}
+
       {view === 'granted' && loc && (
         <AccessGranted
           key={loc.id + '-granted-' + lang}
@@ -30,6 +41,7 @@ export default function Panel({
           cityKey={cityKey}
           ownerData={ownerData}
           userTerms={userTerms}
+          identity={identity}
           lang={lang}
           onAddTerm={onAddTerm}
           onReset={onReset}

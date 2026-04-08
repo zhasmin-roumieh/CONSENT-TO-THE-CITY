@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { CITIES } from '../data/cities';
 import { UI } from '../i18n/ui';
 
@@ -8,8 +9,18 @@ const LANGS = [
   { code: 'ar', label: 'AR' },
 ];
 
+function useClock() {
+  const [now, setNow] = useState(new Date());
+  useEffect(() => {
+    const id = setInterval(() => setNow(new Date()), 1000);
+    return () => clearInterval(id);
+  }, []);
+  return `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+}
+
 export default function Toolbar({ currentCity, lang, locCount, isDark, onCityChange, onLangChange, onRandom, onThemeToggle }) {
   const t = UI[lang];
+  const timeStr = useClock();
 
   return (
     <div id="toolbar">
@@ -49,6 +60,7 @@ export default function Toolbar({ currentCity, lang, locCount, isDark, onCityCha
       </button>
 
       <span className="loc-count">{locCount} {t.locations}</span>
+      <span className="toolbar-time">{timeStr}</span>
     </div>
   );
 }

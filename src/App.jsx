@@ -16,6 +16,7 @@ export default function App() {
   const [tcHtml, setTcHtml] = useState('');
   const [ownerData, setOwnerData] = useState(null);
   const [userTerms, setUserTerms] = useState([]);
+  const [identity, setIdentity] = useState(null);
   const [lang, setLang] = useState('en');
   // theme: null = follow system, 'light' = force light, 'dark' = force dark
   const [theme, setTheme] = useState(null);
@@ -61,6 +62,11 @@ export default function App() {
 
   function handleAccept() {
     setOwnerData(ownerPcts());
+    setView('identity');
+  }
+
+  function handleIdentitySet(id) {
+    setIdentity(id);
     setView('granted');
   }
 
@@ -82,6 +88,7 @@ export default function App() {
 
   function handleReset() {
     setCurrentLoc(null);
+    setIdentity(null);
     setView('intro');
   }
 
@@ -121,12 +128,14 @@ export default function App() {
         tcHtml={tcHtml}
         ownerData={ownerData}
         userTerms={userTerms}
+        identity={identity}
         lang={lang}
         onAccept={handleAccept}
         onDecline={handleDecline}
         onReconsider={handleReconsider}
         onAddTerm={handleAddTerm}
         onReset={handleReset}
+        onIdentitySet={handleIdentitySet}
       />
     </div>
   );
