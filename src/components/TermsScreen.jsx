@@ -1,8 +1,7 @@
-import { useState } from 'react';
 import { UI } from '../i18n/ui';
 import { TYPE_COLORS } from '../lib/utils';
 import { CITIES } from '../data/cities';
-import { PHOTOS } from '../data/photos';
+import { useLocationPhoto } from '../lib/useLocationPhoto';
 
 export default function TermsScreen({ loc, cityKey, tcHtml, lang, onAccept, onDecline }) {
   const t = UI[lang];
@@ -10,21 +9,15 @@ export default function TermsScreen({ loc, cityKey, tcHtml, lang, onAccept, onDe
   const cityName = CITIES[cityKey]?.name[lang] || cityKey;
   const now = new Date();
   const ts = `${now.getHours()}:${String(now.getMinutes()).padStart(2, '0')}`;
-  const photoUrl = PHOTOS[loc.id];
-  const [photoOk, setPhotoOk] = useState(true);
+  const photoSrc = useLocationPhoto(loc.id);
 
   return (
     <>
       <div className="panel-accent" style={{ background: `linear-gradient(90deg, ${color}, ${color}88)` }} />
 
-      {photoUrl && photoOk && (
+      {photoSrc && (
         <div className="loc-photo-wrap">
-          <img
-            className="loc-photo"
-            src={photoUrl}
-            alt={loc.name[lang]}
-            onError={() => setPhotoOk(false)}
-          />
+          <img className="loc-photo" src={photoSrc} alt={loc.name[lang]} />
           <div className="loc-photo-gradient" />
         </div>
       )}

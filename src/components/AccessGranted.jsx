@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { UI } from '../i18n/ui';
 import { TYPE_COLORS, shuffle, getTemporalText } from '../lib/utils';
 import { CITIES } from '../data/cities';
+import { useLocationPhoto } from '../lib/useLocationPhoto';
 
 function Bar({ label, pct, color }) {
   return (
@@ -23,6 +24,7 @@ export default function AccessGranted({ loc, cityKey, ownerData, userTerms, lang
   const [termInput, setTermInput] = useState('');
   const color = TYPE_COLORS[loc.type] || '#888888';
   const cityName = CITIES[cityKey]?.name[lang] || cityKey;
+  const photoSrc = useLocationPhoto(loc.id);
 
   const owners = shuffle(loc.owners[lang]);
   const ghosts = shuffle(loc.ghost[lang]);
@@ -42,6 +44,14 @@ export default function AccessGranted({ loc, cityKey, ownerData, userTerms, lang
   return (
     <>
       <div className="panel-accent" style={{ background: `linear-gradient(90deg, #1D9E75, #0f6e5688)` }} />
+
+      {photoSrc && (
+        <div className="loc-photo-wrap">
+          <img className="loc-photo" src={photoSrc} alt={loc.name[lang]} />
+          <div className="loc-photo-gradient" />
+        </div>
+      )}
+
       <div className="panel-inner">
         <div className="grant-header">
           <span className="grant-check">✔</span>
