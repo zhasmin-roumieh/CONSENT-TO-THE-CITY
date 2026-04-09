@@ -6,6 +6,7 @@ import Panel from './components/Panel';
 import SplashScreen from './components/SplashScreen';
 import LoadingScreen from './components/LoadingScreen';
 import MiniMap from './components/MiniMap';
+import VisitCounter from './components/VisitCounter';
 import { CITIES } from './data/cities';
 import { TYPE_COLORS } from './lib/utils';
 import { TC_T } from './data/content';
@@ -147,6 +148,7 @@ export default function App() {
 
   return (
     <div id="app" dir={isRTL ? 'rtl' : 'ltr'}>
+      <VisitCounter />
       <header id="site-header">
         <span
           className="site-title"
