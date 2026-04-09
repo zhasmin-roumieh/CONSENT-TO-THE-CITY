@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import 'leaflet/dist/leaflet.css';
+import 'leaflet/dist/leaflet.css'; // kept for MiniMap (react-leaflet)
 import Toolbar from './components/Toolbar';
 import MapView from './components/MapView';
 import Panel from './components/Panel';

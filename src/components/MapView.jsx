@@ -1,118 +1,222 @@
 import { useEffect, useRef, useState } from 'react';
-import { MapContainer, TileLayer, Marker, useMap, useMapEvents } from 'react-leaflet';
-import L from 'leaflet';
+import maplibregl from 'maplibre-gl';
+import 'maplibre-gl/dist/maplibre-gl.css';
 import { CITIES } from '../data/cities';
 import { TYPE_COLORS } from '../lib/utils';
 
-const DARK_TILE  = 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
-const LIGHT_TILE = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
+const DARK_STYLE  = 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json';
+const LIGHT_STYLE = 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json';
 
-// Panel dimensions — must match CSS (.panel--terms right:16px width:356px)
-const PANEL_RIGHT  = 16;
-const PANEL_WIDTH  = 356;
-const TRIANGLE_Y   = 74; // vertical center of the panel-triangle
+const PANEL_RIGHT = 16;
+const PANEL_WIDTH = 356;
 
-function makeIcon(type, active) {
-  const c = TYPE_COLORS[type] || '#888888';
-  const size = active ? 20 : 13;
-  const halo = active ? size + 14 : size + 6;
-  const svgW = halo + 8;
-  const cx = svgW / 2;
-  const ringHtml = active
-    ? `<div class="marker-pulse" style="position:absolute;inset:0;border-radius:50%;background:${c};opacity:0.3;"></div>`
-    : '';
-  const html = `<div style="position:relative;width:${svgW}px;height:${svgW}px;">
-    ${ringHtml}
-    <svg width="${svgW}" height="${svgW}" viewBox="0 0 ${svgW} ${svgW}" xmlns="http://www.w3.org/2000/svg" style="position:relative;z-index:1;">
-      ${active ? `<circle cx="${cx}" cy="${cx}" r="${halo / 2}" fill="${c}" opacity="0.2"/>` : ''}
-      <circle cx="${cx}" cy="${cx}" r="${size / 2}" fill="${c}" opacity="0.9"/>
-      <circle cx="${cx}" cy="${cx}" r="${size / 2 - 2}" fill="${c}"/>
-    </svg>
-  </div>`;
-  return L.divIcon({ className: '', html, iconSize: [svgW, svgW], iconAnchor: [svgW / 2, svgW / 2] });
-}
-
-function CityFlyTo({ city }) {
-  const map = useMap();
-  useEffect(() => {
-    map.flyTo([city.lat, city.lng], city.zoom, { duration: 1.2 });
-  }, [city]);
-  return null;
-}
-
-// Runs inside MapContainer so it can use useMap/useMapEvents
-function CoordTracker({ loc, onUpdate }) {
-  const map = useMap();
-
-  function calc() {
-    if (!loc) { onUpdate(null); return; }
-    const pt  = map.latLngToContainerPoint([loc.lat, loc.lng]);
-    const sz  = map.getSize();
-    onUpdate({
-      x1: pt.x,
-      y1: pt.y,
-      panelX: sz.x - PANEL_RIGHT - PANEL_WIDTH, // panel's left edge
-      mapH: sz.y,
+function makeMarkerEl(color, active) {
+  const size = active ? 22 : 14;
+  const el = document.createElement('div');
+  Object.assign(el.style, {
+    width: `${size}px`,
+    height: `${size}px`,
+    borderRadius: '50%',
+    background: color,
+    opacity: '0.9',
+    cursor: 'pointer',
+    boxShadow: `0 0 ${active ? 20 : 8}px ${color}`,
+    border: active ? '2.5px solid rgba(255,255,255,0.85)' : `1.5px solid ${color}88`,
+    transition: 'all 0.2s',
+    position: 'relative',
+    zIndex: active ? 10 : 1,
+  });
+  if (active) {
+    const pulse = document.createElement('div');
+    Object.assign(pulse.style, {
+      position: 'absolute',
+      inset: '-6px',
+      borderRadius: '50%',
+      background: color,
+      opacity: '0.25',
+      animation: 'pulse-ring 1.6s ease-out infinite',
     });
+    el.appendChild(pulse);
   }
+  return el;
+}
 
-  useEffect(() => { calc(); }, [loc]);
-  useMapEvents({ move: calc, zoom: calc, resize: calc });
-
-  return null;
+function addBuildingsLayer(map, color) {
+  try {
+    if (map.getLayer('buildings-3d')) map.removeLayer('buildings-3d');
+    // Try common source names used by CARTO and OpenMapTiles-based styles
+    const sources = Object.keys(map.getStyle().sources);
+    const buildingSource = sources.find(s => s === 'carto') || sources[0];
+    if (!buildingSource) return;
+    map.addLayer({
+      id: 'buildings-3d',
+      type: 'fill-extrusion',
+      source: buildingSource,
+      'source-layer': 'building',
+      paint: {
+        'fill-extrusion-color': color || '#888888',
+        'fill-extrusion-height': [
+          'coalesce',
+          ['get', 'render_height'],
+          ['get', 'height'],
+          ['*', ['coalesce', ['get', 'levels'], 2], 3.5],
+          8,
+        ],
+        'fill-extrusion-base': ['coalesce', ['get', 'render_min_height'], 0],
+        'fill-extrusion-opacity': 0,
+      },
+    });
+  } catch (e) {
+    console.warn('3D buildings layer skipped:', e.message);
+  }
 }
 
 export default function MapView({ currentCity, currentLocId, currentLoc, lang, isDark, onLocationSelect }) {
-  const city = CITIES[currentCity];
+  const containerRef = useRef(null);
+  const mapRef = useRef(null);
   const markersRef = useRef({});
-  const tileUrl = isDark ? DARK_TILE : LIGHT_TILE;
+  const currentLocRef = useRef(currentLoc);
+  const onSelectRef = useRef(onLocationSelect);
   const [lineCoords, setLineCoords] = useState(null);
+  const [ready, setReady] = useState(false);
 
+  useEffect(() => { currentLocRef.current = currentLoc; }, [currentLoc]);
+  useEffect(() => { onSelectRef.current = onLocationSelect; }, [onLocationSelect]);
+
+  const city = CITIES[currentCity];
   const locColor = currentLoc ? (TYPE_COLORS[currentLoc.type] || '#888888') : null;
 
-  useEffect(() => {
-    Object.entries(markersRef.current).forEach(([id, m]) => {
-      if (!m) return;
-      const loc = city.locations.find(l => l.id === id);
-      if (loc) m.setIcon(makeIcon(loc.type, id === currentLocId));
+  function calcLine(map) {
+    const loc = currentLocRef.current;
+    if (!loc) { setLineCoords(null); return; }
+    const pt = map.project([loc.lng, loc.lat]);
+    const canvas = map.getCanvas();
+    setLineCoords({
+      x1: pt.x, y1: pt.y,
+      panelX: canvas.offsetWidth - PANEL_RIGHT - PANEL_WIDTH,
+      mapH: canvas.offsetHeight,
     });
-  }, [currentLocId, currentCity]);
+  }
 
-  // Clear line when location is deselected
+  function spawnMarkers(map, cityKey, activeId) {
+    Object.values(markersRef.current).forEach(({ marker }) => marker.remove());
+    markersRef.current = {};
+    CITIES[cityKey].locations.forEach(loc => {
+      const color = TYPE_COLORS[loc.type] || '#888888';
+      const active = loc.id === activeId;
+      const el = makeMarkerEl(color, active);
+      const marker = new maplibregl.Marker({ element: el, anchor: 'center' })
+        .setLngLat([loc.lng, loc.lat])
+        .addTo(map);
+      el.addEventListener('click', e => { e.stopPropagation(); onSelectRef.current(loc); });
+      markersRef.current[loc.id] = { marker, el, loc };
+    });
+  }
+
+  // ── Initialize map once
   useEffect(() => {
-    if (!currentLoc) setLineCoords(null);
-  }, [currentLoc]);
+    if (!containerRef.current) return;
+    const map = new maplibregl.Map({
+      container: containerRef.current,
+      style: isDark ? DARK_STYLE : LIGHT_STYLE,
+      center: [city.lng, city.lat],
+      zoom: city.zoom,
+      pitch: 0,
+      bearing: 0,
+    });
+    map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-left');
+    map.on('load', () => {
+      addBuildingsLayer(map, '#888888');
+      spawnMarkers(map, currentCity, currentLocRef.current?.id);
+      setReady(true);
+    });
+    map.on('move', () => calcLine(map));
+    mapRef.current = map;
+    return () => {
+      map.remove();
+      mapRef.current = null;
+      markersRef.current = {};
+      setReady(false);
+    };
+  }, []);
+
+  // ── Theme switch
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !ready) return;
+    map.setStyle(isDark ? DARK_STYLE : LIGHT_STYLE);
+    map.once('style.load', () => {
+      addBuildingsLayer(map, locColor || '#888888');
+      if (currentLocRef.current) {
+        try { map.setPaintProperty('buildings-3d', 'fill-extrusion-opacity', 0.65); } catch(e) {}
+      }
+    });
+  }, [isDark]);
+
+  // ── City change
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !ready) return;
+    const c = CITIES[currentCity];
+    map.flyTo({ center: [c.lng, c.lat], zoom: c.zoom, pitch: 0, bearing: 0, duration: 1200 });
+    spawnMarkers(map, currentCity, null);
+    setLineCoords(null);
+  }, [currentCity]);
+
+  // ── Active marker update
+  useEffect(() => {
+    Object.values(markersRef.current).forEach(({ el, loc }) => {
+      const color = TYPE_COLORS[loc.type] || '#888888';
+      const active = loc.id === currentLocId;
+      const size = active ? 22 : 14;
+      Object.assign(el.style, {
+        width: `${size}px`, height: `${size}px`,
+        boxShadow: `0 0 ${active ? 20 : 8}px ${color}`,
+        border: active ? '2.5px solid rgba(255,255,255,0.85)' : `1.5px solid ${color}88`,
+      });
+    });
+  }, [currentLocId]);
+
+  // ── 3D / 2D transition on location select
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !ready) return;
+
+    if (currentLoc) {
+      // Fly into 3D view at ~500m zoom
+      map.easeTo({
+        center: [currentLoc.lng, currentLoc.lat],
+        zoom: 17,
+        pitch: 60,
+        bearing: -20,
+        duration: 1400,
+      });
+      const color = TYPE_COLORS[currentLoc.type] || '#888888';
+      try {
+        map.setPaintProperty('buildings-3d', 'fill-extrusion-color', color);
+        map.setPaintProperty('buildings-3d', 'fill-extrusion-opacity', 0.65);
+      } catch(e) {}
+      setTimeout(() => calcLine(map), 1500);
+    } else {
+      // Return to 2D city view
+      const c = CITIES[currentCity];
+      map.easeTo({
+        center: [c.lng, c.lat],
+        zoom: c.zoom,
+        pitch: 0,
+        bearing: 0,
+        duration: 1100,
+      });
+      try { map.setPaintProperty('buildings-3d', 'fill-extrusion-opacity', 0); } catch(e) {}
+      setLineCoords(null);
+    }
+  }, [currentLoc, ready]);
 
   return (
     <div id="map-wrap">
-      <MapContainer
-        center={[city.lat, city.lng]}
-        zoom={city.zoom}
-        style={{ height: '100%', width: '100%' }}
-        zoomControl={true}
-        attributionControl={true}
-      >
-        <TileLayer
-          key={tileUrl}
-          url={tileUrl}
-          attribution='&copy; <a href="https://carto.com">CARTO</a> &copy; <a href="https://www.openstreetmap.org/copyright">OSM</a>'
-          subdomains="abcd"
-          maxZoom={19}
-        />
-        <CityFlyTo city={city} />
-        {city.locations.map(loc => (
-          <Marker
-            key={loc.id}
-            position={[loc.lat, loc.lng]}
-            icon={makeIcon(loc.type, loc.id === currentLocId)}
-            ref={m => { markersRef.current[loc.id] = m; }}
-            eventHandlers={{ click: () => onLocationSelect(loc) }}
-          />
-        ))}
-        <CoordTracker loc={currentLoc} onUpdate={setLineCoords} />
-      </MapContainer>
+      <div ref={containerRef} style={{ height: '100%', width: '100%' }} />
 
-      {/* SVG triangle from dot tip to full panel left edge */}
+      {/* Triangle from dot to panel */}
       {lineCoords && locColor && (
         <svg
           style={{
@@ -128,18 +232,10 @@ export default function MapView({ currentCity, currentLocId, currentLoc, lang, i
               <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
             </filter>
           </defs>
-          {/* Big filled triangle: tip at dot, base = full panel left edge */}
           <polygon
-            points={`
-              ${lineCoords.x1},${lineCoords.y1}
-              ${lineCoords.panelX},0
-              ${lineCoords.panelX},${lineCoords.mapH}
-            `}
-            fill={locColor}
-            fillOpacity={0.18}
-            stroke={locColor}
-            strokeWidth={1.5}
-            strokeOpacity={0.7}
+            points={`${lineCoords.x1},${lineCoords.y1} ${lineCoords.panelX},0 ${lineCoords.panelX},${lineCoords.mapH}`}
+            fill={locColor} fillOpacity={0.18}
+            stroke={locColor} strokeWidth={1.5} strokeOpacity={0.7}
             filter="url(#tri-glow)"
           />
         </svg>
