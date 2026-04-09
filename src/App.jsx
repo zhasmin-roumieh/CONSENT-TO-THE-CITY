@@ -5,7 +5,9 @@ import MapView from './components/MapView';
 import Panel from './components/Panel';
 import SplashScreen from './components/SplashScreen';
 import LoadingScreen from './components/LoadingScreen';
+import MiniMap from './components/MiniMap';
 import { CITIES } from './data/cities';
+import { TYPE_COLORS } from './lib/utils';
 import { TC_T } from './data/content';
 import { rnd, getHr, ownerPcts } from './lib/utils';
 
@@ -165,6 +167,10 @@ export default function App() {
         onThemeToggle={handleThemeToggle}
       />
       <div id="map-stage">
+        <MiniMap
+          currentCity={currentCity}
+          locColor={currentLoc ? (TYPE_COLORS[currentLoc.type] || '#00e87a') : CITY_COLORS[currentCity]}
+        />
         <MapView
           currentCity={currentCity}
           currentLocId={currentLoc?.id}
