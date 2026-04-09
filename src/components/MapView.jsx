@@ -14,40 +14,49 @@ function makeMarkerEl(color, active) {
   const size = active ? 22 : 14;
   const el = document.createElement('div');
   Object.assign(el.style, {
-    width: `${size}px`,
-    height: `${size}px`,
-    borderRadius: '50%',
-    background: color,
-    opacity: '0.9',
+    width: `${size}px`, height: `${size}px`,
+    borderRadius: '50%', background: color, opacity: '0.9',
     cursor: 'pointer',
     boxShadow: `0 0 ${active ? 20 : 8}px ${color}`,
     border: active ? '2.5px solid rgba(255,255,255,0.85)' : `1.5px solid ${color}88`,
-    transition: 'all 0.2s',
-    position: 'relative',
-    zIndex: active ? 10 : 1,
+    transition: 'all 0.2s', position: 'relative', zIndex: active ? 10 : 1,
   });
   if (active) {
     const pulse = document.createElement('div');
     Object.assign(pulse.style, {
-      position: 'absolute',
-      inset: '-6px',
-      borderRadius: '50%',
-      background: color,
-      opacity: '0.25',
-      animation: 'pulse-ring 1.6s ease-out infinite',
+      position: 'absolute', inset: '-6px', borderRadius: '50%',
+      background: color, opacity: '0.25', animation: 'pulse-ring 1.6s ease-out infinite',
     });
     el.appendChild(pulse);
   }
   return el;
 }
 
+function makeCharacterMarkerEl(character) {
+  const el = document.createElement('div');
+  el.className = 'character-3d-marker';
+  el.innerHTML = `
+    <div class="character-3d-bounce">
+      <span class="character-3d-emoji">${character.emoji}</span>
+    </div>
+    <div class="character-3d-shadow"></div>
+  `;
+  el.style.setProperty('--cc', character.color);
+  return el;
+}
+
 function addBuildingsLayer(map, color) {
   try {
     if (map.getLayer('buildings-3d')) map.removeLayer('buildings-3d');
-    // Try common source names used by CARTO and OpenMapTiles-based styles
+    // Find the vector tile source — try known names in order
     const sources = Object.keys(map.getStyle().sources);
-    const buildingSource = sources.find(s => s === 'carto') || sources[0];
+    const buildingSource =
+      sources.find(s => s === 'carto') ||
+      sources.find(s => s === 'openmaptiles') ||
+      sources.find(s => s === 'composite') ||
+      sources.find(s => map.getStyle().sources[s].type === 'vector');
     if (!buildingSource) return;
+
     map.addLayer({
       id: 'buildings-3d',
       type: 'fill-extrusion',
@@ -59,26 +68,29 @@ function addBuildingsLayer(map, color) {
           'coalesce',
           ['get', 'render_height'],
           ['get', 'height'],
-          ['*', ['coalesce', ['get', 'levels'], 2], 3.5],
+          ['*', ['coalesce', ['get', 'levels'], ['get', 'building:levels'], 2], 3.5],
           8,
         ],
-        'fill-extrusion-base': ['coalesce', ['get', 'render_min_height'], 0],
+        'fill-extrusion-base': ['coalesce', ['get', 'render_min_height'], ['get', 'min_height'], 0],
         'fill-extrusion-opacity': 0,
+        'fill-extrusion-vertical-gradient': true,
       },
     });
   } catch (e) {
-    console.warn('3D buildings layer skipped:', e.message);
+    console.warn('3D buildings:', e.message);
   }
 }
 
-export default function MapView({ currentCity, currentLocId, currentLoc, lang, isDark, onLocationSelect }) {
+export default function MapView({ currentCity, currentLocId, currentLoc, character, lang, isDark, onLocationSelect }) {
   const containerRef = useRef(null);
   const mapRef = useRef(null);
   const markersRef = useRef({});
+  const characterMarkerRef = useRef(null);
   const currentLocRef = useRef(currentLoc);
   const onSelectRef = useRef(onLocationSelect);
   const [lineCoords, setLineCoords] = useState(null);
   const [ready, setReady] = useState(false);
+  const [show3DHint, setShow3DHint] = useState(false);
 
   useEffect(() => { currentLocRef.current = currentLoc; }, [currentLoc]);
   useEffect(() => { onSelectRef.current = onLocationSelect; }, [onLocationSelect]);
@@ -113,7 +125,21 @@ export default function MapView({ currentCity, currentLocId, currentLoc, lang, i
     });
   }
 
-  // ── Initialize map once
+  function placeCharacterMarker(map, loc) {
+    if (characterMarkerRef.current) {
+      characterMarkerRef.current.remove();
+      characterMarkerRef.current = null;
+    }
+    if (!loc || !character) return;
+    // Offset slightly so character doesn't sit exactly on the dot
+    const el = makeCharacterMarkerEl(character);
+    const marker = new maplibregl.Marker({ element: el, anchor: 'bottom' })
+      .setLngLat([loc.lng + 0.0002, loc.lat + 0.0001])
+      .addTo(map);
+    characterMarkerRef.current = marker;
+  }
+
+  // ── Initialize map
   useEffect(() => {
     if (!containerRef.current) return;
     const map = new maplibregl.Map({
@@ -121,10 +147,10 @@ export default function MapView({ currentCity, currentLocId, currentLoc, lang, i
       style: isDark ? DARK_STYLE : LIGHT_STYLE,
       center: [city.lng, city.lat],
       zoom: city.zoom,
-      pitch: 0,
-      bearing: 0,
+      pitch: 0, bearing: 0,
     });
-    map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-left');
+    // Place controls bottom-left so minimap doesn't cover them
+    map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'bottom-left');
     map.on('load', () => {
       addBuildingsLayer(map, '#888888');
       spawnMarkers(map, currentCity, currentLocRef.current?.id);
@@ -136,6 +162,7 @@ export default function MapView({ currentCity, currentLocId, currentLoc, lang, i
       map.remove();
       mapRef.current = null;
       markersRef.current = {};
+      characterMarkerRef.current = null;
       setReady(false);
     };
   }, []);
@@ -148,7 +175,7 @@ export default function MapView({ currentCity, currentLocId, currentLoc, lang, i
     map.once('style.load', () => {
       addBuildingsLayer(map, locColor || '#888888');
       if (currentLocRef.current) {
-        try { map.setPaintProperty('buildings-3d', 'fill-extrusion-opacity', 0.65); } catch(e) {}
+        try { map.setPaintProperty('buildings-3d', 'fill-extrusion-opacity', 0.7); } catch(e) {}
       }
     });
   }, [isDark]);
@@ -160,7 +187,9 @@ export default function MapView({ currentCity, currentLocId, currentLoc, lang, i
     const c = CITIES[currentCity];
     map.flyTo({ center: [c.lng, c.lat], zoom: c.zoom, pitch: 0, bearing: 0, duration: 1200 });
     spawnMarkers(map, currentCity, null);
+    placeCharacterMarker(map, null);
     setLineCoords(null);
+    setShow3DHint(false);
   }, [currentCity]);
 
   // ── Active marker update
@@ -177,38 +206,36 @@ export default function MapView({ currentCity, currentLocId, currentLoc, lang, i
     });
   }, [currentLocId]);
 
-  // ── 3D / 2D transition on location select
+  // ── 3D / 2D transition
   useEffect(() => {
     const map = mapRef.current;
     if (!map || !ready) return;
 
     if (currentLoc) {
-      // Fly into 3D view at ~500m zoom
       map.easeTo({
         center: [currentLoc.lng, currentLoc.lat],
-        zoom: 17,
-        pitch: 60,
-        bearing: -20,
+        zoom: 17.5,
+        pitch: 65,
+        bearing: -30,
         duration: 1400,
       });
       const color = TYPE_COLORS[currentLoc.type] || '#888888';
       try {
         map.setPaintProperty('buildings-3d', 'fill-extrusion-color', color);
-        map.setPaintProperty('buildings-3d', 'fill-extrusion-opacity', 0.65);
+        map.setPaintProperty('buildings-3d', 'fill-extrusion-opacity', 0.7);
       } catch(e) {}
-      setTimeout(() => calcLine(map), 1500);
+      setTimeout(() => {
+        calcLine(map);
+        placeCharacterMarker(map, currentLoc);
+        setShow3DHint(true);
+      }, 1500);
     } else {
-      // Return to 2D city view
       const c = CITIES[currentCity];
-      map.easeTo({
-        center: [c.lng, c.lat],
-        zoom: c.zoom,
-        pitch: 0,
-        bearing: 0,
-        duration: 1100,
-      });
+      map.easeTo({ center: [c.lng, c.lat], zoom: c.zoom, pitch: 0, bearing: 0, duration: 1100 });
       try { map.setPaintProperty('buildings-3d', 'fill-extrusion-opacity', 0); } catch(e) {}
+      placeCharacterMarker(map, null);
       setLineCoords(null);
+      setShow3DHint(false);
     }
   }, [currentLoc, ready]);
 
@@ -216,16 +243,18 @@ export default function MapView({ currentCity, currentLocId, currentLoc, lang, i
     <div id="map-wrap">
       <div ref={containerRef} style={{ height: '100%', width: '100%' }} />
 
+      {/* 3D navigation hint */}
+      {show3DHint && (
+        <div className="hint-3d">
+          <span>🖱 SCROLL to orbit</span>
+          <span className="hint-3d-sep">·</span>
+          <span>ESC to exit</span>
+        </div>
+      )}
+
       {/* Triangle from dot to panel */}
       {lineCoords && locColor && (
-        <svg
-          style={{
-            position: 'absolute', inset: 0,
-            width: '100%', height: '100%',
-            pointerEvents: 'none', zIndex: 798,
-            overflow: 'visible',
-          }}
-        >
+        <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 798, overflow: 'visible' }}>
           <defs>
             <filter id="tri-glow">
               <feGaussianBlur stdDeviation="4" result="blur" />

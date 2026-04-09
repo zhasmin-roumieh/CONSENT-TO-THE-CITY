@@ -1197,23 +1197,112 @@ body {
   white-space: nowrap;
 }
 
-/* ── Leaflet zoom buttons — theme-aware ── */
-.leaflet-bar a,
-.leaflet-bar a:hover {
-  background-color: var(--color-background-secondary) !important;
-  color: var(--color-text-primary) !important;
-  border-color: var(--color-border-secondary) !important;
-  font-family: 'Orbitron', monospace !important;
-  font-size: 16px !important;
-  font-weight: 700 !important;
-  line-height: 26px !important;
-}
-.leaflet-bar a:hover {
-  background-color: var(--color-background-tertiary) !important;
-}
-.leaflet-bar {
+/* ── MapLibre zoom/nav buttons — theme-aware ── */
+.maplibregl-ctrl-group {
+  background: var(--color-background-secondary) !important;
   border: 1px solid var(--color-border-secondary) !important;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.25) !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.35) !important;
   border-radius: 8px !important;
   overflow: hidden;
+}
+.maplibregl-ctrl-group button {
+  background-color: var(--color-background-secondary) !important;
+  color: var(--color-text-primary) !important;
+  border-bottom: 1px solid var(--color-border-secondary) !important;
+  width: 32px !important;
+  height: 32px !important;
+}
+.maplibregl-ctrl-group button:last-child {
+  border-bottom: none !important;
+}
+.maplibregl-ctrl-group button:hover {
+  background-color: var(--color-background-tertiary) !important;
+}
+/* Override the SVG icon color so +/- are visible in both themes */
+.maplibregl-ctrl-zoom-in .maplibregl-ctrl-icon,
+.maplibregl-ctrl-zoom-out .maplibregl-ctrl-icon {
+  filter: var(--map-btn-icon-filter, none);
+}
+:root[data-theme="dark"] .maplibregl-ctrl-zoom-in .maplibregl-ctrl-icon,
+:root[data-theme="dark"] .maplibregl-ctrl-zoom-out .maplibregl-ctrl-icon {
+  filter: invert(1);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .maplibregl-ctrl-zoom-in .maplibregl-ctrl-icon,
+  :root:not([data-theme="light"]) .maplibregl-ctrl-zoom-out .maplibregl-ctrl-icon {
+    filter: invert(1);
+  }
+}
+
+/* ── 3D hint overlay ── */
+.hint-3d {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 900;
+  background: rgba(0,0,0,0.65);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 24px;
+  padding: 8px 20px;
+  font-family: 'Orbitron', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.85);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  backdrop-filter: blur(8px);
+  pointer-events: none;
+  animation: hint-fade-in 0.5s ease both;
+  white-space: nowrap;
+}
+.hint-3d-sep {
+  opacity: 0.4;
+}
+@keyframes hint-fade-in {
+  from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* ── Character 3D marker ── */
+.character-3d-marker {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+}
+.character-3d-bounce {
+  animation: char-bounce 0.7s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 8px var(--cc, #fff));
+}
+.character-3d-emoji {
+  font-size: 28px;
+  line-height: 1;
+  display: block;
+}
+.character-3d-shadow {
+  width: 20px;
+  height: 6px;
+  background: rgba(0,0,0,0.35);
+  border-radius: 50%;
+  margin-top: 2px;
+  animation: shadow-pulse 0.7s ease-in-out infinite alternate;
+  filter: blur(2px);
+}
+@keyframes char-bounce {
+  from { transform: translateY(0px); }
+  to   { transform: translateY(-10px); }
+}
+@keyframes shadow-pulse {
+  from { transform: scaleX(1);   opacity: 0.35; }
+  to   { transform: scaleX(0.6); opacity: 0.15; }
+}
+
+/* ── Active marker pulse ring ── */
+@keyframes pulse-ring {
+  0%   { transform: scale(1);   opacity: 0.25; }
+  100% { transform: scale(2.2); opacity: 0; }
 }

@@ -134,6 +134,14 @@ export default function App() {
     setView('intro');
   }
 
+  useEffect(() => {
+    function handleKeyDown(e) {
+      if (e.key === 'Escape' && view !== 'intro') handleReset();
+    }
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [view]);
+
   function handleLangChange(newLang) {
     if (DEV_MODE) return;
     setLang(newLang);
@@ -195,6 +203,7 @@ export default function App() {
           currentCity={currentCity}
           currentLocId={currentLoc?.id}
           currentLoc={currentLoc}
+          character={character}
           lang={lang}
           isDark={isDark}
           onLocationSelect={selectLocation}
