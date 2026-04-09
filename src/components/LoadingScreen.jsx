@@ -53,7 +53,6 @@ export default function LoadingScreen({ cityKey, onDone }) {
 
   return (
     <div className="loading-screen">
-      <div className="splash-scanlines" />
       <div className="loading-city" style={{ '--cc': color, '--cg': color + '55' }}>
         {city.name.en.toUpperCase()}
       </div>

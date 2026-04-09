@@ -12,7 +12,7 @@ import { rnd, getHr, ownerPcts } from './lib/utils';
 // ─── DEV MODE ───────────────────────────────────────────────────────────────
 // Set to true while testing: locks city to Berlin, English only, skips splash.
 // Change to false when you're ready to test the full app.
-const DEV_MODE = true;
+const DEV_MODE = false;
 // ────────────────────────────────────────────────────────────────────────────
 
 const systemDark = () => window.matchMedia('(prefers-color-scheme: dark)').matches;
