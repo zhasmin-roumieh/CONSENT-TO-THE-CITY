@@ -728,14 +728,19 @@ body {
 .splash-bg-city {
   position: absolute;
   font-family: 'Press Start 2P', monospace;
-  color: #ffffff;
   white-space: nowrap;
-  animation: bg-drift 8s ease-in-out infinite alternate;
+  animation: city-blink var(--dur, 2s) step-end infinite;
+  text-shadow: 0 0 8px currentColor;
 }
 
-@keyframes bg-drift {
-  from { transform: translateY(0) rotate(var(--r, 0deg)); }
-  to   { transform: translateY(-8px) rotate(var(--r, 0deg)); }
+@keyframes city-blink {
+  0%   { opacity: 0.55; }
+  20%  { opacity: 0.08; }
+  35%  { opacity: 0.5; }
+  50%  { opacity: 0.04; }
+  65%  { opacity: 0.45; }
+  80%  { opacity: 0.12; }
+  100% { opacity: 0.55; }
 }
 
 /* Center gray panel */
