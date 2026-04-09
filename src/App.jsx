@@ -168,6 +168,7 @@ export default function App() {
         <MapView
           currentCity={currentCity}
           currentLocId={currentLoc?.id}
+          currentLoc={currentLoc}
           lang={lang}
           isDark={isDark}
           onLocationSelect={selectLocation}
