@@ -80,10 +80,15 @@ export default function App() {
       ambientPlayer.stop();
       setMusicOn(false);
     } else {
-      ambientPlayer.play();
+      ambientPlayer.play(currentCity);
       setMusicOn(true);
     }
   }
+
+  // When city changes while music is on, crossfade to new city's music
+  useEffect(() => {
+    if (musicOn) ambientPlayer.setCity(currentCity);
+  }, [currentCity]);
 
   function handleThemeToggle() {
     setTheme(prev => {

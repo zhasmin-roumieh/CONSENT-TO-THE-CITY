@@ -150,7 +150,7 @@ export default function MapView({ currentCity, currentLocId, currentLoc, charact
       pitch: 0, bearing: 0,
     });
     // Place controls bottom-left so minimap doesn't cover them
-    map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'bottom-left');
+    map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
     map.on('load', () => {
       addBuildingsLayer(map, '#888888');
       spawnMarkers(map, currentCity, currentLocRef.current?.id);
@@ -246,7 +246,9 @@ export default function MapView({ currentCity, currentLocId, currentLoc, charact
       {/* 3D navigation hint */}
       {show3DHint && (
         <div className="hint-3d">
-          <span>🖱 SCROLL to orbit</span>
+          <span>SCROLL to zoom</span>
+          <span className="hint-3d-sep">·</span>
+          <span>RIGHT-DRAG to orbit</span>
           <span className="hint-3d-sep">·</span>
           <span>ESC to exit</span>
         </div>

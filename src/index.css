@@ -206,7 +206,7 @@ body {
 /* ── Stats Panel ── */
 .stats-panel {
   position: absolute;
-  bottom: 24px;
+  bottom: 60px;
   right: 20px;
   z-index: 800;
   background: var(--panel-bg);
