@@ -37,6 +37,7 @@ export default function MiniMap({ currentCity, locColor }) {
 
         {/* Country-area glow — large soft circle around the city */}
         <CircleMarker
+          key={`outer-${color}`}
           center={[city.lat, city.lng]}
           radius={38}
           fillColor={color}
@@ -47,6 +48,7 @@ export default function MiniMap({ currentCity, locColor }) {
         />
         {/* Inner glow ring */}
         <CircleMarker
+          key={`inner-${color}`}
           center={[city.lat, city.lng]}
           radius={18}
           fillColor={color}
@@ -56,6 +58,7 @@ export default function MiniMap({ currentCity, locColor }) {
         />
         {/* City dot */}
         <CircleMarker
+          key={`dot-${color}`}
           center={[city.lat, city.lng]}
           radius={5}
           fillColor={color}
