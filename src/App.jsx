@@ -7,6 +7,7 @@ import SplashScreen from './components/SplashScreen';
 import LoadingScreen from './components/LoadingScreen';
 import MiniMap from './components/MiniMap';
 import StatsPanel from './components/StatsPanel';
+import CharacterSelect from './components/CharacterSelect';
 import { CITIES } from './data/cities';
 import { TYPE_COLORS } from './lib/utils';
 import { TC_T } from './data/content';
@@ -32,8 +33,9 @@ const CITY_COLORS = {
 const systemDark = () => window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 export default function App() {
-  // 'splash' → 'loading' → 'app'
+  // 'splash' → 'loading' → 'charselect' → 'app'
   const [phase, setPhase] = useState(DEV_MODE ? 'app' : 'splash');
+  const [character, setCharacter] = useState(null);
 
   const [currentCity, setCurrentCity] = useState('berlin');
   const [currentLoc, setCurrentLoc] = useState(null);
@@ -63,6 +65,11 @@ export default function App() {
   }
 
   function handleLoadingDone() {
+    setPhase('charselect');
+  }
+
+  function handleCharacterSelect(c) {
+    setCharacter(c);
     setPhase('app');
   }
 
@@ -146,6 +153,10 @@ export default function App() {
     return <LoadingScreen cityKey={currentCity} onDone={handleLoadingDone} />;
   }
 
+  if (phase === 'charselect') {
+    return <CharacterSelect cityKey={currentCity} onSelect={handleCharacterSelect} />;
+  }
+
   return (
     <div id="app" dir={isRTL ? 'rtl' : 'ltr'}>
       <header id="site-header">
@@ -156,6 +167,12 @@ export default function App() {
           CONSENT TO THE CITY
         </span>
         <span className="site-subtitle">urban access simulation</span>
+        {character && (
+          <div className="character-badge" style={{ '--cc': character.color }}>
+            <span className="character-badge-emoji">{character.emoji}</span>
+            <span className="character-badge-name">{character.name}</span>
+          </div>
+        )}
       </header>
       <Toolbar
         currentCity={currentCity}

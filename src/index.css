@@ -1045,6 +1045,158 @@ body {
   transition: color 0.3s;
 }
 
+/* ── Character Select ── */
+.charselect {
+  position: fixed;
+  inset: 0;
+  background: #04040a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.charselect-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.charselect-eyebrow {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  color: #2a2a3a;
+  letter-spacing: 0.2em;
+}
+
+.charselect-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 20px;
+  color: #00e87a;
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 30px rgba(0,232,122,0.7), 0 0 8px rgba(0,232,122,0.4);
+}
+
+.charselect-sub {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 11px;
+  color: #2e2e40;
+  letter-spacing: 0.12em;
+}
+
+.charselect-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  padding: 0 40px;
+  width: 100%;
+  max-width: 920px;
+}
+
+.charselect-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 14px;
+  padding: 22px 12px 16px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s, background 0.18s;
+  position: relative;
+  overflow: hidden;
+}
+
+.charselect-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 60%, var(--cc) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.charselect-card--hov::before { opacity: 0.12; }
+
+.charselect-card--hov {
+  border-color: var(--cc);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 36px color-mix(in srgb, var(--cc) 30%, transparent),
+              0 0 0 1px var(--cc);
+}
+
+.charselect-card--clk {
+  transform: scale(0.94);
+  box-shadow: 0 0 60px var(--cc);
+  border-color: var(--cc);
+}
+
+.charselect-emoji {
+  font-size: 38px;
+  line-height: 1;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 0 8px var(--cc));
+  transition: filter 0.2s;
+}
+
+.charselect-card--hov .charselect-emoji {
+  filter: drop-shadow(0 0 16px var(--cc));
+}
+
+.charselect-name {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: var(--cc);
+  letter-spacing: 0.06em;
+  text-align: center;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+.charselect-desc {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 8.5px;
+  color: #2e2e40;
+  text-align: center;
+  line-height: 1.55;
+  letter-spacing: 0.03em;
+  position: relative;
+  z-index: 1;
+  transition: color 0.2s;
+}
+
+.charselect-card--hov .charselect-desc { color: #555566; }
+
+/* ── Character badge in header ── */
+.character-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--cc);
+  border-radius: 10px;
+  padding: 6px 14px 6px 10px;
+  background: color-mix(in srgb, var(--cc) 10%, transparent);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--cc) 20%, transparent);
+  margin-left: auto;
+}
+
+.character-badge-emoji { font-size: 20px; line-height: 1; }
+
+.character-badge-name {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: var(--cc);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
 /* ── Leaflet zoom buttons — theme-aware ── */
 .leaflet-bar a,
 .leaflet-bar a:hover {
