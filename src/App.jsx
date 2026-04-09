@@ -15,6 +15,17 @@ import { rnd, getHr, ownerPcts } from './lib/utils';
 const DEV_MODE = false;
 // ────────────────────────────────────────────────────────────────────────────
 
+const CITY_COLORS = {
+  berlin:  '#00e87a',
+  paris:   '#ff2d9b',
+  tokyo:   '#ff4422',
+  london:  '#2299ff',
+  newyork: '#ffcc00',
+  cairo:   '#ff8800',
+  mumbai:  '#cc44ff',
+  beirut:  '#00ffee',
+};
+
 const systemDark = () => window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 export default function App() {
@@ -135,7 +146,12 @@ export default function App() {
   return (
     <div id="app" dir={isRTL ? 'rtl' : 'ltr'}>
       <header id="site-header">
-        <span className="site-title">CONSENT TO THE CITY</span>
+        <span
+          className="site-title"
+          style={{ '--title-color': CITY_COLORS[currentCity] || '#00e87a' }}
+        >
+          CONSENT TO THE CITY
+        </span>
         <span className="site-subtitle">urban access simulation</span>
       </header>
       <Toolbar

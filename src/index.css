@@ -185,11 +185,13 @@ body {
 .site-title {
   font-family: 'Press Start 2P', monospace;
   font-size: 51px;
-  color: #00e87a;
+  color: var(--title-color, #00e87a);
   letter-spacing: 0.06em;
   line-height: 1.2;
-  text-shadow: 0 0 40px rgba(0, 232, 122, 0.8), 0 0 12px rgba(0, 232, 122, 0.5);
+  text-shadow: 0 0 40px color-mix(in srgb, var(--title-color, #00e87a) 80%, transparent),
+               0 0 12px color-mix(in srgb, var(--title-color, #00e87a) 50%, transparent);
   white-space: nowrap;
+  transition: color 0.6s ease, text-shadow 0.6s ease;
 }
 
 .site-subtitle {
@@ -719,29 +721,41 @@ body {
   z-index: 9999;
 }
 
-/* Scattered world city names */
+/* Scrolling city name rows */
 .splash-bg {
   position: absolute;
   inset: 0;
   pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  overflow: hidden;
+}
+
+.splash-bg-row {
+  overflow: hidden;
+  width: 100%;
+}
+
+.splash-bg-track {
+  display: flex;
+  gap: 48px;
+  width: max-content;
+  animation: scroll-ltr linear infinite;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 11px;
+  text-shadow: 0 0 10px currentColor;
+  opacity: 0.35;
 }
 
 .splash-bg-city {
-  position: absolute;
-  font-family: 'Press Start 2P', monospace;
   white-space: nowrap;
-  animation: city-blink var(--dur, 2s) step-end infinite;
-  text-shadow: 0 0 8px currentColor;
+  flex-shrink: 0;
 }
 
-@keyframes city-blink {
-  0%   { opacity: 0.55; }
-  20%  { opacity: 0.08; }
-  35%  { opacity: 0.5; }
-  50%  { opacity: 0.04; }
-  65%  { opacity: 0.45; }
-  80%  { opacity: 0.12; }
-  100% { opacity: 0.55; }
+@keyframes scroll-ltr {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0%); }
 }
 
 /* Center gray panel */
