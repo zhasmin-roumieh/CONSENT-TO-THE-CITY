@@ -54,7 +54,7 @@ export default function MapView({ currentCity, currentLocId, lang, isDark, onLoc
       <MapContainer
         center={[city.lat, city.lng]}
         zoom={city.zoom}
-        style={{ height: '420px', width: '100%' }}
+        style={{ height: '100%', width: '100%' }}
         zoomControl={true}
         attributionControl={true}
       >

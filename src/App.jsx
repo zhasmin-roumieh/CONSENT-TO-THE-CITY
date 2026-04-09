@@ -7,6 +7,12 @@ import { CITIES } from './data/cities';
 import { TC_T } from './data/content';
 import { rnd, getHr, ownerPcts } from './lib/utils';
 
+// ─── DEV MODE ───────────────────────────────────────────────────────────────
+// Set to true while testing: locks city to Berlin and language to English.
+// Change to false when you're ready to test the full app.
+const DEV_MODE = true;
+// ────────────────────────────────────────────────────────────────────────────
+
 const systemDark = () => window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 export default function App() {
@@ -49,6 +55,7 @@ export default function App() {
   }
 
   function handleCityChange(key) {
+    if (DEV_MODE) return;
     setCurrentCity(key);
     setCurrentLoc(null);
     setView('intro');
@@ -93,6 +100,7 @@ export default function App() {
   }
 
   function handleLangChange(newLang) {
+    if (DEV_MODE) return;
     setLang(newLang);
     if (view === 'terms' && currentLoc) {
       const hr = getHr();
@@ -104,6 +112,10 @@ export default function App() {
 
   return (
     <div id="app" dir={isRTL ? 'rtl' : 'ltr'}>
+      <header id="site-header">
+        <span className="site-title">CONSENT TO THE CITY</span>
+        <span className="site-subtitle">urban access simulation</span>
+      </header>
       <Toolbar
         currentCity={currentCity}
         lang={lang}
@@ -114,29 +126,31 @@ export default function App() {
         onRandom={handleRandom}
         onThemeToggle={handleThemeToggle}
       />
-      <MapView
-        currentCity={currentCity}
-        currentLocId={currentLoc?.id}
-        lang={lang}
-        isDark={isDark}
-        onLocationSelect={selectLocation}
-      />
-      <Panel
-        view={view}
-        loc={currentLoc}
-        cityKey={currentCity}
-        tcHtml={tcHtml}
-        ownerData={ownerData}
-        userTerms={userTerms}
-        identity={identity}
-        lang={lang}
-        onAccept={handleAccept}
-        onDecline={handleDecline}
-        onReconsider={handleReconsider}
-        onAddTerm={handleAddTerm}
-        onReset={handleReset}
-        onIdentitySet={handleIdentitySet}
-      />
+      <div id="map-stage">
+        <MapView
+          currentCity={currentCity}
+          currentLocId={currentLoc?.id}
+          lang={lang}
+          isDark={isDark}
+          onLocationSelect={selectLocation}
+        />
+        <Panel
+          view={view}
+          loc={currentLoc}
+          cityKey={currentCity}
+          tcHtml={tcHtml}
+          ownerData={ownerData}
+          userTerms={userTerms}
+          identity={identity}
+          lang={lang}
+          onAccept={handleAccept}
+          onDecline={handleDecline}
+          onReconsider={handleReconsider}
+          onAddTerm={handleAddTerm}
+          onReset={handleReset}
+          onIdentitySet={handleIdentitySet}
+        />
+      </div>
     </div>
   );
 }

@@ -9,7 +9,7 @@ export default function Panel({
   onAccept, onDecline, onAddTerm, onReset, onReconsider, onIdentitySet,
 }) {
   return (
-    <div className="panel">
+    <div className={`panel panel--${view}`}>
       {view === 'intro' && <IntroScreen lang={lang} />}
 
       {view === 'terms' && loc && (
