@@ -3,13 +3,21 @@ import TermsScreen from './TermsScreen';
 import IdentityScreen from './IdentityScreen';
 import AccessGranted from './AccessGranted';
 import AccessDenied from './AccessDenied';
+import { TYPE_COLORS } from '../lib/utils';
 
 export default function Panel({
   view, loc, cityKey, tcHtml, ownerData, userTerms, identity, lang,
   onAccept, onDecline, onAddTerm, onReset, onReconsider, onIdentitySet,
 }) {
+  const locColor = loc ? (TYPE_COLORS[loc.type] || '#888888') : '#888888';
+  const showTriangle = view !== 'intro' && loc;
+
   return (
-    <div className={`panel panel--${view}`}>
+    <>
+      {showTriangle && (
+        <div className="panel-triangle" style={{ '--loc-color': locColor }} />
+      )}
+    <div className={`panel panel--${view}`} style={{ '--loc-color': locColor }}>
       {view === 'intro' && <IntroScreen lang={lang} />}
 
       {view === 'terms' && loc && (
@@ -59,5 +67,6 @@ export default function Panel({
         />
       )}
     </div>
+    </>
   );
 }
