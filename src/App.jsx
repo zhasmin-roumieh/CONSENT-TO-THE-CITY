@@ -169,7 +169,7 @@ export default function App() {
       <div id="map-stage">
         <MiniMap
           currentCity={currentCity}
-          locColor={currentLoc ? (TYPE_COLORS[currentLoc.type] || '#00e87a') : CITY_COLORS[currentCity]}
+          locColor={CITY_COLORS[currentCity] || '#00e87a'}
         />
         <MapView
           currentCity={currentCity}
