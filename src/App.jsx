@@ -6,7 +6,7 @@ import Panel from './components/Panel';
 import SplashScreen from './components/SplashScreen';
 import LoadingScreen from './components/LoadingScreen';
 import MiniMap from './components/MiniMap';
-import VisitCounter from './components/VisitCounter';
+import StatsPanel from './components/StatsPanel';
 import { CITIES } from './data/cities';
 import { TYPE_COLORS } from './lib/utils';
 import { TC_T } from './data/content';
@@ -148,7 +148,6 @@ export default function App() {
 
   return (
     <div id="app" dir={isRTL ? 'rtl' : 'ltr'}>
-      <VisitCounter />
       <header id="site-header">
         <span
           className="site-title"
@@ -174,6 +173,7 @@ export default function App() {
           locColor={CITY_COLORS[currentCity] || '#00e87a'}
           isDark={isDark}
         />
+        {view === 'intro' && <StatsPanel />}
         <MapView
           currentCity={currentCity}
           currentLocId={currentLoc?.id}

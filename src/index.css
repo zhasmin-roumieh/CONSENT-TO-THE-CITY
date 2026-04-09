@@ -170,35 +170,6 @@ body {
 }
 [dir="rtl"] .loc-count { margin-left: 0; margin-right: auto; }
 
-/* ── Visit Counter ── */
-.visit-counter {
-  position: fixed;
-  top: 12px;
-  right: 18px;
-  z-index: 9000;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 2px;
-  pointer-events: none;
-}
-
-.visit-counter-num {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 18px;
-  color: var(--color-text-primary);
-  letter-spacing: 0.06em;
-  line-height: 1;
-  opacity: 0.7;
-}
-
-.visit-counter-label {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 7px;
-  color: var(--color-text-tertiary);
-  letter-spacing: 0.18em;
-}
-
 /* ── Site Header ── */
 #site-header {
   background: #06060a;
@@ -230,6 +201,68 @@ body {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   white-space: nowrap;
+}
+
+/* ── Stats Panel ── */
+.stats-panel {
+  position: absolute;
+  bottom: 24px;
+  right: 20px;
+  z-index: 800;
+  background: var(--panel-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--color-border-secondary);
+  border-radius: 14px;
+  padding: 16px 22px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  animation: float-in-up 0.35s cubic-bezier(0.22,1,0.36,1) both;
+  min-width: 220px;
+}
+
+.stats-panel-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  letter-spacing: 0.18em;
+  color: var(--color-text-tertiary);
+  margin-bottom: 14px;
+}
+
+.stats-row {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.stats-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.stats-divider {
+  width: 1px;
+  height: 36px;
+  background: var(--color-border-secondary);
+  margin: 0 8px;
+}
+
+.stats-value {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 20px;
+  color: var(--color-text-primary);
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.stats-label {
+  font-family: 'Orbitron', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
 }
 
 /* ── Mini Map ── */
