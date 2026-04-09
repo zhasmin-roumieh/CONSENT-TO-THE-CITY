@@ -3,12 +3,14 @@ import 'leaflet/dist/leaflet.css';
 import Toolbar from './components/Toolbar';
 import MapView from './components/MapView';
 import Panel from './components/Panel';
+import SplashScreen from './components/SplashScreen';
+import LoadingScreen from './components/LoadingScreen';
 import { CITIES } from './data/cities';
 import { TC_T } from './data/content';
 import { rnd, getHr, ownerPcts } from './lib/utils';
 
 // ─── DEV MODE ───────────────────────────────────────────────────────────────
-// Set to true while testing: locks city to Berlin and language to English.
+// Set to true while testing: locks city to Berlin, English only, skips splash.
 // Change to false when you're ready to test the full app.
 const DEV_MODE = true;
 // ────────────────────────────────────────────────────────────────────────────
@@ -16,6 +18,9 @@ const DEV_MODE = true;
 const systemDark = () => window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 export default function App() {
+  // 'splash' → 'loading' → 'app'
+  const [phase, setPhase] = useState(DEV_MODE ? 'app' : 'splash');
+
   const [currentCity, setCurrentCity] = useState('berlin');
   const [currentLoc, setCurrentLoc] = useState(null);
   const [view, setView] = useState('intro');
@@ -24,19 +29,28 @@ export default function App() {
   const [userTerms, setUserTerms] = useState([]);
   const [identity, setIdentity] = useState(null);
   const [lang, setLang] = useState('en');
-  // theme: null = follow system, 'light' = force light, 'dark' = force dark
   const [theme, setTheme] = useState('dark');
 
   const isDark = theme === 'dark' || (theme === null && systemDark());
   const isRTL = lang === 'ar';
 
-  // Apply theme to <html> so CSS can pick it up
   useEffect(() => {
     const root = document.documentElement;
     if (theme === 'dark') root.dataset.theme = 'dark';
     else if (theme === 'light') root.dataset.theme = 'light';
     else delete root.dataset.theme;
   }, [theme]);
+
+  function handleCitySelect(key) {
+    setCurrentCity(key);
+    setCurrentLoc(null);
+    setView('intro');
+    setPhase('loading');
+  }
+
+  function handleLoadingDone() {
+    setPhase('app');
+  }
 
   function handleThemeToggle() {
     setTheme(prev => {
@@ -108,6 +122,14 @@ export default function App() {
       const picked = templates[rnd(0, templates.length - 1)](currentLoc, hr);
       setTcHtml(picked);
     }
+  }
+
+  if (phase === 'splash') {
+    return <SplashScreen onSelect={handleCitySelect} />;
+  }
+
+  if (phase === 'loading') {
+    return <LoadingScreen cityKey={currentCity} onDone={handleLoadingDone} />;
   }
 
   return (
