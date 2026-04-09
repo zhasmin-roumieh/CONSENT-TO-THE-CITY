@@ -51,8 +51,8 @@ function CoordTracker({ loc, onUpdate }) {
     onUpdate({
       x1: pt.x,
       y1: pt.y,
-      x2: sz.x - PANEL_RIGHT - PANEL_WIDTH, // panel's left edge
-      y2: TRIANGLE_Y,
+      panelX: sz.x - PANEL_RIGHT - PANEL_WIDTH, // panel's left edge
+      mapH: sz.y,
     });
   }
 
@@ -112,7 +112,7 @@ export default function MapView({ currentCity, currentLocId, currentLoc, lang, i
         <CoordTracker loc={currentLoc} onUpdate={setLineCoords} />
       </MapContainer>
 
-      {/* SVG line from dot to panel */}
+      {/* SVG triangle from dot tip to full panel left edge */}
       {lineCoords && locColor && (
         <svg
           style={{
@@ -123,27 +123,24 @@ export default function MapView({ currentCity, currentLocId, currentLoc, lang, i
           }}
         >
           <defs>
-            <filter id="line-glow">
-              <feGaussianBlur stdDeviation="2.5" result="blur" />
+            <filter id="tri-glow">
+              <feGaussianBlur stdDeviation="4" result="blur" />
               <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
             </filter>
           </defs>
-          {/* Glow layer */}
-          <line
-            x1={lineCoords.x1} y1={lineCoords.y1}
-            x2={lineCoords.x2} y2={lineCoords.y2}
-            stroke={locColor}
-            strokeWidth={5}
-            strokeOpacity={0.25}
-          />
-          {/* Main line */}
-          <line
-            x1={lineCoords.x1} y1={lineCoords.y1}
-            x2={lineCoords.x2} y2={lineCoords.y2}
+          {/* Big filled triangle: tip at dot, base = full panel left edge */}
+          <polygon
+            points={`
+              ${lineCoords.x1},${lineCoords.y1}
+              ${lineCoords.panelX},0
+              ${lineCoords.panelX},${lineCoords.mapH}
+            `}
+            fill={locColor}
+            fillOpacity={0.18}
             stroke={locColor}
             strokeWidth={1.5}
-            strokeOpacity={0.8}
-            filter="url(#line-glow)"
+            strokeOpacity={0.7}
+            filter="url(#tri-glow)"
           />
         </svg>
       )}

@@ -32,7 +32,7 @@ export default function TermsScreen({ loc, cityKey, tcHtml, lang, onAccept, onDe
           </div>
         </div>
 
-        <div className="warn-box" style={{ borderColor: color, boxShadow: `0 0 12px ${color}55` }}>
+        <div className="warn-box" style={{ borderColor: color, backgroundColor: color + '28', boxShadow: `0 0 12px ${color}44` }}>
           ⚠ <strong>{t.termsTitle}</strong><br />
           <span style={{ fontSize: '10px', opacity: 0.85 }}>{t.termsSubtitle}</span>
         </div>
