@@ -2,9 +2,9 @@ import { useEffect } from 'react';
 import { MapContainer, TileLayer, CircleMarker, useMap } from 'react-leaflet';
 import { CITIES } from '../data/cities';
 
-const TILE = 'https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png';
+const TILE_DARK  = 'https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png';
+const TILE_LIGHT = 'https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png';
 
-// Fly minimap to new city when selection changes
 function Updater({ city }) {
   const map = useMap();
   useEffect(() => {
@@ -13,9 +13,10 @@ function Updater({ city }) {
   return null;
 }
 
-export default function MiniMap({ currentCity, locColor }) {
+export default function MiniMap({ currentCity, locColor, isDark }) {
   const city = CITIES[currentCity];
   const color = locColor || '#00e87a';
+  const tile = isDark ? TILE_DARK : TILE_LIGHT;
 
   return (
     <div className="minimap-wrap">
@@ -32,7 +33,7 @@ export default function MiniMap({ currentCity, locColor }) {
         keyboard={false}
         style={{ height: '100%', width: '100%' }}
       >
-        <TileLayer url={TILE} subdomains="abcd" />
+        <TileLayer key={tile} url={tile} subdomains="abcd" />
         <Updater city={city} />
 
         {/* Country-area glow — large soft circle around the city */}

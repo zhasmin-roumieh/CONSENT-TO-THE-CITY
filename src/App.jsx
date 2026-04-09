@@ -170,6 +170,7 @@ export default function App() {
         <MiniMap
           currentCity={currentCity}
           locColor={CITY_COLORS[currentCity] || '#00e87a'}
+          isDark={isDark}
         />
         <MapView
           currentCity={currentCity}

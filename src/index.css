@@ -235,6 +235,12 @@ body {
   position: relative;
   overflow: hidden;
   min-height: 0;
+  /* Grid background */
+  background-color: var(--color-background-primary);
+  background-image:
+    linear-gradient(var(--color-border-tertiary) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-border-tertiary) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
 /* ── Map ── */
@@ -975,4 +981,25 @@ body {
   font-size: 11px;
   letter-spacing: 0.06em;
   transition: color 0.3s;
+}
+
+/* ── Leaflet zoom buttons — theme-aware ── */
+.leaflet-bar a,
+.leaflet-bar a:hover {
+  background-color: var(--color-background-secondary) !important;
+  color: var(--color-text-primary) !important;
+  border-color: var(--color-border-secondary) !important;
+  font-family: 'Orbitron', monospace !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  line-height: 26px !important;
+}
+.leaflet-bar a:hover {
+  background-color: var(--color-background-tertiary) !important;
+}
+.leaflet-bar {
+  border: 1px solid var(--color-border-secondary) !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.25) !important;
+  border-radius: 8px !important;
+  overflow: hidden;
 }
