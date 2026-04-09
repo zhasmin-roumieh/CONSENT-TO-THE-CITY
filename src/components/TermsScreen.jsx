@@ -41,7 +41,7 @@ export default function TermsScreen({ loc, cityKey, tcHtml, lang, onAccept, onDe
           <div className="tc-body" dangerouslySetInnerHTML={{ __html: tcHtml }} />
         </div>
         <div className="consent-row">
-          <button className="btn-accept" onClick={onAccept}>{t.accept}</button>
+          <button className="btn-accept" style={{ background: `linear-gradient(135deg, ${color}, ${color}bb)` }} onClick={onAccept}>{t.accept}</button>
           <button className="btn-decline" onClick={onDecline}>{t.decline}</button>
         </div>
       </div>
