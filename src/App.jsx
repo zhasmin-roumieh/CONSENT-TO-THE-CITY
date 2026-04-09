@@ -25,7 +25,7 @@ export default function App() {
   const [identity, setIdentity] = useState(null);
   const [lang, setLang] = useState('en');
   // theme: null = follow system, 'light' = force light, 'dark' = force dark
-  const [theme, setTheme] = useState(null);
+  const [theme, setTheme] = useState('dark');
 
   const isDark = theme === 'dark' || (theme === null && systemDark());
   const isRTL = lang === 'ar';
