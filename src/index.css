@@ -687,6 +687,32 @@ body {
   margin-top: 4px;
 }
 
+/* ── Music Toggle Button ── */
+.music-btn {
+  background: var(--color-background-secondary);
+  border: 0.5px solid var(--color-border-secondary);
+  border-radius: 8px;
+  padding: 5px 10px;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1;
+  transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+  white-space: nowrap;
+}
+.music-btn:hover { background: var(--color-background-tertiary); }
+.music-btn--on {
+  color: #00e87a;
+  border-color: #00e87a66;
+  box-shadow: 0 0 8px #00e87a44;
+  animation: music-pulse 1.8s ease-in-out infinite;
+}
+@keyframes music-pulse {
+  0%, 100% { box-shadow: 0 0 6px  #00e87a44; }
+  50%       { box-shadow: 0 0 14px #00e87a88; }
+}
+
 /* ── Theme Toggle Button ── */
 .theme-btn {
   background: var(--color-background-secondary);

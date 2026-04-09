@@ -18,7 +18,7 @@ function useClock() {
   return `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
 }
 
-export default function Toolbar({ currentCity, lang, locCount, isDark, onCityChange, onLangChange, onRandom, onThemeToggle }) {
+export default function Toolbar({ currentCity, lang, locCount, isDark, musicOn, onCityChange, onLangChange, onRandom, onThemeToggle, onMusicToggle }) {
   const t = UI[lang];
   const timeStr = useClock();
 
@@ -50,6 +50,14 @@ export default function Toolbar({ currentCity, lang, locCount, isDark, onCityCha
           </button>
         ))}
       </div>
+
+      <button
+        className={`music-btn${musicOn ? ' music-btn--on' : ''}`}
+        onClick={onMusicToggle}
+        title={musicOn ? 'Mute music' : 'Play ambient music'}
+      >
+        {musicOn ? '♬' : '♪'}
+      </button>
 
       <button
         className="theme-btn"

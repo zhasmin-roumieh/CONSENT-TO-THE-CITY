@@ -12,6 +12,7 @@ import { CITIES } from './data/cities';
 import { TYPE_COLORS } from './lib/utils';
 import { TC_T } from './data/content';
 import { rnd, getHr, ownerPcts } from './lib/utils';
+import { ambientPlayer } from './lib/ambientMusic';
 
 // ─── DEV MODE ───────────────────────────────────────────────────────────────
 // Set to true while testing: locks city to Berlin, English only, skips splash.
@@ -46,6 +47,7 @@ export default function App() {
   const [identity, setIdentity] = useState(null);
   const [lang, setLang] = useState('en');
   const [theme, setTheme] = useState('dark');
+  const [musicOn, setMusicOn] = useState(false);
 
   const isDark = theme === 'dark' || (theme === null && systemDark());
   const isRTL = lang === 'ar';
@@ -71,6 +73,16 @@ export default function App() {
   function handleCharacterSelect(c) {
     setCharacter(c);
     setPhase('app');
+  }
+
+  function handleMusicToggle() {
+    if (musicOn) {
+      ambientPlayer.stop();
+      setMusicOn(false);
+    } else {
+      ambientPlayer.play();
+      setMusicOn(true);
+    }
   }
 
   function handleThemeToggle() {
@@ -187,10 +199,12 @@ export default function App() {
         lang={lang}
         locCount={CITIES[currentCity].locations.length}
         isDark={isDark}
+        musicOn={musicOn}
         onCityChange={handleCityChange}
         onLangChange={handleLangChange}
         onRandom={handleRandom}
         onThemeToggle={handleThemeToggle}
+        onMusicToggle={handleMusicToggle}
       />
       <div id="map-stage">
         <MiniMap
