@@ -13,6 +13,9 @@ import { TYPE_COLORS } from './lib/utils';
 import { TC_T } from './data/content';
 import { rnd, getHr, ownerPcts } from './lib/utils';
 import { ambientPlayer } from './lib/ambientMusic';
+import { pickConsentItems } from './data/consentItems';
+import ConsentLogModal from './components/ConsentLogModal';
+import FateModal from './components/FateModal';
 
 // ─── DEV MODE ───────────────────────────────────────────────────────────────
 // Set to true while testing: locks city to Berlin, English only, skips splash.
@@ -48,6 +51,15 @@ export default function App() {
   const [lang, setLang] = useState('en');
   const [theme, setTheme] = useState('dark');
   const [musicOn, setMusicOn] = useState(false);
+
+  // ── Interactive mechanics ──────────────────────────────────────────────
+  const [consentLog, setConsentLog] = useState([]);          // accumulation reveal
+  const [counterOfferIdx, setCounterOfferIdx] = useState(0); // escalation
+  const [totalAccepts, setTotalAccepts] = useState(0);       // fate + collective
+  const [totalDeclines, setTotalDeclines] = useState(0);
+  const [collectiveStats, setCollectiveStats] = useState(null);
+  const [showConsentLog, setShowConsentLog] = useState(false);
+  const [showFate, setShowFate] = useState(false);
 
   const isDark = theme === 'dark' || (theme === null && systemDark());
   const isRTL = lang === 'ar';
@@ -99,6 +111,8 @@ export default function App() {
 
   function selectLocation(loc) {
     setCurrentLoc(loc);
+    setCounterOfferIdx(0);
+    setCollectiveStats(null);
     const hr = getHr();
     const templates = TC_T[lang];
     const picked = templates[rnd(0, templates.length - 1)](loc, hr);
@@ -119,8 +133,33 @@ export default function App() {
     selectLocation(loc);
   }
 
+  function bumpAccept(extraItems = 0) {
+    const items = pickConsentItems(2 + Math.floor(Math.random() * 2) + extraItems, consentLog);
+    setConsentLog(prev => [...prev, ...items]);
+    setTotalAccepts(prev => prev + 1);
+    if (character) {
+      const BASE = 'https://api.counterapi.dev/v1/consent-to-city';
+      fetch(`${BASE}/c-${character.id}-a/up`)
+        .then(r => r.json())
+        .then(d => setCollectiveStats({ action: 'accept', count: d.count }))
+        .catch(() => {});
+    }
+  }
+
+  function bumpDecline() {
+    setTotalDeclines(prev => prev + 1);
+    if (character) {
+      const BASE = 'https://api.counterapi.dev/v1/consent-to-city';
+      fetch(`${BASE}/c-${character.id}-d/up`)
+        .then(r => r.json())
+        .then(d => setCollectiveStats({ action: 'decline', count: d.count }))
+        .catch(() => {});
+    }
+  }
+
   function handleAccept() {
     setOwnerData(ownerPcts());
+    bumpAccept(0);
     setView('identity');
   }
 
@@ -130,7 +169,29 @@ export default function App() {
   }
 
   function handleDecline() {
-    setView('denied');
+    // First decline → show first counter-offer
+    setCounterOfferIdx(0);
+    setView('counter-offer');
+  }
+
+  function handleCounterOfferAccept() {
+    // User caved after counterOfferIdx refusals — pile on more consent items
+    setOwnerData(ownerPcts());
+    bumpAccept(counterOfferIdx);   // more items the longer they resisted
+    setView('identity');
+  }
+
+  function handleCounterOfferDecline() {
+    const nextIdx = counterOfferIdx + 1;
+    const TOTAL_OFFERS = 5; // COUNTER_OFFERS.length
+    if (nextIdx >= TOTAL_OFFERS) {
+      // Past last offer — locked out
+      bumpDecline();
+      setView('denied');
+    } else {
+      setCounterOfferIdx(nextIdx);
+      // stays on 'counter-offer' view — component re-renders with new idx
+    }
   }
 
   function handleReconsider() {
@@ -236,13 +297,38 @@ export default function App() {
           userTerms={userTerms}
           identity={identity}
           lang={lang}
+          character={character}
+          counterOfferIdx={counterOfferIdx}
+          consentLogCount={consentLog.length}
+          collectiveStats={collectiveStats}
+          totalAccepts={totalAccepts}
+          totalDeclines={totalDeclines}
           onAccept={handleAccept}
           onDecline={handleDecline}
+          onCounterOfferAccept={handleCounterOfferAccept}
+          onCounterOfferDecline={handleCounterOfferDecline}
           onReconsider={handleReconsider}
           onAddTerm={handleAddTerm}
           onReset={handleReset}
           onIdentitySet={handleIdentitySet}
+          onShowConsentLog={() => setShowConsentLog(true)}
+          onShowFate={() => setShowFate(true)}
         />
+
+        {showConsentLog && (
+          <ConsentLogModal
+            consentLog={consentLog}
+            onClose={() => setShowConsentLog(false)}
+          />
+        )}
+        {showFate && (
+          <FateModal
+            character={character}
+            totalAccepts={totalAccepts}
+            totalDeclines={totalDeclines}
+            onClose={() => setShowFate(false)}
+          />
+        )}
       </div>
     </div>
   );

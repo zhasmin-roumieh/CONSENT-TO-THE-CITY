@@ -5,7 +5,7 @@ import { shuffle, rnd } from '../lib/utils';
 import { TYPE_COLORS } from '../lib/utils';
 import { CITIES } from '../data/cities';
 
-export default function AccessDenied({ loc, cityKey, lang, onReconsider, onReset }) {
+export default function AccessDenied({ loc, cityKey, lang, character, collectiveStats, totalLocations, onReconsider, onReset, onShowFate }) {
   const t = UI[lang];
   const cityName = CITIES[cityKey]?.name[lang] || cityKey;
   const frags = useMemo(() => shuffle(GHOST_F[lang]).slice(0, rnd(3, 5)), [loc, lang]);
@@ -27,6 +27,23 @@ export default function AccessDenied({ loc, cityKey, lang, onReconsider, onReset
           </div>
           <div className="ghost-note">{t.ghostNote}</div>
         </div>
+        {/* ── Collective memory ── */}
+        {collectiveStats && character && (
+          <div className="collective-block collective-block--deny">
+            <span className="collective-label">COLLECTIVE MEMORY</span>
+            <span className="collective-text">
+              You are <strong>{character.name} #{collectiveStats.count}</strong> to refuse entry.
+            </span>
+          </div>
+        )}
+
+        {/* ── City report ── */}
+        {totalLocations >= 4 && (
+          <button className="fate-btn fate-btn--deny" onClick={onShowFate} style={{ marginBottom: '0.75rem' }}>
+            ▶ VIEW YOUR CITY REPORT
+          </button>
+        )}
+
         <div className="consent-row">
           <button className="btn-accept" onClick={onReconsider}>{t.reconsider}</button>
           <button className="btn-decline" onClick={onReset}>{t.leave}</button>

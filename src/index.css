@@ -1332,3 +1332,366 @@ body {
   0%   { transform: scale(1);   opacity: 0.25; }
   100% { transform: scale(2.2); opacity: 0; }
 }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   INTERACTIVE MECHANICS
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Counter-Offer Screen ─────────────────────────────────────────────────── */
+.co-step-tag {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  letter-spacing: 0.14em;
+  border: 1px solid;
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+.co-step-num {
+  font-family: 'Orbitron', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  opacity: 0.7;
+  margin-bottom: 0.5rem;
+}
+.co-locked-icon {
+  font-size: 40px;
+  text-align: center;
+  margin: 0.5rem 0 1rem;
+  animation: locked-pulse 1.4s ease-in-out infinite;
+}
+@keyframes locked-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+.co-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 11px;
+  line-height: 1.7;
+  margin-bottom: 0.85rem;
+  color: var(--color-text-primary);
+}
+.co-body {
+  font-size: 12px;
+  line-height: 1.75;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.5rem;
+}
+.co-body--locked {
+  color: var(--color-text-danger);
+  font-weight: 600;
+}
+.co-warning {
+  margin-top: 0.85rem;
+  font-size: 9px;
+  opacity: 0.5;
+  text-align: center;
+  letter-spacing: 0.06em;
+}
+
+/* ── Collective Memory Block ──────────────────────────────────────────────── */
+.collective-block {
+  border-radius: 8px;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.collective-block--accept {
+  background: rgba(0, 232, 122, 0.08);
+  border: 1px solid rgba(0, 232, 122, 0.25);
+}
+.collective-block--deny {
+  background: rgba(163, 45, 45, 0.1);
+  border: 1px solid rgba(163, 45, 45, 0.3);
+  margin-bottom: 0.75rem;
+}
+.collective-label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6px;
+  letter-spacing: 0.18em;
+  opacity: 0.55;
+}
+.collective-text {
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+.collective-text strong {
+  color: var(--color-text-primary);
+}
+
+/* ── Consent Log Button & Fate Button ────────────────────────────────────── */
+.consent-log-btn {
+  width: 100%;
+  padding: 10px 14px;
+  background: rgba(232, 160, 32, 0.1);
+  border: 1px solid rgba(232, 160, 32, 0.4);
+  border-radius: 8px;
+  color: #e8a020;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s;
+  animation: warn-glow 2.4s ease-in-out infinite;
+}
+.consent-log-btn:hover {
+  background: rgba(232, 160, 32, 0.2);
+}
+@keyframes warn-glow {
+  0%, 100% { box-shadow: 0 0 6px rgba(232, 160, 32, 0.2); }
+  50%       { box-shadow: 0 0 14px rgba(232, 160, 32, 0.5); }
+}
+
+.fate-btn {
+  width: 100%;
+  padding: 10px 14px;
+  background: rgba(100, 100, 255, 0.08);
+  border: 1px solid rgba(100, 100, 255, 0.3);
+  border-radius: 8px;
+  color: #8899ff;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s;
+}
+.fate-btn:hover { background: rgba(100, 100, 255, 0.15); }
+.fate-btn--deny { color: #cc88ff; border-color: rgba(180, 80, 255, 0.3); }
+
+/* ── Modal Overlay (shared) ──────────────────────────────────────────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: modal-fade-in 0.2s ease both;
+}
+@keyframes modal-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.modal-card {
+  background: var(--panel-bg);
+  border: 1px solid var(--color-border-secondary);
+  border-radius: 18px;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.6);
+  max-width: 520px;
+  width: 100%;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: modal-scale-in 0.25s cubic-bezier(0.22,1,0.36,1) both;
+}
+@keyframes modal-scale-in {
+  from { transform: scale(0.92); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+
+/* ── Consent Log Modal ───────────────────────────────────────────────────── */
+.consent-log-card {}
+.cl-header {
+  padding: 24px 28px 16px;
+  border-bottom: 1px solid var(--color-border-secondary);
+}
+.cl-eyebrow {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  letter-spacing: 0.18em;
+  color: #e8a020;
+  margin-bottom: 10px;
+}
+.cl-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--color-text-primary);
+  margin-bottom: 6px;
+}
+.cl-sub {
+  font-size: 11px;
+  color: var(--color-text-tertiary);
+  letter-spacing: 0.06em;
+}
+.cl-list {
+  overflow-y: auto;
+  padding: 16px 28px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cl-item {
+  display: flex;
+  gap: 12px;
+  font-size: 11px;
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: var(--color-background-secondary);
+  border-left: 2px solid rgba(232, 160, 32, 0.5);
+}
+.cl-num {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #e8a020;
+  opacity: 0.7;
+  white-space: nowrap;
+  padding-top: 3px;
+  min-width: 26px;
+}
+.cl-text { flex: 1; }
+.cl-footer {
+  padding: 16px 28px;
+  border-top: 1px solid var(--color-border-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.cl-total {
+  font-size: 10px;
+  color: var(--color-text-danger);
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
+.cl-close-btn {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--color-border-primary);
+  background: var(--color-background-secondary);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.cl-close-btn:hover { background: var(--color-background-tertiary); }
+
+/* ── Fate Modal ─────────────────────────────────────────────────────────── */
+.fate-card {
+  padding: 32px 28px 24px;
+  gap: 0;
+}
+.fate-eyebrow {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  letter-spacing: 0.22em;
+  color: var(--color-text-tertiary);
+  margin-bottom: 18px;
+  text-align: center;
+}
+.fate-character {
+  text-align: center;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.fate-emoji {
+  font-size: 56px;
+  filter: drop-shadow(0 0 16px var(--cc, #fff));
+  display: block;
+}
+.fate-charname {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: var(--cc, var(--color-text-primary));
+}
+.fate-verdict {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  text-align: center;
+  padding: 10px 0;
+  margin-bottom: 20px;
+}
+.fate-verdict--compliant { color: #00e87a; text-shadow: 0 0 18px #00e87a88; }
+.fate-verdict--resistant { color: #e82020; text-shadow: 0 0 18px #e8202088; }
+.fate-text {
+  font-size: 12px;
+  line-height: 1.85;
+  color: var(--color-text-secondary);
+  margin-bottom: 24px;
+  text-align: center;
+  font-style: italic;
+}
+.fate-stats {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.fate-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  min-width: 60px;
+}
+.fate-stat-val {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 20px;
+  color: var(--color-text-primary);
+}
+.fate-stat-lbl {
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  color: var(--color-text-tertiary);
+}
+.fate-stat-bar {
+  flex: 1;
+  height: 6px;
+  background: var(--color-background-tertiary);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.fate-stat-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.6s cubic-bezier(0.22,1,0.36,1);
+}
+.fate-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--color-border-secondary);
+  padding-top: 16px;
+  gap: 12px;
+}
+.fate-footer-note {
+  font-size: 10px;
+  color: var(--color-text-tertiary);
+  letter-spacing: 0.06em;
+}
+.fate-close-btn {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--color-border-primary);
+  background: var(--color-background-secondary);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.fate-close-btn:hover { background: var(--color-background-tertiary); }

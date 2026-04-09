@@ -18,7 +18,7 @@ function Bar({ label, pct, color }) {
   );
 }
 
-export default function AccessGranted({ loc, cityKey, ownerData, userTerms, identity, lang, onAddTerm, onReset }) {
+export default function AccessGranted({ loc, cityKey, ownerData, userTerms, identity, lang, character, consentLogCount, collectiveStats, totalLocations, onAddTerm, onReset, onShowConsentLog, onShowFate }) {
   const t = UI[lang];
   const [year, setYear] = useState(2025);
   const [termInput, setTermInput] = useState('');
@@ -153,6 +153,39 @@ export default function AccessGranted({ loc, cityKey, ownerData, userTerms, iden
               <div key={i} className="stored-term">↳ {term}</div>
             ))}
           </div>
+        )}
+
+        {/* ── Collective memory ── */}
+        {collectiveStats && character && (
+          <>
+            <hr className="divider" />
+            <div className="collective-block collective-block--accept">
+              <span className="collective-label">COLLECTIVE MEMORY</span>
+              <span className="collective-text">
+                You are <strong>{character.name} #{collectiveStats.count}</strong> to accept access to a city space.
+              </span>
+            </div>
+          </>
+        )}
+
+        {/* ── Consent log reveal ── */}
+        {consentLogCount > 0 && (
+          <>
+            <hr className="divider" />
+            <button className="consent-log-btn" onClick={onShowConsentLog}>
+              ⚠ YOU HAVE CONSENTED TO {consentLogCount} CLAUSES — VIEW ALL
+            </button>
+          </>
+        )}
+
+        {/* ── City report ── */}
+        {totalLocations >= 4 && (
+          <>
+            <hr className="divider" />
+            <button className="fate-btn" onClick={onShowFate}>
+              ▶ VIEW YOUR CITY REPORT
+            </button>
+          </>
         )}
 
         <hr className="divider" />
