@@ -214,11 +214,11 @@ export default function AccessGranted({ loc, cityKey, ownerData, userTerms, iden
             {liveTerms.map((t, i) => (
               <div key={i} className="live-term">
                 <span className="live-term-char">
-                  {CHAR_EMOJI[t.character_id] || '?'}
+                  {CHAR_EMOJI[t.characterId] || '?'}
                 </span>
-                <span className="live-term-text">{t.term_text}</span>
+                <span className="live-term-text">{t.text}</span>
                 <span className="live-term-meta">
-                  {minsLeft(t.created_at)}m left · {minsAgo(t.created_at)}
+                  {minsLeft(t.createdAt)}m left · {minsAgo(t.createdAt)}
                 </span>
               </div>
             ))}
