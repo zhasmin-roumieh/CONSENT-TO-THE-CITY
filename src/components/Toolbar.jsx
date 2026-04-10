@@ -18,7 +18,7 @@ function useClock() {
   return `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
 }
 
-export default function Toolbar({ currentCity, lang, locCount, isDark, musicOn, onCityChange, onLangChange, onRandom, onThemeToggle, onMusicToggle }) {
+export default function Toolbar({ currentCity, lang, locCount, isDark, musicOn, onCityChange, onLangChange, onRandom, onThemeToggle, onMusicToggle, onExitToStart }) {
   const t = UI[lang];
   const timeStr = useClock();
 
@@ -69,6 +69,10 @@ export default function Toolbar({ currentCity, lang, locCount, isDark, musicOn, 
 
       <span className="loc-count">{locCount} {t.locations}</span>
       <span className="toolbar-time">{timeStr}</span>
+
+      <button className="exit-btn" onClick={onExitToStart} title="Exit to start screen">
+        ⏏
+      </button>
     </div>
   );
 }

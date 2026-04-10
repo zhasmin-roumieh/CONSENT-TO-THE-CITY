@@ -687,6 +687,25 @@ body {
   margin-top: 4px;
 }
 
+/* ── Exit / Start-over Button ── */
+.exit-btn {
+  background: transparent;
+  border: 0.5px solid var(--color-border-secondary);
+  border-radius: 8px;
+  padding: 5px 10px;
+  cursor: pointer;
+  color: var(--color-text-tertiary);
+  font-size: 14px;
+  line-height: 1;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+  margin-left: auto;
+}
+.exit-btn:hover {
+  background: var(--color-background-tertiary);
+  color: var(--color-text-primary);
+}
+
 /* ── Music Toggle Button ── */
 .music-btn {
   background: var(--color-background-secondary);
@@ -1695,3 +1714,166 @@ body {
   white-space: nowrap;
 }
 .fate-close-btn:hover { background: var(--color-background-tertiary); }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   FULL-SCREEN ACCESS DENIED
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.full-denied {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  background: #0a0000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Scrolling background rows */
+.full-denied-bg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.35;
+}
+.full-denied-row {
+  overflow: hidden;
+  white-space: nowrap;
+}
+.full-denied-track {
+  display: inline-flex;
+  gap: 0;
+  animation: denied-scroll-left linear infinite;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+.full-denied-track--rev {
+  animation-name: denied-scroll-right;
+}
+@keyframes denied-scroll-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes denied-scroll-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+.full-denied-phrase {
+  padding: 0 32px;
+  display: inline-block;
+}
+
+/* Center panel */
+.full-denied-panel {
+  position: relative;
+  z-index: 1;
+  background: rgba(10, 0, 0, 0.88);
+  border: 1px solid rgba(255, 30, 30, 0.3);
+  border-radius: 20px;
+  padding: 40px 48px;
+  max-width: 480px;
+  width: 90%;
+  text-align: center;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 60px rgba(200, 0, 0, 0.35), 0 24px 64px rgba(0,0,0,0.8);
+  animation: denied-panel-in 0.5s cubic-bezier(0.22,1,0.36,1) both;
+}
+@keyframes denied-panel-in {
+  from { transform: scale(0.88); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+
+.full-denied-character {
+  margin-bottom: 18px;
+}
+.full-denied-emoji {
+  font-size: 54px;
+  display: inline-block;
+  filter: grayscale(0.6) brightness(0.7);
+  animation: denied-shake 3s ease-in-out infinite;
+}
+@keyframes denied-shake {
+  0%, 90%, 100% { transform: rotate(0deg); }
+  92%            { transform: rotate(-4deg); }
+  96%            { transform: rotate(4deg); }
+}
+
+.full-denied-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(22px, 5vw, 36px);
+  line-height: 1.4;
+  color: #ff2020;
+  text-shadow: 0 0 30px #ff202088, 0 0 60px #ff202044;
+  margin-bottom: 22px;
+  animation: denied-flicker 4s ease-in-out infinite;
+}
+@keyframes denied-flicker {
+  0%, 95%, 100% { opacity: 1; }
+  96%            { opacity: 0.6; }
+  97%            { opacity: 1; }
+  98%            { opacity: 0.4; }
+  99%            { opacity: 1; }
+}
+
+.full-denied-sub {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+  margin-bottom: 6px;
+}
+.full-denied-sub2 {
+  font-size: 11px;
+  color: rgba(255,255,255,0.35);
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.full-denied-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.full-denied-btn {
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  transition: all 0.15s;
+  border: 1px solid;
+}
+.full-denied-btn--try {
+  background: rgba(255, 32, 32, 0.12);
+  border-color: rgba(255, 32, 32, 0.4);
+  color: #ff5555;
+}
+.full-denied-btn--try:hover {
+  background: rgba(255, 32, 32, 0.22);
+}
+.full-denied-btn--map {
+  background: rgba(255,255,255, 0.05);
+  border-color: rgba(255,255,255, 0.15);
+  color: rgba(255,255,255,0.6);
+}
+.full-denied-btn--map:hover {
+  background: rgba(255,255,255, 0.10);
+  color: rgba(255,255,255,0.85);
+}
+.full-denied-btn--exit {
+  background: transparent;
+  border-color: rgba(255,255,255, 0.08);
+  color: rgba(255,255,255,0.3);
+  font-size: 8px;
+}
+.full-denied-btn--exit:hover {
+  color: rgba(255,255,255,0.55);
+  border-color: rgba(255,255,255, 0.2);
+}

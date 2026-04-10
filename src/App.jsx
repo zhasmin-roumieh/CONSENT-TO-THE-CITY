@@ -16,6 +16,7 @@ import { ambientPlayer } from './lib/ambientMusic';
 import { pickConsentItems } from './data/consentItems';
 import ConsentLogModal from './components/ConsentLogModal';
 import FateModal from './components/FateModal';
+import FullDeniedScreen from './components/FullDeniedScreen';
 
 // ─── DEV MODE ───────────────────────────────────────────────────────────────
 // Set to true while testing: locks city to Berlin, English only, skips splash.
@@ -60,6 +61,7 @@ export default function App() {
   const [collectiveStats, setCollectiveStats] = useState(null);
   const [showConsentLog, setShowConsentLog] = useState(false);
   const [showFate, setShowFate] = useState(false);
+  const [showDeniedScreen, setShowDeniedScreen] = useState(false);
 
   const isDark = theme === 'dark' || (theme === null && systemDark());
   const isRTL = lang === 'ar';
@@ -185,13 +187,29 @@ export default function App() {
     const nextIdx = counterOfferIdx + 1;
     const TOTAL_OFFERS = 5; // COUNTER_OFFERS.length
     if (nextIdx >= TOTAL_OFFERS) {
-      // Past last offer — locked out
+      // Past last offer — full-screen denied
       bumpDecline();
-      setView('denied');
+      setShowDeniedScreen(true);
     } else {
       setCounterOfferIdx(nextIdx);
       // stays on 'counter-offer' view — component re-renders with new idx
     }
+  }
+
+  function handleExitToStart() {
+    setShowDeniedScreen(false);
+    setShowConsentLog(false);
+    setShowFate(false);
+    setCurrentLoc(null);
+    setView('intro');
+    setCharacter(null);
+    setConsentLog([]);
+    setCounterOfferIdx(0);
+    setTotalAccepts(0);
+    setTotalDeclines(0);
+    setCollectiveStats(null);
+    if (musicOn) { ambientPlayer.stop(); setMusicOn(false); }
+    setPhase('splash');
   }
 
   function handleReconsider() {
@@ -271,6 +289,7 @@ export default function App() {
         onRandom={handleRandom}
         onThemeToggle={handleThemeToggle}
         onMusicToggle={handleMusicToggle}
+        onExitToStart={handleExitToStart}
       />
       <div id="map-stage">
         <MiniMap
@@ -327,6 +346,14 @@ export default function App() {
             totalAccepts={totalAccepts}
             totalDeclines={totalDeclines}
             onClose={() => setShowFate(false)}
+          />
+        )}
+        {showDeniedScreen && (
+          <FullDeniedScreen
+            character={character}
+            onTryAgain={() => { setShowDeniedScreen(false); setCounterOfferIdx(0); setView('terms'); }}
+            onExploreMap={() => { setShowDeniedScreen(false); handleReset(); }}
+            onExitToStart={handleExitToStart}
           />
         )}
       </div>
