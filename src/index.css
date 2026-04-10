@@ -1877,3 +1877,231 @@ body {
   color: rgba(255,255,255,0.55);
   border-color: rgba(255,255,255, 0.2);
 }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   HOME HUD — floating stat cards on the main map screen
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.home-hud {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 810;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  pointer-events: none;  /* cards set pointer-events: auto individually */
+}
+
+/* ── Collective memory chip ── */
+.hud-collective {
+  pointer-events: none;
+  background: rgba(0,0,0,0.55);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  padding: 5px 16px;
+  font-size: 10px;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.06em;
+  backdrop-filter: blur(8px);
+  white-space: nowrap;
+  animation: hud-pop-in 0.4s cubic-bezier(0.22,1,0.36,1) both;
+  animation-delay: 300ms;
+}
+.hud-collective strong { color: rgba(255,255,255,0.85); }
+.hud-collective-dot {
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #00e87a;
+  margin-right: 8px;
+  vertical-align: middle;
+  animation: dot-blink 1.6s ease-in-out infinite;
+}
+@keyframes dot-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.2; }
+}
+
+/* ── Card row ── */
+.hud-row {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+  pointer-events: none;
+}
+
+/* ── Shared card base ── */
+.hud-card {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.62);
+  backdrop-filter: blur(14px);
+  cursor: default;
+  animation: hud-pop-in var(--float-dur, 3s) cubic-bezier(0.22,1,0.36,1) both,
+             hud-float var(--float-dur, 3s) ease-in-out infinite;
+  animation:
+    hud-pop-in 0.45s cubic-bezier(0.22,1,0.36,1) both var(--delay, 0ms),
+    hud-float var(--float-dur, 3.2s) ease-in-out infinite calc(var(--delay, 0ms) + 0.45s);
+}
+button.hud-card { cursor: pointer; text-align: left; }
+button.hud-card:hover { filter: brightness(1.15); }
+
+@keyframes hud-pop-in {
+  from { opacity: 0; transform: translateY(20px) scale(0.88); }
+  to   { opacity: 1; transform: translateY(0)   scale(1); }
+}
+@keyframes hud-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-7px); }
+}
+
+/* ── Card 1: Passport ── */
+.hud-card--passport {
+  box-shadow: 0 0 18px var(--cc, #ffffff22), 0 8px 24px rgba(0,0,0,0.5);
+  border-color: color-mix(in srgb, var(--cc, #fff) 30%, transparent);
+  animation-delay: var(--delay, 0ms) !important;
+}
+.hud-emoji {
+  font-size: 36px;
+  filter: drop-shadow(0 0 10px var(--cc, #fff));
+  flex-shrink: 0;
+}
+.hud-passport-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 110px;
+}
+.hud-passport-label {
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  opacity: 0.45;
+  text-transform: uppercase;
+}
+.hud-passport-name {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+}
+.hud-score-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 3px;
+}
+.hud-score-val {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  white-space: nowrap;
+}
+.hud-score-val--accept { color: #00e87a; }
+.hud-score-val--decline { color: #e82020; }
+.hud-score-bar {
+  flex: 1;
+  height: 4px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.hud-score-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.6s cubic-bezier(0.22,1,0.36,1);
+}
+
+/* ── Card 2: Consent log ── */
+.hud-card--consent {
+  border-color: rgba(232, 160, 32, 0.35);
+  box-shadow: 0 0 16px rgba(232,160,32,0.2), 0 8px 24px rgba(0,0,0,0.5);
+  animation: hud-pop-in 0.45s cubic-bezier(0.22,1,0.36,1) 120ms both,
+             hud-float 2.7s ease-in-out 565ms infinite,
+             consent-glow 2.2s ease-in-out infinite;
+}
+@keyframes consent-glow {
+  0%, 100% { box-shadow: 0 0 10px rgba(232,160,32,0.15), 0 8px 24px rgba(0,0,0,0.5); }
+  50%       { box-shadow: 0 0 22px rgba(232,160,32,0.45), 0 8px 24px rgba(0,0,0,0.5); }
+}
+.hud-consent-count {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 28px;
+  color: #e8a020;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.hud-consent-body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.hud-consent-label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  letter-spacing: 0.1em;
+  color: #e8a020;
+}
+.hud-consent-sub {
+  font-size: 9px;
+  opacity: 0.5;
+  letter-spacing: 0.06em;
+}
+.hud-consent-cta {
+  font-size: 8px;
+  color: #e8a020;
+  letter-spacing: 0.08em;
+  margin-top: 2px;
+  opacity: 0.8;
+}
+
+/* ── Card 3: City fate ── */
+.hud-card--fate {
+  border-color: rgba(136, 110, 255, 0.3);
+  box-shadow: 0 0 16px rgba(136,110,255,0.15), 0 8px 24px rgba(0,0,0,0.5);
+  animation: hud-pop-in 0.45s cubic-bezier(0.22,1,0.36,1) 240ms both,
+             hud-float 3.7s ease-in-out 685ms infinite;
+}
+.hud-fate-icon {
+  font-size: 30px;
+  flex-shrink: 0;
+}
+.hud-fate-body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.hud-fate-label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  letter-spacing: 0.1em;
+  opacity: 0.5;
+}
+.hud-fate-verdict {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+}
+.hud-fate-verdict--c { color: #00e87a; }
+.hud-fate-verdict--r { color: #e82020; }
+.hud-fate-cta {
+  font-size: 8px;
+  opacity: 0.55;
+  letter-spacing: 0.08em;
+  margin-top: 2px;
+}
+
+/* ── Hint below back button ── */
+.back-hint {
+  font-size: 9px;
+  opacity: 0.4;
+  letter-spacing: 0.06em;
+  text-align: center;
+  margin-bottom: 6px;
+}

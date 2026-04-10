@@ -162,33 +162,14 @@ export default function AccessGranted({ loc, cityKey, ownerData, userTerms, iden
             <div className="collective-block collective-block--accept">
               <span className="collective-label">COLLECTIVE MEMORY</span>
               <span className="collective-text">
-                You are <strong>{character.name} #{collectiveStats.count}</strong> to accept access to a city space.
+                You are <strong>{character.name} #{collectiveStats.count}</strong> to access a space in this city.
               </span>
             </div>
           </>
         )}
 
-        {/* ── Consent log reveal ── */}
-        {consentLogCount > 0 && (
-          <>
-            <hr className="divider" />
-            <button className="consent-log-btn" onClick={onShowConsentLog}>
-              ⚠ YOU HAVE CONSENTED TO {consentLogCount} CLAUSES — VIEW ALL
-            </button>
-          </>
-        )}
-
-        {/* ── City report ── */}
-        {totalLocations >= 4 && (
-          <>
-            <hr className="divider" />
-            <button className="fate-btn" onClick={onShowFate}>
-              ▶ VIEW YOUR CITY REPORT
-            </button>
-          </>
-        )}
-
         <hr className="divider" />
+        <div className="back-hint">Return to map to see your full stats.</div>
         <button className="back-btn" onClick={onReset}>{t.backToMap}</button>
       </div>
     </>

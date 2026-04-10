@@ -17,6 +17,7 @@ import { pickConsentItems } from './data/consentItems';
 import ConsentLogModal from './components/ConsentLogModal';
 import FateModal from './components/FateModal';
 import FullDeniedScreen from './components/FullDeniedScreen';
+import HomeHUD from './components/HomeHUD';
 
 // ─── DEV MODE ───────────────────────────────────────────────────────────────
 // Set to true while testing: locks city to Berlin, English only, skips splash.
@@ -298,6 +299,17 @@ export default function App() {
           isDark={isDark}
         />
         {view === 'intro' && <StatsPanel />}
+        {view === 'intro' && (
+          <HomeHUD
+            character={character}
+            totalAccepts={totalAccepts}
+            totalDeclines={totalDeclines}
+            consentLogCount={consentLog.length}
+            collectiveStats={collectiveStats}
+            onShowConsentLog={() => setShowConsentLog(true)}
+            onShowFate={() => setShowFate(true)}
+          />
+        )}
         <MapView
           currentCity={currentCity}
           currentLocId={currentLoc?.id}

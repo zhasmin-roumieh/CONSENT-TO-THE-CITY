@@ -37,13 +37,6 @@ export default function AccessDenied({ loc, cityKey, lang, character, collective
           </div>
         )}
 
-        {/* ── City report ── */}
-        {totalLocations >= 4 && (
-          <button className="fate-btn fate-btn--deny" onClick={onShowFate} style={{ marginBottom: '0.75rem' }}>
-            ▶ VIEW YOUR CITY REPORT
-          </button>
-        )}
-
         <div className="consent-row">
           <button className="btn-accept" onClick={onReconsider}>{t.reconsider}</button>
           <button className="btn-decline" onClick={onReset}>{t.leave}</button>
