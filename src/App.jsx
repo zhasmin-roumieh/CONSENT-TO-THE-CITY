@@ -116,6 +116,7 @@ export default function App() {
     setCurrentLoc(loc);
     setCounterOfferIdx(0);
     setCollectiveStats(null);
+    setUserTerms([]);
     const hr = getHr();
     const templates = TC_T[lang];
     const picked = templates[rnd(0, templates.length - 1)](loc, hr);
