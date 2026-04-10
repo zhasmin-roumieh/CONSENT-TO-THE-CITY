@@ -1,8 +1,21 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { UI } from '../i18n/ui';
 import { TYPE_COLORS, shuffle, getTemporalText } from '../lib/utils';
 import { CITIES } from '../data/cities';
 import { useLocationPhoto } from '../lib/useLocationPhoto';
+import { inscribeTerm, fetchLiveTerms, minsAgo, minsLeft, sharedEnabled } from '../lib/sharedTerms';
+import { CREATURES } from './CharacterSelect';
+
+const CHAR_EMOJI = Object.fromEntries(CREATURES.map(c => [c.id, c.emoji]));
+
+const FUNNY_REASONS = [
+  "The algorithm has a 5-minute memory. We're working on it. We're not.",
+  "Municipal bylaw 112-B prohibits permanent inscriptions. The wall also gets tired.",
+  "Urban ephemera policy 7.4c: all unofficial terms dissolve at 300 seconds.",
+  "The city's legal team reviewed your term. They need the conference room back.",
+  "Memory allocated. Please do not exceed your 300-second entitlement.",
+  "Terms older than 5 minutes may contain expired consent. Safety first.",
+];
 
 function Bar({ label, pct, color }) {
   return (
@@ -22,7 +35,19 @@ export default function AccessGranted({ loc, cityKey, ownerData, userTerms, iden
   const t = UI[lang];
   const [year, setYear] = useState(2025);
   const [termInput, setTermInput] = useState('');
+  const [liveTerms, setLiveTerms] = useState([]);
+  const [inscribeMsg, setInscribeMsg] = useState(null);
   const color = TYPE_COLORS[loc.type] || '#888888';
+
+  // Fetch live shared terms on mount and every 30 s
+  useEffect(() => {
+    if (!sharedEnabled) return;
+    let alive = true;
+    const load = () => fetchLiveTerms(loc.id).then(t => { if (alive) setLiveTerms(t); });
+    load();
+    const id = setInterval(load, 30_000);
+    return () => { alive = false; clearInterval(id); };
+  }, [loc.id]);
   const cityName = CITIES[cityKey]?.name[lang] || cityKey;
   const photoSrc = useLocationPhoto(loc.id);
 
@@ -30,11 +55,18 @@ export default function AccessGranted({ loc, cityKey, ownerData, userTerms, iden
   const ghosts = shuffle(loc.ghost[lang]);
   const temporals = shuffle(loc.temporal[lang]);
 
-  function handleAddTerm() {
+  async function handleAddTerm() {
     const v = termInput.trim();
     if (!v) return;
     onAddTerm(v);
     setTermInput('');
+    if (sharedEnabled) {
+      await inscribeTerm(loc.id, v, character?.id);
+      setInscribeMsg(FUNNY_REASONS[Math.floor(Math.random() * FUNNY_REASONS.length)]);
+      // Refresh list so own term appears in shared section
+      const fresh = await fetchLiveTerms(loc.id);
+      setLiveTerms(fresh);
+    }
   }
 
   function handleKey(e) {
@@ -135,6 +167,11 @@ export default function AccessGranted({ loc, cityKey, ownerData, userTerms, iden
         <hr className="divider" />
         <div className="section-hdr">{t.addYourTerms}</div>
         <div className="add-terms-hint">{t.addTermsHint}</div>
+        {sharedEnabled && (
+          <div className="shared-terms-hint">
+            ◎ Visible to all visitors for 5 minutes.
+          </div>
+        )}
         <div className="term-row">
           <input
             className="term-input"
@@ -146,6 +183,18 @@ export default function AccessGranted({ loc, cityKey, ownerData, userTerms, iden
           />
           <button className="inscribe-btn" onClick={handleAddTerm}>{t.inscribeBtn}</button>
         </div>
+
+        {/* Funny 5-min confirmation */}
+        {inscribeMsg && (
+          <div className="inscribe-confirm" style={{ borderColor: color }}>
+            <span className="inscribe-confirm-icon">⏳</span>
+            <span>
+              <strong>Inscribed.</strong> Vanishes in 5 minutes.<br />
+              <em>{inscribeMsg}</em>
+            </span>
+          </div>
+        )}
+
         {userTerms.length > 0 && (
           <div>
             <div className="stakeholder">{t.stakeholder}</div>
@@ -153,6 +202,27 @@ export default function AccessGranted({ loc, cityKey, ownerData, userTerms, iden
               <div key={i} className="stored-term">↳ {term}</div>
             ))}
           </div>
+        )}
+
+        {/* Live shared terms from other visitors */}
+        {liveTerms.length > 0 && (
+          <>
+            <div className="section-hdr" style={{ marginTop: '0.75rem' }}>
+              LIVE INSCRIPTIONS
+              <span className="live-dot" />
+            </div>
+            {liveTerms.map((t, i) => (
+              <div key={i} className="live-term">
+                <span className="live-term-char">
+                  {CHAR_EMOJI[t.character_id] || '?'}
+                </span>
+                <span className="live-term-text">{t.term_text}</span>
+                <span className="live-term-meta">
+                  {minsLeft(t.created_at)}m left · {minsAgo(t.created_at)}
+                </span>
+              </div>
+            ))}
+          </>
         )}
 
         {/* ── Collective memory ── */}
