@@ -51,6 +51,7 @@ export default function Panel({
             loc={loc}
             cityKey={cityKey}
             lang={lang}
+            existingIdentity={identity}
             onIdentitySet={onIdentitySet}
           />
         )}

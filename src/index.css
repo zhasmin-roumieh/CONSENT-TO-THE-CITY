@@ -765,6 +765,42 @@ body {
   margin-bottom: 1.25rem;
 }
 
+/* Continue-as button (shown when identity already registered) */
+.identity-continue-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid;
+  cursor: pointer;
+  text-align: left;
+  margin-bottom: 10px;
+  transition: filter 0.15s;
+}
+.identity-continue-btn:hover { filter: brightness(1.1); }
+.identity-continue-check {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.identity-continue-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.identity-continue-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: 0.04em;
+}
+.identity-continue-cat {
+  font-size: 10px;
+  color: var(--color-text-tertiary);
+  letter-spacing: 0.04em;
+}
+
 .identity-option {
   border: 0.5px solid var(--color-border-secondary);
   border-radius: 12px;

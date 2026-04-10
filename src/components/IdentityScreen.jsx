@@ -3,7 +3,7 @@ import { UI } from '../i18n/ui';
 import { TYPE_COLORS } from '../lib/utils';
 import { CITIES } from '../data/cities';
 
-export default function IdentityScreen({ loc, cityKey, lang, onIdentitySet }) {
+export default function IdentityScreen({ loc, cityKey, lang, existingIdentity, onIdentitySet }) {
   const t = UI[lang];
   const color = TYPE_COLORS[loc.type] || '#888888';
   const cityName = CITIES[cityKey]?.name[lang] || cityKey;
@@ -36,8 +36,28 @@ export default function IdentityScreen({ loc, cityKey, lang, onIdentitySet }) {
 
         {mode === null && (
           <>
+            {/* ── Continue as previous identity ── */}
+            {existingIdentity && (
+              <button
+                className="identity-continue-btn"
+                style={{ borderColor: color, background: color + '18' }}
+                onClick={() => onIdentitySet(existingIdentity)}
+              >
+                <span className="identity-continue-check" style={{ color }}>✔</span>
+                <span className="identity-continue-body">
+                  <span className="identity-continue-name">{existingIdentity.name}</span>
+                  <span className="identity-continue-cat">
+                    {t.identityCategories.find(c => c.value === existingIdentity.category)?.label || existingIdentity.category}
+                    {' · '}continue as registered
+                  </span>
+                </span>
+              </button>
+            )}
+
             <div className="identity-option" style={{ cursor: 'pointer' }} onClick={() => setMode('named')}>
-              <div className="identity-option-title">{t.identityNamed}</div>
+              <div className="identity-option-title">
+                {existingIdentity ? 'Register differently' : t.identityNamed}
+              </div>
               <div className="identity-option-desc">{t.identityNamedDesc}</div>
             </div>
 
