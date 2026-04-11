@@ -19,7 +19,8 @@ function makeMarkerEl(color, active) {
     cursor: 'pointer',
     boxShadow: `0 0 ${active ? 20 : 8}px ${color}`,
     border: active ? '2.5px solid rgba(255,255,255,0.85)' : `1.5px solid ${color}88`,
-    transition: 'all 0.2s', position: 'relative', zIndex: active ? 10 : 1,
+    transition: 'box-shadow 0.2s, border 0.2s, width 0.2s, height 0.2s',
+    position: 'relative', zIndex: active ? 10 : 1,
   });
   if (active) {
     const pulse = document.createElement('div');
