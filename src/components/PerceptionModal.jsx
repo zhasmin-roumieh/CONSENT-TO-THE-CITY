@@ -1,47 +1,28 @@
 import { useState } from 'react';
 import { buildPerceptionPrompt } from '../lib/perceptionPrompts';
 
-const WORKER_URL = import.meta.env.VITE_WORKER_URL;
+// Pollinations.ai — free, browser-callable, no API key required
+function buildImageUrl(prompt) {
+  const seed = Math.floor(Math.random() * 999999);
+  return (
+    'https://image.pollinations.ai/prompt/' +
+    encodeURIComponent(prompt) +
+    `?model=flux&width=1024&height=768&seed=${seed}&nologo=true`
+  );
+}
 
 export default function PerceptionModal({ locationName, cityName, character, onClose }) {
-  const [userText, setUserText]   = useState('');
-  const [imageUrl, setImageUrl]   = useState(null);
-  const [loading, setLoading]     = useState(false);
-  const [error, setError]         = useState(null);
-  const [currentPrompt, setCurrentPrompt] = useState('');
+  const [userText, setUserText] = useState('');
+  const [imageUrl, setImageUrl] = useState(null);
+  const [loading, setLoading]   = useState(false);
+  const [error, setError]       = useState(null);
 
-  async function generate() {
-    if (!WORKER_URL) {
-      setError('Image generation not configured yet.');
-      return;
-    }
-    setLoading(true);
+  function generate() {
     setError(null);
-    if (imageUrl) URL.revokeObjectURL(imageUrl);
+    setLoading(true);
     setImageUrl(null);
-
     const prompt = buildPerceptionPrompt(locationName, cityName, character.id, userText);
-    setCurrentPrompt(prompt);
-
-    try {
-      const res = await fetch(WORKER_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt }),
-      });
-
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(data.error || `Server error ${res.status}`);
-      }
-
-      const blob = await res.blob();
-      setImageUrl(URL.createObjectURL(blob));
-    } catch (e) {
-      setError(e.message || 'Generation failed. The model may be loading — try again in 20 seconds.');
-    } finally {
-      setLoading(false);
-    }
+    setImageUrl(buildImageUrl(prompt));
   }
 
   function handleKey(e) {
@@ -67,7 +48,7 @@ export default function PerceptionModal({ locationName, cityName, character, onC
         <div className="perception-input-row">
           <input
             className="perception-input"
-            placeholder="Describe your vision (optional)..."
+            placeholder="Add your own vision (optional)..."
             value={userText}
             onChange={e => setUserText(e.target.value)}
             onKeyDown={handleKey}
@@ -82,25 +63,32 @@ export default function PerceptionModal({ locationName, cityName, character, onC
         </div>
 
         <div className="perception-canvas">
-          {loading && (
+          {loading && !error && (
             <div className="perception-loading">
               <div className="perception-spinner" style={{ borderTopColor: character.color }} />
               <span>Generating perception<br /><small>10–30 seconds</small></span>
             </div>
           )}
 
-          {error && !loading && (
+          {error && (
             <div className="perception-error">
               ⚠ {error}
               <button className="perception-retry" onClick={generate}>Try again</button>
             </div>
           )}
 
-          {imageUrl && !loading && (
+          {imageUrl && (
             <img
               className="perception-img"
               src={imageUrl}
               alt={`${character.name}'s perception of ${locationName}`}
+              style={{ display: loading ? 'none' : 'block' }}
+              onLoad={() => setLoading(false)}
+              onError={() => {
+                setLoading(false);
+                setError('Generation failed. The service may be busy — try again.');
+                setImageUrl(null);
+              }}
             />
           )}
 
@@ -115,13 +103,15 @@ export default function PerceptionModal({ locationName, cityName, character, onC
           )}
         </div>
 
-        {imageUrl && !loading && (
+        {imageUrl && !loading && !error && (
           <div className="perception-footer">
             <button className="perception-regen" onClick={generate}>↺ Regenerate</button>
             <a
               className="perception-download"
               href={imageUrl}
               download={`${character.id}-${locationName}.jpg`}
+              target="_blank"
+              rel="noreferrer"
             >
               ↓ Save image
             </a>
