@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import { buildPerceptionPrompt } from '../lib/perceptionPrompts';
+import { buildPerceptionPrompt, buildStakeholderPrompt } from '../lib/perceptionPrompts';
 
-// Pollinations.ai — free, browser-callable, no API key required
 function buildImageUrl(prompt) {
   const seed = Math.floor(Math.random() * 999999);
   return (
@@ -11,17 +10,33 @@ function buildImageUrl(prompt) {
   );
 }
 
-export default function PerceptionModal({ locationName, cityName, character, onClose }) {
+/**
+ * Props:
+ *   character    — always required (for emoji + color)
+ *   locationName — string
+ *   cityName     — string
+ *   stakeholder  — optional { text, label } — if present, generates from that owner's POV
+ *   onClose      — function
+ */
+export default function PerceptionModal({ character, locationName, cityName, stakeholder, onClose }) {
   const [userText, setUserText] = useState('');
   const [imageUrl, setImageUrl] = useState(null);
   const [loading, setLoading]   = useState(false);
   const [error, setError]       = useState(null);
 
+  const isStakeholder = !!stakeholder;
+  const title    = isStakeholder ? stakeholder.label : character.name;
+  const subtitle = isStakeholder
+    ? `ownership claim in ${locationName}`
+    : `perception of ${locationName}`;
+
   function generate() {
     setError(null);
     setLoading(true);
     setImageUrl(null);
-    const prompt = buildPerceptionPrompt(locationName, cityName, character.id, userText);
+    const prompt = isStakeholder
+      ? buildStakeholderPrompt(locationName, cityName, stakeholder.text, userText)
+      : buildPerceptionPrompt(locationName, cityName, character.id, userText);
     setImageUrl(buildImageUrl(prompt));
   }
 
@@ -39,8 +54,8 @@ export default function PerceptionModal({ locationName, cityName, character, onC
             {character.emoji}
           </span>
           <div className="perception-titles">
-            <div className="perception-title">{locationName}</div>
-            <div className="perception-subtitle">through {character.name}'s eyes</div>
+            <div className="perception-title">{title}</div>
+            <div className="perception-subtitle">{subtitle}</div>
           </div>
           <button className="perception-close" onClick={onClose}>✕</button>
         </div>
@@ -69,36 +84,33 @@ export default function PerceptionModal({ locationName, cityName, character, onC
               <span>Generating perception<br /><small>10–30 seconds</small></span>
             </div>
           )}
-
           {error && (
             <div className="perception-error">
               ⚠ {error}
               <button className="perception-retry" onClick={generate}>Try again</button>
             </div>
           )}
-
           {imageUrl && (
             <img
               className="perception-img"
               src={imageUrl}
-              alt={`${character.name}'s perception of ${locationName}`}
+              alt={`${title} perception of ${locationName}`}
               style={{ display: loading ? 'none' : 'block' }}
               onLoad={() => setLoading(false)}
               onError={() => {
                 setLoading(false);
-                setError('Generation failed. The service may be busy — try again.');
+                setError('Generation failed. Service may be busy — try again.');
                 setImageUrl(null);
               }}
             />
           )}
-
           {!loading && !imageUrl && !error && (
             <div className="perception-empty">
               <span style={{ fontSize: 36 }}>{character.emoji}</span>
-              <p>
-                What does {locationName} look like<br />
-                to a {character.name}?
-              </p>
+              <p>{isStakeholder
+                ? `How does "${stakeholder.label}" see ${locationName}?`
+                : `What does ${locationName} look like to a ${character.name}?`
+              }</p>
             </div>
           )}
         </div>
@@ -109,7 +121,7 @@ export default function PerceptionModal({ locationName, cityName, character, onC
             <a
               className="perception-download"
               href={imageUrl}
-              download={`${character.id}-${locationName}.jpg`}
+              download={`${isStakeholder ? 'stakeholder' : character.id}-${locationName}.jpg`}
               target="_blank"
               rel="noreferrer"
             >

@@ -38,7 +38,8 @@ export default function AccessGranted({ loc, cityKey, ownerData, userTerms, iden
   const [termInput, setTermInput] = useState('');
   const [liveTerms, setLiveTerms] = useState([]);
   const [inscribeMsg, setInscribeMsg] = useState(null);
-  const [showPerception, setShowPerception] = useState(false);
+  const [showPerception, setShowPerception]       = useState(false);
+  const [stakeholderPerception, setStakeholderPerception] = useState(null); // { text, label }
   const color = TYPE_COLORS[loc.type] || '#888888';
 
   // Fetch live shared terms on mount and every 30 s
@@ -112,6 +113,26 @@ export default function AccessGranted({ loc, cityKey, ownerData, userTerms, iden
           </div>
         </div>
 
+        {/* ── Prominent perception card ── */}
+        {character && (
+          <div className="perception-card" style={{ '--cc': character.color }}>
+            <div className="perception-card-left">
+              <div className="perception-card-emoji">{character.emoji}</div>
+              <div className="perception-card-info">
+                <div className="perception-card-label">AI PERCEPTION</div>
+                <div className="perception-card-name">Your view as {character.name}</div>
+                <div className="perception-card-hint">Generated from your character's perspective</div>
+              </div>
+            </div>
+            <button
+              className="perception-card-btn"
+              onClick={() => setShowPerception(true)}
+            >
+              ✦ Generate
+            </button>
+          </div>
+        )}
+
         <div className="section-hdr" style={{ marginTop: '0.25rem' }}>{t.ownershipDist}</div>
         <Bar label={t.nonHuman}   pct={ownerData.nh} color="#3DB847" />
         <Bar label={t.historical} pct={ownerData.gh} color="#888780" />
@@ -125,6 +146,13 @@ export default function AccessGranted({ loc, cityKey, ownerData, userTerms, iden
           <div key={i} className="owner-item">
             <span className="owner-lbl"><span className="tag tag-a">{t.activeTag}</span></span>
             <span className="owner-val">{o}</span>
+            {character && (
+              <button
+                className="owner-perceive-btn"
+                title="Generate AI perception of this owner's view"
+                onClick={() => setStakeholderPerception({ text: o, label: o.slice(0, 40) + (o.length > 40 ? '…' : '') })}
+              >◉</button>
+            )}
           </div>
         ))}
         {userTerms.length > 0 && (
@@ -140,6 +168,13 @@ export default function AccessGranted({ loc, cityKey, ownerData, userTerms, iden
           <div key={i} className="owner-item">
             <span className="owner-lbl"><span className="tag tag-g">{t.residualTag}</span></span>
             <span className="owner-val">{g}</span>
+            {character && (
+              <button
+                className="owner-perceive-btn"
+                title="Generate AI perception"
+                onClick={() => setStakeholderPerception({ text: g, label: g.slice(0, 40) + (g.length > 40 ? '…' : '') })}
+              >◉</button>
+            )}
           </div>
         ))}
 
@@ -151,6 +186,13 @@ export default function AccessGranted({ loc, cityKey, ownerData, userTerms, iden
           <div key={i} className="owner-item">
             <span className="owner-lbl"><span className="tag tag-t">{t.tempTag}</span></span>
             <span className="owner-val">{tp}</span>
+            {character && (
+              <button
+                className="owner-perceive-btn"
+                title="Generate AI perception"
+                onClick={() => setStakeholderPerception({ text: tp, label: tp.slice(0, 40) + (tp.length > 40 ? '…' : '') })}
+              >◉</button>
+            )}
           </div>
         ))}
 
@@ -240,23 +282,6 @@ export default function AccessGranted({ loc, cityKey, ownerData, userTerms, iden
           </>
         )}
 
-        {character && (
-          <>
-            <hr className="divider" />
-            <div className="section-hdr">PERCEIVE THIS SPACE</div>
-            <div className="perception-teaser">
-              What does {loc.name[lang]} look like through {character.name}'s eyes?
-            </div>
-            <button
-              className="perception-open-btn"
-              style={{ '--cc': character.color }}
-              onClick={() => setShowPerception(true)}
-            >
-              {character.emoji} Generate AI Perception
-            </button>
-          </>
-        )}
-
         <hr className="divider" />
         <div className="back-hint">Return to map to see your full stats.</div>
         <button className="back-btn" onClick={onReset}>{t.backToMap}</button>
@@ -268,6 +293,16 @@ export default function AccessGranted({ loc, cityKey, ownerData, userTerms, iden
           cityName={cityName}
           character={character}
           onClose={() => setShowPerception(false)}
+        />
+      )}
+
+      {stakeholderPerception && character && (
+        <PerceptionModal
+          locationName={loc.name[lang]}
+          cityName={cityName}
+          character={character}
+          stakeholder={stakeholderPerception}
+          onClose={() => setStakeholderPerception(null)}
         />
       )}
     </>

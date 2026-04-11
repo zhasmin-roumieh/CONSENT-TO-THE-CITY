@@ -2161,28 +2161,83 @@ button.hud-card:hover { filter: brightness(1.15); }
 }
 
 /* ── AI Perception ───────────────────────────────────────────────────────── */
-.perception-teaser {
-  font-size: 10px;
-  opacity: 0.6;
-  margin-bottom: 8px;
-  line-height: 1.5;
+
+/* Prominent card at the top of AccessGranted */
+.perception-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: linear-gradient(135deg,
+    color-mix(in srgb, var(--cc) 20%, transparent),
+    color-mix(in srgb, var(--cc) 8%, transparent));
+  border: 1px solid color-mix(in srgb, var(--cc) 55%, transparent);
+  border-radius: 10px;
+  padding: 14px 14px 14px 12px;
+  margin-bottom: 12px;
 }
-.perception-open-btn {
-  width: 100%;
-  padding: 10px 14px;
-  background: linear-gradient(135deg, color-mix(in srgb, var(--cc) 18%, transparent), color-mix(in srgb, var(--cc) 8%, transparent));
-  border: 1px solid color-mix(in srgb, var(--cc) 50%, transparent);
+.perception-card-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.perception-card-emoji {
+  font-size: 32px;
+  filter: drop-shadow(0 0 10px var(--cc));
+  flex-shrink: 0;
+}
+.perception-card-info { min-width: 0; }
+.perception-card-label {
+  font-size: 7px;
+  letter-spacing: 0.15em;
+  opacity: 0.5;
+  margin-bottom: 2px;
+}
+.perception-card-name {
+  font-size: 12px;
+  font-weight: 700;
   color: var(--cc);
+  margin-bottom: 2px;
+}
+.perception-card-hint {
+  font-size: 9px;
+  opacity: 0.5;
+  line-height: 1.4;
+}
+.perception-card-btn {
+  flex-shrink: 0;
+  padding: 9px 16px;
+  background: var(--cc);
+  color: #000;
+  border: none;
   border-radius: 6px;
   font-family: inherit;
   font-size: 11px;
+  font-weight: 700;
   letter-spacing: 0.08em;
   cursor: pointer;
-  transition: background 0.2s, border-color 0.2s;
+  transition: opacity 0.15s;
 }
-.perception-open-btn:hover {
-  background: color-mix(in srgb, var(--cc) 22%, transparent);
-  border-color: var(--cc);
+.perception-card-btn:hover { opacity: 0.85; }
+
+/* Eye button on each owner row */
+.owner-perceive-btn {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  color: var(--color-text-tertiary);
+  cursor: pointer;
+  font-size: 11px;
+  padding: 2px 4px;
+  border-radius: 3px;
+  opacity: 0.4;
+  transition: opacity 0.15s, color 0.15s;
+  margin-left: 4px;
+}
+.owner-perceive-btn:hover {
+  opacity: 1;
+  color: var(--color-text-primary);
 }
 
 /* ── Perception Modal ────────────────────────────────────────────────────── */

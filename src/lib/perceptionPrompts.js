@@ -4,6 +4,10 @@
  */
 
 const PERSPECTIVES = {
+  human: {
+    view: 'seen through human eyes at street level, the uncanny magic-realist experience of everyday urban life, a consenting citizen navigating bureaucratic and architectural space, the body as document',
+    style: 'Edward Hopper loneliness, sharp late-afternoon shadows, magic realism, hyperrealistic with surrealist undertones, muted urban palette',
+  },
   fox: {
     view: 'seen from ground level through the amber eyes of an urban fox at dusk, hunting perspective, alert and cunning, weaving through shadows and human legs, low angle',
     style: 'twilight palette, geometric shadows, rust and gold tones, fluid predator energy',
@@ -58,6 +62,22 @@ const FALLBACK = {
  * @param {string} characterId   e.g. "pigeon"
  * @param {string} userText      optional extra description from the user
  */
+/**
+ * Build a prompt from a stakeholder's ownership text.
+ * Used when clicking "Perceive" on an individual owner entry.
+ */
+export function buildStakeholderPrompt(locationName, cityName, ownerText, userText = '') {
+  let prompt =
+    `Surrealist urban artwork: ${locationName} in ${cityName}, ` +
+    `as perceived and claimed by the following entity — "${ownerText}". ` +
+    `Visualize this territorial claim as a living consciousness: ` +
+    `what does this space look, feel and mean to this specific owner? ` +
+    `Dreamlike, painterly, surrealist illustration with rich symbolic and spatial detail. `;
+  if (userText.trim()) prompt += `Additional vision: ${userText.trim()}. `;
+  prompt += `No text, no words, no watermarks, no labels.`;
+  return prompt;
+}
+
 export function buildPerceptionPrompt(locationName, cityName, characterId, userText = '') {
   const p = PERSPECTIVES[characterId] || FALLBACK;
 
