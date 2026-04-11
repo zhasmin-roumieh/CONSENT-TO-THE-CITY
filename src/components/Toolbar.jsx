@@ -9,18 +9,38 @@ const LANGS = [
   { code: 'ar', label: 'AR' },
 ];
 
-function useClock() {
+const CITY_TIMEZONES = {
+  berlin:  'Europe/Berlin',
+  paris:   'Europe/Paris',
+  tokyo:   'Asia/Tokyo',
+  london:  'Europe/London',
+  newyork: 'America/New_York',
+  cairo:   'Africa/Cairo',
+  mumbai:  'Asia/Kolkata',
+  beirut:  'Asia/Beirut',
+};
+
+function fmt(date, tz) {
+  return date.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: tz });
+}
+
+function useDualClock(cityKey) {
   const [now, setNow] = useState(new Date());
   useEffect(() => {
     const id = setInterval(() => setNow(new Date()), 1000);
     return () => clearInterval(id);
   }, []);
-  return `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+  const localTz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  return {
+    local: fmt(now, localTz),
+    city:  fmt(now, CITY_TIMEZONES[cityKey] || localTz),
+  };
 }
 
 export default function Toolbar({ currentCity, lang, locCount, isDark, musicOn, onCityChange, onLangChange, onRandom, onThemeToggle, onMusicToggle, onExitToStart }) {
   const t = UI[lang];
-  const timeStr = useClock();
+  const { local, city } = useDualClock(currentCity);
+  const cityName = CITIES[currentCity]?.name?.en || currentCity;
 
   return (
     <div id="toolbar">
@@ -68,7 +88,16 @@ export default function Toolbar({ currentCity, lang, locCount, isDark, musicOn, 
       </button>
 
       <span className="loc-count">{locCount} {t.locations}</span>
-      <span className="toolbar-time">{timeStr}</span>
+      <div className="toolbar-clocks">
+        <div className="clock-item">
+          <span className="clock-lbl">YOU</span>
+          <span className="clock-val">{local}</span>
+        </div>
+        <div className="clock-item">
+          <span className="clock-lbl">{cityName.toUpperCase()}</span>
+          <span className="clock-val">{city}</span>
+        </div>
+      </div>
 
       <button className="exit-btn" onClick={onExitToStart} title="Exit to start screen">
         ⏏

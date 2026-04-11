@@ -10,6 +10,12 @@ const LIGHT_STYLE = 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.js
 const PANEL_RIGHT = 16;
 const PANEL_WIDTH = 356;
 
+// Per-location 3D camera overrides for locations that need special framing
+const LOCATION_3D = {
+  eiffel:        { zoom: 15.5, bearing: 45,  pitch: 62 },
+  brandenburger: { zoom: 16.0, bearing: 10,  pitch: 62 },
+};
+
 /** Build a GeoJSON FeatureCollection from a city's locations */
 function buildGeojson(cityKey) {
   return {
@@ -259,9 +265,13 @@ export default function MapView({ currentCity, currentLocId, currentLoc, charact
     if (!map || !ready) return;
 
     if (currentLoc) {
+      const ov = LOCATION_3D[currentLoc.id] || {};
       map.easeTo({
         center: [currentLoc.lng, currentLoc.lat],
-        zoom: 17.5, pitch: 65, bearing: -30, duration: 1400,
+        zoom: ov.zoom ?? 17.5,
+        pitch: ov.pitch ?? 65,
+        bearing: ov.bearing ?? -30,
+        duration: 1400,
       });
       const color = TYPE_COLORS[currentLoc.type] || '#888888';
       try {

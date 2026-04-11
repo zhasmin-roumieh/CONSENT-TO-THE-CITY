@@ -48,7 +48,7 @@ export default function App() {
   const [view, setView] = useState('intro');
   const [tcHtml, setTcHtml] = useState('');
   const [ownerData, setOwnerData] = useState(null);
-  const [userTerms, setUserTerms] = useState([]);
+  const [userTermsByLoc, setUserTermsByLoc] = useState({});
   const [identity, setIdentity] = useState(null);
   const [lang, setLang] = useState('en');
   const [theme, setTheme] = useState('dark');
@@ -116,7 +116,6 @@ export default function App() {
     setCurrentLoc(loc);
     setCounterOfferIdx(0);
     setCollectiveStats(null);
-    setUserTerms([]);
     const hr = getHr();
     const templates = TC_T[lang];
     const picked = templates[rnd(0, templates.length - 1)](loc, hr);
@@ -210,6 +209,7 @@ export default function App() {
     setTotalAccepts(0);
     setTotalDeclines(0);
     setCollectiveStats(null);
+    setUserTermsByLoc({});
     if (musicOn) { ambientPlayer.stop(); setMusicOn(false); }
     setPhase('splash');
   }
@@ -223,7 +223,12 @@ export default function App() {
   }
 
   function handleAddTerm(text) {
-    setUserTerms(prev => [...prev, text]);
+    const locId = currentLoc?.id;
+    if (!locId) return;
+    setUserTermsByLoc(prev => ({
+      ...prev,
+      [locId]: [...(prev[locId] || []), text],
+    }));
   }
 
   function handleReset() {
@@ -326,7 +331,7 @@ export default function App() {
           cityKey={currentCity}
           tcHtml={tcHtml}
           ownerData={ownerData}
-          userTerms={userTerms}
+          userTerms={userTermsByLoc[currentLoc?.id] || []}
           identity={identity}
           lang={lang}
           character={character}
