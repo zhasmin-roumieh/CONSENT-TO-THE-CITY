@@ -5,6 +5,7 @@ import { CITIES } from '../data/cities';
 import { useLocationPhoto } from '../lib/useLocationPhoto';
 import { inscribeTerm, fetchLiveTerms, minsAgo, minsLeft, sharedEnabled } from '../lib/sharedTerms';
 import { CREATURES } from './CharacterSelect';
+import PerceptionModal from './PerceptionModal';
 
 const CHAR_EMOJI = Object.fromEntries(CREATURES.map(c => [c.id, c.emoji]));
 
@@ -37,6 +38,7 @@ export default function AccessGranted({ loc, cityKey, ownerData, userTerms, iden
   const [termInput, setTermInput] = useState('');
   const [liveTerms, setLiveTerms] = useState([]);
   const [inscribeMsg, setInscribeMsg] = useState(null);
+  const [showPerception, setShowPerception] = useState(false);
   const color = TYPE_COLORS[loc.type] || '#888888';
 
   // Fetch live shared terms on mount and every 30 s
@@ -238,10 +240,36 @@ export default function AccessGranted({ loc, cityKey, ownerData, userTerms, iden
           </>
         )}
 
+        {character && (
+          <>
+            <hr className="divider" />
+            <div className="section-hdr">PERCEIVE THIS SPACE</div>
+            <div className="perception-teaser">
+              What does {loc.name[lang]} look like through {character.name}'s eyes?
+            </div>
+            <button
+              className="perception-open-btn"
+              style={{ '--cc': character.color }}
+              onClick={() => setShowPerception(true)}
+            >
+              {character.emoji} Generate AI Perception
+            </button>
+          </>
+        )}
+
         <hr className="divider" />
         <div className="back-hint">Return to map to see your full stats.</div>
         <button className="back-btn" onClick={onReset}>{t.backToMap}</button>
       </div>
+
+      {showPerception && character && (
+        <PerceptionModal
+          locationName={loc.name[lang]}
+          cityName={cityName}
+          character={character}
+          onClose={() => setShowPerception(false)}
+        />
+      )}
     </>
   );
 }
