@@ -10,7 +10,6 @@ export const CREATURES = [
   { id: 'bot',    emoji: '🤖', name: 'ALGORITHM',    desc: 'Optimises every pathway',           color: '#00e87a' },
   { id: 'cloud',  emoji: '🌧️', name: 'RAIN CLOUD',  desc: 'Claims all land. Owns none',        color: '#2299ff' },
   { id: 'bee',    emoji: '🐝', name: 'CITY BEE',     desc: 'Maps the city in pollen trails',   color: '#ffcc00' },
-  { id: 'spider', emoji: '🕷️', name: 'SPIDER',      desc: 'Weaves jurisdiction into webs',     color: '#cc44ff' },
   { id: 'micro',  emoji: '🦠', name: 'MICROBE',      desc: 'Oldest resident. No language',      color: '#ff2d9b' },
 ];
 
