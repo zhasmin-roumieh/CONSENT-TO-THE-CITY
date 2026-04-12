@@ -2331,6 +2331,53 @@ button.hud-card:hover { filter: brightness(1.15); }
   opacity: 1;
 }
 
+/* ── Floating Map Perception Button ─────────────────────────────────────── */
+
+@keyframes map-perceive-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-5px); }
+}
+@keyframes map-perceive-pulse {
+  0%, 100% { box-shadow: 0 0 16px color-mix(in srgb, var(--cc) 40%, transparent), 0 4px 20px rgba(0,0,0,0.4); }
+  50%       { box-shadow: 0 0 32px color-mix(in srgb, var(--cc) 70%, transparent), 0 4px 20px rgba(0,0,0,0.4); }
+}
+
+.map-perceive-btn {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px 10px 14px;
+  background: #16161e;
+  border: 1px solid color-mix(in srgb, var(--cc) 60%, transparent);
+  border-radius: 40px;
+  cursor: pointer;
+  font-family: inherit;
+  animation: map-perceive-float 3s ease-in-out infinite, map-perceive-pulse 3s ease-in-out infinite;
+  transition: background 0.15s, transform 0.15s;
+}
+.map-perceive-btn:hover {
+  background: color-mix(in srgb, var(--cc) 12%, #16161e);
+  animation-play-state: paused;
+  transform: translateX(-50%) scale(1.06);
+}
+.map-perceive-emoji {
+  font-size: 22px;
+  line-height: 1;
+  filter: drop-shadow(0 0 8px var(--cc));
+}
+.map-perceive-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cc);
+}
+
 /* ── Perception Modal ────────────────────────────────────────────────────── */
 .perception-modal {
   background: var(--color-background-secondary);

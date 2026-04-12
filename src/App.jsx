@@ -18,6 +18,7 @@ import ConsentLogModal from './components/ConsentLogModal';
 import FateModal from './components/FateModal';
 import FullDeniedScreen from './components/FullDeniedScreen';
 import HomeHUD from './components/HomeHUD';
+import PerceptionModal from './components/PerceptionModal';
 
 // ─── DEV MODE ───────────────────────────────────────────────────────────────
 // Set to true while testing: locks city to Berlin, English only, skips splash.
@@ -63,6 +64,7 @@ export default function App() {
   const [showConsentLog, setShowConsentLog] = useState(false);
   const [showFate, setShowFate] = useState(false);
   const [showDeniedScreen, setShowDeniedScreen] = useState(false);
+  const [showMapPerception, setShowMapPerception] = useState(false);
 
   const isDark = theme === 'dark' || (theme === null && systemDark());
   const isRTL = lang === 'ar';
@@ -372,6 +374,28 @@ export default function App() {
             onTryAgain={() => { setShowDeniedScreen(false); setCounterOfferIdx(0); setView('terms'); }}
             onExploreMap={() => { setShowDeniedScreen(false); handleReset(); }}
             onExitToStart={handleExitToStart}
+          />
+        )}
+
+        {/* ── Floating map perception button ── */}
+        {character && (
+          <button
+            className="map-perceive-btn"
+            style={{ '--cc': character.color }}
+            onClick={() => setShowMapPerception(true)}
+            title="Generate AI perception of this place"
+          >
+            <span className="map-perceive-emoji">{character.emoji}</span>
+            <span className="map-perceive-label">✦ perceive</span>
+          </button>
+        )}
+
+        {showMapPerception && character && (
+          <PerceptionModal
+            character={character}
+            locationName={currentLoc?.name[lang] || CITIES[currentCity]?.name[lang] || currentCity}
+            cityName={CITIES[currentCity]?.name[lang] || currentCity}
+            onClose={() => setShowMapPerception(false)}
           />
         )}
       </div>
