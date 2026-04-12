@@ -511,8 +511,8 @@ body {
 .bar-track { height: 6px; background: var(--color-background-secondary); border-radius: 3px; overflow: hidden; }
 .bar-fill { height: 100%; border-radius: 3px; opacity: 0.85; transition: width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
 
-.owner-item { display: grid; grid-template-columns: 68px 1fr auto; gap: 6px; margin-bottom: 6px; font-size: 11px; align-items: start; }
-[dir="rtl"] .owner-item { grid-template-columns: auto 1fr 68px; }
+.owner-item { display: grid; grid-template-columns: 68px 1fr; gap: 6px; margin-bottom: 6px; font-size: 11px; align-items: start; }
+[dir="rtl"] .owner-item { grid-template-columns: 1fr 68px; }
 .owner-lbl { color: var(--color-text-tertiary); font-size: 10px; line-height: 1.5; }
 .owner-val { color: var(--color-text-secondary); line-height: 1.55; }
 
@@ -2221,23 +2221,53 @@ button.hud-card:hover { filter: brightness(1.15); }
 }
 .perception-card-btn:hover { opacity: 0.85; }
 
-/* Eye button on each owner row */
-.owner-perceive-btn {
-  flex-shrink: 0;
-  background: none;
-  border: none;
-  color: var(--color-text-tertiary);
-  cursor: pointer;
-  font-size: 11px;
-  padding: 2px 4px;
-  border-radius: 3px;
-  opacity: 0.4;
-  transition: opacity 0.15s, color 0.15s;
-  margin-left: 4px;
+.perception-section {
+  margin-bottom: 4px;
 }
-.owner-perceive-btn:hover {
-  opacity: 1;
+.stakeholder-perception-label {
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  opacity: 0.4;
+  margin: 10px 0 6px;
+}
+.stakeholder-perception-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+.stakeholder-gen-item {
+  display: grid;
+  grid-template-columns: 62px 1fr 20px;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-background-tertiary);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 7px 8px;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  font-family: inherit;
+  color: var(--color-text-secondary);
+}
+.stakeholder-gen-item:hover {
+  border-color: var(--color-text-tertiary);
+  background: var(--color-background-secondary);
   color: var(--color-text-primary);
+}
+.stakeholder-gen-text {
+  font-size: 10px;
+  line-height: 1.4;
+  text-align: left;
+}
+.stakeholder-gen-action {
+  font-size: 13px;
+  opacity: 0.5;
+  text-align: right;
+}
+.stakeholder-gen-item:hover .stakeholder-gen-action {
+  opacity: 1;
 }
 
 /* ── Perception Modal ────────────────────────────────────────────────────── */

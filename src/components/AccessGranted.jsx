@@ -113,23 +113,45 @@ export default function AccessGranted({ loc, cityKey, ownerData, userTerms, iden
           </div>
         </div>
 
-        {/* ── Prominent perception card ── */}
+        {/* ── Perception section ── */}
         {character && (
-          <div className="perception-card" style={{ '--cc': character.color }}>
-            <div className="perception-card-left">
-              <div className="perception-card-emoji">{character.emoji}</div>
-              <div className="perception-card-info">
-                <div className="perception-card-label">AI PERCEPTION</div>
-                <div className="perception-card-name">Your view as {character.name}</div>
-                <div className="perception-card-hint">Generated from your character's perspective</div>
+          <div className="perception-section">
+            <div className="section-hdr" style={{ marginTop: 0 }}>AI PERCEPTION</div>
+
+            {/* User's own character view */}
+            <div className="perception-card" style={{ '--cc': character.color }}>
+              <div className="perception-card-left">
+                <div className="perception-card-emoji">{character.emoji}</div>
+                <div className="perception-card-info">
+                  <div className="perception-card-label">YOUR VIEW</div>
+                  <div className="perception-card-name">{character.name}</div>
+                  <div className="perception-card-hint">Your character's perspective</div>
+                </div>
               </div>
+              <button className="perception-card-btn" onClick={() => setShowPerception(true)}>
+                ✦ Generate
+              </button>
             </div>
-            <button
-              className="perception-card-btn"
-              onClick={() => setShowPerception(true)}
-            >
-              ✦ Generate
-            </button>
+
+            {/* Stakeholder list */}
+            <div className="stakeholder-perception-label">GENERATE FROM A STAKEHOLDER</div>
+            <div className="stakeholder-perception-list">
+              {[
+                ...owners.map(o   => ({ text: o,  tag: 'ACTIVE',   tagClass: 'tag-a' })),
+                ...ghosts.map(g   => ({ text: g,  tag: 'RESIDUAL', tagClass: 'tag-g' })),
+                ...temporals.map(tp => ({ text: tp, tag: 'TEMPORAL', tagClass: 'tag-t' })),
+              ].map((item, i) => (
+                <button
+                  key={i}
+                  className="stakeholder-gen-item"
+                  onClick={() => setStakeholderPerception({ text: item.text, label: item.text })}
+                >
+                  <span className={`tag ${item.tagClass}`}>{item.tag}</span>
+                  <span className="stakeholder-gen-text">{item.text}</span>
+                  <span className="stakeholder-gen-action">◉</span>
+                </button>
+              ))}
+            </div>
           </div>
         )}
 
@@ -146,13 +168,6 @@ export default function AccessGranted({ loc, cityKey, ownerData, userTerms, iden
           <div key={i} className="owner-item">
             <span className="owner-lbl"><span className="tag tag-a">{t.activeTag}</span></span>
             <span className="owner-val">{o}</span>
-            {character && (
-              <button
-                className="owner-perceive-btn"
-                title="Generate AI perception of this owner's view"
-                onClick={() => setStakeholderPerception({ text: o, label: o.slice(0, 40) + (o.length > 40 ? '…' : '') })}
-              >◉</button>
-            )}
           </div>
         ))}
         {userTerms.length > 0 && (
@@ -168,13 +183,6 @@ export default function AccessGranted({ loc, cityKey, ownerData, userTerms, iden
           <div key={i} className="owner-item">
             <span className="owner-lbl"><span className="tag tag-g">{t.residualTag}</span></span>
             <span className="owner-val">{g}</span>
-            {character && (
-              <button
-                className="owner-perceive-btn"
-                title="Generate AI perception"
-                onClick={() => setStakeholderPerception({ text: g, label: g.slice(0, 40) + (g.length > 40 ? '…' : '') })}
-              >◉</button>
-            )}
           </div>
         ))}
 
@@ -186,16 +194,8 @@ export default function AccessGranted({ loc, cityKey, ownerData, userTerms, iden
           <div key={i} className="owner-item">
             <span className="owner-lbl"><span className="tag tag-t">{t.tempTag}</span></span>
             <span className="owner-val">{tp}</span>
-            {character && (
-              <button
-                className="owner-perceive-btn"
-                title="Generate AI perception"
-                onClick={() => setStakeholderPerception({ text: tp, label: tp.slice(0, 40) + (tp.length > 40 ? '…' : '') })}
-              >◉</button>
-            )}
           </div>
         ))}
-
         <hr className="divider" />
         <div className="section-hdr">{t.temporalShift}</div>
         <div className="slider-row">
