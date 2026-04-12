@@ -12,32 +12,44 @@ function buildImageUrl(prompt) {
 
 /**
  * Props:
- *   character    — always required (for emoji + color)
- *   locationName — string
- *   cityName     — string
- *   stakeholder  — optional { text, label } — if present, generates from that owner's POV
- *   onClose      — function
+ *   character       — always required (for emoji + color)
+ *   locationName    — string
+ *   cityName        — string
+ *   stakeholder     — optional { text, label } — single stakeholder mode (from AccessGranted)
+ *   stakeholderList — optional [{ text, tag, tagClass }] — picker mode (from map button)
+ *   onClose         — function
  */
-export default function PerceptionModal({ character, locationName, cityName, stakeholder, onClose }) {
-  const [userText, setUserText] = useState('');
-  const [imageUrl, setImageUrl] = useState(null);
-  const [loading, setLoading]   = useState(false);
-  const [error, setError]       = useState(null);
+export default function PerceptionModal({
+  character, locationName, cityName,
+  stakeholder, stakeholderList, onClose,
+}) {
+  const isPicker = !!stakeholderList;     // map-button mode: show tab picker
+  const isSingle = !!stakeholder && !isPicker; // AccessGranted single-stakeholder mode
 
-  const isStakeholder = !!stakeholder;
-  const title    = isStakeholder ? stakeholder.label : character.name;
-  const subtitle = isStakeholder
-    ? `ownership claim in ${locationName}`
-    : `perception of ${locationName}`;
+  const [tab, setTab]               = useState('own'); // 'own' | 'stakeholders'
+  const [userText, setUserText]     = useState('');
+  const [activeStakeholder, setActiveStakeholder] = useState(null); // { text, label }
+  const [imageUrl, setImageUrl]     = useState(null);
+  const [loading, setLoading]       = useState(false);
+  const [error, setError]           = useState(null);
 
-  function generate() {
+  // Determine what prompt to build
+  function generate(overrideStakeholder) {
     setError(null);
     setLoading(true);
     setImageUrl(null);
-    const prompt = isStakeholder
-      ? buildStakeholderPrompt(locationName, cityName, stakeholder.text, userText)
+    const sh = overrideStakeholder ?? (isSingle ? stakeholder : activeStakeholder);
+    const prompt = sh
+      ? buildStakeholderPrompt(locationName, cityName, sh.text, userText)
       : buildPerceptionPrompt(locationName, cityName, character.id, userText);
     setImageUrl(buildImageUrl(prompt));
+  }
+
+  function handleStakeholderClick(item) {
+    const sh = { text: item.text, label: item.text };
+    setActiveStakeholder(sh);
+    setUserText('');
+    generate(sh);
   }
 
   function handleKey(e) {
@@ -45,38 +57,116 @@ export default function PerceptionModal({ character, locationName, cityName, sta
     if (e.key === 'Escape') onClose();
   }
 
+  // What label + subtitle to show in header
+  const headerTitle = activeStakeholder?.label ?? (isSingle ? stakeholder.label : character.name);
+  const headerSub   = activeStakeholder
+    ? `ownership claim in ${locationName}`
+    : isSingle
+      ? `ownership claim in ${locationName}`
+      : `perception of ${locationName}`;
+
+  const canRegenerate = imageUrl && !loading && !error;
+
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="perception-modal" onClick={e => e.stopPropagation()}>
 
+        {/* ── Header ── */}
         <div className="perception-header">
           <span className="perception-char-emoji" style={{ '--cc': character.color }}>
             {character.emoji}
           </span>
           <div className="perception-titles">
-            <div className="perception-title">{title}</div>
-            <div className="perception-subtitle">{subtitle}</div>
+            <div className="perception-title">{headerTitle}</div>
+            <div className="perception-subtitle">{headerSub}</div>
           </div>
           <button className="perception-close" onClick={onClose}>✕</button>
         </div>
 
-        <div className="perception-input-row">
-          <input
-            className="perception-input"
-            placeholder="Add your own vision (optional)..."
-            value={userText}
-            onChange={e => setUserText(e.target.value)}
-            onKeyDown={handleKey}
-          />
-          <button
-            className="perception-generate-btn"
-            onClick={generate}
-            disabled={loading}
-          >
-            {loading ? '...' : '✦ Generate'}
-          </button>
-        </div>
+        {/* ── Tab bar (only in picker mode) ── */}
+        {isPicker && (
+          <div className="perception-tabs">
+            <button
+              className={`perception-tab${tab === 'own' ? ' perception-tab--active' : ''}`}
+              onClick={() => { setTab('own'); setActiveStakeholder(null); setImageUrl(null); setError(null); }}
+            >
+              ✏ Your perception
+            </button>
+            <button
+              className={`perception-tab${tab === 'stakeholders' ? ' perception-tab--active' : ''}`}
+              onClick={() => { setTab('stakeholders'); setImageUrl(null); setError(null); }}
+            >
+              ◉ Stakeholders
+            </button>
+          </div>
+        )}
 
+        {/* ── OWN PERCEPTION pane ── */}
+        {(!isPicker || tab === 'own') && !isSingle && (
+          <div className="perception-input-row">
+            <input
+              className="perception-input"
+              placeholder="Add your own vision (optional)..."
+              value={userText}
+              onChange={e => setUserText(e.target.value)}
+              onKeyDown={handleKey}
+            />
+            <button
+              className="perception-generate-btn"
+              onClick={() => generate()}
+              disabled={loading}
+            >
+              {loading ? '...' : '✦ Generate'}
+            </button>
+          </div>
+        )}
+
+        {/* ── SINGLE STAKEHOLDER pane (from AccessGranted) ── */}
+        {isSingle && (
+          <div className="perception-input-row">
+            <input
+              className="perception-input"
+              placeholder="Add your own vision (optional)..."
+              value={userText}
+              onChange={e => setUserText(e.target.value)}
+              onKeyDown={handleKey}
+            />
+            <button
+              className="perception-generate-btn"
+              onClick={() => generate()}
+              disabled={loading}
+            >
+              {loading ? '...' : '✦ Generate'}
+            </button>
+          </div>
+        )}
+
+        {/* ── STAKEHOLDERS LIST pane ── */}
+        {isPicker && tab === 'stakeholders' && (
+          <div className="perception-stakeholder-pane">
+            <p className="perception-stakeholder-hint">
+              Pick a stakeholder — the image will be generated from their exact vantage point.
+            </p>
+            <div className="perception-stakeholder-list">
+              {stakeholderList.map((item, i) => (
+                <button
+                  key={i}
+                  className={`perception-sh-row${activeStakeholder?.text === item.text ? ' perception-sh-row--active' : ''}`}
+                  onClick={() => handleStakeholderClick(item)}
+                  disabled={loading}
+                >
+                  <span className={`tag ${item.tagClass}`}>{item.tag}</span>
+                  <span className="perception-sh-text">{item.text}</span>
+                  <span className="perception-sh-gen">
+                    {loading && activeStakeholder?.text === item.text ? '...' : '✦'}
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* ── Image canvas ── */}
         <div className="perception-canvas">
           {loading && !error && (
             <div className="perception-loading">
@@ -87,14 +177,14 @@ export default function PerceptionModal({ character, locationName, cityName, sta
           {error && (
             <div className="perception-error">
               ⚠ {error}
-              <button className="perception-retry" onClick={generate}>Try again</button>
+              <button className="perception-retry" onClick={() => generate()}>Try again</button>
             </div>
           )}
           {imageUrl && (
             <img
               className="perception-img"
               src={imageUrl}
-              alt={`${title} perception of ${locationName}`}
+              alt={`${headerTitle} perception of ${locationName}`}
               style={{ display: loading ? 'none' : 'block' }}
               onLoad={() => setLoading(false)}
               onError={() => {
@@ -107,21 +197,26 @@ export default function PerceptionModal({ character, locationName, cityName, sta
           {!loading && !imageUrl && !error && (
             <div className="perception-empty">
               <span style={{ fontSize: 36 }}>{character.emoji}</span>
-              <p>{isStakeholder
-                ? `How does "${stakeholder.label}" see ${locationName}?`
-                : `What does ${locationName} look like to a ${character.name}?`
-              }</p>
+              <p>
+                {isPicker && tab === 'stakeholders'
+                  ? 'Pick a stakeholder above to generate their view'
+                  : isSingle
+                    ? `How does "${stakeholder.label}" see ${locationName}?`
+                    : `What does ${locationName} look like through ${character.name}'s eyes?`
+                }
+              </p>
             </div>
           )}
         </div>
 
-        {imageUrl && !loading && !error && (
+        {/* ── Footer ── */}
+        {canRegenerate && (
           <div className="perception-footer">
-            <button className="perception-regen" onClick={generate}>↺ Regenerate</button>
+            <button className="perception-regen" onClick={() => generate()}>↺ Regenerate</button>
             <a
               className="perception-download"
               href={imageUrl}
-              download={`${isStakeholder ? 'stakeholder' : character.id}-${locationName}.jpg`}
+              download={`perception-${locationName}.jpg`}
               target="_blank"
               rel="noreferrer"
             >
