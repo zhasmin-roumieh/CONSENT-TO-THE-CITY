@@ -134,7 +134,14 @@ export default function AccessGranted({ loc, cityKey, ownerData, userTerms, iden
             </div>
 
             {/* Stakeholder list */}
-            <div className="stakeholder-perception-label">GENERATE FROM A STAKEHOLDER</div>
+            <div className="stakeholder-perception-intro">
+              <span className="stakeholder-perception-intro-icon">◉</span>
+              <span>
+                Want to see <strong>{loc.name[lang]}</strong> through a different lens?
+                Pick any stakeholder below to generate an AI image from their exact angle —
+                pigeons see from above, stones see in macro, ghosts see across time.
+              </span>
+            </div>
             <div className="stakeholder-perception-list">
               {[
                 ...owners.map(o   => ({ text: o,  tag: 'ACTIVE',   tagClass: 'tag-a' })),
@@ -148,7 +155,7 @@ export default function AccessGranted({ loc, cityKey, ownerData, userTerms, iden
                 >
                   <span className={`tag ${item.tagClass}`}>{item.tag}</span>
                   <span className="stakeholder-gen-text">{item.text}</span>
-                  <span className="stakeholder-gen-action">◉</span>
+                  <span className="stakeholder-gen-action">✦ Generate</span>
                 </button>
               ))}
             </div>

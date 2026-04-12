@@ -2224,11 +2224,26 @@ button.hud-card:hover { filter: brightness(1.15); }
 .perception-section {
   margin-bottom: 4px;
 }
-.stakeholder-perception-label {
-  font-size: 8px;
-  letter-spacing: 0.12em;
-  opacity: 0.4;
-  margin: 10px 0 6px;
+.stakeholder-perception-intro {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  background: var(--color-background-tertiary);
+  border-radius: 7px;
+  padding: 9px 10px;
+  margin: 8px 0 8px;
+  font-size: 10px;
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+}
+.stakeholder-perception-intro-icon {
+  font-size: 14px;
+  opacity: 0.5;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.stakeholder-perception-intro strong {
+  color: var(--color-text-primary);
 }
 .stakeholder-perception-list {
   display: flex;
@@ -2262,12 +2277,15 @@ button.hud-card:hover { filter: brightness(1.15); }
   text-align: left;
 }
 .stakeholder-gen-action {
-  font-size: 13px;
-  opacity: 0.5;
+  font-size: 9px;
+  opacity: 0.45;
   text-align: right;
+  white-space: nowrap;
+  letter-spacing: 0.06em;
 }
 .stakeholder-gen-item:hover .stakeholder-gen-action {
   opacity: 1;
+  color: var(--color-text-primary);
 }
 
 /* ── Perception Modal ────────────────────────────────────────────────────── */
