@@ -105,6 +105,15 @@ export default function SplashScreen({ onSelect }) {
       <div className="splash-panel">
         <div className="splash-panel-logo">CONSENT TO THE CITY</div>
         <div className="splash-panel-sub">urban access simulation · choose your city</div>
+        <div className="splash-panel-tagline">
+          <span className="splash-tag-step"><span className="splash-tag-num">01</span>enter a city</span>
+          <span className="splash-tag-arrow">→</span>
+          <span className="splash-tag-step"><span className="splash-tag-num">02</span>accept the terms</span>
+          <span className="splash-tag-arrow">→</span>
+          <span className="splash-tag-step"><span className="splash-tag-num">03</span>inscribe your claim</span>
+          <span className="splash-tag-arrow">→</span>
+          <span className="splash-tag-step splash-tag-step--last"><span className="splash-tag-num">04</span>see through every eye</span>
+        </div>
         <div className="splash-panel-divider" />
         <div className="splash-city-list">
           {Object.entries(CITIES).map(([key, city]) => {
