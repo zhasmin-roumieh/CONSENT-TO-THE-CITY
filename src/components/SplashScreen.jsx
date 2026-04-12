@@ -106,13 +106,13 @@ export default function SplashScreen({ onSelect }) {
         <div className="splash-panel-logo">CONSENT TO THE CITY</div>
         <div className="splash-panel-sub">urban access simulation · choose your city</div>
         <div className="splash-panel-tagline">
-          <span className="splash-tag-step"><span className="splash-tag-num">01</span>enter a city</span>
-          <span className="splash-tag-arrow">→</span>
-          <span className="splash-tag-step"><span className="splash-tag-num">02</span>accept the terms</span>
-          <span className="splash-tag-arrow">→</span>
-          <span className="splash-tag-step"><span className="splash-tag-num">03</span>inscribe your claim</span>
-          <span className="splash-tag-arrow">→</span>
-          <span className="splash-tag-step splash-tag-step--last"><span className="splash-tag-num">04</span>see through every eye</span>
+          <span className="splash-tag-pill" style={{ '--tc': '#2299ff' }}>enter</span>
+          <span className="splash-tag-sep">→</span>
+          <span className="splash-tag-pill" style={{ '--tc': '#ff8800' }}>accept</span>
+          <span className="splash-tag-sep">→</span>
+          <span className="splash-tag-pill" style={{ '--tc': '#cc44ff' }}>inscribe</span>
+          <span className="splash-tag-sep">→</span>
+          <span className="splash-tag-pill" style={{ '--tc': '#00e87a' }}>perceive</span>
         </div>
         <div className="splash-panel-divider" />
         <div className="splash-city-list">
