@@ -511,8 +511,8 @@ body {
 .bar-track { height: 6px; background: var(--color-background-secondary); border-radius: 3px; overflow: hidden; }
 .bar-fill { height: 100%; border-radius: 3px; opacity: 0.85; transition: width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
 
-.owner-item { display: grid; grid-template-columns: 68px 1fr; gap: 6px; margin-bottom: 6px; font-size: 11px; align-items: start; }
-[dir="rtl"] .owner-item { grid-template-columns: 1fr 68px; }
+.owner-item { display: grid; grid-template-columns: 68px 1fr auto; gap: 6px; margin-bottom: 6px; font-size: 11px; align-items: start; }
+[dir="rtl"] .owner-item { grid-template-columns: auto 1fr 68px; }
 .owner-lbl { color: var(--color-text-tertiary); font-size: 10px; line-height: 1.5; }
 .owner-val { color: var(--color-text-secondary); line-height: 1.55; }
 
