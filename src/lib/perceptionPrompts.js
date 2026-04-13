@@ -114,29 +114,33 @@ function detectEntityAngle(text) {
 export function buildStakeholderPrompt(locationName, cityName, ownerText, userText = '') {
   const angle = detectEntityAngle(ownerText);
   let prompt =
-    `Surrealist urban artwork: ${locationName} in ${cityName}. ` +
-    `Ownership claim: "${ownerText}". ` +
-    `Camera angle and perspective: ${angle}. ` +
-    `The image visualizes this entity's territorial consciousness — ` +
-    `what this space looks and feels like from their specific vantage point. ` +
+    `${locationName}, ${cityName} — surrealist artwork. ` +
+    `Subject: the actual ${locationName} in ${cityName}, its real architecture and urban character, rendered in surrealist style. ` +
+    `Ownership perspective: "${ownerText}". ` +
+    `Camera angle: ${angle}. ` +
+    `The scene is unmistakably ${locationName} — recognizable landmark, correct city atmosphere. ` +
     `Dreamlike, painterly, richly detailed surrealist illustration, cinematic composition. `;
   if (userText.trim()) prompt += `Additional vision: ${userText.trim()}. `;
-  prompt += `No text, no words, no watermarks, no labels.`;
+  prompt += `No text, no words, no watermarks, no labels. Must depict ${locationName} in ${cityName}.`;
   return prompt;
 }
 
 export function buildPerceptionPrompt(locationName, cityName, characterId, userText = '') {
   const p = PERSPECTIVES[characterId] || FALLBACK;
 
-  let prompt = `Surrealist urban artwork. ${locationName} in ${cityName}, ${p.view}. `;
-  prompt += `Art style: ${p.style}. `;
-  prompt += `Dreamlike, highly detailed, painterly illustration, cinematic composition. `;
+  let prompt =
+    `${locationName}, ${cityName} — surrealist artwork. ` +
+    `Subject: the actual ${locationName} in ${cityName}, its real architecture and urban character, rendered in surrealist style. ` +
+    `Perspective: ${p.view}. ` +
+    `Art style: ${p.style}. ` +
+    `The scene is unmistakably set at ${locationName} — recognizable landmark, correct city atmosphere. ` +
+    `Dreamlike, highly detailed, painterly illustration, cinematic composition. `;
 
   if (userText.trim()) {
     prompt += `Additional vision: ${userText.trim()}. `;
   }
 
-  prompt += `No text, no words, no watermarks, no labels.`;
+  prompt += `No text, no words, no watermarks, no labels. Must depict ${locationName} in ${cityName}.`;
 
   return prompt;
 }

@@ -65,6 +65,7 @@ export default function App() {
   const [showFate, setShowFate] = useState(false);
   const [showDeniedScreen, setShowDeniedScreen] = useState(false);
   const [showMapPerception, setShowMapPerception] = useState(false);
+  const [perceiveHint, setPerceiveHint] = useState(false);
 
   const isDark = theme === 'dark' || (theme === null && systemDark());
   const isRTL = lang === 'ar';
@@ -379,15 +380,38 @@ export default function App() {
 
         {/* ── Floating map perception button ── */}
         {character && (
-          <button
-            className="map-perceive-btn"
-            style={{ '--cc': character.color }}
-            onClick={() => setShowMapPerception(true)}
-            title="Generate AI perception of this place"
-          >
-            <span className="map-perceive-emoji">{character.emoji}</span>
-            <span className="map-perceive-label">✦ perceive</span>
-          </button>
+          <div className="map-perceive-wrap">
+            <button
+              className="map-perceive-btn"
+              style={{ '--cc': character.color }}
+              onClick={() => {
+                if (!currentLoc) {
+                  setPerceiveHint('location');
+                  setTimeout(() => setPerceiveHint(false), 3000);
+                } else if (view !== 'granted') {
+                  setPerceiveHint('terms');
+                  setTimeout(() => setPerceiveHint(false), 3000);
+                } else {
+                  setPerceiveHint(false);
+                  setShowMapPerception(true);
+                }
+              }}
+              title="Generate AI perception of this place"
+            >
+              <span className="map-perceive-emoji">{character.emoji}</span>
+              <span className="map-perceive-label">✦ perceive</span>
+            </button>
+            {perceiveHint === 'location' && (
+              <div className="perceive-hint">
+                First click a location on the map
+              </div>
+            )}
+            {perceiveHint === 'terms' && (
+              <div className="perceive-hint">
+                Accept the terms of access to this location first
+              </div>
+            )}
+          </div>
         )}
 
         {showMapPerception && character && (
