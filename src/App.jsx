@@ -412,8 +412,8 @@ export default function App() {
           </div>
         )}
 
-        {/* ── Stakeholder entity overlay (shown in 3D mode) ── */}
-        {currentLoc && character && (
+        {/* ── Stakeholder entity overlay (shown only after access granted) ── */}
+        {currentLoc && character && view === 'granted' && (
           <StakeholderOverlay
             loc={currentLoc}
             lang={lang}
