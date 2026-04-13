@@ -115,6 +115,15 @@ export default function SplashScreen({ onSelect }) {
           <span className="splash-tag-pill" style={{ '--tc': '#00e87a' }}>perceive</span>
         </div>
         <div className="splash-panel-divider" />
+        <p className="splash-lore">
+          Once upon a time, a city forgot who owned it.
+          Not just the buildings — the parks, the pavements, the air above the rooftops,
+          the shadows between towers, the sound that bounces off wet cobblestones at 3am.
+          Pigeons filed territorial claims. Algorithms pre-optimised your route.
+          A ghost from 1923 still holds the deed to the corner café.
+          Nobody agrees. Everyone has terms. You need access.
+          <em> Choose your city. Choose your body. Begin negotiating.</em>
+        </p>
         <div className="splash-city-list">
           {Object.entries(CITIES).map(([key, city]) => {
             const color = CITY_COLORS[key] || '#aaa';
