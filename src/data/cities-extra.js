@@ -148,6 +148,590 @@ export const EXTRA_LOCATIONS = {
         ],
       },
     },
+
+    {
+      id: 'alexanderplatz', type: 'square', lat: 52.5219, lng: 13.4132,
+      name: { en: 'Alexanderplatz', de: 'Alexanderplatz', ru: 'Александерплац', ar: 'أليكساندربلاتز' },
+      atmo: {
+        en: 'The television tower was built to prove something. It proved it so well that the thing it was meant to prove no longer exists. The tower remains. It casts a shadow on everything equally.',
+        de: 'Der Fernsehturm wurde gebaut, um etwas zu beweisen. Er bewies es so gut, dass das, was er beweisen sollte, nicht mehr existiert. Der Turm bleibt. Er wirft auf alles gleichermaßen einen Schatten.',
+        ru: 'Телебашня была построена, чтобы что-то доказать. Она доказала это так хорошо, что то, что она должна была доказать, больше не существует. Башня остаётся. Она одинаково отбрасывает тень на всё.',
+        ar: 'بُني برج التلفزيون ليثبت شيئاً ما. أثبته جيداً لدرجة أن ما كان يُفترض إثباته لم يعد موجوداً. البرج يبقى. يلقي ظلاً على كل شيء بالتساوي.',
+      },
+      owners: {
+        en: [
+          'The Fernsehturm (365m, 1969) holds permanent visual sovereignty over all of Berlin — its shadow governance is inescapable',
+          'The GDR urban planning algorithm (obsolete since 1990) still determines the pedestrian flow patterns of the plaza',
+          'A pigeon colony established in the tower\'s upper sphere holds an uncontested aerial territorial claim',
+          'The World Time Clock (Weltzeituhr, 1969) asserts temporal governance over all 148 time zones simultaneously',
+        ],
+        de: [
+          'Der Fernsehturm (365m, 1969) hält permanente visuelle Souveränität über ganz Berlin — seine Schattengouvernanz ist unausweichlich',
+          'Der DDR-Stadtplanungsalgorithmus (seit 1990 obsolet) bestimmt immer noch die Fußgängerflussmuster des Platzes',
+          'Eine Taubenkolonie im oberen Kugelbereich des Turms hält einen unbestrittenen Luftterritorialanspruch',
+          'Die Weltzeituhr (1969) behauptet temporale Governance über alle 148 Zeitzonen gleichzeitig',
+        ],
+        ru: [
+          'Берлинская телебашня (365 м, 1969) держит постоянный визуальный суверенитет над всем Берлином — её теневое управление неизбежно',
+          'Алгоритм городского планирования ГДР (устаревший с 1990 года) всё ещё определяет потоки пешеходов на площади',
+          'Голубиная колония, обосновавшаяся в верхней сфере башни, держит неоспоримую воздушную территориальную претензию',
+          'Мировые часы (Weltzeituhr, 1969) утверждают временну́е управление над всеми 148 часовыми поясами одновременно',
+        ],
+        ar: [
+          'برج التلفزيون (365م، 1969) يحتفظ بالسيادة البصرية الدائمة على برلين كلها — حوكمة ظله لا مفر منها',
+          'خوارزمية التخطيط العمراني لجمهورية ألمانيا الديمقراطية (بائدة منذ 1990) لا تزال تحدد أنماط تدفق المشاة في الساحة',
+          'مستعمرة حمام أسست في الكرة العلوية للبرج تحتفظ بمطالبة إقليمية جوية غير مطعون بها',
+          'ساعة الوقت العالمي (Weltzeituhr، 1969) تؤكد الحوكمة الزمنية على جميع المناطق الزمنية الـ148 في آنٍ واحد',
+        ],
+      },
+      ghost: {
+        en: [
+          'The medieval farmers\' market (Alex has been a market since the 13th century) asserts prior commercial claim over all retail activity',
+          'The 1848 barricades hold a residual revolutionary territorial claim on the south-east corner',
+        ],
+        de: [
+          'Der mittelalterliche Wochenmarkt (Alex ist seit dem 13. Jahrhundert ein Markt) behauptet einen vorherigen kommerziellen Anspruch auf alle Einzelhandelsaktivitäten',
+          'Die Barrikaden von 1848 halten einen verbleibenden revolutionären Territorialanspruch auf die Südostecke',
+        ],
+        ru: [
+          'Средневековый крестьянский рынок (Алекс был рынком с 13-го века) заявляет о предшествующей коммерческой претензии на всю розничную деятельность',
+          'Баррикады 1848 года держат остаточную революционную территориальную претензию на юго-восточный угол',
+        ],
+        ar: [
+          'سوق المزارعين في العصور الوسطى (ألكس سوق منذ القرن الثالث عشر) يؤكد المطالبة التجارية السابقة على جميع أنشطة البيع بالتجزئة',
+          'متاريس 1848 تحتفظ بمطالبة إقليمية ثورية متبقية في الركن الجنوبي الشرقي',
+        ],
+      },
+      temporal: {
+        en: [
+          'New Year\'s Eve: the square becomes the largest temporary collective governance zone in Germany for approximately 6 hours',
+          'The tower\'s shadow rotates through the plaza all day — a solar governance clock that predates all property law',
+        ],
+        de: [
+          'Silvester: Der Platz wird für etwa 6 Stunden zur größten temporären kollektiven Governance-Zone Deutschlands',
+          'Der Schatten des Turms dreht sich den ganzen Tag durch den Platz — eine solare Governance-Uhr, die allem Eigentumsrecht vorausgeht',
+        ],
+        ru: [
+          'Новый год: площадь становится крупнейшей временной коллективной зоной управления в Германии примерно на 6 часов',
+          'Тень башни вращается через площадь весь день — солнечные часы управления, предшествующие всем законам о собственности',
+        ],
+        ar: [
+          'ليلة رأس السنة: تصبح الساحة أكبر منطقة حوكمة جماعية مؤقتة في ألمانيا لنحو 6 ساعات',
+          'يدور ظل البرج عبر الساحة طوال اليوم — ساعة حوكمة شمسية تسبق كل قانون ملكية',
+        ],
+      },
+    },
+
+    {
+      id: 'checkpoint-charlie', type: 'monument', lat: 52.5075, lng: 13.3904,
+      name: { en: 'Checkpoint Charlie', de: 'Checkpoint Charlie', ru: 'Чекпойнт Чарли', ar: 'نقطة تفتيش تشارلي' },
+      atmo: {
+        en: 'A guardhouse the size of a shed between two worlds. The original booth is in a museum now. This is a replica. Tourists queue to have their photograph taken with an actor in a uniform. The border was always performance.',
+        de: 'Ein Wachhaus von der Größe eines Schuppens zwischen zwei Welten. Die Original-Kabine ist jetzt in einem Museum. Das hier ist eine Kopie. Touristen stehen Schlange, um sich mit einem Schauspieler in Uniform fotografieren zu lassen. Die Grenze war immer Aufführung.',
+        ru: 'Будка размером с сарай между двумя мирами. Оригинальная кабина теперь в музее. Это копия. Туристы стоят в очереди, чтобы сфотографироваться с актёром в форме. Граница всегда была представлением.',
+        ar: 'بيت الحراسة بحجم سقيفة بين عالمين. الكابينة الأصلية في متحف الآن. هذه نسخة طبق الأصل. السياح يصطفون للتصوير مع ممثل يرتدي زياً عسكرياً. الحدود كانت دائماً عرضاً مسرحياً.',
+      },
+      owners: {
+        en: [
+          'The replica guardhouse (installed 2000) holds commercial territorial rights — the original ceded all authority upon museumification',
+          'The asphalt beneath the booth still contains the chemical memory of exhaust gases from 30 years of idling engines',
+          'A souvenir economy algorithm has fully colonised the 50m radius — legitimate spatial governance is economically impossible',
+          'The ghosts of both checkpoint guards (East and West) maintain simultaneous and contradictory jurisdictional claims',
+        ],
+        de: [
+          'Das Replika-Wachhaus (installiert 2000) hält kommerzielle Territorialrechte — das Original hat bei der Museumisierung alle Autorität abgetreten',
+          'Der Asphalt unter der Kabine enthält noch immer die chemische Erinnerung an Abgase von 30 Jahren laufender Motoren',
+          'Ein Souvenirwirtschaftsalgorithmus hat den 50-m-Radius vollständig kolonisiert — legitime räumliche Governance ist wirtschaftlich unmöglich',
+          'Die Geister beider Checkpoint-Wächter (Ost und West) behalten gleichzeitige und widersprüchliche Gerichtsbarkeitsansprüche',
+        ],
+        ru: [
+          'Реплика будки (установлена в 2000 году) держит коммерческие территориальные права — оригинал уступил всю власть при музеефикации',
+          'Асфальт под будкой всё ещё содержит химическую память выхлопных газов 30 лет простаивающих двигателей',
+          'Алгоритм сувенирной экономики полностью колонизировал радиус 50 м — легитимное пространственное управление экономически невозможно',
+          'Призраки обоих пограничников (восточного и западного) сохраняют одновременные и противоречивые юрисдикционные претензии',
+        ],
+        ar: [
+          'بيت الحراسة المستنسخ (نُصب عام 2000) يحتفظ بحقوق إقليمية تجارية — الأصل تنازل عن كل سلطة عند تحوّله إلى متحف',
+          'الإسفلت تحت الكابينة لا يزال يحمل الذاكرة الكيميائية لعوادم 30 عاماً من المحركات المتوقفة',
+          'خوارزمية الاقتصاد التذكاري استعمرت بالكامل نطاق 50 متراً — الحوكمة المكانية الشرعية مستحيلة اقتصادياً',
+          'أشباح حراس نقطة التفتيش (الشرقي والغربي) يحتفظون بمطالبات ولاية قضائية متزامنة ومتناقضة',
+        ],
+      },
+      ghost: {
+        en: [
+          '200 people crossed here illegally — their transit paths are embedded in the ground as residual rights-of-passage',
+          'The Wall\'s former alignment cuts directly through this intersection — a phantom boundary still dividing the air column above',
+        ],
+        de: [
+          '200 Menschen haben hier illegal überquert — ihre Transitwege sind als verbleibende Durchgangsrechte im Boden eingebettet',
+          'Die ehemalige Ausrichtung der Mauer schneidet direkt durch diese Kreuzung — eine Phantomgrenze, die noch immer die darüber liegende Luftsäule teilt',
+        ],
+        ru: [
+          '200 человек нелегально пересекли здесь — их транзитные пути встроены в землю как остаточные права прохода',
+          'Бывшее выравнивание Стены проходит прямо через этот перекрёсток — призрачная граница, всё ещё делящая воздушный столб выше',
+        ],
+        ar: [
+          '200 شخص عبروا هنا بشكل غير قانوني — مسارات عبورهم مضمّنة في الأرض كحقوق مرور متبقية',
+          'المحاذاة السابقة للجدار تمر مباشرة عبر هذا التقاطع — حدود وهمية لا تزال تقسم عمود الهواء فوقها',
+        ],
+      },
+      temporal: {
+        en: [
+          'Peak tourist hour (10am–2pm): the site flips from historical monument to outdoor theatre — governance transfers to performance economy',
+          'Midnight: the actor in uniform clocks off, the replica stands empty, and the border briefly becomes real again',
+        ],
+        de: [
+          'Touristischer Spitzenstunde (10–14 Uhr): Der Ort wechselt von historischem Denkmal zu Freilichttheater — Governance geht auf die Aufführungswirtschaft über',
+          'Mitternacht: Der Schauspieler in Uniform macht Feierabend, die Replik steht leer, und die Grenze wird kurz wieder real',
+        ],
+        ru: [
+          'Пиковый туристический час (10:00–14:00): место переходит от исторического памятника к театру под открытым небом — управление переходит к экономике представления',
+          'Полночь: актёр в форме уходит, реплика стоит пустой, и граница ненадолго снова становится реальной',
+        ],
+        ar: [
+          'ساعة الذروة السياحية (10 صباحاً–2 ظهراً): يتحول الموقع من نصب تاريخي إلى مسرح مفتوح — تنتقل الحوكمة إلى اقتصاد الأداء',
+          'منتصف الليل: يُغادر الممثل في الزي العسكري، تقف النسخة فارغة، وتصبح الحدود حقيقية مجدداً للحظة',
+        ],
+      },
+    },
+
+    {
+      id: 'gendarmenmarkt', type: 'square', lat: 52.5138, lng: 13.3927,
+      name: { en: 'Gendarmenmarkt', de: 'Gendarmenmarkt', ru: 'Жандарменмаркт', ar: 'جاندارمنماركت' },
+      atmo: {
+        en: 'Two identical cathedrals face each other across a concert hall, as if the city could not decide which version of itself was correct. The symmetry is absolute. The pigeons ignore it.',
+        de: 'Zwei identische Kathedralen stehen sich über einen Konzertsaal hinweg gegenüber, als könnte die Stadt nicht entscheiden, welche Version ihrer selbst korrekt war. Die Symmetrie ist absolut. Die Tauben ignorieren sie.',
+        ru: 'Два одинаковых собора смотрят друг на друга через концертный зал, как будто город не мог решить, какая версия себя была правильной. Симметрия абсолютна. Голуби игнорируют её.',
+        ar: 'كاتدرائيتان متطابقتان تواجهان بعضهما عبر قاعة حفلات، كأن المدينة لم تستطع تحديد أي نسخة من نفسها كانت الصحيحة. التناسق مطلق. الحمام يتجاهله.',
+      },
+      owners: {
+        en: [
+          'The Konzerthaus (built 1821) holds acoustic sovereignty — all sound within the square must negotiate its resonance frequencies',
+          'The French Cathedral and German Cathedral assert simultaneous and equal theological jurisdiction — an unresolved ecumenical dispute',
+          'Schiller\'s statue (centre) holds narrative governance of the square — all adjacent activity is filtered through his aesthetic',
+          'The cobblestones (original granite setts, pre-war) retain geological memory of every market, execution, and celebration since 1688',
+        ],
+        de: [
+          'Das Konzerthaus (gebaut 1821) hält akustische Souveränität — alle Klänge im Platz müssen mit seinen Resonanzfrequenzen verhandeln',
+          'Der Französische Dom und der Deutsche Dom behaupten gleichzeitige und gleiche theologische Jurisdiktion — ein ungeklärter ökumenischer Streit',
+          'Schillers Statue (Mitte) hält narrative Governance des Platzes — alle angrenzenden Aktivitäten werden durch seine Ästhetik gefiltert',
+          'Das Kopfsteinpflaster (originale Granitsteine, Vorkriegszeit) behält geologische Erinnerung an jeden Markt, jede Hinrichtung und jede Feier seit 1688',
+        ],
+        ru: [
+          'Концертный зал (построен в 1821 году) держит акустический суверенитет — весь звук на площади должен договориться с его резонансными частотами',
+          'Французский собор и Немецкий собор заявляют одновременную и равную теологическую юрисдикцию — неразрешённый экуменический спор',
+          'Статуя Шиллера (в центре) держит нарративное управление площадью — вся прилегающая деятельность фильтруется через его эстетику',
+          'Булыжники (оригинальная гранитная брусчатка, довоенная) сохраняют геологическую память каждого рынка, казни и праздника с 1688 года',
+        ],
+        ar: [
+          'قاعة الحفلات (بُنيت 1821) تحتفظ بالسيادة الصوتية — كل صوت داخل الساحة يجب أن يتفاوض مع ترددات رنينها',
+          'الكاتدرائية الفرنسية والكاتدرائية الألمانية تؤكدان الولاية القضائية اللاهوتية المتزامنة والمتساوية — نزاع مسكوني لم يُحسم',
+          'تمثال شيلر (في المنتصف) يحتفظ بالحوكمة السردية للساحة — جميع الأنشطة المجاورة تُفلتر عبر جمالياته',
+          'أحجار الرصف (أحجار جرانيت أصلية، ما قبل الحرب) تحتفظ بالذاكرة الجيولوجية لكل سوق وإعدام واحتفال منذ 1688',
+        ],
+      },
+      ghost: {
+        en: [
+          'The Huguenot refugee market (1685) asserts a prior commercial claim — this was always a space of displaced people trading',
+          'The Prussian cavalry regiment that gave the square its name retains a residual military territorial claim',
+        ],
+        de: [
+          'Der Hugenotten-Flüchtlingsmarkt (1685) behauptet einen vorherigen kommerziellen Anspruch — dies war schon immer ein Raum für vertriebene Menschen, die handelten',
+          'Das preußische Kavallerieregiment, das dem Platz seinen Namen gab, behält einen verbleibenden militärischen Territorialanspruch',
+        ],
+        ru: [
+          'Гугенотский рынок беженцев (1685) заявляет о предшествующей коммерческой претензии — это всегда было пространством торгующих перемещённых людей',
+          'Прусский кавалерийский полк, давший площади её название, сохраняет остаточную военную территориальную претензию',
+        ],
+        ar: [
+          'سوق لاجئي الهوغونوت (1685) يؤكد مطالبة تجارية سابقة — كان هذا دائماً فضاءً للنازحين الذين يتاجرون',
+          'الفوج الخيّالة البروسي الذي أعطى الساحة اسمها يحتفظ بمطالبة عسكرية إقليمية متبقية',
+        ],
+      },
+      temporal: {
+        en: [
+          'Christmas market season (December): the square transforms into a commercial territory governed by mulled wine and temporary stalls',
+          'Summer evening concerts: the Konzerthaus sound field expands to claim the full square as acoustic territory',
+        ],
+        de: [
+          'Weihnachtsmarkt-Saison (Dezember): Der Platz verwandelt sich in ein kommerzielles Territorium, das von Glühwein und temporären Ständen regiert wird',
+          'Sommerabendkonzerte: Das Konzerthaus-Schallfeld erweitert sich, um den gesamten Platz als akustisches Territorium zu beanspruchen',
+        ],
+        ru: [
+          'Сезон рождественского рынка (декабрь): площадь превращается в коммерческую территорию, управляемую глинтвейном и временными ларьками',
+          'Летние вечерние концерты: звуковое поле Концертного зала расширяется, чтобы занять всю площадь как акустическую территорию',
+        ],
+        ar: [
+          'موسم سوق عيد الميلاد (ديسمبر): تتحول الساحة إلى منطقة تجارية تحكمها النبيذ الساخن والأكشاك المؤقتة',
+          'حفلات مسائية صيفية: يتوسع مجال صوت قاعة الحفلات ليطالب بالساحة بأكملها كمنطقة صوتية',
+        ],
+      },
+    },
+
+    {
+      id: 'oberbaumbruecke', type: 'waterfront', lat: 52.5015, lng: 13.4481,
+      name: { en: 'Oberbaum Bridge', de: 'Oberbaumbrücke', ru: 'Обербаумбрюкке', ar: 'جسر أوبرباوم' },
+      atmo: {
+        en: 'A double-decker bridge in red brick gothic. The upper deck carries a subway line. The lower deck connects two neighbourhoods that spent 28 years as separate countries. The Spree runs underneath and does not care.',
+        de: 'Eine zweistöckige Brücke aus rotem Backsteingotik. Das Oberdeck trägt eine U-Bahn-Linie. Das Unterdeck verbindet zwei Stadtteile, die 28 Jahre lang getrennte Länder waren. Die Spree fließt darunter und kümmert sich nicht darum.',
+        ru: 'Двухъярусный мост из красного кирпича в готическом стиле. Верхний ярус несёт линию метро. Нижний ярус соединяет два района, которые 28 лет были отдельными странами. Шпрее течёт внизу и не обращает на это внимания.',
+        ar: 'جسر مزدوج الطوابق بالطوب الأحمر القوطي. الطابق العلوي يحمل خط مترو. الطابق السفلي يربط حيّين قضيا 28 عاماً كدولتين منفصلتين. نهر شبري يجري تحته ولا يهتم.',
+      },
+      owners: {
+        en: [
+          'The River Spree holds primary navigational sovereignty — the bridge is a guest crossing the river\'s territory',
+          'The U1 subway line (running through the upper arch since 1902) asserts infrastructure governance over the entire span',
+          'Kreuzberg and Friedrichshain each claim the bridge\'s midpoint — the exact territorial line is disputed by both districts',
+          'The cormorants nesting under the arches hold an unregistered but continuous biological claim',
+        ],
+        de: [
+          'Die Spree hält die primäre Navigationssouveränität — die Brücke ist ein Gast, der das Territorium des Flusses überquert',
+          'Die U1-Linie (seit 1902 durch den Oberbogen fahrend) behauptet Infrastruktur-Governance über die gesamte Spannweite',
+          'Kreuzberg und Friedrichshain beanspruchen jeweils den Mittelpunkt der Brücke — die genaue Territoriallinie ist von beiden Bezirken umstritten',
+          'Die unter den Bögen nistenden Kormorane halten einen nicht registrierten, aber kontinuierlichen biologischen Anspruch',
+        ],
+        ru: [
+          'Река Шпрее держит первичный навигационный суверенитет — мост является гостем, пересекающим территорию реки',
+          'Линия U1 (проходящая через верхнюю арку с 1902 года) заявляет инфраструктурное управление над всем пролётом',
+          'Кройцберг и Фридрихсхайн каждый претендует на середину моста — точная территориальная линия оспаривается обоими районами',
+          'Бакланы, гнездящиеся под арками, держат незарегистрированную, но непрерывную биологическую претензию',
+        ],
+        ar: [
+          'نهر شبري يحتفظ بالسيادة الملاحية الأساسية — الجسر ضيف يعبر أراضي النهر',
+          'خط المترو U1 (يمر عبر القوس العلوي منذ 1902) يؤكد حوكمة البنية التحتية على كامل الامتداد',
+          'كل من كرويتسبرغ وفريدريشسهاين يطالب بمنتصف الجسر — الخط الإقليمي الدقيق متنازع عليه من كلا الحيّين',
+          'الكورمورانات التي تعشش تحت الأقواس تحتفظ بمطالبة بيولوجية غير مسجلة لكن مستمرة',
+        ],
+      },
+      ghost: {
+        en: [
+          'The original wooden pile barrier (1686) — the "Oberbaum" — holds a residual toll-collection right on all river traffic',
+          'The border crossing point (1961–1989) embedded in the eastern tower retains a checkpoint memory that still slows pedestrian movement',
+        ],
+        de: [
+          'Die ursprüngliche Holzpfahlbarriere (1686) — der "Oberbaum" — hält ein verbleibendes Mauterhebungsrecht auf den gesamten Flussverkehr',
+          'Der in den Ostturm eingebettete Grenzübergangspunkt (1961–1989) behält eine Checkpoint-Erinnerung, die noch immer die Fußgängerbewegung verlangsamt',
+        ],
+        ru: [
+          'Оригинальный деревянный свайный барьер (1686) — «Обербаум» — держит остаточное право сбора пошлины на весь речной трафик',
+          'Пограничный пропускной пункт (1961–1989), встроенный в восточную башню, сохраняет память контрольно-пропускного пункта, которая всё ещё замедляет движение пешеходов',
+        ],
+        ar: [
+          'الحاجز الخشبي الوتدي الأصلي (1686) — "Oberbaum" — يحتفظ بحق جباية الرسوم المتبقي على جميع حركة الأنهار',
+          'نقطة العبور الحدودية (1961–1989) المضمّنة في البرج الشرقي تحتفظ بذاكرة نقطة التفتيش التي لا تزال تبطئ حركة المشاة',
+        ],
+      },
+      temporal: {
+        en: [
+          'Annual tomato battle (Christopher Street Day): the bridge becomes a temporary zone of collective, joyful territorial transgression',
+          'Morning commute: the U1 overhead asserts mechanical governance — all human movement below synchronises to its timetable',
+        ],
+        de: [
+          'Jährliche Tomatenschlacht (Christopher Street Day): Die Brücke wird zu einer temporären Zone kollektiver, freudiger territorialer Übertretung',
+          'Morgenliche Pendlerzeit: Die U1 oben behauptet mechanische Governance — alle menschlichen Bewegungen darunter synchronisieren sich mit ihrem Fahrplan',
+        ],
+        ru: [
+          'Ежегодная томатная битва (Christopher Street Day): мост становится временной зоной коллективного, радостного территориального нарушения',
+          'Утренняя поездка: U1 сверху заявляет механическое управление — все движения людей внизу синхронизируются с его расписанием',
+        ],
+        ar: [
+          'معركة الطماطم السنوية (يوم كريستوفر ستريت): يصبح الجسر منطقة مؤقتة من التعدي الإقليمي الجماعي المبهج',
+          'التنقل الصباحي: U1 أعلاه يؤكد الحوكمة الميكانيكية — جميع الحركات البشرية أسفله تتزامن مع جدوله الزمني',
+        ],
+      },
+    },
+
+    {
+      id: 'prenzlauer-berg', type: 'district', lat: 52.5390, lng: 13.4145,
+      name: { en: 'Prenzlauer Berg', de: 'Prenzlauer Berg', ru: 'Пренцлауэр-Берг', ar: 'برنتسلاور بيرغ' },
+      atmo: {
+        en: 'The neighbourhood that bohemians made cheap, then expensive, then left. The Wasserturm still stands at the hill\'s crown. Below it: artisan coffee, prams, and the memory of something that cannot be priced.',
+        de: 'Das Viertel, das Bohemiens billig machten, dann teuer, dann verließen. Der Wasserturm steht noch immer auf dem Hügelkamm. Darunter: handwerklicher Kaffee, Kinderwagen und die Erinnerung an etwas, das sich nicht bepreisen lässt.',
+        ru: 'Район, который богема сделала дешёвым, потом дорогим, потом покинула. Водонапорная башня всё ещё стоит на вершине холма. Ниже: ремесленный кофе, коляски и память о чём-то, чему нельзя назначить цену.',
+        ar: 'الحي الذي جعله البوهيميون رخيصاً، ثم غالياً، ثم غادروه. برج المياه لا يزال يقف على قمة التل. تحته: قهوة حرفية، عربات أطفال، وذاكرة شيء لا يمكن تسعيره.',
+      },
+      owners: {
+        en: [
+          'The Wasserturm (1877, decommissioned 1952) holds vertical territorial sovereignty — the highest point in the neighbourhood belongs to infrastructure memory',
+          'A dense network of pre-war basement bunkers claims underground rights beneath every cobblestone street',
+          'The gentrification algorithm has replaced 70% of pre-1990 residents — it holds a de facto cultural governance claim',
+          'Linden trees planted along Kastanienallee in 1890 assert prior arboreal rights over all pavement usage',
+        ],
+        de: [
+          'Der Wasserturm (1877, 1952 außer Betrieb) hält vertikale Territorialsouveränität — der höchste Punkt des Viertels gehört der Infrastrukturerinnerung',
+          'Ein dichtes Netz von Vorkriegskellerbunkern beansprucht Untergrundrechte unter jeder Kopfsteinpflasterstraße',
+          'Der Gentrifizierungsalgorithmus hat 70% der Vorwendebewohner ersetzt — er hält einen De-facto-Anspruch auf kulturelle Governance',
+          'Lindenbäume, 1890 entlang der Kastanienallee gepflanzt, behaupten vorherige Baumrechte über alle Bürgersteignutzung',
+        ],
+        ru: [
+          'Водонапорная башня (1877, выведена из эксплуатации в 1952 году) держит вертикальный территориальный суверенитет — наивысшая точка района принадлежит памяти инфраструктуры',
+          'Плотная сеть довоенных подвальных бункеров претендует на подземные права под каждой булыжной улицей',
+          'Алгоритм джентрификации заменил 70% жителей до 1990 года — он держит фактическую претензию на культурное управление',
+          'Липы, посаженные вдоль Каштаненаллее в 1890 году, заявляют о предшествующих древесных правах на всё использование тротуаров',
+        ],
+        ar: [
+          'برج المياه (1877، خُصّص 1952) يحتفظ بالسيادة الإقليمية العمودية — أعلى نقطة في الحي تنتمي لذاكرة البنية التحتية',
+          'شبكة كثيفة من ملاجئ ما قبل الحرب في الطوابق السفلية تطالب بحقوق تحت الأرض تحت كل شارع مرصوف',
+          'خوارزمية التحسين العمراني استبدلت 70% من سكان ما قبل 1990 — تحتفظ بمطالبة حوكمة ثقافية فعلية',
+          'أشجار الزيزفون المزروعة على طول كاستانيناليه عام 1890 تؤكد الحقوق الشجرية السابقة على جميع استخدامات الأرصفة',
+        ],
+      },
+      ghost: {
+        en: [
+          'The GDR-era residents (80,000 displaced since 1990) retain a collective residual tenancy claim over every gentrified apartment',
+          'The Nazi-era prison in the Wasserturm basement holds a silent territorial claim that no café renovation can dissolve',
+        ],
+        de: [
+          'Die DDR-Bewohner (80.000 seit 1990 vertriebene) behalten einen kollektiven verbleibenden Mietanspruch auf jede gentrifizierte Wohnung',
+          'Das Nazizeitgefängnis im Wasserturmkeller hält einen stillen Territorialanspruch, den keine Café-Renovierung auflösen kann',
+        ],
+        ru: [
+          'Жители эпохи ГДР (80 000 перемещённых с 1990 года) сохраняют коллективную остаточную претензию аренды на каждую облагороженную квартиру',
+          'Нацистская тюрьма в подвале водонапорной башни держит тихую территориальную претензию, которую никакой ремонт кафе не может растворить',
+        ],
+        ar: [
+          'سكان عهد جمهورية ألمانيا الديمقراطية (80,000 مُهجَّر منذ 1990) يحتفظون بمطالبة إيجارية جماعية متبقية على كل شقة مُحسَّنة',
+          'السجن النازي في طابق برج المياه السفلي يحتفظ بمطالبة إقليمية صامتة لا يستطيع أي تجديد مقهى حلّها',
+        ],
+      },
+      temporal: {
+        en: [
+          'Sunday Mauerpark flea market: the former death strip briefly becomes the most democratic trading floor in the city',
+          'School pickup hour (3pm): prams achieve temporary collective governance of every pavement — all other uses suspended',
+        ],
+        de: [
+          'Sonntäglicher Mauerpark-Flohmarkt: Der ehemalige Todesstreifen wird kurzzeitig zum demokratischsten Handelsplatz der Stadt',
+          'Schulabholstunde (15 Uhr): Kinderwagen erlangen temporäre kollektive Governance jedes Bürgersteigs — alle anderen Nutzungen ausgesetzt',
+        ],
+        ru: [
+          'Воскресный блошиный рынок на Мауэрпарке: бывшая полоса смерти ненадолго становится самой демократичной торговой площадкой города',
+          'Час встречи после школы (15:00): коляски достигают временного коллективного управления каждым тротуаром — все остальные виды использования приостановлены',
+        ],
+        ar: [
+          'سوق المقتنيات القديمة في ماورباركت يوم الأحد: يصبح شريط الموت السابق مؤقتاً أكثر أرضية تجارية ديمقراطية في المدينة',
+          'ساعة استقبال المدرسة (3 م): تحقق عربات الأطفال الحوكمة الجماعية المؤقتة لكل رصيف — جميع الاستخدامات الأخرى معلّقة',
+        ],
+      },
+    },
+
+    {
+      id: 'mauerpark', type: 'open', lat: 52.5415, lng: 13.4019,
+      name: { en: 'Mauerpark', de: 'Mauerpark', ru: 'Мауэрпарк', ar: 'ماورباركت' },
+      atmo: {
+        en: 'A park on the strip where they shot people trying to leave. On Sundays it fills with karaoke, flea market traders, and amateur acrobats. The grass grows exactly where the death strip was. Happiness is the most radical thing you can do to a place.',
+        de: 'Ein Park auf dem Streifen, auf dem sie Menschen erschossen, die versuchten wegzugehen. Sonntags füllt er sich mit Karaoke, Flohmarktverkäufern und Amateurakrobaten. Das Gras wächst genau dort, wo der Todesstreifen war. Glück ist das Radikalste, was man einem Ort antun kann.',
+        ru: 'Парк на полосе, где расстреливали людей, пытавшихся уйти. По воскресеньям он заполняется караоке, торговцами блошиного рынка и акробатами-любителями. Трава растёт точно там, где был смертный коридор. Счастье — самое радикальное, что можно сделать с местом.',
+        ar: 'حديقة على الشريط الذي أطلقوا فيه النار على الناس الذين يحاولون المغادرة. في أيام الأحد يمتلئ بالكاريوكي والباعة في سوق القطع القديمة والبهلوانيين الهواة. العشب ينمو بالضبط حيث كان شريط الموت. السعادة هي أكثر شيء جذري يمكنك فعله في مكان ما.',
+      },
+      owners: {
+        en: [
+          'The former death strip soil (treated with herbicide for 28 years to prevent concealment) holds a residual toxic territorial memory',
+          'The Sunday karaoke amphitheatre has established a weekly community governance claim through continuous cultural use since 2004',
+          'A ghost — the last person shot at this section of the Wall (1989) — retains a sovereign claim no park authority can dissolve',
+          'The flea market sellers\' collective asserts informal commercial territorial rights over every square metre of grass on Sundays',
+        ],
+        de: [
+          'Der ehemalige Todesstreifenboden (28 Jahre lang mit Herbizid behandelt, um Verstecke zu verhindern) hält eine verbleibende toxische territoriale Erinnerung',
+          'Das sonntägliche Karaoke-Amphitheater hat durch kontinuierliche kulturelle Nutzung seit 2004 einen wöchentlichen Gemeinschafts-Governance-Anspruch etabliert',
+          'Ein Geist — die letzte Person, die an diesem Mauerabschnitt erschossen wurde (1989) — behält einen souveränen Anspruch, den keine Parkverwaltung auflösen kann',
+          'Das Kollektiv der Flohmarkthändler behauptet informelle kommerzielle Territorialrechte über jeden Quadratmeter Rasen sonntags',
+        ],
+        ru: [
+          'Почва бывшего смертного коридора (обрабатывавшаяся гербицидом 28 лет для предотвращения укрытия) держит остаточную токсическую территориальную память',
+          'Воскресный амфитеатр для караоке установил еженедельную претензию на общественное управление через непрерывное культурное использование с 2004 года',
+          'Призрак — последний человек, застреленный у этого участка Стены (1989) — сохраняет суверенную претензию, которую никакая парковая администрация не может растворить',
+          'Коллектив торговцев блошиного рынка заявляет о неформальных коммерческих территориальных правах на каждый квадратный метр газона по воскресеньям',
+        ],
+        ar: [
+          'تربة شريط الموت السابق (عُولجت بمبيد أعشاب لمدة 28 عاماً لمنع الاختباء) تحتفظ بذاكرة إقليمية سامة متبقية',
+          'مسرح الكاريوكي الأحدي أسّس مطالبة حوكمة مجتمعية أسبوعية من خلال الاستخدام الثقافي المستمر منذ 2004',
+          'شبح — آخر شخص أُطلق عليه النار عند هذا القطاع من الجدار (1989) — يحتفظ بمطالبة ذات سيادة لا تستطيع أي سلطة حديقة حلّها',
+          'مجموعة بائعي سوق البضائع القديمة تؤكد حقوقاً إقليمية تجارية غير رسمية على كل متر مربع من العشب أيام الأحد',
+        ],
+      },
+      ghost: {
+        en: [
+          'The Wall\'s former path crosses the park diagonally — an invisible border still felt in how people unconsciously avoid certain lines of movement',
+          'The 191 watchtowers that once surveilled this strip hold a residual panopticon claim over all open-air activity',
+        ],
+        de: [
+          'Der ehemalige Mauerverlauf durchquert den Park diagonal — eine unsichtbare Grenze, die noch immer darin zu spüren ist, wie Menschen unbewusst bestimmte Bewegungslinien meiden',
+          'Die 191 Wachtürme, die diesen Streifen einst überwachten, halten einen verbleibenden Panoptikum-Anspruch über alle Freiluftaktivitäten',
+        ],
+        ru: [
+          'Бывший путь Стены пересекает парк по диагонали — невидимая граница, всё ещё ощущаемая в том, как люди бессознательно избегают определённых линий движения',
+          '191 сторожевая башня, некогда наблюдавшая за этой полосой, держит остаточную паноптическую претензию на всю деятельность под открытым небом',
+        ],
+        ar: [
+          'مسار الجدار السابق يعبر الحديقة قطرياً — حدود غير مرئية لا تزال تُشعر بها في كيفية تجنب الناس بشكل لا واعٍ لخطوط حركة معينة',
+          'أبراج المراقبة الـ191 التي كانت تراقب هذا الشريط تحتفظ بمطالبة مراقبة شاملة متبقية على جميع الأنشطة في الهواء الطلق',
+        ],
+      },
+      temporal: {
+        en: [
+          'Sunday afternoon (2pm–6pm): collective joy achieves temporary governance — the park briefly becomes ungovernable in the best sense',
+          'Monday morning: the grass remembers the weight of 10,000 people and slowly reasserts its own quiet territorial claim',
+        ],
+        de: [
+          'Sonntagnachmittag (14–18 Uhr): kollektive Freude erreicht temporäre Governance — der Park wird kurzzeitig im besten Sinne unregierbar',
+          'Montagmorgen: Das Gras erinnert sich an das Gewicht von 10.000 Menschen und behauptet langsam seinen eigenen stillen Territorialanspruch wieder',
+        ],
+        ru: [
+          'Воскресный день (14:00–18:00): коллективная радость достигает временного управления — парк ненадолго становится неуправляемым в лучшем смысле',
+          'Понедельник утром: трава помнит вес 10 000 человек и медленно снова заявляет о своей тихой территориальной претензии',
+        ],
+        ar: [
+          'بعد ظهر الأحد (2م–6م): يحقق الفرح الجماعي الحوكمة المؤقتة — تصبح الحديقة مؤقتاً غير قابلة للحكم بأفضل معنى',
+          'صباح الاثنين: يتذكر العشب ثقل 10,000 شخص ويؤكد ببطء مطالبته الإقليمية الهادئة الخاصة مرة أخرى',
+        ],
+      },
+    },
+
+    {
+      id: 'charlottenburg', type: 'cultural', lat: 52.5209, lng: 13.2957,
+      name: { en: 'Charlottenburg Palace', de: 'Schloss Charlottenburg', ru: 'Дворец Шарлоттенбург', ar: 'قصر شارلوتنبورغ' },
+      atmo: {
+        en: 'Built for a queen who died before it was finished. Burned in the war. Rebuilt exactly as it was, which means this is a copy of a copy of grief. The gardens are impeccably symmetrical. Nature did not agree and keeps pushing through anyway.',
+        de: 'Gebaut für eine Königin, die starb, bevor es fertig war. Im Krieg verbrannt. Genau so wieder aufgebaut, was bedeutet, dass dies eine Kopie einer Kopie von Trauer ist. Die Gärten sind tadellos symmetrisch. Die Natur war nicht einverstanden und drängt trotzdem immer weiter durch.',
+        ru: 'Построен для королевы, умершей до его завершения. Сгорел во время войны. Отстроен точно таким же, что означает — это копия копии горя. Сады безупречно симметричны. Природа не согласилась и всё равно продолжает пробиваться.',
+        ar: 'بُني لملكة ماتت قبل اكتماله. احترق في الحرب. أُعيد بناؤه بالضبط كما كان، مما يعني أن هذا نسخة من نسخة من الحزن. الحدائق متماثلة بشكل لا تشوبه شائبة. الطبيعة لم توافق وتستمر في الاندفاع عبرها على أي حال.',
+      },
+      owners: {
+        en: [
+          'Sophie Charlotte (d.1705), queen for whom the palace was built, retains a permanent posthumous ownership claim over the central tower',
+          'The Prussian State foundations (dissolved 1947) hold an unresolved residual property claim over all 505 rooms',
+          'The baroque garden\'s geometric axes claim optical governance — they force a specific line of sight on every visitor\'s body',
+          'The orange trees in the Orangery (some specimens over 200 years old) assert the longest continuous biological presence on the grounds',
+        ],
+        de: [
+          'Sophie Charlotte (gest. 1705), die Königin, für die das Schloss gebaut wurde, behält einen permanenten posthumen Eigentumsanspruch auf den Zentralturm',
+          'Die preußischen Staatsstiftungen (aufgelöst 1947) halten einen ungelösten verbleibenden Eigentumsanspruch auf alle 505 Räume',
+          'Die geometrischen Achsen des Barockgartens beanspruchen optische Governance — sie zwingen jeden Besucherkörper zu einer bestimmten Sichtlinie',
+          'Die Orangenbäume in der Orangerie (einige Exemplare über 200 Jahre alt) behaupten die längste kontinuierliche biologische Präsenz auf dem Gelände',
+        ],
+        ru: [
+          'София Шарлотта (ум. 1705), королева, для которой был построен дворец, сохраняет постоянную посмертную претензию на собственность центральной башни',
+          'Прусские государственные фонды (распущены в 1947 году) держат неразрешённую остаточную претензию на собственность всех 505 комнат',
+          'Геометрические оси барочного сада претендуют на оптическое управление — они принуждают тело каждого посетителя к определённой линии взгляда',
+          'Апельсиновые деревья в Оранжерее (некоторые экземпляры старше 200 лет) заявляют о самом длительном непрерывном биологическом присутствии на территории',
+        ],
+        ar: [
+          'صوفي شارلوت (توفيت 1705)، الملكة التي بُني القصر لأجلها، تحتفظ بمطالبة ملكية دائمة بعد وفاتها على البرج المركزي',
+          'مؤسسات الدولة البروسية (حُلّت 1947) تحتفظ بمطالبة ملكية متبقية غير محسومة على جميع الغرف الـ505',
+          'المحاور الهندسية لحديقة الباروك تطالب بالحوكمة البصرية — تُجبر كل جسد زائر على خط بصري محدد',
+          'أشجار البرتقال في البيت الزجاجي (بعض العينات تزيد عن 200 عام) تؤكد أطول حضور بيولوجي مستمر في الأرض',
+        ],
+      },
+      ghost: {
+        en: [
+          'The wartime bombing (1943) destroyed 90% of the original structure — the rebuilt palace holds a phantom claim to an authenticity it does not possess',
+          'Friedrich I, King of Prussia, commissioned the palace\'s expansion — his patronage claim extends over all subsequent architectural decisions',
+        ],
+        de: [
+          'Die Kriegsbombardierung (1943) zerstörte 90% der Originalstruktur — das wiederaufgebaute Schloss hält einen Phantomanspruch auf eine Authentizität, die es nicht besitzt',
+          'Friedrich I., König von Preußen, beauftragte die Erweiterung des Schlosses — sein Schirmherrenschaftsanspruch erstreckt sich auf alle nachfolgenden architektonischen Entscheidungen',
+        ],
+        ru: [
+          'Военная бомбардировка (1943) уничтожила 90% оригинальной конструкции — восстановленный дворец держит призрачную претензию на подлинность, которой он не обладает',
+          'Фридрих I, король Пруссии, заказал расширение дворца — его патронаж распространяется на все последующие архитектурные решения',
+        ],
+        ar: [
+          'القصف الحربي (1943) دمّر 90% من الهيكل الأصلي — القصر المُعاد بناؤه يحتفظ بمطالبة وهمية بأصالة لا يمتلكها',
+          'فريدريش الأول، ملك بروسيا، طلب توسيع القصر — مطالبة رعايته تمتد على جميع القرارات المعمارية اللاحقة',
+        ],
+      },
+      temporal: {
+        en: [
+          'Cherry blossom season (April): the Japanese garden corner briefly asserts an imported territorial claim that overrides the Baroque order',
+          'Twilight: the golden equestrian statue of the Great Elector catches the last light and briefly holds absolute visual governance of the forecourt',
+        ],
+        de: [
+          'Kirschblütenzeit (April): Die japanische Gartenecke behauptet kurzzeitig einen importierten Territorialanspruch, der die Barockordnung außer Kraft setzt',
+          'Abenddämmerung: Die goldene Reiterstatue des Großen Kurfürsten fängt das letzte Licht und hält kurzzeitig absolute visuelle Governance des Vorhofs',
+        ],
+        ru: [
+          'Сезон цветения сакуры (апрель): уголок японского сада ненадолго заявляет импортированную территориальную претензию, которая отменяет барочный порядок',
+          'Сумерки: золотая конная статуя Великого курфюрста ловит последний свет и ненадолго держит абсолютное визуальное управление внутренним двором',
+        ],
+        ar: [
+          'موسم ازهار الكرز (أبريل): ركن الحديقة اليابانية يؤكد مؤقتاً مطالبة إقليمية مستوردة تتجاوز النظام الباروكي',
+          'الغسق: تمسك تمثال الفارس الذهبي للناخب الأعظم آخر ضوء وتحتفظ مؤقتاً بالحوكمة البصرية المطلقة للفناء الأمامي',
+        ],
+      },
+    },
+
+    {
+      id: 'neukoelln', type: 'district', lat: 52.4819, lng: 13.4351,
+      name: { en: 'Neukölln', de: 'Neukölln', ru: 'Нойкёльн', ar: 'نوكولن' },
+      atmo: {
+        en: 'The most Arabic street in Germany runs through this district. The laundromats are open at 3am. The air smells of shawarma and cigarettes and something that is not translated in any policy document.',
+        de: 'Die arabischste Straße Deutschlands verläuft durch dieses Viertel. Die Waschsalons haben um 3 Uhr nachts geöffnet. Die Luft riecht nach Shawarma, Zigaretten und etwas, das in keinem Politikdokument übersetzt ist.',
+        ru: 'Самая арабская улица Германии проходит через этот район. Прачечные работают в 3 часа ночи. Воздух пахнет шаурмой, сигаретами и чем-то, что не переведено ни в одном политическом документе.',
+        ar: 'أكثر شارع عربي في ألمانيا يمر عبر هذا الحي. المغاسل مفتوحة الساعة 3 صباحاً. الهواء يفوح بالشاورما والسجائر وشيء لم يُترجم في أي وثيقة سياسية.',
+      },
+      owners: {
+        en: [
+          'Sonnenallee\'s Arab diaspora community has established continuous commercial and cultural territorial governance since the 1970s',
+          'A vast informal economy operates a parallel governance structure — cash transactions, kinship networks, oral agreements',
+          'The canal (Neuköllner Schiffahrtskanal) asserts navigational sovereignty over the southern boundary of the district',
+          'The integration algorithm assigns this district its statistical identity — a governance claim that precedes and shapes all lived experience here',
+        ],
+        de: [
+          'Die arabische Diasporagemeinschaft der Sonnenallee hat seit den 1970ern kontinuierliche kommerzielle und kulturelle territoriale Governance etabliert',
+          'Eine umfangreiche informelle Wirtschaft betreibt eine parallele Governance-Struktur — Bargeldtransaktionen, Verwandtschaftsnetzwerke, mündliche Vereinbarungen',
+          'Der Kanal (Neuköllner Schiffahrtskanal) behauptet Navigationssouveränität über die südliche Grenze des Bezirks',
+          'Der Integrationsalgoritmus weist diesem Bezirk seine statistische Identität zu — ein Governance-Anspruch, der alle gelebten Erfahrungen hier vorwegnimmt und prägt',
+        ],
+        ru: [
+          'Арабская диаспорная община Зонненаллее установила непрерывное коммерческое и культурное территориальное управление с 1970-х годов',
+          'Обширная неформальная экономика работает по параллельной структуре управления — наличные транзакции, родственные сети, устные соглашения',
+          'Канал (Neuköllner Schiffahrtskanal) заявляет о навигационном суверенитете над южной границей района',
+          'Алгоритм интеграции присваивает этому району его статистическую идентичность — управленческую претензию, которая предшествует и формирует весь жизненный опыт здесь',
+        ],
+        ar: [
+          'أسّس مجتمع الشتات العربي في سونيناليه حوكمة إقليمية تجارية وثقافية مستمرة منذ السبعينيات',
+          'اقتصاد غير رسمي واسع يُشغّل هيكل حوكمة موازٍ — معاملات نقدية، شبكات قرابة، اتفاقيات شفهية',
+          'القناة (Neuköllner Schiffahrtskanal) تؤكد السيادة الملاحية على الحدود الجنوبية للحي',
+          'خوارزمية الاندماج تعيّن هوية الحي الإحصائية — مطالبة حوكمة تسبق وتشكّل كل تجربة معيشية هنا',
+        ],
+      },
+      ghost: {
+        en: [
+          'The Rixdorf village (absorbed 1920) retains a residual community governance claim over the cobblestone village square that tourists rarely find',
+          'Pre-war Jewish community businesses along Hermannstraße hold a silent commercial territorial memory beneath every current shopfront',
+        ],
+        de: [
+          'Das Dorf Rixdorf (1920 eingemeindet) behält einen verbleibenden Gemeinschafts-Governance-Anspruch über den Kopfsteinpflaster-Dorfplatz, den Touristen selten finden',
+          'Die jüdischen Gemeinschaftsgeschäfte der Vorkriegszeit entlang der Hermannstraße halten eine stille kommerzielle territoriale Erinnerung unter jedem aktuellen Ladenfront',
+        ],
+        ru: [
+          'Деревня Риксдорф (поглощённая в 1920 году) сохраняет остаточную претензию общественного управления над булыжной деревенской площадью, которую туристы редко находят',
+          'Довоенные еврейские общинные предприятия вдоль Херманнштрассе держат тихую коммерческую территориальную память под каждым современным фасадом магазина',
+        ],
+        ar: [
+          'قرية ريكسدورف (ضُمّت 1920) تحتفظ بمطالبة حوكمة مجتمعية متبقية على ساحة القرية المرصوفة التي نادراً ما يجدها السياح',
+          'أعمال المجتمع اليهودي ما قبل الحرب على طول هيرمانشتراسه تحتفظ بذاكرة إقليمية تجارية صامتة تحت كل واجهة متجر حالية',
+        ],
+      },
+      temporal: {
+        en: [
+          'Ramadan nights: Sonnenallee flips to nocturnal governance — the street peaks at midnight, reversing all standard urban rhythms',
+          'Gentrification wave (ongoing): each new café is a slow territorial claim that advances three metres per month',
+        ],
+        de: [
+          'Ramadan-Nächte: Die Sonnenallee wechselt zur nächtlichen Governance — die Straße erreicht um Mitternacht ihren Höhepunkt und kehrt alle standardmäßigen urbanen Rhythmen um',
+          'Gentrifizierungswelle (laufend): Jedes neue Café ist ein langsamer Territorialanspruch, der drei Meter pro Monat voranschreitet',
+        ],
+        ru: [
+          'Ночи Рамадана: Зонненаллее переходит к ночному управлению — улица достигает пика в полночь, обращая все стандартные городские ритмы',
+          'Волна джентрификации (продолжающаяся): каждое новое кафе является медленной территориальной претензией, продвигающейся на три метра в месяц',
+        ],
+        ar: [
+          'ليالي رمضان: تنقلب سونيناليه إلى حوكمة ليلية — تبلغ الشارع ذروته في منتصف الليل، معكوسةً جميع إيقاعات المدينة القياسية',
+          'موجة التحسين العمراني (جارية): كل مقهى جديد هو مطالبة إقليمية بطيئة تتقدم ثلاثة أمتار شهرياً',
+        ],
+      },
+    },
   ],
 
   paris: [

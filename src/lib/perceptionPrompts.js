@@ -84,6 +84,14 @@ const LOCATION_VISUALS = {
   museumsinsel:       'Museum Island on the River Spree, Pergamon Museum and Altes Museum neoclassical colonnades, cathedral dome, Berlin Germany',
   'east-side-gallery':'remaining 1.3km stretch of the Berlin Wall painted with murals, East Side Gallery on the Spree River bank, Friedrichshain Berlin Germany',
   'potsdamer-platz':  'Sony Center with its tent-like glass and steel roof canopy, Kollhoff Tower red brick skyscraper, Beisheim Center towers, busy urban plaza at Potsdamer Platz Berlin Germany',
+  alexanderplatz:     'Fernsehturm TV tower 365m steel sphere and needle, GDR-era Alexanderplatz square, World Time Clock Weltzeituhr, wide pedestrian plaza, Berlin Germany',
+  'checkpoint-charlie':'Checkpoint Charlie white guardhouse replica, Friedrichstraße, Cold War border crossing, American sector sign, central Berlin Germany',
+  gendarmenmarkt:     'Gendarmenmarkt square, Konzerthaus Berlin neoclassical concert hall, French Cathedral and German Cathedral twin domed towers facing each other, Schiller statue, Berlin Germany',
+  oberbaumbruecke:    'Oberbaumbrücke double-deck red brick Gothic bridge over River Spree, twin towers with battlements, U-Bahn train crossing upper deck, Kreuzberg Friedrichshain Berlin Germany',
+  'prenzlauer-berg':  'Wasserturm water tower red brick cylinder on hilltop, Kastanienallee tree-lined cobblestone street, Prenzlauer Berg neighbourhood, Berlin Germany',
+  mauerpark:          'Mauerpark open green park, grassy former death strip, Bearpit karaoke amphitheatre, Prenzlauer Berg Berlin Germany, remnant Berlin Wall graffiti section',
+  charlottenburg:     'Schloss Charlottenburg Baroque palace long white facade, golden equestrian statue, formal French garden with fountain, Berlin Germany',
+  neukoelln:          'Sonnenallee street, Arabic shops and restaurants, multicultural Neukölln neighbourhood, Neuköllner Schiffahrtskanal canal, Berlin Germany',
 
   // Paris
   eiffel:             'Eiffel Tower iron lattice structure rising 330m, Champ de Mars green lawn, Seine River and Trocadéro beyond, Paris France',
