@@ -64,7 +64,6 @@ export default function StakeholderOverlay({ loc, lang, onPerceive }) {
               onClick={() => setActive(isActive ? null : i)}
             >
               <span className={`tag ${ent.tagClass}`}>{ent.tag}</span>
-              <span className="sh-float-emoji">{getEntityEmoji(ent.text)}</span>
               <span className="sh-float-short">{shortText(ent.text)}</span>
             </button>
 
