@@ -2985,3 +2985,142 @@ button.hud-card:hover { filter: brightness(1.15); }
 
 /* ── Counter-offer body escalation ── */
 .co-body { transition: font-size 0.3s ease; }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   MOBILE LAYOUT  ≤ 639 px
+   Panel becomes a bottom sheet — map stays visible above it.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+@keyframes sheet-up {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+@media (max-width: 639px) {
+
+  /* ── Header: shrink title ── */
+  #site-header {
+    padding: 10px 14px;
+    gap: 8px;
+    flex-wrap: nowrap;
+  }
+  .site-title {
+    font-size: 16px;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 50vw;
+  }
+  .site-subtitle { display: none; }
+  .character-badge { display: none; }
+
+  /* ── Toolbar: single compact row ── */
+  #toolbar {
+    padding: 6px 10px;
+    gap: 5px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  #toolbar::-webkit-scrollbar { display: none; }
+  .tb-label { display: none; }
+  .loc-count { display: none; }
+  .toolbar-clocks { display: none; }
+  .rand-btn { padding: 5px 9px; font-size: 11px; white-space: nowrap; }
+  .city-select { padding: 4px 8px; font-size: 11px; }
+  .lang-btn { padding: 3px 7px; font-size: 10px; }
+
+  /* ── Hide minimap on very small screens ── */
+  .minimap-wrap {
+    width: 120px;
+    height: 82px;
+    top: 10px;
+    left: 10px;
+  }
+
+  /* ── Stats panel: hidden on mobile (too cluttered) ── */
+  .stats-panel { display: none; }
+
+  /* ── Triangle pointer: hidden on mobile ── */
+  .panel-triangle { display: none; }
+
+  /* ── All content panels → bottom sheet ── */
+  .panel--terms,
+  .panel--counter-offer,
+  .panel--identity,
+  .panel--granted,
+  .panel--denied,
+  .panel--intro {
+    top: auto !important;
+    right: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    max-width: 100%;
+    max-height: 62vh;
+    border-radius: 20px 20px 0 0;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    animation: sheet-up 0.38s cubic-bezier(0.22,1,0.36,1) both !important;
+  }
+
+  /* Drag-handle pill at top of every sheet */
+  .panel--terms::before,
+  .panel--counter-offer::before,
+  .panel--identity::before,
+  .panel--granted::before,
+  .panel--denied::before,
+  .panel--intro::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 4px;
+    background: var(--color-border-primary);
+    border-radius: 2px;
+    margin: 10px auto 2px;
+  }
+
+  /* Panel accent (color bar) loses top radius since sheet handles it */
+  .panel-accent { border-radius: 0; }
+
+  /* ── Perceive button: keep top-center but smaller ── */
+  .map-perceive-wrap { top: 10px; }
+  .map-perceive-btn  { padding: 7px 14px; font-size: 11px; }
+  .map-perceive-emoji { font-size: 18px; }
+
+  /* ── Home HUD: raise above sheet ── */
+  .home-hud {
+    bottom: 20px;
+    width: calc(100% - 32px);
+  }
+  .hud-row { flex-wrap: wrap; justify-content: center; }
+  .hud-card { padding: 10px 14px; }
+
+  /* ── Location hero image: smaller ── */
+  .loc-hero-img { max-height: 72px; }
+  .loc-hero-name { font-size: 13px; }
+  .loc-hero-city { font-size: 10px; }
+
+  /* ── StakeholderOverlay hint: higher up ── */
+  .sh-overlay-hint { top: 8px; }
+
+  /* ── Panel inner: less padding ── */
+  .panel-inner { padding: 0.9rem 1rem; }
+
+  /* ── Warn box slightly smaller text ── */
+  .warn-box { font-size: 11px; }
+
+  /* ── Consent row: stack buttons if needed ── */
+  .consent-row { gap: 6px; }
+  .btn-accept, .btn-decline { padding: 9px 14px; font-size: 12px; }
+
+  /* ── Perception section: compact ── */
+  .perception-card { padding: 8px 10px; }
+  .perception-card-emoji { font-size: 22px; }
+
+  /* ── Granted stamp: smaller on mobile ── */
+  .granted-stamp-box { padding: 12px 22px; }
+  .granted-stamp-line { font-size: 18px; }
+}
