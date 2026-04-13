@@ -419,6 +419,7 @@ export default function App() {
             character={character}
             locationName={currentLoc?.name[lang] || CITIES[currentCity]?.name[lang] || currentCity}
             cityName={CITIES[currentCity]?.name[lang] || currentCity}
+            locationId={currentLoc?.id || ''}
             stakeholderList={currentLoc ? [
               ...(currentLoc.owners[lang] || []).map(t => ({ text: t, tag: 'ACTIVE',   tagClass: 'tag-a' })),
               ...(currentLoc.ghost[lang]  || []).map(t => ({ text: t, tag: 'RESIDUAL', tagClass: 'tag-g' })),

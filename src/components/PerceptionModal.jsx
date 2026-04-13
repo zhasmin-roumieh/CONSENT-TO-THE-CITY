@@ -20,7 +20,7 @@ function buildImageUrl(prompt) {
  *   onClose         — function
  */
 export default function PerceptionModal({
-  character, locationName, cityName,
+  character, locationName, cityName, locationId,
   stakeholder, stakeholderList, onClose,
 }) {
   const isPicker = !!stakeholderList;     // map-button mode: show tab picker
@@ -40,8 +40,8 @@ export default function PerceptionModal({
     setImageUrl(null);
     const sh = overrideStakeholder ?? (isSingle ? stakeholder : activeStakeholder);
     const prompt = sh
-      ? buildStakeholderPrompt(locationName, cityName, sh.text, userText)
-      : buildPerceptionPrompt(locationName, cityName, character.id, userText);
+      ? buildStakeholderPrompt(locationName, cityName, sh.text, userText, locationId)
+      : buildPerceptionPrompt(locationName, cityName, character.id, userText, locationId);
     setImageUrl(buildImageUrl(prompt));
   }
 

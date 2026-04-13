@@ -298,6 +298,7 @@ export default function AccessGranted({ loc, cityKey, ownerData, userTerms, iden
         <PerceptionModal
           locationName={loc.name[lang]}
           cityName={cityName}
+          locationId={loc.id}
           character={character}
           onClose={() => setShowPerception(false)}
         />
@@ -307,6 +308,7 @@ export default function AccessGranted({ loc, cityKey, ownerData, userTerms, iden
         <PerceptionModal
           locationName={loc.name[lang]}
           cityName={cityName}
+          locationId={loc.id}
           character={character}
           stakeholder={stakeholderPerception}
           onClose={() => setStakeholderPerception(null)}
