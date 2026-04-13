@@ -1,59 +1,25 @@
 /**
- * Surrealist perception prompts — one per character type.
- * Each describes how that creature/entity experiences urban space.
+ * Perception prompts — short, dense, keyword-first for Flux image model.
+ * Flux reads prompts like captions: lead with what to DRAW, not how it feels.
  */
 
+// camera = literal viewpoint/angle (short)
+// style  = art style keywords (short)
 const PERSPECTIVES = {
-  human: {
-    view: 'seen through human eyes at street level, the uncanny magic-realist experience of everyday urban life, a consenting citizen navigating bureaucratic and architectural space, the body as document',
-    style: 'Edward Hopper loneliness, sharp late-afternoon shadows, magic realism, hyperrealistic with surrealist undertones, muted urban palette',
-  },
-  fox: {
-    view: 'seen from ground level through the amber eyes of an urban fox at dusk, hunting perspective, alert and cunning, weaving through shadows and human legs, low angle',
-    style: 'twilight palette, geometric shadows, rust and gold tones, fluid predator energy',
-  },
-  pigeon: {
-    view: 'aerial rooftop perspective of a pigeon, city grid far below, humans reduced to meaningless heat patterns, thermal currents visible as shimmering waves, power lines as highways',
-    style: 'iridescent feather colors, warm updraft light, impressionistic crowd below, vast urban canopy',
-  },
-  rat: {
-    view: 'seen from below through drainage grates and tunnel openings, labyrinthine underground perspective, looking up through metal grids at the city above, the underside of civilization',
-    style: 'chiaroscuro, rust and concrete, subterranean bioluminescence, gothic industrial',
-  },
-  root: {
-    view: 'beneath the surface, slow geological time, root network spreading beneath the foundations, soil strata visible, the city as a temporary skin on ancient earth',
-    style: 'botanical cross-section illustration, earthy ochres and deep greens, mycelial networks glowing, old scientific diagram aesthetic',
-  },
-  ghost: {
-    view: 'spectral overlay of multiple time periods simultaneously, the building as it was in 1920 and 1970 and today all layered, transparent figures of past occupants still moving through their routines',
-    style: 'translucent double-exposure layers, sepia and electric blue, temporal echo photography, haunted long-exposure',
-  },
-  bot: {
-    view: 'algorithmic data visualization of the space, heat maps of human movement, sensor network overlays, wifi signal topology, the city as pure information flow',
-    style: 'wireframe architecture, neon cyan and purple, data streams, glitch aesthetic, surveillance grid',
-  },
-  cloud: {
-    view: 'vast atmospheric perspective from above the cloud layer, city seen through gaps in cumulus clouds, meteorological scale, the architecture tiny and temporary',
-    style: 'diffuse golden light through clouds, meteorological painting, Turner-esque sky drama, sublime scale',
-  },
-  bee: {
-    view: 'UV spectrum vision of a bee, flower-like patterns visible on urban surfaces invisible to humans, hexagonal compound eye grid overlay, nectar paths through the concrete',
-    style: 'ultraviolet palette with false-color florescence, compound eye tessellation, mandala geometry, pollinator trails glowing',
-  },
-  spider: {
-    view: 'web anchor point perspective from a corner where walls and ceiling meet, vibration sensitivity as visible ripples in the air, silk thread geometry connecting all surfaces',
-    style: 'baroque ornamentation, tension-map lines, dewdrop optics, gothic engineering',
-  },
-  micro: {
-    view: 'microscopic scale, bacterial colonies on every surface rendered enormous, the city as a petri dish, human skin cells and concrete crystals at the same magnification',
-    style: 'electron microscope aesthetic, bioluminescent, cellular patterns, scientific surrealism, scale collapse',
-  },
+  human:  { camera: 'street-level eye height, pedestrian scale, first person',           style: 'Edward Hopper, magic realism, muted urban palette' },
+  fox:    { camera: 'low ground angle, dusk, amber tint, predator viewpoint',             style: 'geometric shadows, rust and gold, impressionistic' },
+  pigeon: { camera: 'bird\'s-eye top-down from rooftop height, looking straight down',    style: 'impressionistic, iridescent colours, warm updraft light' },
+  rat:    { camera: 'extreme worm\'s-eye from below, looking up through drain grates',    style: 'chiaroscuro, gothic industrial, dark tunnels, rust' },
+  root:   { camera: 'underground cross-section, soil strata, roots, looking up at city', style: 'botanical illustration, earthy ochres, mycelium glow' },
+  ghost:  { camera: 'double exposure 1920s and present overlaid, translucent figures',    style: 'sepia and electric blue, long exposure, haunted' },
+  bot:    { camera: 'overhead surveillance angle, heat map overlay, sensor grid',         style: 'neon cyan wireframe, glitch aesthetic, data visualization' },
+  cloud:  { camera: 'aerial above storm clouds, city tiny below through gap in cumulus',  style: 'J.M.W. Turner painting, dramatic sky, golden light' },
+  bee:    { camera: 'compound eye hexagonal grid overlay, UV spectrum vision',            style: 'ultraviolet false colour, mandala geometry, florescent' },
+  spider: { camera: 'corner ceiling angle looking down, silk web geometry overlay',       style: 'baroque, dewdrop optics, gothic, dark' },
+  micro:  { camera: 'electron microscope extreme macro, microscopic scale',               style: 'bioluminescent, cellular patterns, scientific surrealism' },
 };
 
-const FALLBACK = {
-  view: 'surrealist perspective of an unknown urban entity, dreamlike and uncanny',
-  style: 'painterly surrealism, rich color, mysterious',
-};
+const FALLBACK = { camera: 'surrealist viewpoint', style: 'painterly surrealism, rich colour' };
 
 /**
  * Build the full prompt sent to the image model.
@@ -62,27 +28,26 @@ const FALLBACK = {
  * @param {string} characterId   e.g. "pigeon"
  * @param {string} userText      optional extra description from the user
  */
-// ── Stakeholder entity detection ─────────────────────────────────────────────
-
+// ── Stakeholder entity camera angles (short, directive) ──────────────────────
 const ENTITY_ANGLES = {
-  bird:      'strict aerial top-down view from high altitude, city grid below like a map, tiny humans, rooftop textures, wingspan perspective',
-  rat:       'extreme low angle from underground looking upward through drain grates and cracks, the underside of the city, legs and feet visible above, labyrinthine tunnels',
-  stone:     'extreme macro close-up photographic view, mineral grain and crystal texture filling the frame, geological timescale, millimeter-scale detail, slow material consciousness',
-  root:      'underground cross-section view, root tendrils spreading through soil layers and cracked foundations, bioluminescent filaments, looking up at the city from below the surface',
-  ghost:     'spectral double-exposure, multiple historical time periods superimposed simultaneously — 1900 and today layered, translucent phantom figures still inhabiting their routines, temporal echo',
-  algorithm: 'data visualization overhead surveillance view, heat maps of human density, wifi signal topology, sensor network overlays, neon wireframe grid, infrared human silhouettes',
-  cloud:     'vast atmospheric aerial view from above the clouds, location barely visible through breaks in cumulus, meteorological scale, looking down from kilometers high',
-  water:     'refracted underwater or rain-surface perspective, liquid distortion, ripple patterns across architecture, reflection and refraction',
-  wind:      'invisible force perspective, trees bending, papers flying, the invisible made visible as flow lines and pressure maps',
-  bee:       'UV spectrum compound-eye hexagonal tessellation, ultraviolet florescence on every surface invisible to humans, mandala-like pollinator vision',
-  micro:     'extreme microscopic scale, bacterial colonies on stone surfaces magnified ten-thousand times, bioluminescent cellular patterns, petri-dish aesthetic',
-  human:     'street level first-person pedestrian height, eye level urban scale, the city as experienced walking through it',
-  fox:       'low ground-level dusk angle, predator hunting perspective, geometric shadows, amber tinted vision',
-  cat:       'low to ground, independent and curious, impossible angles, watching from high ledges and narrow gaps',
-  light:     'photographic long-exposure light trails, chiaroscuro deep shadow and brilliant highlight, time-collapsed rays',
-  plant:     'slow upward growth perspective, looking up from soil toward light, leaves and branches framing sky above',
-  border:    'threshold and boundary view, the line between two worlds, checkpoint architecture, before-and-after split frame',
-  tourist:   'wide-angle postcard perspective, framed for photography, the iconic view from the designated viewpoint',
+  bird:      'aerial top-down bird\'s eye, city grid below like a map',
+  rat:       'extreme worm\'s-eye from below, looking up through drain grates',
+  stone:     'extreme macro close-up, mineral grain texture, geological scale',
+  root:      'underground cross-section, root tendrils through soil, looking up',
+  ghost:     'double exposure, 1900s and today overlaid, translucent phantom figures',
+  algorithm: 'overhead surveillance, neon wireframe heat map, sensor grid',
+  cloud:     'aerial above storm clouds, location far below through gap in cumulus',
+  water:     'underwater refraction, liquid distortion, ripple reflection',
+  wind:      'flow lines and pressure maps, trees bending, invisible force visible',
+  bee:       'compound eye hexagonal grid, UV spectrum, ultraviolet florescence',
+  micro:     'electron microscope extreme macro, bacterial colonies magnified',
+  human:     'street level pedestrian eye height, first person',
+  fox:       'low ground-level dusk, predator angle, amber tint',
+  cat:       'low angle from ledge or narrow gap, curious tilt',
+  light:     'long exposure light trails, chiaroscuro',
+  plant:     'looking up from soil toward light, roots framing sky',
+  border:    'threshold split frame, checkpoint, before and after',
+  tourist:   'wide-angle postcard view, iconic framing',
 };
 
 function detectEntityAngle(text) {
@@ -103,8 +68,7 @@ function detectEntityAngle(text) {
   if (/cat|feline/i.test(t)) return ENTITY_ANGLES.cat;
   if (/light|sun|shadow|solar|lamp|illuminat/i.test(t)) return ENTITY_ANGLES.light;
   if (/border|checkpoint|guard|wall|divide|boundary/i.test(t)) return ENTITY_ANGLES.border;
-  // fallback — still descriptive
-  return 'unique non-human surrealist perspective, abstract spatial consciousness, dreamlike';
+  return 'surrealist non-human viewpoint';
 }
 
 // ── Per-location visual anchors ───────────────────────────────────────────────
@@ -184,44 +148,26 @@ const LOCATION_VISUALS = {
 };
 
 /**
- * Build a prompt from a stakeholder's ownership text.
- * Detects the entity type and sets the camera angle accordingly.
- * @param {string} locationId  e.g. "potsdamer-platz" — used to look up visual description
+ * Build prompts as short comma-separated keyword strings.
+ * Flux reads prompts like image captions — lead with what to DRAW,
+ * keep it dense and under ~60 words total.
+ *
+ * Format: [location visuals], [camera angle], [art style], [user text?], no text no watermarks
  */
 export function buildStakeholderPrompt(locationName, cityName, ownerText, userText = '', locationId = '') {
   const angle = detectEntityAngle(ownerText);
-  const vis = LOCATION_VISUALS[locationId] || `${locationName}, ${cityName}`;
-  let prompt =
-    `${locationName}, ${cityName}. ` +
-    `Scene: ${vis}. ` +
-    `Surrealist artwork of this exact place. ` +
-    `Ownership perspective applied: "${ownerText}". ` +
-    `Camera angle: ${angle}. ` +
-    `The architecture and setting must be unmistakably ${locationName}. ` +
-    `Dreamlike, painterly, richly detailed surrealist illustration, cinematic composition. `;
-  if (userText.trim()) prompt += `Additional vision: ${userText.trim()}. `;
-  prompt += `No text, no words, no watermarks, no labels.`;
-  return prompt;
+  const vis = LOCATION_VISUALS[locationId] || `${locationName} ${cityName}`;
+  const parts = [vis, angle, 'surrealist painting, highly detailed, cinematic'];
+  if (userText.trim()) parts.push(userText.trim());
+  parts.push('no text, no watermarks');
+  return parts.join(', ');
 }
 
 export function buildPerceptionPrompt(locationName, cityName, characterId, userText = '', locationId = '') {
   const p = PERSPECTIVES[characterId] || FALLBACK;
-  const vis = LOCATION_VISUALS[locationId] || `${locationName}, ${cityName}`;
-
-  let prompt =
-    `${locationName}, ${cityName}. ` +
-    `Scene: ${vis}. ` +
-    `Surrealist artwork of this exact place. ` +
-    `Perspective: ${p.view}. ` +
-    `Art style: ${p.style}. ` +
-    `The architecture and setting must be unmistakably ${locationName}. ` +
-    `Dreamlike, highly detailed, painterly illustration, cinematic composition. `;
-
-  if (userText.trim()) {
-    prompt += `Additional vision: ${userText.trim()}. `;
-  }
-
-  prompt += `No text, no words, no watermarks, no labels.`;
-
-  return prompt;
+  const vis = LOCATION_VISUALS[locationId] || `${locationName} ${cityName}`;
+  const parts = [vis, p.camera, p.style, 'highly detailed, cinematic'];
+  if (userText.trim()) parts.push(userText.trim());
+  parts.push('no text, no watermarks');
+  return parts.join(', ');
 }
