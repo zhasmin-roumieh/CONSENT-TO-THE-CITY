@@ -143,7 +143,7 @@ const LOCATION_VISUALS = {
 
   // London
   borough:            'Borough Market Victorian iron and glass roof, food stalls under railway arches, London Bridge Street, Southwark London UK',
-  southbank:          'Thames South Bank, Tate Modern former power station with tall chimney, Millennium Bridge suspension footbridge, St Paul's Cathedral view, London UK',
+  southbank:          'Thames South Bank, Tate Modern former power station with tall chimney, Millennium Bridge suspension footbridge, St Paul\'s Cathedral view, London UK',
   'hyde-park':        'Hyde Park, Serpentine lake with rowing boats, elm and oak trees, Marble Arch visible at northeast corner, London UK',
   'brick-lane':       'Brick Lane street market, Georgian and Victorian brick facades covered in street art murals, Bangladeshi restaurants, East London UK',
   trafalgar:          'Trafalgar Square, Nelson\'s Column with four bronze lions, National Gallery neoclassical facade, fountains, central London UK',
