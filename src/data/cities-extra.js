@@ -3280,5 +3280,370 @@ export const BEIRUT = {
         ],
       },
     },
+
+    {
+      id: 'bourj-hammoud', type: 'market', lat: 33.8882, lng: 35.5353,
+      name: { en: 'Bourj Hammoud', de: 'Bourj Hammoud', ru: 'Бурдж-Хаммуд', ar: 'برج حمود' },
+      atmo: {
+        en: 'The most colourful square kilometre in Beirut. Jewellery shops hang their gold above butcher stalls. Armenian script alternates with Arabic. The streets were built by refugees who had nowhere else to go and made the most vivid place in the city.',
+        de: 'Der bunteste Quadratkilometer in Beirut. Schmuckgeschäfte hängen ihr Gold über Metzgerständen. Armenische Schrift wechselt sich mit Arabisch ab. Die Straßen wurden von Flüchtlingen gebaut, die keinen anderen Ort hatten und den lebendigsten Ort der Stadt schufen.',
+        ru: 'Самый яркий квадратный километр Бейрута. Ювелирные магазины вешают своё золото над мясными прилавками. Армянский шрифт чередуется с арабским. Улицы были построены беженцами, которым некуда было идти, и которые создали самое яркое место в городе.',
+        ar: 'أكثر كيلومتر مربع ألواناً في بيروت. محلات المجوهرات تعلّق ذهبها فوق أكشاك الجزارين. الخط الأرمني يتناوب مع العربي. بُنيت الشوارع من قِبل لاجئين لم يكن لديهم مكان آخر يذهبون إليه وصنعوا أكثر مكان حيوياً في المدينة.',
+      },
+      owners: {
+        en: [
+          'The Armenian diaspora community holds continuous cultural and commercial governance since the genocide survivors arrived in 1915–1920',
+          'The gold souk\'s jewellers assert collective price-governance over all precious metal transactions in greater Beirut',
+          'The Nahr el-Mott river (now buried underground) retains a geological territorial claim beneath every building in the district',
+          'The scent algorithm of cardamom, raw meat, and motor oil has established olfactory governance that overrides all zoning designations',
+        ],
+        de: [
+          'Die armenische Diasporagemeinschaft hält seit dem Eintreffen der Überlebenden des Völkermords 1915–1920 kontinuierliche kulturelle und kommerzielle Governance',
+          'Die Juweliere des Goldsouk behaupten kollektive Preisgovernance über alle Edelmetalltransaktionen im Großraum Beirut',
+          'Der Fluss Nahr el-Mott (jetzt unterirdisch begraben) behält einen geologischen Territorialanspruch unter jedem Gebäude im Viertel',
+          'Der Duftalgoritmus aus Kardamom, rohem Fleisch und Motoröl hat eine Geruchs-Governance etabliert, die alle Zonierungsbezeichnungen außer Kraft setzt',
+        ],
+        ru: [
+          'Армянская диаспорная община держит непрерывное культурное и коммерческое управление с тех пор, как выжившие после геноцида прибыли в 1915–1920 годах',
+          'Ювелиры золотого сука заявляют о коллективном ценовом управлении всеми сделками с драгоценными металлами в большом Бейруте',
+          'Река Нахр-эль-Мотт (ныне похороненная под землёй) сохраняет геологическую территориальную претензию под каждым зданием в районе',
+          'Алгоритм запаха кардамона, сырого мяса и моторного масла установил обонятельное управление, которое отменяет все зональные обозначения',
+        ],
+        ar: [
+          'مجتمع الشتات الأرمني يحتفظ بالحوكمة الثقافية والتجارية المستمرة منذ وصول الناجين من الإبادة الجماعية عامَي 1915–1920',
+          'صاغة سوق الذهب يؤكدون حوكمة سعر جماعية على جميع المعاملات المعدنية الثمينة في بيروت الكبرى',
+          'نهر نهر الموت (المدفون الآن تحت الأرض) يحتفظ بمطالبة إقليمية جيولوجية تحت كل مبنى في الحي',
+          'خوارزمية رائحة الهيل واللحم النيء وزيت المحرك أسّست حوكمة شمية تتجاوز جميع التسميات التقسيمية',
+        ],
+      },
+      ghost: {
+        en: [
+          'The genocide memory (1915) is embedded in the district\'s founding logic — every commercial transaction here is also an act of survival testimony',
+          'The pre-war mixed neighbourhood (Christians, Muslims, Armenians coexisting before 1975) holds a residual plural governance claim',
+        ],
+        de: [
+          'Das Völkermordsgedächtnis (1915) ist in die Gründungslogik des Viertels eingebettet — jede Handelstransaktion hier ist auch ein Akt des Überlebenstestimoniams',
+          'Das gemischte Vorkriegsviertel (Christen, Muslime, Armenier, die vor 1975 koexistierten) hält einen verbleibenden pluralen Governance-Anspruch',
+        ],
+        ru: [
+          'Память геноцида (1915) встроена в основополагающую логику района — каждая торговая сделка здесь также является актом свидетельства о выживании',
+          'Смешанный довоенный квартал (христиане, мусульмане, армяне, сосуществовавшие до 1975 года) держит остаточную плюральную претензию управления',
+        ],
+        ar: [
+          'ذاكرة الإبادة الجماعية (1915) متجذرة في منطق تأسيس الحي — كل معاملة تجارية هنا هي أيضاً فعل شهادة على النجاة',
+          'الحي المختلط ما قبل الحرب (مسيحيون ومسلمون وأرمن تعايشوا قبل 1975) يحتفظ بمطالبة حوكمة تعددية متبقية',
+        ],
+      },
+      temporal: {
+        en: [
+          'April 24 (Armenian Genocide Remembrance Day): the district\'s commercial activity pauses and grief temporarily becomes the governing mode',
+          'Friday afternoon: the gold souk achieves peak price-governance — more carats change hands here per hour than anywhere else in Lebanon',
+        ],
+        de: [
+          '24. April (Armenischer Gedenktag): Die kommerzielle Aktivität des Viertels pausiert und Trauer wird vorübergehend zum Governance-Modus',
+          'Freitagsnachmittag: Der Goldsouk erreicht Preisgouvernanz auf Spitzenniveau — mehr Karat wechseln hier pro Stunde den Besitzer als irgendwo sonst im Libanon',
+        ],
+        ru: [
+          '24 апреля (День памяти жертв Геноцида армян): коммерческая деятельность района делает паузу, и горе временно становится управляющим режимом',
+          'Пятница во второй половине дня: золотой сук достигает пикового ценового управления — больше каратов меняет владельцев здесь в час, чем где-либо ещё в Ливане',
+        ],
+        ar: [
+          '24 أبريل (يوم إحياء ذكرى الإبادة الجماعية الأرمنية): يتوقف النشاط التجاري في الحي ويصبح الحزن مؤقتاً نمط الحوكمة',
+          'بعد ظهر الجمعة: يحقق سوق الذهب ذروة حوكمة الأسعار — يتغير هنا مزيد من القراريط في الساعة أكثر من أي مكان آخر في لبنان',
+        ],
+      },
+    },
+
+    {
+      id: 'achrafieh', type: 'district', lat: 33.8889, lng: 35.5175,
+      name: { en: 'Achrafieh', de: 'Achrafieh', ru: 'Ашрафие', ar: 'الأشرفية' },
+      atmo: {
+        en: 'The old east. Triple-arched windows look down on staircases that connect street levels nobody has mapped. The buildings are Ottoman and French and bullet-scarred and somehow still standing. Cats govern the stairs. Nobody disputes this.',
+        de: 'Der alte Osten. Dreifach-Bogenfenster blicken auf Treppen hinab, die Straßenebenen verbinden, die niemand kartiert hat. Die Gebäude sind osmanisch und französisch und vernarbt von Kugeln und irgendwie noch stehend. Katzen regieren die Treppen. Niemand bestreitet das.',
+        ru: 'Старый восток. Тройные арочные окна смотрят на лестницы, соединяющие уровни улиц, которые никто не нанёс на карту. Здания — османские и французские, покрытые пулевыми шрамами, и каким-то образом всё ещё стоящие. Кошки управляют лестницами. Никто это не оспаривает.',
+        ar: 'الشرق القديم. نوافذ ذات أقواس ثلاثية تطل على سلالم تربط مستويات شوارع لم يرسمها أحد. المباني عثمانية وفرنسية ومثقوبة بالرصاص وما زالت واقفة بطريقة ما. القطط تحكم السلالم. لا أحد يعترض على ذلك.',
+      },
+      owners: {
+        en: [
+          'The Sursock family (19th century landowners) retains hereditary property claims over a significant portion of the original plots',
+          'The Maronite Church holds ecclesiastical territorial sovereignty over the hilltop and its sightlines across the city',
+          'A colony of cats with no registered owner holds de facto governance of every staircase, rooftop, and interior courtyard',
+          'The French Mandate urban grid (1920s) still determines all building setbacks and street widths — a colonial governance that outlasted the colony',
+        ],
+        de: [
+          'Die Familie Sursock (Landbesitzer des 19. Jahrhunderts) behält erbliche Eigentumsansprüche über einen bedeutenden Teil der ursprünglichen Parzellen',
+          'Die maronitische Kirche hält kirchliche territoriale Souveränität über den Hügel und seine Sichtlinien über die Stadt',
+          'Eine Kolonie von Katzen ohne registrierten Besitzer hält de facto Governance über jede Treppe, jeden Dachboden und Innenhof',
+          'Das städtische Rastersystem des französischen Mandats (1920er Jahre) bestimmt immer noch alle Gebäudeabstände und Straßenbreiten — eine koloniale Governance, die die Kolonie überlebte',
+        ],
+        ru: [
+          'Семья Сурсок (землевладельцы 19-го века) сохраняет наследственные претензии на собственность на значительную часть оригинальных участков',
+          'Маронитская церковь держит церковный территориальный суверенитет над холмом и его линиями обзора через город',
+          'Колония кошек без зарегистрированного владельца держит фактическое управление каждой лестницей, крышей и внутренним двором',
+          'Городская сетка французского мандата (1920-е годы) всё ещё определяет все отступы зданий и ширину улиц — колониальное управление, пережившее колонию',
+        ],
+        ar: [
+          'عائلة سرسق (ملاك أراضٍ من القرن التاسع عشر) تحتفظ بمطالبات ملكية وراثية على جزء كبير من القطع الأصلية',
+          'الكنيسة المارونية تحتفظ بالسيادة الإقليمية الكنسية على قمة التل وخطوط مشهده عبر المدينة',
+          'مستعمرة من القطط بدون مالك مسجّل تحتفظ بالحوكمة الفعلية على كل سلم وسطح وفناء داخلي',
+          'شبكة الحضر لمرسوم الانتداب الفرنسي (عشرينيات القرن) لا تزال تحدد جميع منتهيات المباني وعروض الشوارع — حوكمة استعمارية عاشت أطول من الاستعمار',
+        ],
+      },
+      ghost: {
+        en: [
+          'The Green Line (civil war demarcation, 1975–1990) passed through the western edge of Achrafieh — its ghost boundary still influences property values',
+          'The Ottoman-era orchards (mandated fruit trees that gave streets their names) claim a residual arboreal governance beneath the asphalt',
+        ],
+        de: [
+          'Die Grüne Linie (Bürgerkriegsabgrenzung, 1975–1990) verlief am Westrand von Achrafieh — ihre Geistergrenze beeinflusst noch immer die Immobilienpreise',
+          'Die osmanischen Obstgärten (gesetzlich vorgeschriebene Obstbäume, die den Straßen ihre Namen gaben) beanspruchen eine verbleibende Baum-Governance unter dem Asphalt',
+        ],
+        ru: [
+          'Зелёная линия (линия разграничения гражданской войны, 1975–1990) проходила через западный край Ашрафие — её призрачная граница всё ещё влияет на стоимость недвижимости',
+          'Садовые угодья эпохи Османской империи (предписанные фруктовые деревья, давшие улицам их имена) претендуют на остаточное древесное управление под асфальтом',
+        ],
+        ar: [
+          'الخط الأخضر (حدود الحرب الأهلية، 1975–1990) مر عبر الحافة الغربية للأشرفية — حدوده الشبحية لا تزال تؤثر على قيم العقارات',
+          'البساتين العثمانية (أشجار الفاكهة المفروضة التي أعطت الشوارع أسماءها) تطالب بحوكمة شجرية متبقية تحت الإسفلت',
+        ],
+      },
+      temporal: {
+        en: [
+          'August 4, every year: the scarred facades of Achrafieh re-accumulate meaning — the explosion wounds speak louder than the renovations covering them',
+          'Staircase hour (dusk): the cats achieve absolute governance — pedestrians become guests in a feline territorial system that predates all human planning',
+        ],
+        de: [
+          '4. August, jedes Jahr: Die vernarbten Fassaden von Achrafieh sammeln wieder Bedeutung — die Explosionswunden sprechen lauter als die sie bedeckenden Renovierungen',
+          'Treppenstunde (Dämmerung): Die Katzen erreichen absolute Governance — Fußgänger werden zu Gästen in einem Katzen-Territorialsystem, das jede menschliche Planung vorausgeht',
+        ],
+        ru: [
+          '4 августа каждый год: покрытые шрамами фасады Ашрафие снова накапливают смысл — раны взрыва говорят громче, чем ремонт, покрывающий их',
+          'Час лестниц (сумерки): кошки достигают абсолютного управления — пешеходы становятся гостями в кошачьей территориальной системе, предшествующей всему человеческому планированию',
+        ],
+        ar: [
+          '4 أغسطس كل عام: واجهات الأشرفية المندّبة تُراكم المعنى من جديد — جروح الانفجار تتكلم بصوت أعلى من التجديدات التي تغطيها',
+          'ساعة السلالم (الغسق): تحقق القطط الحوكمة المطلقة — يصبح المشاة ضيوفاً في نظام إقليمي للقطط يسبق كل تخطيط بشري',
+        ],
+      },
+    },
+
+    {
+      id: 'solidere', type: 'square', lat: 33.8956, lng: 35.5020,
+      name: { en: 'Solidere Downtown', de: 'Solidere Innenstadt', ru: 'Солидер Даунтаун', ar: 'سوليدير وسط البلد' },
+      atmo: {
+        en: 'The most expensive reconstruction in history. A private company bought the ruins of the civil war and built a city centre that looks like Beirut but belongs to shareholders. The streets are clean and empty. The original residents were not included in the plans.',
+        de: 'Die teuerste Rekonstruktion der Geschichte. Ein privates Unternehmen kaufte die Ruinen des Bürgerkriegs und baute ein Stadtzentrum, das wie Beirut aussieht, aber Aktionären gehört. Die Straßen sind sauber und leer. Die ursprünglichen Bewohner waren nicht in den Plänen enthalten.',
+        ru: 'Самая дорогая реконструкция в истории. Частная компания купила руины гражданской войны и построила городской центр, который выглядит как Бейрут, но принадлежит акционерам. Улицы чисты и пусты. Первоначальные жители не были включены в планы.',
+        ar: 'أغلى عملية إعادة بناء في التاريخ. شركة خاصة اشترت أنقاض الحرب الأهلية وبنت مركز مدينة يبدو كبيروت لكنه يملكه المساهمون. الشوارع نظيفة وفارغة. السكان الأصليون لم يُدرجوا في الخطط.',
+      },
+      owners: {
+        en: [
+          'Solidere S.A.L. (private real estate company, est. 1994) holds legal freehold over 1.8 million square metres of central Beirut',
+          'The Roman ruins beneath the shopping district assert a 2,000-year prior occupation claim that no title deed can legally override',
+          'The 100,000 former residents displaced during reconstruction retain an unresolved collective right-of-return claim',
+          'The emptiness itself — streets built for crowds that never came — holds a speculative territorial claim on behalf of an imagined future population',
+        ],
+        de: [
+          'Solidere S.A.L. (privates Immobilienunternehmen, gegr. 1994) hält das gesetzliche Volleigentum über 1,8 Millionen Quadratmeter im Zentrum von Beirut',
+          'Die römischen Ruinen unter dem Einkaufsviertel behaupten einen 2.000-jährigen Prior-Besatzungsanspruch, den keine Eigentumsurkunde rechtlich außer Kraft setzen kann',
+          'Die 100.000 ehemaligen Bewohner, die während des Wiederaufbaus vertrieben wurden, behalten einen ungelösten kollektiven Rückkehranspruch',
+          'Die Leere selbst — Straßen, die für Menschenmengen gebaut wurden, die nie kamen — hält einen spekulativen Territorialanspruch im Namen einer imaginierten zukünftigen Bevölkerung',
+        ],
+        ru: [
+          'Solidere S.A.L. (частная риелторская компания, осн. 1994) держит законное право собственности на 1,8 миллиона квадратных метров центра Бейрута',
+          'Римские руины под торговым кварталом заявляют о 2000-летней претензии предшествующей оккупации, которую ни одно свидетельство о праве собственности не может юридически отменить',
+          '100 000 бывших жителей, перемещённых во время реконструкции, сохраняют неразрешённую коллективную претензию на право возвращения',
+          'Сама пустота — улицы, построенные для толп, которые никогда не пришли — держит спекулятивную территориальную претензию от имени воображаемого будущего населения',
+        ],
+        ar: [
+          'سوليدير ش.م.ل. (شركة عقارية خاصة، تأسست 1994) تمتلك حق الملكية القانونية على 1.8 مليون متر مربع من وسط بيروت',
+          'الأنقاض الرومانية تحت منطقة التسوق تؤكد مطالبة احتلال سابق لـ2000 عام لا يمكن لأي سند ملكية تجاوزه قانونياً',
+          '100,000 من السكان السابقين المهجّرين خلال إعادة الإعمار يحتفظون بمطالبة جماعية غير محسومة بحق العودة',
+          'الفراغ نفسه — شوارع بُنيت للحشود التي لم تأتِ — يحتفظ بمطالبة إقليمية مضاربية نيابةً عن سكان مستقبليين متخيَّلين',
+        ],
+      },
+      ghost: {
+        en: [
+          'The pre-war downtown (Bour) — the most mixed and democratic urban space in the Middle East — holds a residual collective memory that makes the reconstruction feel permanently wrong',
+          'The civil war snipers who held these streets for 15 years retain a residual tactical territorial knowledge embedded in the building lines',
+        ],
+        de: [
+          'Die Vorkriegs-Innenstadt (Bour) — der gemischteste und demokratischste städtische Raum im Nahen Osten — hält eine verbleibende kollektive Erinnerung, die den Wiederaufbau dauerhaft falsch erscheinen lässt',
+          'Die Bürgerkriegsschützen, die diese Straßen 15 Jahre lang hielten, behalten ein verbleibendes taktisches Territorialwissen, das in die Gebäudelinien eingebettet ist',
+        ],
+        ru: [
+          'Довоенный центр города (Бурж) — самое смешанное и демократичное городское пространство на Ближнем Востоке — держит остаточную коллективную память, которая заставляет реконструкцию казаться навсегда неправильной',
+          'Снайперы гражданской войны, которые держали эти улицы 15 лет, сохраняют остаточное тактическое территориальное знание, встроенное в линии зданий',
+        ],
+        ar: [
+          'وسط المدينة ما قبل الحرب (البورج) — أكثر فضاء حضري مختلط وديمقراطي في الشرق الأوسط — يحتفظ بذاكرة جماعية متبقية تجعل إعادة الإعمار تبدو خاطئة بشكل دائم',
+          'قناصة الحرب الأهلية الذين سيطروا على هذه الشوارع لمدة 15 عاماً يحتفظون بمعرفة إقليمية تكتيكية متبقية متجذرة في خطوط المباني',
+        ],
+      },
+      temporal: {
+        en: [
+          'Weekend evenings: the ghost of public life briefly inhabits the streets — cafés fill, the emptiness retreats, Solidere\'s investment thesis is temporarily vindicated',
+          'Revolution time (October 17, 2019 onward): the empty streets filled with the largest protests in Lebanese history — the people briefly repossessed what was taken',
+        ],
+        de: [
+          'Wochenendabende: Das Gespenst des öffentlichen Lebens bewohnt kurz die Straßen — Cafés füllen sich, die Leere weicht zurück, Solideres Investitionsthese wird vorübergehend bestätigt',
+          'Revolutionszeit (ab 17. Oktober 2019): Die leeren Straßen füllten sich mit den größten Protesten der libanesischen Geschichte — die Menschen nahmen kurz zurück, was ihnen genommen worden war',
+        ],
+        ru: [
+          'Вечера выходных: призрак общественной жизни ненадолго населяет улицы — кафе заполняются, пустота отступает, инвестиционный тезис Solidere временно подтверждается',
+          'Время революции (с 17 октября 2019 года): пустые улицы заполнились крупнейшими протестами в ливанской истории — люди ненадолго вернули то, что было взято',
+        ],
+        ar: [
+          'مساءات عطلة الأهوء: شبح الحياة العامة يسكن الشوارع مؤقتاً — تمتلئ المقاهي ويتراجع الفراغ، وتُبرَّر فرضية استثمار سوليدير مؤقتاً',
+          'وقت الثورة (منذ 17 أكتوبر 2019): امتلأت الشوارع الفارغة بأكبر احتجاجات في التاريخ اللبناني — استعاد الناس مؤقتاً ما أُخذ منهم',
+        ],
+      },
+    },
+
+    {
+      id: 'port-beirut', type: 'monument', lat: 33.9003, lng: 35.5196,
+      name: { en: 'Beirut Port', de: 'Hafen von Beirut', ru: 'Порт Бейрута', ar: 'مرفأ بيروت' },
+      atmo: {
+        en: 'On August 4, 2020, 2,750 tonnes of ammonium nitrate that no one had consented to store here detonated. The crater is still open. The grain silos are still standing, half-collapsed, because no one can agree who owns them or who must decide their fate. This is a place that has been asking the same question as this app, and still has no answer.',
+        de: 'Am 4. August 2020 detonierten 2.750 Tonnen Ammoniumnitrat, deren Lagerung hier niemand zugestimmt hatte. Der Krater ist noch offen. Die Getreidesilos stehen noch halb eingestürzt, weil sich niemand einigen kann, wem sie gehören oder wer über ihr Schicksal entscheiden muss. Dies ist ein Ort, der dieselbe Frage wie diese App stellt und noch immer keine Antwort hat.',
+        ru: 'В 4 августа 2020 года взорвались 2750 тонн аммиачной селитры, которую никто не соглашался хранить здесь. Кратер ещё открыт. Зернохранилища всё ещё стоят, наполовину обрушившись, потому что никто не может договориться, кому они принадлежат или кто должен решить их судьбу. Это место задаёт тот же вопрос, что и это приложение, и всё ещё не имеет ответа.',
+        ar: 'في 4 أغسطس 2020، انفجرت 2750 طناً من نترات الأمونيوم التي لم يوافق أحد على تخزينها هنا. الحفرة لا تزال مفتوحة. الصوامع لا تزال قائمة، منهارة جزئياً، لأنه لا أحد يستطيع الاتفاق على من يملكها أو من يجب أن يقرر مصيرها. هذا مكان يطرح نفس السؤال الذي يطرحه هذا التطبيق، ولا تزال ليس له إجابة.',
+      },
+      owners: {
+        en: [
+          'The crater (218 metres diameter) is the only space in Beirut with no registered owner — legal vacuum as physical fact',
+          'The half-collapsed grain silos assert survival as governance — they absorbed the blast and stand as the city\'s most eloquent ruins',
+          'The 2,750 tonnes of ammonium nitrate (stored 2013–2020 without consent of residents) retroactively claimed governance over a 10km radius',
+          'The 218 dead hold an unresolvable collective territorial claim that all reconstruction must negotiate',
+        ],
+        de: [
+          'Der Krater (218 Meter Durchmesser) ist der einzige Raum in Beirut ohne registrierten Eigentümer — rechtliches Vakuum als physische Tatsache',
+          'Die halbzusammengebrochenen Getreidesilos behaupten das Überleben als Governance — sie absorbierten die Druckwelle und stehen als die beredtesten Ruinen der Stadt',
+          'Die 2.750 Tonnen Ammoniumnitrat (2013–2020 ohne Zustimmung der Bewohner gelagert) beanspruchten rückwirkend Governance über einen 10-km-Radius',
+          'Die 218 Toten halten einen unlösbaren kollektiven Territorialanspruch, mit dem alle Rekonstruktion verhandeln muss',
+        ],
+        ru: [
+          'Кратер (диаметром 218 метров) — единственное пространство в Бейруте без зарегистрированного владельца — правовой вакуум как физический факт',
+          'Наполовину обрушившиеся зернохранилища заявляют выживание как управление — они поглотили взрыв и стоят как самые красноречивые руины города',
+          '2750 тонн аммиачной селитры (хранившиеся в 2013–2020 годах без согласия жителей) задним числом заявили о управлении в радиусе 10 км',
+          '218 погибших держат неразрешимую коллективную территориальную претензию, с которой должна договориться вся реконструкция',
+        ],
+        ar: [
+          'الحفرة (قطر 218 متراً) هي المساحة الوحيدة في بيروت بدون مالك مسجّل — فراغ قانوني كحقيقة مادية',
+          'الصوامع المنهارة جزئياً تؤكد البقاء كحوكمة — امتصّت الانفجار وتقف كأكثر أطلال المدينة بلاغة',
+          '2750 طناً من نترات الأمونيوم (مُخزّنة 2013–2020 دون موافقة السكان) طالبت بأثر رجعي بالحوكمة على نطاق 10 كيلومترات',
+          '218 قتيلاً يحتفظون بمطالبة إقليمية جماعية لا حل لها يجب على كل إعادة إعمار التفاوض معها',
+        ],
+      },
+      ghost: {
+        en: [
+          'The Phoenician port (3,000 years of continuous maritime governance) asserts the longest prior territorial claim of any site in this app',
+          'The MV Rhosus (the ship that deposited the ammonium nitrate, abandoned 2013) retains a residual maritime liability claim over the entire blast radius',
+        ],
+        de: [
+          'Der phönizische Hafen (3.000 Jahre kontinuierliche maritime Governance) behauptet den längsten Prioritäts-Territorialanspruch jedes Standorts in dieser App',
+          'Die MV Rhosus (das Schiff, das das Ammoniumnitrat abgelagert hat, aufgegeben 2013) behält einen verbleibenden maritimen Haftungsanspruch über den gesamten Explosionsradius',
+        ],
+        ru: [
+          'Финикийский порт (3000 лет непрерывного морского управления) заявляет о самой длительной предшествующей территориальной претензии любого объекта в этом приложении',
+          'MV Rhosus (судно, которое депонировало аммиачную селитру, брошенное в 2013 году) сохраняет остаточную претензию морской ответственности над всем радиусом взрыва',
+        ],
+        ar: [
+          'المرفأ الفينيقي (3000 عام من الحوكمة البحرية المستمرة) يؤكد أطول مطالبة إقليمية سابقة لأي موقع في هذا التطبيق',
+          'سفينة MV Rhosus (السفينة التي أودعت نترات الأمونيوم، هُجرت 2013) تحتفظ بمطالبة مسؤولية بحرية متبقية على كامل نطاق الانفجار',
+        ],
+      },
+      temporal: {
+        en: [
+          'August 4, 6:07pm, every year: for exactly the duration of the blast, every governance claim in Beirut is suspended',
+          'Every day at sunset: the half-standing silos cast a long shadow westward across the city — a daily governance reminder from ruins that refuse to fall',
+        ],
+        de: [
+          '4. August, 18:07 Uhr, jedes Jahr: Für genau die Dauer der Explosion ist jeder Governance-Anspruch in Beirut ausgesetzt',
+          'Jeden Tag bei Sonnenuntergang: Die halbstehenden Silos werfen einen langen Schatten westwärts über die Stadt — eine tägliche Governance-Erinnerung von Ruinen, die sich weigern zu fallen',
+        ],
+        ru: [
+          '4 августа, 18:07, каждый год: ровно на время взрыва все претензии управления в Бейруте приостановлены',
+          'Каждый день на закате: наполовину стоящие силосы бросают длинную тень на запад через город — ежедневное напоминание управления от руин, отказывающихся упасть',
+        ],
+        ar: [
+          '4 أغسطس الساعة 6:07 مساءً كل عام: لمدة الانفجار بالضبط، تُعلَّق كل مطالبة حوكمة في بيروت',
+          'كل يوم عند الغروب: الصوامع نصف القائمة تلقي ظلاً طويلاً غرباً عبر المدينة — تذكير يومي بالحوكمة من أنقاض ترفض السقوط',
+        ],
+      },
+    },
+
+    {
+      id: 'badaro', type: 'district', lat: 33.8807, lng: 35.5071,
+      name: { en: 'Badaro', de: 'Badaro', ru: 'Бадаро', ar: 'بدارو' },
+      atmo: {
+        en: 'A street that was a front line. The buildings on both sides still carry shrapnel. The cafés have opened in the bullet holes. Nobody talks about it much but everyone knows which side of the road you were on.',
+        de: 'Eine Straße, die eine Frontlinie war. Die Gebäude auf beiden Seiten tragen noch immer Schrapnell. Die Cafés haben in den Einschusslöchern geöffnet. Niemand spricht viel darüber, aber jeder weiß, auf welcher Straßenseite man war.',
+        ru: 'Улица, которая была линией фронта. Здания с обеих сторон всё ещё несут осколки. Кафе открылись в пулевых отверстиях. Об этом особо не говорят, но все знают, на какой стороне дороги ты был.',
+        ar: 'شارع كان خطاً أمامياً. المباني على كلا الجانبين لا تزال تحمل الشظايا. المقاهي فُتحت في ثقوب الرصاص. لا أحد يتحدث عن ذلك كثيراً لكن الجميع يعرف أي جانب من الطريق كنت عليه.',
+      },
+      owners: {
+        en: [
+          'Art Deco apartment blocks (1930s–1950s) assert architectural sovereignty — the most intact pre-war residential fabric in Beirut',
+          'The demarcation line\'s ghost still divides the street psychologically — east-side residents and west-side residents maintain separate territorial intuitions',
+          'Speciality coffee shops have established a commercial cultural governance claim, displacing older neighbourhood economies since 2010',
+          'The shrapnel still embedded in facade stone holds a residual wartime territorial claim that no renovation can fully remove',
+        ],
+        de: [
+          'Art-Deco-Apartmentblocks (1930er–1950er Jahre) behaupten architektonische Souveränität — die intakteste Vorkriegs-Wohnbebauung in Beirut',
+          'Der Geist der Demarkationslinie teilt die Straße noch immer psychologisch — Ost- und West-Seiten-Bewohner bewahren getrennte territoriale Intuitionen',
+          'Spezialitätencafés haben einen kommerziellen kulturellen Governance-Anspruch etabliert, der ältere Nachbarschaftswirtschaften seit 2010 verdrängt',
+          'Das noch immer in Fassadenstein eingebettete Schrapnell hält einen verbleibenden Kriegs-Territorialanspruch, den keine Renovierung vollständig entfernen kann',
+        ],
+        ru: [
+          'Жилые дома в стиле ар-деко (1930-е–1950-е годы) заявляют архитектурный суверенитет — наиболее сохранившаяся довоенная жилая ткань в Бейруте',
+          'Призрак линии разграничения всё ещё психологически делит улицу — жители восточной стороны и жители западной стороны сохраняют отдельные территориальные интуиции',
+          'Кофейни специалитетов установили претензию на коммерческое культурное управление, вытесняя старые экономики кварталов с 2010 года',
+          'Осколки, всё ещё вмурованные в камень фасада, держат остаточную военную территориальную претензию, которую никакой ремонт не может полностью устранить',
+        ],
+        ar: [
+          'مباني الشقق على طراز أرت ديكو (ثلاثينيات–خمسينيات القرن) تؤكد السيادة المعمارية — أكثر نسيج سكني ما قبل الحرب سلامةً في بيروت',
+          'شبح خط التقسيم لا يزال يقسم الشارع نفسياً — سكان الجانب الشرقي وسكان الجانب الغربي يحتفظون بحدس إقليمي منفصل',
+          'محلات القهوة المتخصصة أسّست مطالبة حوكمة ثقافية تجارية، مهجّرةً اقتصادات الأحياء الأقدم منذ 2010',
+          'الشظايا المضمّنة لا تزال في حجر الواجهة تحتفظ بمطالبة إقليمية زمن الحرب المتبقية التي لا يستطيع أي تجديد إزالتها بالكامل',
+        ],
+      },
+      ghost: {
+        en: [
+          'The Green Line ran parallel one block away — Badaro was close enough to hear both sides, which is why it remembers both',
+          'The Jewish quarter (pre-war, pre-emigration) left a spatial memory in the street\'s southern end that has never been acknowledged or mapped',
+        ],
+        de: [
+          'Die Grüne Linie verlief einen Block entfernt parallel — Badaro war nah genug, um beide Seiten zu hören, weshalb es sich an beide erinnert',
+          'Das jüdische Viertel (Vorkriegszeit, vor der Emigration) hinterließ eine räumliche Erinnerung am südlichen Ende der Straße, die nie anerkannt oder kartiert wurde',
+        ],
+        ru: [
+          'Зелёная линия проходила параллельно в одном квартале — Бадаро был достаточно близко, чтобы слышать обе стороны, вот почему он помнит обе',
+          'Еврейский квартал (довоенный, до эмиграции) оставил пространственную память на южном конце улицы, которая никогда не была признана или нанесена на карту',
+        ],
+        ar: [
+          'الخط الأخضر كان يسير موازياً على بُعد بلوك واحد — كانت بدارو قريبة بما يكفي لتسمع كلا الجانبين، ولهذا تتذكر كليهما',
+          'الحي اليهودي (ما قبل الحرب، قبل الهجرة) ترك ذاكرة مكانية في الطرف الجنوبي من الشارع لم تُعترف بها أو تُرسم خريطتها أبداً',
+        ],
+      },
+      temporal: {
+        en: [
+          'Morning café hours: Badaro\'s sidewalk tables briefly constitute the most cosmopolitan democratic space in post-war Beirut',
+          'Power cut (daily, 3 hours minimum): the neighbourhood reverts to generator governance — whoever has diesel holds territorial authority',
+        ],
+        de: [
+          'Morgendliche Café-Stunden: Badaros Bürgersteig-Tische konstituieren kurz den kosmopolitischsten demokratischen Raum im Nachkriegs-Beirut',
+          'Stromausfall (täglich, mindestens 3 Stunden): Das Viertel kehrt zur Generatorgovernanz zurück — wer Diesel hat, hat territoriale Autorität',
+        ],
+        ru: [
+          'Утренние часы кафе: столики на тротуаре Бадаро ненадолго составляют самое космополитическое демократическое пространство в послевоенном Бейруте',
+          'Отключение электричества (ежедневно, минимум 3 часа): район возвращается к управлению генератором — у кого есть дизель, тот держит территориальную власть',
+        ],
+        ar: [
+          'ساعات المقهى الصباحية: طاولات رصيف بدارو تُشكّل مؤقتاً أكثر فضاء ديمقراطي كوزموبوليتاني في بيروت ما بعد الحرب',
+          'انقطاع التيار الكهربائي (يومياً، 3 ساعات على الأقل): يعود الحي إلى حوكمة المولّد — من لديه ديزل يمتلك السلطة الإقليمية',
+        ],
+      },
+    },
   ],
 };

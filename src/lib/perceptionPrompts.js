@@ -153,6 +153,11 @@ const LOCATION_VISUALS = {
   gemmayzeh:          'Gemmayzeh neighbourhood, colourful Ottoman-era buildings with triple arched windows, street art murals, Beirut Lebanon',
   'corniche-beirut':  'Beirut Corniche seafront promenade, Mediterranean Sea, palm trees, Pigeon Rocks limestone stacks offshore, Lebanon',
   'mar-mikhael':      'Mar Mikhael industrial-turned-artsy quarter, colourful street art, old warehouses converted to bars, Armenian community church, Beirut Lebanon',
+  'bourj-hammoud':    'Bourj Hammoud Armenian quarter, colourful jewellery shops and gold souk, narrow market streets, Arabic and Armenian signage, East Beirut Lebanon',
+  achrafieh:          'Achrafieh district Beirut, Ottoman and French Mandate triple-arched window buildings, steep staircases connecting street levels, bullet-scarred facades, East Beirut Lebanon',
+  solidere:           'Solidere Downtown Beirut, reconstructed limestone neoclassical buildings, Mohammed Al-Amin mosque blue dome, Roman ruins plaza, wide empty streets, Lebanon',
+  'port-beirut':      'Beirut Port explosion crater 2020, half-collapsed grain silos, destroyed warehouses, Mediterranean sea, Beirut Lebanon',
+  badaro:             'Badaro street Beirut, Art Deco apartment buildings 1930s–1950s, shrapnel-marked facades, tree-lined residential street, South Beirut Lebanon',
 };
 
 /**
