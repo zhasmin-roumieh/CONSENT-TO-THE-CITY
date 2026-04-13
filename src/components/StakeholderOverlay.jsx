@@ -64,7 +64,7 @@ export default function StakeholderOverlay({ loc, lang, onPerceive }) {
               onClick={() => setActive(isActive ? null : i)}
             >
               <span className={`tag ${ent.tagClass}`}>{ent.tag}</span>
-              <span className="sh-float-short">{shortText(ent.text)}</span>
+              <span className="sh-float-short" style={{ animationDelay: `${i * 0.9 + 0.5}s` }}>{shortText(ent.text)}</span>
             </button>
 
             {isActive && (

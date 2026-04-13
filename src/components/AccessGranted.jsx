@@ -19,6 +19,8 @@ const FUNNY_REASONS = [
 ];
 
 function Bar({ label, pct, color }) {
+  const [w, setW] = useState(0);
+  useEffect(() => { const t = setTimeout(() => setW(pct), 80); return () => clearTimeout(t); }, [pct]);
   return (
     <div className="bar-group">
       <div className="bar-meta">
@@ -26,10 +28,20 @@ function Bar({ label, pct, color }) {
         <span>{pct}%</span>
       </div>
       <div className="bar-track">
-        <div className="bar-fill" style={{ width: `${pct}%`, background: color }} />
+        <div className="bar-fill" style={{ width: `${w}%`, background: color }} />
       </div>
     </div>
   );
+}
+
+function getEra(yr) {
+  if (yr < 1800) return 'PRE-MODERN ERA';
+  if (yr < 1900) return 'INDUSTRIAL ERA';
+  if (yr < 1945) return 'EARLY MODERN';
+  if (yr < 1990) return 'POST-WAR ERA';
+  if (yr < 2026) return 'DIGITAL ERA';
+  if (yr < 2080) return 'CLIMATE ERA';
+  return 'POST-HUMAN';
 }
 
 export default function AccessGranted({ loc, cityKey, ownerData, userTerms, identity, lang, character, consentLogCount, collectiveStats, totalLocations, onAddTerm, onReset, onShowConsentLog, onShowFate }) {
@@ -205,6 +217,7 @@ export default function AccessGranted({ loc, cityKey, ownerData, userTerms, iden
         ))}
         <hr className="divider" />
         <div className="section-hdr">{t.temporalShift}</div>
+        <div className="slider-era">{getEra(year)}</div>
         <div className="slider-row">
           <label>{t.year}</label>
           <input

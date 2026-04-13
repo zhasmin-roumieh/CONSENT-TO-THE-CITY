@@ -347,6 +347,7 @@ body {
 
 /* All other views: right-side card */
 .panel--terms,
+.panel--counter-offer,
 .panel--identity,
 .panel--granted,
 .panel--denied {
@@ -2841,3 +2842,146 @@ button.hud-card:hover { filter: brightness(1.15); }
   white-space: nowrap;
   letter-spacing: 0.04em;
 }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   UPGRADE PACK — atmospheric & theatrical enhancements
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* ── CRT scanline overlay (very subtle) ── */
+#app::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9997;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0,0,0,0.018) 3px,
+    rgba(0,0,0,0.018) 4px
+  );
+}
+
+/* ── T&C card: reveal + scanning line ── */
+.tc-card {
+  position: relative;
+  overflow: hidden;
+  animation: tc-reveal 0.55s ease-out both;
+}
+.tc-card::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #1D9E75 30%, #1D9E75 70%, transparent 100%);
+  top: 0;
+  opacity: 0;
+  animation: tc-scan-line 1.8s ease-out 0.3s both;
+  pointer-events: none;
+}
+@keyframes tc-reveal {
+  from { opacity: 0; filter: blur(3px); transform: translateY(6px); }
+  to   { opacity: 1; filter: blur(0);   transform: translateY(0); }
+}
+@keyframes tc-scan-line {
+  0%   { top: 0;    opacity: 1; }
+  90%  { opacity: 0.4; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* ── Accept button pulsing glow ── */
+@keyframes btn-accept-glow {
+  0%, 100% { box-shadow: 0 4px 14px rgba(29,158,117,0.25); }
+  50%       { box-shadow: 0 4px 32px rgba(29,158,117,0.65), 0 0 48px rgba(29,158,117,0.2); }
+}
+.btn-accept { animation: btn-accept-glow 2.8s ease-in-out infinite; }
+.btn-accept:hover { animation: none; box-shadow: 0 4px 20px rgba(29,158,117,0.5); }
+
+/* ── ACCESS GRANTED stamp overlay ── */
+.granted-stamp-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  animation: stamp-bg-fade 1.5s ease both;
+}
+@keyframes stamp-bg-fade {
+  0%       { background: rgba(0,0,0,0); }
+  15%, 65% { background: rgba(0,0,0,0.55); }
+  100%     { background: rgba(0,0,0,0); }
+}
+.granted-stamp-box {
+  border: 5px solid #1D9E75;
+  border-radius: 12px;
+  padding: 18px 36px;
+  text-align: center;
+  font-family: 'Press Start 2P', monospace;
+  background: rgba(0,10,5,0.96);
+  animation: stamp-slam 1.5s cubic-bezier(0.22,1,0.36,1) both;
+}
+@keyframes stamp-slam {
+  0%   { transform: rotate(-9deg) scale(3.5); opacity: 0; box-shadow: none; }
+  14%  { transform: rotate(-9deg) scale(0.9);  opacity: 1; box-shadow: 0 0 80px #1D9E7566; }
+  22%  { transform: rotate(-9deg) scale(1.04); }
+  35%  { transform: rotate(-9deg) scale(1);    box-shadow: 0 0 40px #1D9E7588; }
+  72%  { transform: rotate(-9deg) scale(1);    opacity: 1; }
+  100% { transform: rotate(-9deg) scale(0.75); opacity: 0; }
+}
+.granted-stamp-line {
+  font-size: 26px;
+  color: #1D9E75;
+  letter-spacing: 0.18em;
+  line-height: 1.5;
+  text-shadow: 0 0 28px #1D9E75cc, 0 0 60px #1D9E7566;
+}
+
+/* ── Stakeholder overlay: glitch text effect ── */
+@keyframes sh-glitch {
+  0%, 86%, 100% { opacity: 1; text-shadow: none; transform: none; }
+  87%  { opacity: 0.45; text-shadow: 2px 0 #0ff, -2px 0 #f0f; transform: translate(1.5px, 0); }
+  88%  { opacity: 1;    text-shadow: none;                       transform: none; }
+  89%  { opacity: 0.65; text-shadow: -1px 0 #f0f;               transform: translate(-1px, 0); }
+  90%  { opacity: 1;    text-shadow: none;                       transform: none; }
+}
+.sh-float-short { animation: sh-glitch 6s ease infinite; }
+
+/* ── Temporal slider era label ── */
+.slider-era {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  letter-spacing: 0.16em;
+  color: var(--color-text-tertiary);
+  text-align: center;
+  margin-bottom: 6px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+/* ── Site title breathing glow ── */
+@keyframes title-breathe {
+  0%, 100% { text-shadow: 0 0 40px color-mix(in srgb, var(--title-color, #00e87a) 80%, transparent),
+                           0 0 12px color-mix(in srgb, var(--title-color, #00e87a) 50%, transparent); }
+  50%       { text-shadow: 0 0 70px color-mix(in srgb, var(--title-color, #00e87a) 90%, transparent),
+                           0 0 22px color-mix(in srgb, var(--title-color, #00e87a) 70%, transparent),
+                           0 0 120px color-mix(in srgb, var(--title-color, #00e87a) 30%, transparent); }
+}
+.site-title { animation: title-breathe 4s ease-in-out infinite; }
+
+/* ── Warn box pulsing border ── */
+@keyframes warn-pulse {
+  0%, 100% { box-shadow: 0 0 10px var(--wc, transparent); }
+  50%       { box-shadow: 0 0 22px var(--wc, transparent); }
+}
+.warn-box { animation: warn-pulse 2.4s ease-in-out infinite; }
+
+/* ── Section header left-border accent color on granted screen ── */
+.panel--granted .section-hdr {
+  border-left-color: #1D9E75aa;
+}
+
+/* ── Counter-offer body escalation ── */
+.co-body { transition: font-size 0.3s ease; }

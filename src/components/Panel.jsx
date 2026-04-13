@@ -22,7 +22,7 @@ export default function Panel({
       {showTriangle && (
         <div className="panel-triangle" style={{ '--loc-color': locColor }} />
       )}
-      <div className={`panel panel--${view}`} style={{ '--loc-color': locColor }}>
+      <div key={view} className={`panel panel--${view}`} style={{ '--loc-color': locColor }}>
         {view === 'intro' && <IntroScreen lang={lang} />}
 
         {view === 'terms' && loc && (

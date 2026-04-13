@@ -68,6 +68,7 @@ export default function App() {
   const [showMapPerception, setShowMapPerception] = useState(false);
   const [perceiveHint, setPerceiveHint] = useState(false);
   const [overlayPerceiveTarget, setOverlayPerceiveTarget] = useState(null);
+  const [showGrantedStamp, setShowGrantedStamp] = useState(false);
 
   const isDark = theme === 'dark' || (theme === null && systemDark());
   const isRTL = lang === 'ar';
@@ -250,6 +251,14 @@ export default function App() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [view]);
 
+  useEffect(() => {
+    if (view === 'granted') {
+      setShowGrantedStamp(true);
+      const t = setTimeout(() => setShowGrantedStamp(false), 1500);
+      return () => clearTimeout(t);
+    }
+  }, [view]);
+
   function handleLangChange(newLang) {
     if (DEV_MODE) return;
     setLang(newLang);
@@ -275,6 +284,14 @@ export default function App() {
 
   return (
     <div id="app" dir={isRTL ? 'rtl' : 'ltr'}>
+      {showGrantedStamp && (
+        <div className="granted-stamp-overlay">
+          <div className="granted-stamp-box">
+            <div className="granted-stamp-line">ACCESS</div>
+            <div className="granted-stamp-line">GRANTED</div>
+          </div>
+        </div>
+      )}
       <header id="site-header">
         <span
           className="site-title"
