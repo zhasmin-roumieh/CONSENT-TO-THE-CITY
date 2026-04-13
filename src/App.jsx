@@ -19,6 +19,7 @@ import FateModal from './components/FateModal';
 import FullDeniedScreen from './components/FullDeniedScreen';
 import HomeHUD from './components/HomeHUD';
 import PerceptionModal from './components/PerceptionModal';
+import StakeholderOverlay from './components/StakeholderOverlay';
 
 // ─── DEV MODE ───────────────────────────────────────────────────────────────
 // Set to true while testing: locks city to Berlin, English only, skips splash.
@@ -66,6 +67,7 @@ export default function App() {
   const [showDeniedScreen, setShowDeniedScreen] = useState(false);
   const [showMapPerception, setShowMapPerception] = useState(false);
   const [perceiveHint, setPerceiveHint] = useState(false);
+  const [overlayPerceiveTarget, setOverlayPerceiveTarget] = useState(null);
 
   const isDark = theme === 'dark' || (theme === null && systemDark());
   const isRTL = lang === 'ar';
@@ -378,7 +380,7 @@ export default function App() {
           />
         )}
 
-        {/* ── Floating map perception button ── */}
+        {/* ── Perceive button — top center ── */}
         {character && (
           <div className="map-perceive-wrap">
             <button
@@ -402,18 +404,24 @@ export default function App() {
               <span className="map-perceive-label">✦ perceive</span>
             </button>
             {perceiveHint === 'location' && (
-              <div className="perceive-hint">
-                First click a location on the map
-              </div>
+              <div className="perceive-hint">First click a location on the map</div>
             )}
             {perceiveHint === 'terms' && (
-              <div className="perceive-hint">
-                Accept the terms of access to this location first
-              </div>
+              <div className="perceive-hint">Accept the terms of access first</div>
             )}
           </div>
         )}
 
+        {/* ── Stakeholder entity overlay (shown in 3D mode) ── */}
+        {currentLoc && character && (
+          <StakeholderOverlay
+            loc={currentLoc}
+            lang={lang}
+            onPerceive={(sh) => setOverlayPerceiveTarget(sh)}
+          />
+        )}
+
+        {/* ── Perception modal — full stakeholder list (map button) ── */}
         {showMapPerception && character && (
           <PerceptionModal
             character={character}
@@ -426,6 +434,18 @@ export default function App() {
               ...(currentLoc.temporal[lang] || []).map(t => ({ text: t, tag: 'TEMPORAL', tagClass: 'tag-t' })),
             ] : []}
             onClose={() => setShowMapPerception(false)}
+          />
+        )}
+
+        {/* ── Perception modal — single entity (from overlay click) ── */}
+        {overlayPerceiveTarget && character && (
+          <PerceptionModal
+            character={character}
+            locationName={currentLoc?.name[lang] || CITIES[currentCity]?.name[lang] || currentCity}
+            cityName={CITIES[currentCity]?.name[lang] || currentCity}
+            locationId={currentLoc?.id || ''}
+            stakeholder={overlayPerceiveTarget}
+            onClose={() => setOverlayPerceiveTarget(null)}
           />
         )}
       </div>

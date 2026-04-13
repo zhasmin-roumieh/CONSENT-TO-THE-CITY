@@ -2346,8 +2346,8 @@ button.hud-card:hover { filter: brightness(1.15); }
 /* ── Floating Map Perception Button ─────────────────────────────────────── */
 
 @keyframes map-perceive-float {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-5px); }
+  0%, 100% { transform: translateX(-50%) translateY(0px); }
+  50%       { transform: translateX(-50%) translateY(-5px); }
 }
 @keyframes map-perceive-pulse {
   0%, 100% { box-shadow: 0 0 16px color-mix(in srgb, var(--cc) 40%, transparent), 0 4px 20px rgba(0,0,0,0.4); }
@@ -2356,13 +2356,14 @@ button.hud-card:hover { filter: brightness(1.15); }
 
 .map-perceive-wrap {
   position: absolute;
-  bottom: 32px;
-  right: 24px;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 900;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  gap: 10px;
+  align-items: center;
+  gap: 8px;
 }
 @keyframes fade-in {
   from { opacity: 0; transform: translateY(4px); }
@@ -2377,7 +2378,6 @@ button.hud-card:hover { filter: brightness(1.15); }
   color: var(--text-muted, #aaa);
   white-space: nowrap;
   animation: fade-in 0.2s ease;
-  order: -1;
 }
 .map-perceive-btn {
   z-index: 600;
@@ -2409,6 +2409,113 @@ button.hud-card:hover { filter: brightness(1.15); }
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--cc);
+}
+
+/* ── Stakeholder Entity Overlay ─────────────────────────────────────────── */
+
+.sh-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 700;
+}
+
+.sh-overlay-hint {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  white-space: nowrap;
+  animation: fade-in 0.5s ease 1.5s both;
+  pointer-events: none;
+}
+
+@keyframes sh-float-in {
+  from { opacity: 0; transform: translateY(10px) scale(0.9); }
+  to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+
+.sh-float {
+  position: absolute;
+  pointer-events: all;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  animation: sh-float-in 0.4s ease both;
+}
+
+.sh-float-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px 5px 6px;
+  background: rgba(10,10,18,0.75);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: inherit;
+  backdrop-filter: blur(6px);
+  transition: background 0.15s, border-color 0.15s, transform 0.15s;
+  white-space: nowrap;
+}
+.sh-float-pill:hover {
+  background: rgba(30,30,50,0.9);
+  border-color: rgba(255,255,255,0.3);
+  transform: scale(1.04);
+}
+.sh-float--active .sh-float-pill {
+  background: rgba(30,30,50,0.95);
+  border-color: rgba(255,255,255,0.4);
+}
+
+.sh-float-emoji {
+  font-size: 16px;
+  line-height: 1;
+}
+.sh-float-short {
+  font-size: 10px;
+  color: rgba(255,255,255,0.6);
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sh-float-popup {
+  background: rgba(10,10,18,0.92);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 10px;
+  padding: 10px 12px;
+  max-width: 220px;
+  backdrop-filter: blur(10px);
+  animation: fade-in 0.15s ease;
+}
+.sh-float-terms {
+  font-size: 11px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.75);
+  margin: 0 0 8px 0;
+}
+.sh-float-perceive-btn {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #00e87a;
+  background: none;
+  border: 1px solid rgba(0,232,122,0.4);
+  border-radius: 20px;
+  padding: 4px 12px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s;
+}
+.sh-float-perceive-btn:hover {
+  background: rgba(0,232,122,0.1);
 }
 
 /* ── Perception Modal ────────────────────────────────────────────────────── */
