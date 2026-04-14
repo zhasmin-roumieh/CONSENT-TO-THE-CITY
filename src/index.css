@@ -2988,36 +2988,85 @@ button.hud-card:hover { filter: brightness(1.15); }
 
 /* ══════════════════════════════════════════════════════════════════════════
    MOBILE LAYOUT  ≤ 639 px
-   Panel becomes a bottom sheet — map stays visible above it.
    ══════════════════════════════════════════════════════════════════════════ */
 
 @keyframes sheet-up {
-  from { transform: translateY(100%); opacity: 0; }
-  to   { transform: translateY(0);    opacity: 1; }
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
 }
 
 @media (max-width: 639px) {
 
-  /* ── Header: shrink title ── */
+  /* ─────────────────────────────────────────
+     SPLASH SCREEN
+     ───────────────────────────────────────── */
+  .splash-panel {
+    width: calc(100vw - 24px);
+    max-width: 420px;
+    padding: 24px 20px;
+    border-radius: 14px;
+    max-height: calc(100vh - 24px);
+    overflow-y: auto;
+  }
+  .splash-panel-logo { font-size: 9px; }
+  .splash-panel-tagline { gap: 4px; flex-wrap: wrap; justify-content: center; }
+  .splash-tag-pill { font-size: 6px; padding: 4px 8px; }
+  .splash-tag-sep { display: none; }
+  .splash-lore { font-size: 10.5px; }
+  .splash-city-list { gap: 4px; }
+  .splash-city-row { padding: 8px 12px; font-size: 11px; }
+
+  /* ─────────────────────────────────────────
+     CHARACTER SELECT
+     ───────────────────────────────────────── */
+  .charselect { gap: 20px; padding: 16px 0; justify-content: flex-start; overflow-y: auto; }
+  .charselect-header { gap: 6px; }
+  .charselect-title { font-size: 13px; }
+  .charselect-sub { font-size: 9px; }
+  .charselect-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 0 16px;
+    width: 100%;
+  }
+  .charselect-card { padding: 16px 10px 12px; }
+  .charselect-emoji { font-size: 30px; }
+  .charselect-name { font-size: 6px; }
+  .charselect-desc { font-size: 8px; }
+
+  /* ─────────────────────────────────────────
+     LOADING SCREEN
+     ───────────────────────────────────────── */
+  .loading-city { font-size: 22px; }
+
+  /* ─────────────────────────────────────────
+     SITE HEADER
+     ───────────────────────────────────────── */
   #site-header {
-    padding: 10px 14px;
+    padding: 8px 12px;
     gap: 8px;
     flex-wrap: nowrap;
   }
   .site-title {
-    font-size: 16px;
-    letter-spacing: 0.04em;
+    font-size: 13px;
+    letter-spacing: 0.03em;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 50vw;
+    flex-shrink: 1;
+    min-width: 0;
+    /* disable breathing animation — too distracting when tiny */
+    animation: none;
+    text-shadow: 0 0 16px var(--title-color, #00e87a);
   }
   .site-subtitle { display: none; }
   .character-badge { display: none; }
 
-  /* ── Toolbar: single compact row ── */
+  /* ─────────────────────────────────────────
+     TOOLBAR
+     ───────────────────────────────────────── */
   #toolbar {
-    padding: 6px 10px;
+    padding: 5px 10px;
     gap: 5px;
     flex-wrap: nowrap;
     overflow-x: auto;
@@ -3027,25 +3076,49 @@ button.hud-card:hover { filter: brightness(1.15); }
   .tb-label { display: none; }
   .loc-count { display: none; }
   .toolbar-clocks { display: none; }
-  .rand-btn { padding: 5px 9px; font-size: 11px; white-space: nowrap; }
-  .city-select { padding: 4px 8px; font-size: 11px; }
-  .lang-btn { padding: 3px 7px; font-size: 10px; }
+  .rand-btn { padding: 4px 8px; font-size: 10px; white-space: nowrap; }
+  .city-select { padding: 4px 7px; font-size: 10px; }
+  .lang-btn { padding: 3px 6px; font-size: 9px; }
+  .music-btn, .theme-btn, .exit-btn { padding: 4px 7px; font-size: 13px; }
 
-  /* ── Hide minimap on very small screens ── */
-  .minimap-wrap {
-    width: 120px;
-    height: 82px;
-    top: 10px;
-    left: 10px;
-  }
+  /* ─────────────────────────────────────────
+     MAP STAGE OVERLAYS
+     ───────────────────────────────────────── */
 
-  /* ── Stats panel: hidden on mobile (too cluttered) ── */
+  /* Minimap: hide — too much clutter in tiny map strip */
+  .minimap-wrap { display: none; }
+
+  /* Stats panel: hidden */
   .stats-panel { display: none; }
 
-  /* ── Triangle pointer: hidden on mobile ── */
+  /* Triangle connector: hidden */
   .panel-triangle { display: none; }
 
-  /* ── All content panels → bottom sheet ── */
+  /* Perceive button: smaller, keep top-center */
+  .map-perceive-wrap { top: 8px; }
+  .map-perceive-btn { padding: 6px 12px; font-size: 10px; gap: 4px; }
+  .map-perceive-emoji { font-size: 16px; }
+  .map-perceive-label { font-size: 9px; }
+
+  /* Stakeholder overlay: hide hint text (too cluttered), shrink pills */
+  .sh-overlay-hint { display: none; }
+  .sh-float-pill { padding: 4px 8px 4px 5px; font-size: 10px; }
+  .sh-float-short { font-size: 9px; max-width: 80px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+  /* Home HUD: sits above the sheet — sheet is ~62vh so hud at 63vh+ */
+  .home-hud {
+    bottom: calc(62vh + 10px);
+    width: calc(100% - 24px);
+    pointer-events: none;
+  }
+  .hud-row { flex-wrap: wrap; justify-content: center; gap: 8px; }
+  .hud-card { padding: 9px 12px; pointer-events: auto; }
+  .hud-emoji { font-size: 26px; }
+  .hud-passport-name { font-size: 7px; }
+
+  /* ─────────────────────────────────────────
+     ALL CONTENT PANELS → BOTTOM SHEET
+     ───────────────────────────────────────── */
   .panel--terms,
   .panel--counter-offer,
   .panel--identity,
@@ -3058,15 +3131,15 @@ button.hud-card:hover { filter: brightness(1.15); }
     bottom: 0 !important;
     width: 100% !important;
     max-width: 100%;
-    max-height: 62vh;
-    border-radius: 20px 20px 0 0;
+    max-height: 65vh;
+    border-radius: 18px 18px 0 0;
     border-left: none;
     border-right: none;
     border-bottom: none;
-    animation: sheet-up 0.38s cubic-bezier(0.22,1,0.36,1) both !important;
+    animation: sheet-up 0.36s cubic-bezier(0.22,1,0.36,1) both !important;
   }
 
-  /* Drag-handle pill at top of every sheet */
+  /* Drag-handle pill */
   .panel--terms::before,
   .panel--counter-offer::before,
   .panel--identity::before,
@@ -3075,52 +3148,84 @@ button.hud-card:hover { filter: brightness(1.15); }
   .panel--intro::before {
     content: '';
     display: block;
-    width: 40px;
+    width: 36px;
     height: 4px;
     background: var(--color-border-primary);
     border-radius: 2px;
-    margin: 10px auto 2px;
+    margin: 8px auto 0;
+    flex-shrink: 0;
   }
 
-  /* Panel accent (color bar) loses top radius since sheet handles it */
+  /* Accent bar: flat top since sheet has its own border-radius */
   .panel-accent { border-radius: 0; }
 
-  /* ── Perceive button: keep top-center but smaller ── */
-  .map-perceive-wrap { top: 10px; }
-  .map-perceive-btn  { padding: 7px 14px; font-size: 11px; }
-  .map-perceive-emoji { font-size: 18px; }
+  /* ─────────────────────────────────────────
+     PANEL CONTENT
+     ───────────────────────────────────────── */
+  .panel-inner { padding: 0.75rem 0.9rem; }
 
-  /* ── Home HUD: raise above sheet ── */
-  .home-hud {
-    bottom: 20px;
-    width: calc(100% - 32px);
-  }
-  .hud-row { flex-wrap: wrap; justify-content: center; }
-  .hud-card { padding: 10px 14px; }
-
-  /* ── Location hero image: smaller ── */
-  .loc-hero-img { max-height: 72px; }
+  /* Location hero: compact */
+  .loc-hero { gap: 10px; }
+  .loc-hero-img { max-height: 60px; border-radius: 6px; }
   .loc-hero-name { font-size: 13px; }
-  .loc-hero-city { font-size: 10px; }
+  .loc-hero-city { font-size: 9px; }
+  .loc-hero-atmo { font-size: 10px; }
 
-  /* ── StakeholderOverlay hint: higher up ── */
-  .sh-overlay-hint { top: 8px; }
+  /* T&C card: limit height, user scrolls to read */
+  .tc-card { max-height: 160px; overflow-y: auto; }
+  .tc-body { font-size: 11px; line-height: 1.75; }
 
-  /* ── Panel inner: less padding ── */
-  .panel-inner { padding: 0.9rem 1rem; }
+  /* Warn box */
+  .warn-box { font-size: 11px; padding: 0.5rem 0.7rem; }
 
-  /* ── Warn box slightly smaller text ── */
-  .warn-box { font-size: 11px; }
-
-  /* ── Consent row: stack buttons if needed ── */
+  /* Buttons */
   .consent-row { gap: 6px; }
-  .btn-accept, .btn-decline { padding: 9px 14px; font-size: 12px; }
+  .btn-accept, .btn-decline { padding: 9px 12px; font-size: 12px; }
 
-  /* ── Perception section: compact ── */
+  /* Section headers */
+  .section-hdr { font-size: 9px; margin-top: 0.75rem; }
+
+  /* Bars: slightly smaller */
+  .bar-group { margin-bottom: 5px; }
+  .bar-meta { font-size: 9px; }
+  .bar-track { height: 5px; }
+
+  /* Owners list */
+  .owner-item { font-size: 10px; }
+
+  /* Temporal slider */
+  .slider-era { font-size: 6px; }
+  .slider-val { font-size: 12px; }
+  .temp-box { font-size: 10px; line-height: 1.65; padding: 0.5rem 0.65rem; }
+
+  /* Add terms input */
+  .term-input { font-size: 11px; padding: 6px 8px; }
+  .inscribe-btn { font-size: 10px; padding: 6px 10px; }
+
+  /* Perception section */
   .perception-card { padding: 8px 10px; }
-  .perception-card-emoji { font-size: 22px; }
+  .perception-card-emoji { font-size: 20px; }
+  .perception-card-label { font-size: 8px; }
+  .perception-card-name  { font-size: 10px; }
+  .perception-card-hint  { font-size: 9px; }
 
-  /* ── Granted stamp: smaller on mobile ── */
-  .granted-stamp-box { padding: 12px 22px; }
-  .granted-stamp-line { font-size: 18px; }
+  /* Stakeholder perception list items */
+  .stakeholder-gen-item { font-size: 10px; padding: 5px 8px; }
+
+  /* Counter-offer */
+  .co-title { font-size: 13px; }
+  .co-body  { font-size: 11px; }
+
+  /* ─────────────────────────────────────────
+     GRANTED STAMP
+     ───────────────────────────────────────── */
+  .granted-stamp-box { padding: 12px 20px; }
+  .granted-stamp-line { font-size: 17px; }
+
+  /* ─────────────────────────────────────────
+     MODALS (ConsentLog, Fate, Perception)
+     ───────────────────────────────────────── */
+  .modal-wrap { padding: 12px; }
+  .modal-box  { padding: 20px 16px; border-radius: 14px; max-height: 90vh; }
+  .perception-modal { padding: 16px; }
 }
