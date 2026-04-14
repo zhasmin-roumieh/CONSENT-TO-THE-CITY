@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import 'leaflet/dist/leaflet.css'; // kept for MiniMap (react-leaflet)
 import Toolbar from './components/Toolbar';
 import MapView from './components/MapView';
@@ -239,34 +239,39 @@ export default function App() {
     }));
   }
 
+  // Keep a ref so popstate/keydown handlers always see the current view
+  // without needing to re-register on every render
+  const viewRef = useRef(view);
+  useEffect(() => { viewRef.current = view; }, [view]);
+
   function handleReset() {
-    // If we pushed a panel state, replace it so the back button doesn't
-    // re-trigger this after a manual close
     if (history.state?.panel) history.replaceState(null, '');
     setCurrentLoc(null);
     setIdentity(null);
     setView('intro');
   }
 
+  // Keyboard: ESC closes panel — registered once
   useEffect(() => {
     function handleKeyDown(e) {
-      if (e.key === 'Escape' && view !== 'intro') handleReset();
+      if (e.key === 'Escape' && viewRef.current !== 'intro') handleReset();
     }
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  // Mobile back button: closes panel instead of leaving the page — registered once
+  useEffect(() => {
     function handlePopState() {
-      // Back button pressed on mobile — close the panel instead of leaving
-      if (view !== 'intro') {
+      if (viewRef.current !== 'intro') {
         setCurrentLoc(null);
         setIdentity(null);
         setView('intro');
       }
     }
-    window.addEventListener('keydown', handleKeyDown);
     window.addEventListener('popstate', handlePopState);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      window.removeEventListener('popstate', handlePopState);
-    };
-  }, [view]);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   useEffect(() => {
     if (view === 'granted') {
