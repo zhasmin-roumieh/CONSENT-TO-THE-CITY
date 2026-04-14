@@ -75,89 +75,89 @@ function detectEntityAngle(text) {
 // These describe what each location actually looks like so the image model
 // has specific visual features to draw, not just a name.
 const LOCATION_VISUALS = {
-  // Berlin
-  brandenburger:      'neoclassical triumphal arch with six Doric columns and the bronze Quadriga chariot sculpture on top, wide cobblestone square, Berlin Germany',
-  tiergarten:         'vast urban forest park, winding gravel paths through dense deciduous trees, tall golden victory column rising above the tree canopy, central Berlin Germany',
-  hackescher:         'historic inner courtyard complex, ornate red brick Art Nouveau facades with colourful tile mosaics and arched passageways, Mitte Berlin Germany',
-  tempelhof:          'enormous curved 1930s monumental stone airport terminal with a long colonnade facade, vast flat open airfield converted to public parkland with no trees, Berlin Germany',
-  kreuzberg:          'spray-painted concrete walls covered in large street art murals, outdoor market stalls beside a narrow urban canal with metal railings, multicultural six-storey tenement blocks with ornate balconies, Berlin Germany',
-  museumsinsel:       'cluster of neoclassical museum buildings on a river island, wide colonnaded facades, green copper domes, stone steps leading to the water, Berlin Germany',
-  'east-side-gallery':'long continuous stretch of concrete wall painted with large colourful murals, riverside path alongside it, modern apartment towers behind, Berlin Germany',
-  'potsdamer-platz':  'large glass and steel tent-like canopy roof over an open plaza, red brick skyscraper with pyramid top, cluster of modern glass towers, busy urban square, Berlin Germany',
-  alexanderplatz:     'tall steel needle tower with a silver sphere near the top, wide open pedestrian plaza with a rotating world time clock sculpture, GDR-era low-rise buildings surrounding, Berlin Germany',
-  'checkpoint-charlie':'white guardhouse booth on a wide urban street, historic border crossing signs in four languages, cobblestone road, central Berlin Germany',
-  gendarmenmarkt:     'elegant square with twin domed stone cathedrals facing each other, neoclassical concert hall with columned portico in the centre, bronze statue, Berlin Germany',
-  oberbaumbruecke:    'double-deck red brick Gothic bridge over a river, twin towers with pointed battlements, elevated metro train crossing the upper level, Berlin Germany',
-  'prenzlauer-berg':  'historic red brick water tower on a small hill surrounded by trees, tree-lined cobblestone residential streets with 19th-century five-storey apartment buildings, Berlin Germany',
-  mauerpark:          'wide open grassy urban park on a former border strip, short remnant concrete wall painted with colourful graffiti, outdoor stone amphitheatre on a slope, Berlin Germany',
-  charlottenburg:     'Baroque palace with a long white symmetrical facade and central tower, gilded equestrian statue in front, formal French garden with trimmed hedges and a fountain, Berlin Germany',
-  neukoelln:          'busy multicultural commercial street with Arabic-script shop fronts, fruit and vegetable market stalls on wide pavements, mixed residential and retail buildings four to six storeys tall, Berlin Germany',
+  // ── Berlin ──────────────────────────────────────────────────────────────────
+  brandenburger:      'six massive pale sandstone Doric columns supporting a wide entablature, bronze four-horse chariot sculpture on top, wide open grey cobblestone square, neoclassical triumphal arch, Berlin Germany',
+  tiergarten:         'dense city forest, winding sandy gravel paths between tall green oaks and lime trees, shaft of tall golden column visible above the leafy canopy, dappled light, Berlin Germany',
+  hackescher:         'red brick inner courtyard with arched gateways, ornate Art Nouveau tile mosaics in blue amber and cream on the facade, decorative terracotta ironwork, connected courtyards, Mitte Berlin Germany',
+  tempelhof:          'enormously long horizontal stone terminal building with rows of square columns, monumental 1930s pale stone facade, vast flat empty tarmac airfield stretching to the horizon behind it, overcast sky, Berlin Germany',
+  kreuzberg:          'yellow stucco five-storey apartment blocks with stone balconies, outer walls floor to ceiling covered in vivid red blue yellow spray-painted graffiti murals, narrow dark canal water below iron railings, Berlin Germany',
+  museumsinsel:       'row of pale sandstone neoclassical museum buildings on a river island, wide Corinthian colonnades, green patina copper domes, broad stone steps descending to dark river water, Berlin Germany',
+  'east-side-gallery':'flat three-metre-high grey concrete wall stretching along a riverbank, every surface painted with large colourful murals, crumbling painted texture, grey glass apartment towers behind, Berlin Germany',
+  'potsdamer-platz':  'large tent-shaped glass and steel roof canopy over an open courtyard, dark red brick tower with flat angular pyramid on top beside it, glass and steel office towers reflecting grey sky, Berlin Germany',
+  alexanderplatz:     'tall thin steel TV tower with large silver mirrored ball at 200 metres, wide treeless pedestrian square, round rotating multicoloured clock sculpture on a plinth, grey socialist-era slab buildings surrounding, Berlin Germany',
+  'checkpoint-charlie':'small white painted wooden sentry booth in the centre of a wide asphalt street, checkpoint warning signs on metal poles, yellow taxi, grey urban street, central Berlin Germany',
+  gendarmenmarkt:     'twin stone cathedral towers with large green copper domes facing each other across a grey cobblestone square, white neoclassical hall with six columns between them, dark bronze statue on a plinth, Berlin Germany',
+  oberbaumbruecke:    'double-decker red brick bridge with two tall Gothic towers and crenellated battlements spanning a wide green river, yellow metro train crossing the upper deck, Berlin Germany',
+  'prenzlauer-berg':  'cylindrical red brick water tower on a gentle hill, tree-lined cobblestone street below with lime trees in golden autumn colour, rows of five-storey pale yellow sandstone apartment buildings, Berlin Germany',
+  mauerpark:          'gently sloping open grassy urban park, short section of grey concrete wall with peeling colourful graffiti at the lower edge, stone terraced amphitheatre seating carved into the hillside above, Berlin Germany',
+  charlottenburg:     'long symmetrical white and gold Baroque palace three storeys tall, gilded bronze equestrian statue before a black iron gate, formal garden with clipped dark green hedges and circular stone fountain, Berlin Germany',
+  neukoelln:          'wide straight street lined with four-storey sand-coloured plaster buildings, shop fronts with hand-painted Arabic signs in green red and gold, colourful vegetable and fruit stalls overflowing onto the grey pavement, Berlin Germany',
 
-  // Paris
+  // ── Paris ───────────────────────────────────────────────────────────────────
   eiffel:             'Eiffel Tower iron lattice structure rising 330m, Champ de Mars green lawn, Seine River and Trocadéro beyond, Paris France',
-  marais:             'Place des Vosges red brick arcaded square, narrow medieval cobblestone streets, ornate stone mansion facades, Le Marais Paris France',
-  bastille:           'large open circular urban square, tall bronze column with golden winged figure at the very top, large modern curved stone opera house on one side, Paris France',
-  canal:              'narrow urban canal with historic cast-iron swing footbridges, stone-paved tree-lined towpaths, colourful narrow barges moored alongside old stone buildings, Paris France',
-  montmartre:         'Sacré-Cœur white domed basilica crowning a steep hill, wide stone steps descending, narrow cobblestone artists square with cafe terraces below, Paris France',
-  'les-halles':       'large undulating glass and steel canopy roof over a pedestrian plaza, large Gothic church with tall flying buttresses visible behind, central Paris France',
-  'pere-lachaise':    'historic cemetery, moss-covered stone tombs and elaborate mausoleums, narrow cobblestone paths through dense overgrown trees, Paris France',
-  pigalle:            'neon-lit entertainment district, red windmill on top of a building, crowded boulevard with red and pink illuminated signs and cabaret facades, Paris France',
+  marais:             'Place des Vosges red brick arcaded square, narrow medieval cobblestone streets, ornate cream stone mansion facades, Le Marais Paris France',
+  bastille:           'large open urban roundabout, tall slender dark bronze column topped by a small golden winged figure, large curved modern pale stone opera house facade on one side, Paris France',
+  canal:              'narrow green water canal, old cast-iron pedestrian swing bridge painted dark green, stone quay with tall plane trees, blue and red flat barges moored against the stone bank, Paris France',
+  montmartre:         'Sacré-Cœur white travertine domed basilica at the top of a steep hill, wide grey stone steps cascading down, narrow cobblestone square with cafe terraces and easels below, Paris France',
+  'les-halles':       'huge undulating glass and steel canopy shaped like a wave over a pedestrian plaza, large Gothic church with tall pale stone flying buttresses and pointed arches rising behind it, Paris France',
+  'pere-lachaise':    'historic walled cemetery, grey moss-covered stone tombs and ornate stone mausoleums, narrow cobblestone lanes between dense overgrown chestnut trees, autumn leaves, Paris France',
+  pigalle:            'Paris night street, large red wooden windmill mounted on the corner of a cream building, red and pink neon signs for cabarets, wet cobblestone boulevard, Paris France',
 
-  // Tokyo
-  shinjuku:           'cluster of glass skyscrapers at a west train station exit, twin glass government towers, neon-lit narrow streets packed with signs at the east exit, Tokyo Japan',
-  harajuku:           'narrow pedestrian-only alley flanked by densely packed colourful youth fashion boutiques and crepe stalls, crowds of young people, Tokyo Japan',
-  shibuya:            'large scramble crossing with hundreds of pedestrians crossing simultaneously from all directions, giant LED advertising screens on surrounding buildings, Tokyo Japan',
-  ueno:               'wide park paths lined with cherry blossom trees in full bloom, rowing boats on a pond, large brick museum building, Tokyo Japan',
-  tsukiji:            'busy outdoor fish and seafood market, narrow lanes between crowded stalls under corrugated metal awnings, vendors with rubber boots and aprons, Tokyo Japan',
-  yanaka:             'quiet narrow pedestrian shopping lane with traditional low-rise wooden shopfronts, stone lanterns, Buddhist cemetery with mossy stone graves nearby, historic Tokyo Japan',
-  asakusa:            'Senso-ji Temple Kaminarimon Thunder Gate with giant red paper lantern, Nakamise shopping arcade, five-storey pagoda, Asakusa Tokyo Japan',
-  akihabara:          'dense cluster of multi-storey electronics and anime shops with large outdoor screens and colourful signage, elevated rail tracks overhead, Tokyo Japan',
+  // ── Tokyo ───────────────────────────────────────────────────────────────────
+  shinjuku:           'cluster of glass skyscrapers at a large train station, twin tall glass government towers, dense neon-lit narrow streets packed with vertical signs in Japanese characters, Tokyo Japan',
+  harajuku:           'extremely narrow pedestrian alley, densely packed candy-coloured boutiques and crepe stalls with pink blue and yellow signage, young people in fashion clothes, overhead electric wires, Tokyo Japan',
+  shibuya:            'large pedestrian scramble crossing with crowds flowing in all directions, giant LED advertising screens in Japanese on all surrounding buildings, night scene, Tokyo Japan',
+  ueno:               'park avenue with rows of cherry blossom trees in full white and pink bloom, small rowing boats on a grey pond, large red brick museum building at the end, Tokyo Japan',
+  tsukiji:            'crowded outdoor market lanes under low corrugated grey steel awnings, fresh fish and seafood on ice on wooden counters, yellow rubber-booted vendors, wet stone ground, Tokyo Japan',
+  yanaka:             'quiet narrow lane with low timber-framed wooden shopfronts with dark wood and paper panels, red and white stone lanterns, mossy stone grave markers through a cemetery gate, old Tokyo Japan',
+  asakusa:            'Senso-ji Temple Kaminarimon gate with a giant red paper lantern hanging below the dark wooden roof, crowded Nakamise shopping arcade, five-storey stone pagoda behind, Tokyo Japan',
+  akihabara:          'dense canyon of multi-storey shops with enormous outdoor screens and overlapping colourful signage in Japanese, elevated concrete rail viaduct overhead, crowds below, Tokyo Japan',
 
-  // London
-  borough:            'Victorian iron and glass market hall with arched roof, food stalls packed under dark railway brick arches, crowded with vendors and shoppers, Southwark London UK',
-  southbank:          'Thames riverside walkway, former brick power station with a tall chimney converted to an art gallery, modern steel suspension footbridge, St Paul\'s Cathedral dome visible across the river, London UK',
-  'hyde-park':        'wide open parkland with a large lake and rowing boats, tall elm and oak trees, a classical triumphal arch visible at the far corner, central London UK',
-  'brick-lane':       'narrow urban market street, Georgian and Victorian brick facades covered in large-scale street art murals, food market stalls and vintage clothing vendors, East London UK',
-  trafalgar:          'Trafalgar Square, Nelson\'s Column with four bronze lions at the base, National Gallery neoclassical facade, fountains, central London UK',
-  brixton:            'covered Victorian market arcade with iron and glass roof, colourful produce and food stalls with Afro-Caribbean goods, lively covered market street, South London UK',
-  'canary-wharf':     'cluster of modern glass and steel financial skyscrapers reflected in calm docklands water, wide waterfront plaza, London UK',
+  // ── London ──────────────────────────────────────────────────────────────────
+  borough:            'covered Victorian market under dark riveted iron and glass barrel-vaulted roof, fresh food stalls crowded beneath old dark railway brick arches, busy with shoppers, Southwark London UK',
+  southbank:          'Thames riverside promenade, massive brown brick former power station with tall square chimney, modern white steel suspension footbridge, St Paul\'s Cathedral pale dome on the far bank, London UK',
+  'hyde-park':        'vast flat parkland, large oval lake with wooden rowing boats, tall mature oak trees, white classical triumphal arch visible at a distant corner, grey sky, central London UK',
+  'brick-lane':       'narrow cobblestone market street, old Georgian dark red brick facades entirely covered in large colourful street art murals, clothing stalls on the pavement, East London UK',
+  trafalgar:          'Trafalgar Square, tall grey granite Nelson\'s Column with four large bronze lions at the base, National Gallery cream stone neoclassical facade, two stone fountains, central London UK',
+  brixton:            'covered Victorian market arcade, iron and glass barrel-vaulted roof, crowded stalls of bright orange yellow and green Caribbean fruits, Brixton South London UK',
+  'canary-wharf':     'cluster of tall glass and steel skyscrapers, towers reflected symmetrically in calm dark dockland water, wide pale stone waterfront plaza, London UK',
 
-  // New York
-  centralpark:        'Central Park Bethesda Fountain and Terrace, tree-lined The Mall, Manhattan glass skyscrapers visible above the tree canopy, New York USA',
-  highline:           'elevated linear park on an old steel railway viaduct above street level, wildflower plantings and wooden walkways, city buildings on both sides, New York USA',
-  'times-square':     'Times Square, canyon of skyscrapers covered in massive LED billboards, yellow taxis and streams of pedestrians, Midtown Manhattan New York USA',
-  'brooklyn-bridge':  'Brooklyn Bridge Gothic stone towers and steel suspension cables, East River below, lower Manhattan skyline behind, New York USA',
-  harlem:             'wide avenue lined with brownstone six-storey apartment buildings, stone cornices and bay windows, street-level shops with awnings, Apollo Theater marquee sign, Upper Manhattan New York USA',
-  'washington-square':'public park with a large classical stone arch at the north entrance, central round fountain, red-brick university buildings surrounding, Greenwich Village New York USA',
-  'coney-island':     'beachside amusement park, large ferris wheel with gondola cabins, old wooden roller coaster, wide sandy beach and Atlantic Ocean, colourful fairground rides, Brooklyn New York USA',
+  // ── New York ────────────────────────────────────────────────────────────────
+  centralpark:        'Central Park Bethesda Fountain and Terrace, tree-lined promenade, Manhattan glass skyscrapers visible above the green tree canopy, New York USA',
+  highline:           'elevated park on old rusted steel railway structure above a street, wild grasses and yellow flowers in wooden planters, red brick buildings close on both sides, New York USA',
+  'times-square':     'Times Square, canyon of skyscrapers covered in enormous bright LED billboards, yellow taxis and dense pedestrian crowds, night scene, Midtown Manhattan New York USA',
+  'brooklyn-bridge':  'Brooklyn Bridge, two tall Gothic stone towers with pointed arches, thick steel suspension cables, East River below, lower Manhattan skyline of glass towers behind, New York USA',
+  harlem:             'wide straight avenue, rows of narrow five-storey brownstone buildings in dark brown and red brick, stone cornices and bay windows, low street-level shops with coloured canvas awnings, Manhattan New York USA',
+  'washington-square':'public park, large white marble triumphal arch at the north end, central circular fountain, tall red-brick university buildings on all four sides, Greenwich Village New York USA',
+  'coney-island':     'sandy beach amusement park, large steel spoked ferris wheel with red gondola cabins, old tan wooden roller coaster, colourful funfair stalls, grey Atlantic Ocean behind, Brooklyn New York USA',
 
-  // Cairo
-  tahrir:             'large open circular urban square with a roundabout, large pink neoclassical museum building with arched facade on one side, elevated flyovers, central Cairo Egypt',
-  'khan-khalili':     'narrow medieval bazaar alleyways, carved stone lattice screens on upper windows, copper and brass lanterns hanging overhead, mosque minarets above the rooftops, Cairo Egypt',
-  'nile-corniche':    'wide riverfront promenade along the Nile, traditional wooden triangular-sail sailboats on calm brown river water, high-rise buildings on both banks, Cairo Egypt',
-  'city-of-dead':     'vast outdoor necropolis, stone mausoleums and domed tombs interspersed with ordinary dwelling buildings, crumbling plaster and carved stone facades, Cairo Egypt',
-  giza:               'Great Pyramid of Giza and Pyramid of Khafre on a desert plateau, Great Sphinx limestone statue, sandy desert, Nile valley in background, Egypt',
-  'al-azhar-park':    'terraced ornamental gardens on a hillside, panoramic view of a historic city with domes and minarets on the horizon, gravel paths between low hedges, Cairo Egypt',
+  // ── Cairo ───────────────────────────────────────────────────────────────────
+  tahrir:             'large open circular urban roundabout, large sand-coloured neoclassical museum building with arched windows and columns on one side, elevated flyover road, midday heat haze, Cairo Egypt',
+  'khan-khalili':     'narrow bazaar alley, mashrabiya carved stone lattice screens projecting from upper storeys, ornate copper and brass lanterns hanging low overhead, tall mosque minaret above the rooftops, Islamic Cairo Egypt',
+  'nile-corniche':    'wide promenade boulevard beside a broad slow brown river, traditional wooden felucca sailboats with large white triangular sails, pale stone buildings on the far bank, Cairo Egypt',
+  'city-of-dead':     'vast walled necropolis, tall ochre plaster domed mausoleums and flat-roofed tomb houses among palm trees, crumbling carved stone facades, sandy ground, Cairo Egypt',
+  giza:               'Great Pyramid of Giza enormous tan limestone mass, Pyramid of Khafre beside it, Great Sphinx pale carved limestone head and body, sandy desert plateau, clear sky, Egypt',
+  'al-azhar-park':    'formal terraced garden on a hill, low dark green box hedges and pale gravel paths, distant city skyline with pale stone domes and pencil-thin minarets on the horizon, Cairo Egypt',
 
-  // Mumbai
-  'marine-drive':     'curved seafront promenade three kilometres long, Art Deco four-to-six storey apartment blocks along the shore, Arabian Sea, Mumbai India',
-  gateway:            'large Indo-Saracenic stone arch monument on the waterfront, grand historic hotel with red domed roof visible behind, busy harbour with ferries, Mumbai India',
-  'dhobi-ghat':       'vast open-air public laundry facility, hundreds of concrete washing basins arranged in long rows, colourful garments and textiles hanging on lines to dry in the sun, Mumbai India',
-  dharavi:            'dense low-rise informal settlement, narrow lanes between tin-roofed workshop buildings, brightly coloured painted walls, small doorways and bustling foot traffic, Mumbai India',
-  juhu:               'wide sandy ocean beach, food cart vendors along the waterfront, informal cricket games on the sand, suburban apartment blocks in the background, Mumbai India',
-  colaba:             'busy street market with clothing and souvenir stalls, British colonial Victorian stone arcade buildings with verandas, working fishing dock with wooden boats nearby, South Mumbai India',
+  // ── Mumbai ──────────────────────────────────────────────────────────────────
+  'marine-drive':     'long curved seafront boulevard, rows of three-to-four storey Art Deco buildings with rounded corners, cream and pale yellow facades, deep blue Arabian Sea, Mumbai India',
+  gateway:            'large dark basalt stone arch with Indo-Saracenic pointed arches and corner turrets on the waterfront, grand Edwardian hotel with large red dome visible behind, harbour with wooden boats, Mumbai India',
+  'dhobi-ghat':       'vast open-air laundry, hundreds of square concrete washing tubs in long parallel rows, vivid pink yellow blue and green garments hanging on lines filling the air, Mumbai India',
+  dharavi:            'dense low-rise settlement, narrow lanes between corrugated tin-roofed workshop buildings, bright blue orange and yellow painted plaster walls, small low doorways, Mumbai India',
+  juhu:               'wide flat sandy beach, coconut palm trees in a row, colourful painted food cart stalls, informal cricket game on the sand, grey-white Arabian Sea behind, suburban Mumbai India',
+  colaba:             'narrow street market, wooden stalls with clothing and souvenirs, Victorian stone arcaded buildings with green wooden shutters and verandas above, old wooden fishing boats at a dock, South Mumbai India',
 
-  // Beirut
-  'martyrs-square':   'large open urban square, weathered bronze statue with bullet scars, reconstructed limestone neoclassical buildings alongside vacant lots, central Beirut Lebanon',
-  hamra:              'busy mixed urban commercial street, older stone apartment buildings with large triple-arched windows above ground-floor shops, Arabic-language signage and street cafes, West Beirut Lebanon',
-  gemmayzeh:          'steep residential street, colourful 19th-century stone and plaster buildings with large triple-arched windows, staircase alleys between levels, street art murals, Beirut Lebanon',
-  'corniche-beirut':  'wide seafront promenade along the Mediterranean, palm trees lining the walkway, rocky coastline, two large natural limestone sea stacks visible offshore, Lebanon',
-  'mar-mikhael':      'old industrial quarter street, low warehouses and former workshops converted to bars and cafes, colourful murals on concrete walls, mixed old residential buildings, Beirut Lebanon',
-  'bourj-hammoud':    'narrow market street packed with colourful jewellery and gold shops, multi-language signs in two alphabets, dense pedestrian crowds, East Beirut Lebanon',
-  achrafieh:          'hilly residential street, ornate 19th-century stone buildings with triple arched windows and ornamental iron balconies, steep staircase connecting street levels, Beirut Lebanon',
-  solidere:           'reconstructed historic downtown, clean limestone neoclassical facades, large blue mosque dome, open plazas with Roman column ruins at street level, quiet wide streets, Lebanon',
-  'port-beirut':      'ruined industrial port area, half-collapsed concrete grain silos with blast damage, destroyed warehouse shells, Mediterranean sea visible beyond the rubble, Beirut Lebanon',
-  badaro:             'quiet tree-lined residential street, 1930s Art Deco apartment buildings with rounded balconies and ornamental facades, overgrown front gardens, South Beirut Lebanon',
+  // ── Beirut ──────────────────────────────────────────────────────────────────
+  'martyrs-square':   'large empty open square, solitary bronze statue on a tall stone plinth, row of reconstructed pale limestone neoclassical buildings on one side, vacant rubble-strewn lots on the other, Beirut Lebanon',
+  hamra:              'busy mid-rise commercial street, 1960s concrete apartment blocks with large triple-arched window bays above ground-floor shops, red and green Arabic neon signs, outdoor cafe chairs on the pavement, Beirut Lebanon',
+  gemmayzeh:          'steep narrow street, 19th-century stone buildings with large triple-arched windows and colourful painted shutters in yellow blue and green, staircase alleys between levels, street art murals on low walls, Beirut Lebanon',
+  'corniche-beirut':  'wide seafront promenade, a row of tall palm trees, dark blue Mediterranean sea, two large natural rock columns rising from the water fifty metres offshore, Lebanon',
+  'mar-mikhael':      'low industrial street, old stone warehouses with corrugated metal roofs, large painted murals on building end walls in vivid colours, outdoor bar terraces with string lights on the street, Beirut Lebanon',
+  'bourj-hammoud':    'narrow busy market street, tiny jewellery shops side by side, gold rings necklaces chains in small lit window displays, layered signage in Arabic and Armenian scripts, East Beirut Lebanon',
+  achrafieh:          'hilly Beirut residential street, ornate 1890s ochre stone buildings with large triple arched windows and decorative iron balconies, steep narrow stone staircase between the levels, Lebanon',
+  solidere:           'clean wide downtown street, polished pale limestone neoclassical buildings, large pale blue mosque dome with minarets visible, ancient Roman stone column bases in an open plaza at street level, Beirut Lebanon',
+  'port-beirut':      'blasted industrial port, broken grey concrete grain silos with large collapsed sections, destroyed corrugated metal warehouses, bright blue Mediterranean sea beyond the wreckage, Beirut Lebanon',
+  badaro:             'quiet residential street, 1930s–1940s white plaster Art Deco buildings with curved corner balconies and geometric ornamental facades, mature trees overhanging the pavement, South Beirut Lebanon',
 };
 
 /**
@@ -169,18 +169,18 @@ const LOCATION_VISUALS = {
  */
 export function buildStakeholderPrompt(locationName, cityName, ownerText, userText = '', locationId = '') {
   const angle = detectEntityAngle(ownerText);
-  const vis = LOCATION_VISUALS[locationId] || `${locationName} ${cityName}`;
-  const parts = [vis, angle, 'surrealist painting, highly detailed, cinematic'];
+  const vis = LOCATION_VISUALS[locationId] || `${locationName}, ${cityName}`;
+  const parts = [vis, angle, 'surrealist oil painting, masterpiece, highly detailed, sharp focus, cinematic lighting'];
   if (userText.trim()) parts.push(userText.trim());
-  parts.push('no text, no watermarks');
+  parts.push('no text, no watermarks, no logos');
   return parts.join(', ');
 }
 
 export function buildPerceptionPrompt(locationName, cityName, characterId, userText = '', locationId = '') {
   const p = PERSPECTIVES[characterId] || FALLBACK;
-  const vis = LOCATION_VISUALS[locationId] || `${locationName} ${cityName}`;
-  const parts = [vis, p.camera, p.style, 'highly detailed, cinematic'];
+  const vis = LOCATION_VISUALS[locationId] || `${locationName}, ${cityName}`;
+  const parts = [vis, p.camera, p.style, 'masterpiece, highly detailed, sharp focus, cinematic lighting'];
   if (userText.trim()) parts.push(userText.trim());
-  parts.push('no text, no watermarks');
+  parts.push('no text, no watermarks, no logos');
   return parts.join(', ');
 }

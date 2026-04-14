@@ -6,7 +6,7 @@ function buildImageUrl(prompt) {
   return (
     'https://image.pollinations.ai/prompt/' +
     encodeURIComponent(prompt) +
-    `?model=flux&width=1024&height=768&seed=${seed}&nologo=true`
+    `?model=flux-realism&width=1024&height=768&seed=${seed}&nologo=true`
   );
 }
 
