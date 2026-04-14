@@ -3090,9 +3090,28 @@ button.hud-card:hover { filter: brightness(1.15); }
   .character-badge { display: none; }
 
   /* ─────────────────────────────────────────
-     TOOLBAR — hidden on mobile
+     TOOLBAR
      ───────────────────────────────────────── */
-  #toolbar { display: none; }
+  #toolbar {
+    padding: 5px 10px;
+    gap: 5px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  #toolbar::-webkit-scrollbar { display: none; }
+  .tb-label { display: none; }
+  .loc-count { display: none; }
+  .toolbar-clocks { display: none; }
+  .rand-btn { padding: 4px 8px; font-size: 10px; white-space: nowrap; }
+  .city-select { padding: 4px 7px; font-size: 10px; }
+  .lang-btn { padding: 3px 6px; font-size: 9px; }
+  .music-btn, .theme-btn, .exit-btn { padding: 4px 7px; font-size: 13px; }
+
+  /* ─────────────────────────────────────────
+     NAV HINT — hidden on mobile (touch devices don't scroll/right-drag)
+     ───────────────────────────────────────── */
+  .hint-3d { display: none; }
 
   /* ─────────────────────────────────────────
      MAP STAGE OVERLAYS
