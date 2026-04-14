@@ -92,6 +92,11 @@ const LOCATION_VISUALS = {
   mauerpark:          'gently sloping open grassy urban park, short section of grey concrete wall with peeling colourful graffiti at the lower edge, stone terraced amphitheatre seating carved into the hillside above, Berlin Germany',
   charlottenburg:     'long symmetrical white and gold Baroque palace three storeys tall, gilded bronze equestrian statue before a black iron gate, formal garden with clipped dark green hedges and circular stone fountain, Berlin Germany',
   neukoelln:          'wide straight street lined with four-storey sand-coloured plaster buildings, shop fronts with hand-painted Arabic signs in green red and gold, colourful vegetable and fruit stalls overflowing onto the grey pavement, Berlin Germany',
+  reichstag:          'large stone neoclassical parliament building with Corinthian columns, a large modern transparent glass dome on top reflecting the sky, wide open esplanade, Berlin Germany',
+  teufelsberg:        'artificial hill made of wartime rubble, two large white radome spheres on top like golf balls, peeling graffiti-covered concrete ruins of a Cold War listening station, forest growing around the base, Berlin Germany',
+  treptower:          'enormous Soviet war memorial, vast park with tall stone pylons, giant twelve-metre bronze soldier on a central mound holding a child and a lowered sword, solemn stone sarcophagi in rows, Berlin Germany',
+  gorlitzer:          'open urban park with patchy grass, bare earth paths, scattered trees, old red brick pavilion building, groups of people gathered in informal clusters, Berlin Germany',
+  'karl-marx-allee':  'enormously wide straight boulevard ninety metres across, matching rows of eight-storey socialist-era apartment buildings clad in pale grey and cream ceramic tiles, strict bilateral symmetry, Berlin Germany',
 
   // ── Paris ───────────────────────────────────────────────────────────────────
   eiffel:             'Eiffel Tower iron lattice structure rising 330m, Champ de Mars green lawn, Seine River and Trocadéro beyond, Paris France',

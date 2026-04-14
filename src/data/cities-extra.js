@@ -732,6 +732,370 @@ export const EXTRA_LOCATIONS = {
         ],
       },
     },
+    {
+      id: 'reichstag', type: 'monument', lat: 52.5186, lng: 13.3762,
+      name: { en: 'Reichstag', de: 'Reichstag', ru: 'Рейхстаг', ar: 'الرايخستاغ' },
+      atmo: {
+        en: 'The glass dome was designed so that citizens can look down on their representatives. The architects called it democracy made visible. Someone has to clean the glass.',
+        de: 'Die Glaskuppel wurde so entworfen, dass die Bürger auf ihre Vertreter herabblicken können. Die Architekten nannten es die sichtbar gemachte Demokratie. Jemand muss das Glas putzen.',
+        ru: 'Стеклянный купол был спроектирован так, чтобы граждане могли смотреть сверху вниз на своих представителей. Архитекторы называли это видимой демократией. Кто-то должен мыть стекло.',
+        ar: 'صُمِّمت القبة الزجاجية لتمكين المواطنين من النظر إلى ممثليهم من الأعلى. أسمى المعماريون ذلك الديمقراطية المرئية. لا بد أن يقوم أحدهم بتنظيف الزجاج.',
+      },
+      owners: {
+        en: [
+          'The Federal Republic of Germany owns the structure but the Bundestag leases it — a split jurisdiction never formally tested',
+          'The glass dome\'s mirrored cone reflects every visitor back at themselves — a recursive surveillance claim over all who enter',
+          'Swifts nest beneath the dome rim each summer, asserting an unregistered territorial claim above all legislative proceedings',
+          'The Reichstag fire ash particles (1933), absorbed into the stone, maintain a residual molecular claim older than the current state',
+        ],
+        de: [
+          'Die Bundesrepublik Deutschland besitzt das Gebäude, aber der Bundestag pachtet es — eine geteilte Jurisdiktion, die nie formell erprobt wurde',
+          'Der Spiegelkegel der Glaskuppel reflektiert jeden Besucher zurück auf sich selbst — ein rekursiver Überwachungsanspruch über alle Eintretenden',
+          'Mauersegler nisten jeden Sommer unter dem Kuppelrand und erheben einen unregistrierten Territorialanspruch über alle Gesetzgebungsverfahren',
+          'Die Aschepartikel des Reichstagsbrandes (1933), in den Stein absorbiert, behalten einen molekularen Restanspruch, der älter ist als der aktuelle Staat',
+        ],
+        ru: [
+          'Федеративная Республика Германия владеет зданием, но Бундестаг арендует его — разделённая юрисдикция, никогда формально не проверявшаяся',
+          'Зеркальный конус стеклянного купола отражает каждого посетителя обратно на него самого — рекурсивная претензия наблюдения над всеми входящими',
+          'Стрижи гнездятся под краем купола каждое лето, заявляя незарегистрированную территориальную претензию над всеми законодательными заседаниями',
+          'Частицы пепла пожара Рейхстага (1933), впитавшиеся в камень, сохраняют остаточную молекулярную претензию, более древнюю, чем нынешнее государство',
+        ],
+        ar: [
+          'تمتلك جمهورية ألمانيا الاتحادية المبنى لكن البوندستاغ يستأجره — ولاية قضائية مشتركة لم تُختبر رسمياً قط',
+          'المخروط المرآوي للقبة الزجاجية يعكس كل زائر على نفسه — مطالبة مراقبة تكرارية على كل من يدخل',
+          'طيور السمام تعشش تحت حافة القبة كل صيف، مطالبةً بحق إقليمي غير مسجل فوق جميع الإجراءات التشريعية',
+          'جزيئات رماد حريق الرايخستاغ (1933)، المتشربة في الحجر، تحتفظ بمطالبة جزيئية متبقية أقدم من الدولة الحالية',
+        ],
+      },
+      ghost: {
+        en: [
+          'The Wrapped Reichstag installation (Christo, 1995) — two weeks of silver fabric — maintains a residual aesthetic claim over the building\'s outer surface',
+          'The original 1894 inscription "Dem Deutschen Volke" was secretly added in 1916 against Kaiser Wilhelm II\'s wishes — an act of authorial insubordination still embedded in the stone',
+        ],
+        de: [
+          'Die Installation "Verhüllter Reichstag" (Christo, 1995) — zwei Wochen Silberstoff — behält einen verbleibenden ästhetischen Anspruch auf die äußere Oberfläche des Gebäudes',
+          'Die ursprüngliche Inschrift "Dem Deutschen Volke" von 1894 wurde 1916 heimlich gegen den Willen Kaiser Wilhelms II. angebracht — ein Akt künstlerischen Ungehorsams, der noch im Stein eingebettet ist',
+        ],
+        ru: [
+          'Инсталляция «Обёрнутый Рейхстаг» (Христо, 1995) — две недели серебряной ткани — сохраняет остаточную эстетическую претензию на внешнюю поверхность здания',
+          'Оригинальная надпись 1894 года «Dem Deutschen Volke» была тайно добавлена в 1916 году вопреки воле кайзера Вильгельма II — акт авторского неповиновения, до сих пор вписанный в камень',
+        ],
+        ar: [
+          'تنصيب "الرايخستاغ الملفوف" (كريستو، 1995) — أسبوعان من القماش الفضي — يحتفظ بمطالبة جمالية متبقية على السطح الخارجي للمبنى',
+          'النقش الأصلي "Dem Deutschen Volke" من عام 1894 أُضيف سراً عام 1916 رغماً عن إرادة القيصر فيلهلم الثاني — فعل عصيان تأليفي لا يزال منقوشاً في الحجر',
+        ],
+      },
+      temporal: {
+        en: [
+          'Parliamentary session days: the dome fills with guided tour groups ascending and descending the twin spirals simultaneously — two opposing human flows govern the space',
+          'Sunset: the glass dome turns gold and every person inside casts a double shadow — the sun\'s governance briefly overrides all legislative authority',
+        ],
+        de: [
+          'Parlamentssitzungstage: Die Kuppel füllt sich mit Führungsgruppen, die gleichzeitig die zwei Spiralen auf- und absteigen — zwei entgegengesetzte menschliche Ströme regieren den Raum',
+          'Sonnenuntergang: Die Glaskuppel wird golden und jeder Mensch darin wirft einen Doppelschatten — die Governance der Sonne überschreibt kurz alle legislative Autorität',
+        ],
+        ru: [
+          'Дни парламентских заседаний: купол заполняется экскурсионными группами, одновременно поднимающимися и спускающимися по двум спиралям — два противоположных человеческих потока управляют пространством',
+          'Закат: стеклянный купол становится золотым, и каждый человек внутри отбрасывает двойную тень — управление солнцем ненадолго превосходит все законодательные полномочия',
+        ],
+        ar: [
+          'أيام جلسات البرلمان: تمتلئ القبة بمجموعات الجولات السياحية الصاعدة والهابطة على اللولبين في آنٍ واحد — تيارَان بشريان متعاكسان يحكمان الفضاء',
+          'غروب الشمس: تتحول القبة الزجاجية إلى ذهبية ويلقي كل شخص بداخلها ظلاً مزدوجاً — تهيمن حوكمة الشمس مؤقتاً على كل السلطة التشريعية',
+        ],
+      },
+    },
+
+    {
+      id: 'teufelsberg', type: 'monument', lat: 52.4973, lng: 13.2395,
+      name: { en: 'Teufelsberg', de: 'Teufelsberg', ru: 'Тойфельсберг', ar: 'تويفلسبرغ' },
+      atmo: {
+        en: 'The hill is built from six million cubic metres of wartime rubble — the compressed remains of 400,000 destroyed buildings. The NSA listened from the top for three decades. The equipment is gone. The hill does not remember which direction to face.',
+        de: 'Der Hügel besteht aus sechs Millionen Kubikmetern Kriegsschutt — den komprimierten Überresten von 400.000 zerstörten Gebäuden. Die NSA lauschte drei Jahrzehnte lang von der Spitze. Das Equipment ist weg. Der Hügel erinnert sich nicht, in welche Richtung er blicken soll.',
+        ru: 'Холм построен из шести миллионов кубических метров военных обломков — спрессованных останков 400 000 разрушенных зданий. АНБ прослушивало отсюда три десятилетия. Оборудование ушло. Холм не помнит, в какую сторону смотреть.',
+        ar: 'التل مبنيٌّ من ستة ملايين متر مكعب من حطام الحرب — بقايا 400,000 مبنى مدمر مضغوط. استمعت وكالة الأمن القومي من القمة لثلاثة عقود. الأجهزة ذهبت. التل لا يتذكر في أي اتجاه يتطلع.',
+      },
+      owners: {
+        en: [
+          'The compacted rubble of 400,000 destroyed Berlin buildings asserts geological authorship over the entire mound — the city rebuilt as a hill',
+          'The NSA\'s Cold War listening station (declassified 2013) retains a residual data sovereignty claim over all conversations within reception range',
+          'Foxes have colonised the lower slopes — an active territorial claim that preempts every redevelopment proposal',
+          'Graffiti artists have repainted the interior walls of the listening domes every season since 1990 — a rotating aesthetic jurisdiction with no fixed author',
+        ],
+        de: [
+          'Das verdichtete Trümmerwerk von 400.000 zerstörten Berliner Gebäuden behauptet geologische Urheberschaft über den gesamten Hügel — die Stadt wiederaufgebaut als Hügel',
+          'Die Kalter-Krieg-Abhörstation der NSA (2013 freigegeben) behält einen verbleibenden Datensouveränitätsanspruch über alle Gespräche im Empfangsbereich',
+          'Füchse haben die Unterhänge besiedelt — ein aktiver Territorialanspruch, der jeden Bebauungsplan überholt',
+          'Graffiti-Künstler haben die Innenwände der Abhörkuppeln seit 1990 jede Saison neu bemalt — eine rotierende ästhetische Jurisdiktion ohne festen Autor',
+        ],
+        ru: [
+          'Уплотнённый мусор 400 000 разрушенных берлинских зданий утверждает геологическое авторство над всем холмом — город, перестроенный в холм',
+          'Станция прослушивания АНБ эпохи холодной войны (рассекречена в 2013 году) сохраняет остаточную претензию на суверенитет данных над всеми разговорами в зоне приёма',
+          'Лисы заняли нижние склоны — активная территориальная претензия, опережающая каждое предложение о застройке',
+          'Художники граффити перекрашивали внутренние стены прослушивающих куполов каждый сезон с 1990 года — ротационная эстетическая юрисдикция без постоянного автора',
+        ],
+        ar: [
+          'حطام 400,000 مبنى برليني مدمر المضغوط يطالب بحق التأليف الجيولوجي على التل بأكمله — المدينة أُعيد بناؤها كتل',
+          'محطة التنصت التابعة لوكالة الأمن القومي من حقبة الحرب الباردة (رُفعت السرية عنها 2013) تحتفظ بمطالبة سيادة بيانات متبقية على جميع المحادثات ضمن نطاق الاستقبال',
+          'استوطنت الثعالب المنحدرات السفلية — مطالبة إقليمية نشطة تسبق كل مقترحات إعادة التطوير',
+          'أعاد فنانو الغرافيتي طلاء الجدران الداخلية لقباب التنصت كل موسم منذ 1990 — ولاية قضائية جمالية دوارة بلا مؤلف ثابت',
+        ],
+      },
+      ghost: {
+        en: [
+          'A never-completed Nazi military college buried at the hill\'s core asserts a structural veto over any new building on the site',
+          'The millions of intercepted Cold War conversations — stored on tape reels removed in 1990 — maintain an informational ghost claim over the city below',
+        ],
+        de: [
+          'Eine nie fertiggestellte Nazi-Militärakademie, die im Kern des Hügels begraben ist, behauptet ein strukturelles Vetorecht über jedes neue Gebäude auf dem Gelände',
+          'Die Millionen abgehörter Kalter-Krieg-Gespräche — auf 1990 abgezogenen Bandspulen gespeichert — behalten einen informativen Geistanspruch über die Stadt darunter',
+        ],
+        ru: [
+          'Незавершённый нацистский военный колледж, погребённый в ядре холма, заявляет структурное право вето против любого нового строительства на этом участке',
+          'Миллионы перехваченных разговоров холодной войны — хранящиеся на катушках с лентой, вывезенных в 1990 году — сохраняют информационную призрачную претензию над городом внизу',
+        ],
+        ar: [
+          'كلية عسكرية نازية لم تكتمل مدفونة في قلب التل تطالب بحق نقض هيكلي ضد أي مبنى جديد على الموقع',
+          'ملايين المحادثات المعترضة من حقبة الحرب الباردة — المخزنة على بكرات شريط أُخرجت عام 1990 — تحتفظ بمطالبة معلوماتية شبحية على المدينة تحتها',
+        ],
+      },
+      temporal: {
+        en: [
+          'Wind events: the hilltop is the highest point in Berlin — wind governance is absolute and unchallenged, bending all antenna frames in a single direction',
+          'Summer weekends: urban hikers and paragliders assert competing airspace claims that conflict directly with the NSA\'s historical aerial surveillance jurisdiction',
+        ],
+        de: [
+          'Windereignisse: Der Gipfel ist der höchste Punkt Berlins — die Windherrschaft ist absolut und unbestritten und biegt alle Antennenrahmen in eine Richtung',
+          'Sommerwochenenden: Stadtwanderer und Paraglider behaupten konkurrierende Luftraumansprüche, die direkt mit der historischen Luftüberwachungsjurisdiktion der NSA in Konflikt stehen',
+        ],
+        ru: [
+          'Ветровые явления: вершина холма — самая высокая точка Берлина — ветровое управление абсолютно и неоспоримо, сгибая все рамы антенн в одном направлении',
+          'Летние выходные: городские туристы и парапланеристы заявляют конкурирующие претензии на воздушное пространство, напрямую конфликтующие с исторической юрисдикцией воздушного наблюдения АНБ',
+        ],
+        ar: [
+          'أحداث الرياح: قمة التل هي أعلى نقطة في برلين — حوكمة الرياح مطلقة وغير مطعون فيها، تثني جميع إطارات الهوائيات في اتجاه واحد',
+          'عطل نهاية الأسبوع الصيفية: يطالب المتنزهون الحضريون ورياضيو الباراغلايدر بحقوق متنافسة في المجال الجوي تتعارض مباشرة مع الولاية القضائية التاريخية لمراقبة الجو من قبل وكالة الأمن القومي',
+        ],
+      },
+    },
+
+    {
+      id: 'treptower', type: 'monument', lat: 52.4795, lng: 13.4683,
+      name: { en: 'Soviet War Memorial', de: 'Sowjetisches Ehrenmal', ru: 'Советский военный мемориал', ar: 'النصب التذكاري للحرب السوفيتية' },
+      atmo: {
+        en: 'The soldier stands twelve metres tall on a crushed swastika, holding a child, sword lowered. Beneath the ground you walk on, seven thousand Soviet soldiers are buried. The scale was not chosen by accident.',
+        de: 'Der Soldat steht zwölf Meter hoch auf einem zertrümmerten Hakenkreuz, hält ein Kind, Schwert gesenkt. Unter dem Boden, auf dem Sie gehen, sind siebentausend sowjetische Soldaten begraben. Der Maßstab wurde nicht zufällig gewählt.',
+        ru: 'Солдат стоит двенадцать метров в высоту на раздавленной свастике, держа ребёнка, меч опущен. Под землёй, по которой вы идёте, похоронены семь тысяч советских солдат. Масштаб выбран не случайно.',
+        ar: 'يقف الجندي بارتفاع اثني عشر متراً على صليب معقوف محطوم، يحمل طفلاً وسيفه منكوس. تحت الأرض التي تمشي عليها، سبعة آلاف جندي سوفيتي مدفون. لم يُختَر هذا الحجم صدفة.',
+      },
+      owners: {
+        en: [
+          'The Russian Federation holds diplomatic ownership under the 1990 Two Plus Four Treaty — a foreign sovereign territory embedded within Berlin',
+          'The 7,000 Soviet soldiers interred beneath the memorial assert a permanent subterranean territorial claim that cannot be revoked',
+          'The twelve-metre bronze soldier on the central plinth claims visual sovereignty over every sightline within 500 metres',
+          'Crows have nested continuously in the stone pylon ledges since before German reunification — an unbroken biological territorial claim',
+        ],
+        de: [
+          'Die Russische Föderation hält diplomatisches Eigentum gemäß dem Zwei-plus-Vier-Vertrag von 1990 — ein ausländisches souveränes Territorium eingebettet in Berlin',
+          'Die 7.000 unter dem Denkmal bestatteten sowjetischen Soldaten behaupten einen permanenten unterirdischen Territorialanspruch, der nicht widerrufen werden kann',
+          'Der zwölf Meter hohe Bronzesoldat auf dem zentralen Sockel beansprucht visuelle Souveränität über jede Sichtlinie innerhalb von 500 Metern',
+          'Krähen haben seit vor der deutschen Wiedervereinigung ununterbrochen in den Steinpylonvorsprüngen gebrütet — ein ununterbrochener biologischer Territorialanspruch',
+        ],
+        ru: [
+          'Российская Федерация сохраняет дипломатическую собственность согласно договору «Два плюс четыре» 1990 года — иностранная суверенная территория, вписанная в Берлин',
+          'Семь тысяч советских солдат, захороненных под мемориалом, заявляют постоянную подземную территориальную претензию, которую нельзя отозвать',
+          'Двенадцатиметровый бронзовый солдат на центральном постаменте претендует на визуальный суверенитет над каждой линией обзора в радиусе 500 метров',
+          'Вороны непрерывно гнездятся на каменных пилонах с момента до воссоединения Германии — непрерывная биологическая территориальная претензия',
+        ],
+        ar: [
+          'تحتفظ الاتحاد الروسي بالملكية الدبلوماسية بموجب معاهدة الاثنين زائد الأربعة عام 1990 — إقليم ذو سيادة أجنبية مندمج في برلين',
+          'السبعة آلاف جندي سوفيتي المدفونون تحت النصب التذكاري يطالبون بحق إقليمي باطني دائم لا يمكن إلغاؤه',
+          'يطالب الجندي البرونزي البالغ اثني عشر متراً على القاعدة المركزية بالسيادة البصرية على كل خط رؤية ضمن 500 متر',
+          'تعشش الغربان بلا انقطاع في حواف الصروح الحجرية منذ ما قبل توحيد ألمانيا — مطالبة إقليمية بيولوجية متواصلة',
+        ],
+      },
+      ghost: {
+        en: [
+          'The Battle of Berlin (April–May 1945) claims residual governance over the soil composition — unexploded ordnance still detected annually beneath the park',
+          'The Soviet Union (dissolved 1991) retains legal authorship of the monument despite no longer existing as a state — a governance claim without a governor',
+        ],
+        de: [
+          'Die Schlacht um Berlin (April–Mai 1945) beansprucht verbleibende Governance über die Bodenzusammensetzung — unter dem Park werden jährlich noch Blindgänger entdeckt',
+          'Die Sowjetunion (aufgelöst 1991) behält die rechtliche Urheberschaft des Denkmals, obwohl sie nicht mehr als Staat existiert — ein Governance-Anspruch ohne Gouverneur',
+        ],
+        ru: [
+          'Битва за Берлин (апрель–май 1945 года) заявляет остаточное управление над составом почвы — под парком ежегодно обнаруживаются невзорвавшиеся боеприпасы',
+          'Советский Союз (распущен в 1991 году) сохраняет юридическое авторство памятника, несмотря на то что больше не существует как государство — управленческая претензия без управляющего',
+        ],
+        ar: [
+          'معركة برلين (أبريل–مايو 1945) تطالب بحوكمة متبقية على تركيبة التربة — لا تزال قنابل غير منفجرة تُكتشف سنوياً تحت الحديقة',
+          'الاتحاد السوفيتي (المنحل 1991) يحتفظ بحق التأليف القانوني للنصب رغم عدم وجوده كدولة — مطالبة حوكمة بلا حاكم',
+        ],
+      },
+      temporal: {
+        en: [
+          'May 9th (Russian Victory Day): the Russian community gathers and briefly reinstates full Soviet territorial protocol — the most complete annual reclamation of a foreign governance layer in Berlin',
+          'Winter snowfall: inscription tablets are covered, the text recedes — governance by erasure, the twelve-metre soldier remains the only legible authority',
+        ],
+        de: [
+          '9. Mai (Russischer Siegestag): Die russische Gemeinschaft versammelt sich und stellt kurz das vollständige sowjetische Territorialprotokoll wieder her — die vollständigste jährliche Rückforderung einer ausländischen Governance-Schicht in Berlin',
+          'Winterschneefall: Inschrifttafeln sind bedeckt, der Text tritt zurück — Governance durch Auslöschung, der zwölf Meter hohe Soldat bleibt die einzig lesbare Autorität',
+        ],
+        ru: [
+          '9 мая (День Победы): российское сообщество собирается и ненадолго восстанавливает полный советский территориальный протокол — наиболее полное ежегодное возвращение иностранного управленческого слоя в Берлине',
+          'Зимний снегопад: таблички с надписями покрыты, текст отступает — управление через стирание, двенадцатиметровый солдат остаётся единственной читаемой властью',
+        ],
+        ar: [
+          '9 مايو (يوم النصر الروسي): يتجمع المجتمع الروسي ويستعيد مؤقتاً البروتوكول الإقليمي السوفيتي الكامل — أكثر استرداد سنوي اكتمالاً لطبقة حوكمة أجنبية في برلين',
+          'تساقط الثلوج الشتوي: تُغطى لوحات النقوش ويتراجع النص — حوكمة عبر المحو، يبقى الجندي البالغ اثني عشر متراً السلطة الوحيدة المقروءة',
+        ],
+      },
+    },
+
+    {
+      id: 'gorlitzer', type: 'park', lat: 52.4967, lng: 13.4356,
+      name: { en: 'Görlitzer Park', de: 'Görlitzer Park', ru: 'Гёрлицер-парк', ar: 'حديقة غورليتسر' },
+      atmo: {
+        en: 'The park was built on a demolished railway station in 1994. Since then it has been contested by the city, the police, dealers, resident families, refugees, children, and dogs. Everyone uses it. Nobody agrees on what it is for.',
+        de: 'Der Park wurde 1994 auf einem abgerissenen Bahnhof errichtet. Seitdem wird er von der Stadt, der Polizei, Dealern, Bewohnerfamilien, Flüchtlingen, Kindern und Hunden umkämpft. Alle nutzen ihn. Niemand ist sich einig, wofür er ist.',
+        ru: 'Парк был построен на месте снесённого железнодорожного вокзала в 1994 году. С тех пор за него борются город, полиция, дилеры, семьи жителей, беженцы, дети и собаки. Все им пользуются. Никто не согласен с тем, для чего он предназначен.',
+        ar: 'بُنيت الحديقة على أنقاض محطة قطار مهدومة عام 1994. منذ ذلك الحين، تتنافس عليها المدينة والشرطة والتجار وعائلات السكان واللاجئون والأطفال والكلاب. الجميع يستخدمها. لا أحد يتفق على ما هي مخصصة له.',
+      },
+      owners: {
+        en: [
+          'A persistent informal market has claimed commercial territorial rights over the southwest corner continuously since 1994 — pre-dating all official park governance structures',
+          'Refugee and migrant families from multiple continents have established semi-permanent picnic territories — a parallel governance layer unrecognised by the city',
+          'Dogs outnumber joggers before 9am — a pre-linguistic territorial claim enforced through scent marking on every tree, bench, and fence post',
+          'The park surveillance algorithm (CCTV coverage: 34%) monitors the lit zones but cannot govern the unlit northeastern quadrant — a permanent blind-spot sovereignty',
+        ],
+        de: [
+          'Ein anhaltender informeller Markt hat seit 1994 kontinuierlich kommerzielle Territorialrechte über die Südwestecke beansprucht — älter als alle offiziellen Parkgovernance-Strukturen',
+          'Flüchtlings- und Migrantenfamilien aus mehreren Kontinenten haben halbpermanente Picknickreiche etabliert — eine parallele Governance-Schicht, die von der Stadt nicht anerkannt wird',
+          'Hunde überwiegen Jogger vor 9 Uhr — ein prälinguistischer Territorialanspruch, der durch Duftmarkierung an jedem Baum, jeder Bank und jedem Zaunpfahl durchgesetzt wird',
+          'Der Parküberwachungsalgorithmus (CCTV-Abdeckung: 34%) überwacht die beleuchteten Zonen, kann aber den unbeleuchteten Nordostquadranten nicht regieren — eine permanente Blindfleck-Souveränität',
+        ],
+        ru: [
+          'Устойчивый неформальный рынок непрерывно заявляет коммерческие территориальные права на юго-западный угол с 1994 года — ранее всех официальных структур управления парком',
+          'Семьи беженцев и мигрантов с нескольких континентов установили полупостоянные пикниковые территории — параллельный управленческий слой, не признанный городом',
+          'Собаки превосходят по численности бегунов до 9 утра — доязыковая территориальная претензия, применяемая через маркировку запахом каждого дерева, скамейки и столба забора',
+          'Алгоритм наблюдения за парком (покрытие видеонаблюдением: 34%) контролирует освещённые зоны, но не может управлять тёмным северо-восточным квадрантом — постоянный суверенитет слепого пятна',
+        ],
+        ar: [
+          'سوق غير رسمي مستمر يطالب بحقوق إقليمية تجارية في الزاوية الجنوبية الغربية منذ 1994 — أسبق من جميع هياكل حوكمة الحديقة الرسمية',
+          'أسرت لاجئة ومهاجرة من قارات متعددة أرست مناطق نزهة شبه دائمة — طبقة حوكمة موازية غير معترف بها من قبل المدينة',
+          'الكلاب تفوق عدد الركضين قبل الساعة التاسعة صباحاً — مطالبة إقليمية ما قبل لغوية تُفرض عبر التمييز الشمي على كل شجرة ومقعد وعمود سياج',
+          'خوارزمية مراقبة الحديقة (تغطية كاميرات المراقبة: 34%) تراقب المناطق المضاءة لكن لا تستطيع حكم الربع الشمالي الشرقي غير المضاء — سيادة النقطة العمياء الدائمة',
+        ],
+      },
+      ghost: {
+        en: [
+          'Görlitzer Bahnhof (demolished 1990) asserts a structural memory claim — the original platform lines are still visible as raised ridges beneath the grass',
+          'The squatter community evicted from the park pavilion in 2002 maintains a residual territorial claim — their informal rules of use persist in collective memory',
+        ],
+        de: [
+          'Der Görlitzer Bahnhof (abgerissen 1990) behauptet einen strukturellen Gedächtnisanspruch — die ursprünglichen Bahnsteiglinien sind noch als erhöhte Rücken unter dem Gras sichtbar',
+          'Die 2002 aus dem Parkpavillon vertriebene Squattergemeinschaft behält einen verbleibenden Territorialanspruch — ihre informellen Nutzungsregeln bleiben im kollektiven Gedächtnis erhalten',
+        ],
+        ru: [
+          'Гёрлицер Банхоф (снесён в 1990 году) заявляет претензию на структурную память — оригинальные линии платформ всё ещё видны как приподнятые гребни под травой',
+          'Сообщество сквоттеров, выселенное из парковильона в 2002 году, сохраняет остаточную территориальную претензию — их неформальные правила пользования сохраняются в коллективной памяти',
+        ],
+        ar: [
+          'محطة غورليتسر (المهدومة 1990) تطالب بمطالبة ذاكرة هيكلية — خطوط الرصيف الأصلية لا تزال مرئية كنتوءات مرتفعة تحت العشب',
+          'مجتمع السكن غير القانوني المُخلى من جناح الحديقة عام 2002 يحتفظ بمطالبة إقليمية متبقية — تستمر قواعد استخدامهم غير الرسمية في الذاكرة الجماعية',
+        ],
+      },
+      temporal: {
+        en: [
+          'Summer nights: sound systems claim acoustic sovereignty over all other governance — a temporary sonic authority that overwhelms police, algorithm, and park management simultaneously',
+          'Police patrol hours (22:00–02:00): formal authority briefly reasserts itself — all informal territorial claims suspend, then resume the moment the patrol passes',
+        ],
+        de: [
+          'Sommernächte: Soundsysteme beanspruchen akustische Souveränität über alle anderen Governance — eine vorübergehende klangliche Autorität, die Polizei, Algorithmus und Parkverwaltung gleichzeitig überfordert',
+          'Polizeipatrouillenzeiten (22:00–02:00): Die formelle Autorität bekräftigt sich kurz — alle informellen Territorialansprüche pausieren und werden in dem Moment wieder aufgenommen, in dem die Patrouille vorbeigeht',
+        ],
+        ru: [
+          'Летние ночи: звуковые системы заявляют акустический суверенитет над всем другим управлением — временная звуковая власть, которая одновременно подавляет полицию, алгоритм и управление парком',
+          'Часы полицейских патрулей (22:00–02:00): официальная власть ненадолго восстанавливается — все неформальные территориальные претензии приостанавливаются, затем возобновляются в момент прохождения патруля',
+        ],
+        ar: [
+          'ليالي الصيف: تطالب أنظمة الصوت بالسيادة الصوتية على جميع حوكمات أخرى — سلطة صوتية مؤقتة تغلب الشرطة والخوارزمية وإدارة الحديقة في آنٍ واحد',
+          'ساعات دوريات الشرطة (22:00–02:00): تؤكد السلطة الرسمية نفسها مؤقتاً — تتوقف جميع المطالبات الإقليمية غير الرسمية ثم تستأنف في اللحظة التي يمر فيها الدورية',
+        ],
+      },
+    },
+
+    {
+      id: 'karl-marx-allee', type: 'monument', lat: 52.5157, lng: 13.4411,
+      name: { en: 'Karl-Marx-Allee', de: 'Karl-Marx-Allee', ru: 'Карл-Маркс-Аллее', ar: 'كارل ماركس أليه' },
+      atmo: {
+        en: 'Built as Stalin-Allee — a showpiece of socialist modernity, ninety metres wide, two kilometres long. The porcelain-tiled apartment blocks were the finest housing in East Germany. They were renamed when Stalin died. The tiles remain.',
+        de: 'Als Stalin-Allee gebaut — ein Vorzeigeobjekt sozialistischer Moderne, neunzig Meter breit, zwei Kilometer lang. Die kachelbekleideten Wohnblocks waren die besten Wohnungen in Ostdeutschland. Sie wurden umbenannt, als Stalin starb. Die Kacheln bleiben.',
+        ru: 'Построен как Сталин-Аллее — показательный пример социалистической современности, девяносто метров в ширину, два километра в длину. Облицованные керамикой жилые дома были лучшим жильём в Восточной Германии. Их переименовали, когда умер Сталин. Плитка осталась.',
+        ar: 'بُنيت بوصفها شارع ستالين — نموذج لريادة الحداثة الاشتراكية، عرضه تسعون متراً وطوله كيلومتران. كانت مبانيها السكنية المكسوة بالخزف أفضل مساكن ألمانيا الشرقية. أُعيدت تسميتها حين مات ستالين. البلاط لا يزال هناك.',
+      },
+      owners: {
+        en: [
+          'The Meissen porcelain tile cladding (applied 1952–1960) asserts a material sovereignty that has outlasted the state that commissioned it',
+          'The Soviet urban planning doctrine embedded in the proportions — 90-metre width, strict bilateral symmetry — governs all renovations by legal preservation order',
+          'A colony of house martins has nested in the entablature cornices every spring since the building\'s completion — an unbroken biological claim above all ground-level governance',
+          'The GDR Workers\' Uprising of June 17, 1953 — which began on this street — asserts a historical governance claim over the entire ground surface',
+        ],
+        de: [
+          'Die Meissener Porzellanverkleidung (1952–1960 angebracht) behauptet eine materielle Souveränität, die den Staat, der sie in Auftrag gegeben hat, überdauert hat',
+          'Die in den Proportionen eingebettete sowjetische Stadtplanungsdoktrin — 90-Meter-Breite, strenge bilaterale Symmetrie — regiert alle Renovierungen per Rechtsdenkmalschutzordnung',
+          'Eine Kolonie Mehlschwalben hat seit der Fertigstellung des Gebäudes jeden Frühling in den Gebälkkornichen gebrütet — ein ununterbrochener biologischer Anspruch über alle bodennahe Governance',
+          'Der DDR-Arbeiteraufstand vom 17. Juni 1953 — der auf dieser Straße begann — behauptet einen historischen Governance-Anspruch über die gesamte Bodenfläche',
+        ],
+        ru: [
+          'Майсенская фарфоровая облицовка (нанесена в 1952–1960 годах) заявляет материальный суверенитет, переживший государство, которое её заказало',
+          'Советская доктрина городского планирования, заложенная в пропорциях — ширина 90 метров, строгая двусторонняя симметрия — управляет всеми реновациями по правовому охранному предписанию',
+          'Колония воронков гнездится в карнизах антаблемента каждую весну с момента завершения строительства — непрерывная биологическая претензия над всем управлением на уровне земли',
+          'Восстание рабочих ГДР 17 июня 1953 года — начавшееся на этой улице — заявляет историческую управленческую претензию на всю поверхность земли',
+        ],
+        ar: [
+          'كساء بلاط ميسن الخزفي (المطبق 1952–1960) يطالب بسيادة مادية تجاوزت الدولة التي طلبته',
+          'عقيدة التخطيط العمراني السوفيتي المضمنة في النسب — عرض 90 متر، تناسق ثنائي صارم — تحكم جميع عمليات التجديد بموجب أمر الحفاظ القانوني',
+          'مستعمرة طيور السنونو المنزلية تعشش في كرانيش الإفريز كل ربيع منذ اكتمال المبنى — مطالبة بيولوجية متواصلة فوق جميع الحوكمة على مستوى الأرض',
+          'انتفاضة عمال جمهورية ألمانيا الديمقراطية في 17 يونيو 1953 — التي بدأت في هذا الشارع — تطالب بحق حوكمة تاريخي على كامل سطح الأرض',
+        ],
+      },
+      ghost: {
+        en: [
+          'Stalin-Allee (the street\'s name 1949–1961) maintains a residual topographic identity claim — all maps printed before 1961 use the original name and are still in circulation',
+          'The demolished Café Moskauerstraße (1952–1968) asserts a hospitality territorial claim over its replacement building — the memory of where people met persists in the pavement',
+        ],
+        de: [
+          'Stalin-Allee (der Straßenname 1949–1961) behält einen verbleibenden topografischen Identitätsanspruch — alle vor 1961 gedruckten Karten verwenden den ursprünglichen Namen und sind noch im Umlauf',
+          'Das abgerissene Café Moskauerstraße (1952–1968) behauptet einen gastgewerblichen Territorialanspruch gegenüber seinem Ersatzgebäude — die Erinnerung, wo Menschen sich trafen, besteht im Bürgersteig fort',
+        ],
+        ru: [
+          'Сталин-Аллее (название улицы 1949–1961 годов) сохраняет остаточную топографическую претензию на идентичность — все карты, напечатанные до 1961 года, используют оригинальное название и всё ещё находятся в обращении',
+          'Снесённое кафе Москаuerstraße (1952–1968) заявляет гостиничную территориальную претензию на своё здание-замену — память о том, где люди встречались, сохраняется в мостовой',
+        ],
+        ar: [
+          'شارع ستالين (اسم الشارع 1949–1961) يحتفظ بمطالبة هوية طبوغرافية متبقية — جميع الخرائط المطبوعة قبل 1961 تستخدم الاسم الأصلي ولا تزال متداولة',
+          'مقهى موسكاوراشترسه المهدوم (1952–1968) يطالب بحق إقليمي للضيافة على مبنى بديله — ذاكرة مكان تلاقي الناس تستمر في الرصيف',
+        ],
+      },
+      temporal: {
+        en: [
+          'Morning light: the east-facing porcelain tiles catch the sunrise and briefly transform from grey-white to pale gold — a daily aesthetic governance event that the city did not plan',
+          'The boulevard was designed for Soviet-era parade formations 90 metres wide — all modern traffic is technically a civilian occupation of a ceremonial space',
+        ],
+        de: [
+          'Morgenlicht: Die nach Osten ausgerichteten Porzellanfliesen fangen den Sonnenaufgang ein und verwandeln sich kurz von Grau-Weiß in Blass-Gold — ein tägliches ästhetisches Governance-Ereignis, das die Stadt nicht geplant hat',
+          'Der Boulevard wurde für sowjetische Parade-Formationen von 90 Metern Breite entworfen — aller moderne Verkehr ist technisch gesehen eine zivile Besetzung eines Zeremonialraums',
+        ],
+        ru: [
+          'Утренний свет: обращённые на восток фарфоровые плитки ловят рассвет и ненадолго превращаются из серо-белых в бледно-золотые — ежедневное эстетическое управленческое событие, которое город не планировал',
+          'Бульвар был спроектирован для советских парадных построений шириной 90 метров — весь современный транспорт технически является гражданской оккупацией церемониального пространства',
+        ],
+        ar: [
+          'ضوء الصباح: بلاط الخزف المواجه للشرق يلتقط شروق الشمس ويتحول مؤقتاً من الأبيض الرمادي إلى الذهبي الفاتح — حدث حوكمة جمالية يومي لم تخطط له المدينة',
+          'صُمِّم الشارع العريض للاستعراضات العسكرية السوفيتية بعرض 90 متر — جميع حركة المرور الحديثة هي تقنياً احتلال مدني لفضاء احتفالي',
+        ],
+      },
+    },
   ],
 
   paris: [
