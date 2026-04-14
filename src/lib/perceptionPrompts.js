@@ -6,17 +6,17 @@
 // camera = literal viewpoint/angle (short)
 // style  = art style keywords (short)
 const PERSPECTIVES = {
-  human:  { camera: 'street-level eye height, pedestrian scale, first person',           style: 'Edward Hopper, magic realism, muted urban palette' },
-  fox:    { camera: 'low ground angle, dusk, amber tint, predator viewpoint',             style: 'geometric shadows, rust and gold, impressionistic' },
-  pigeon: { camera: 'bird\'s-eye top-down from rooftop height, looking straight down',    style: 'impressionistic, iridescent colours, warm updraft light' },
-  rat:    { camera: 'extreme worm\'s-eye from below, looking up through drain grates',    style: 'chiaroscuro, gothic industrial, dark tunnels, rust' },
-  root:   { camera: 'underground cross-section, soil strata, roots, looking up at city', style: 'botanical illustration, earthy ochres, mycelium glow' },
-  ghost:  { camera: 'double exposure 1920s and present overlaid, translucent figures',    style: 'sepia and electric blue, long exposure, haunted' },
-  bot:    { camera: 'overhead surveillance angle, heat map overlay, sensor grid',         style: 'neon cyan wireframe, glitch aesthetic, data visualization' },
-  cloud:  { camera: 'aerial above storm clouds, city tiny below through gap in cumulus',  style: 'J.M.W. Turner painting, dramatic sky, golden light' },
-  bee:    { camera: 'compound eye hexagonal grid overlay, UV spectrum vision',            style: 'ultraviolet false colour, mandala geometry, florescent' },
-  spider: { camera: 'corner ceiling angle looking down, silk web geometry overlay',       style: 'baroque, dewdrop optics, gothic, dark' },
-  micro:  { camera: 'electron microscope extreme macro, microscopic scale',               style: 'bioluminescent, cellular patterns, scientific surrealism' },
+  human:  { camera: 'street-level eye height, pedestrian scale, first person view',       style: 'vibrant urban impressionism, warm golden light, rich colour, atmospheric' },
+  fox:    { camera: 'low ground angle, amber dusk light, predator viewpoint',              style: 'warm amber and gold tones, long shadows, impressionistic, beautiful' },
+  pigeon: { camera: 'bird\'s-eye top-down from rooftop height, looking straight down',    style: 'impressionistic, iridescent colours, warm updraft light, joyful' },
+  rat:    { camera: 'extreme worm\'s-eye from below, looking up through drain grates',    style: 'chiaroscuro, industrial textures, dramatic upward light, surprising beauty' },
+  root:   { camera: 'underground cross-section, soil strata, roots, looking up at city', style: 'botanical illustration, warm earthy ochres, mycelium glow, lush' },
+  ghost:  { camera: 'double exposure 1920s and present overlaid, translucent figures',    style: 'sepia and electric blue, long exposure, dreamlike, ethereal' },
+  bot:    { camera: 'overhead surveillance angle, heat map overlay, sensor grid',         style: 'neon cyan wireframe, glitch aesthetic, vivid data visualisation' },
+  cloud:  { camera: 'aerial above storm clouds, city tiny below through gap in cumulus',  style: 'J.M.W. Turner painting, dramatic golden sky, radiant light' },
+  bee:    { camera: 'compound eye hexagonal grid overlay, UV spectrum vision',            style: 'ultraviolet false colour, mandala geometry, fluorescent, vibrant' },
+  spider: { camera: 'corner ceiling angle looking down, silk web geometry overlay',       style: 'baroque, dewdrop optics, ornate, dramatic warm light' },
+  micro:  { camera: 'electron microscope extreme macro, microscopic scale',               style: 'bioluminescent, cellular patterns, vivid colour, scientific wonder' },
 };
 
 const FALLBACK = { camera: 'surrealist viewpoint', style: 'painterly surrealism, rich colour' };
@@ -80,9 +80,9 @@ const LOCATION_VISUALS = {
   tiergarten:         'dense city forest, winding sandy gravel paths between tall green oaks and lime trees, shaft of tall golden column visible above the leafy canopy, dappled light, Berlin Germany',
   hackescher:         'red brick inner courtyard with arched gateways, ornate Art Nouveau tile mosaics in blue amber and cream on the facade, decorative terracotta ironwork, connected courtyards, Mitte Berlin Germany',
   tempelhof:          'enormously long horizontal stone terminal building with rows of square columns, monumental 1930s pale stone facade, vast flat empty tarmac airfield stretching to the horizon behind it, overcast sky, Berlin Germany',
-  kreuzberg:          'yellow stucco five-storey apartment blocks with stone balconies, outer walls floor to ceiling covered in vivid red blue yellow spray-painted graffiti murals, narrow dark canal water below iron railings, Berlin Germany',
+  kreuzberg:          'yellow stucco five-storey apartment blocks with stone balconies, outer walls floor to ceiling covered in vivid red blue yellow spray-painted graffiti murals, narrow still canal water below iron railings, Berlin Germany',
   museumsinsel:       'row of pale sandstone neoclassical museum buildings on a river island, wide Corinthian colonnades, green patina copper domes, broad stone steps descending to dark river water, Berlin Germany',
-  'east-side-gallery':'flat three-metre-high grey concrete wall stretching along a riverbank, every surface painted with large colourful murals, crumbling painted texture, grey glass apartment towers behind, Berlin Germany',
+  'east-side-gallery':'flat three-metre-high concrete wall stretching along a sunny riverbank, every surface painted with large colourful murals in vivid reds blues greens, glass apartment towers behind, Berlin Germany',
   'potsdamer-platz':  'large tent-shaped glass and steel roof canopy over an open courtyard, dark red brick tower with flat angular pyramid on top beside it, glass and steel office towers reflecting grey sky, Berlin Germany',
   alexanderplatz:     'tall thin steel TV tower with large silver mirrored ball at 200 metres, wide treeless pedestrian square, round rotating multicoloured clock sculpture on a plinth, grey socialist-era slab buildings surrounding, Berlin Germany',
   'checkpoint-charlie':'small white painted wooden sentry booth in the centre of a wide asphalt street, checkpoint warning signs on metal poles, yellow taxi, grey urban street, central Berlin Germany',
@@ -93,7 +93,7 @@ const LOCATION_VISUALS = {
   charlottenburg:     'long symmetrical white and gold Baroque palace three storeys tall, gilded bronze equestrian statue before a black iron gate, formal garden with clipped dark green hedges and circular stone fountain, Berlin Germany',
   neukoelln:          'wide straight street lined with four-storey sand-coloured plaster buildings, shop fronts with hand-painted Arabic signs in green red and gold, colourful vegetable and fruit stalls overflowing onto the grey pavement, Berlin Germany',
   reichstag:          'large stone neoclassical parliament building with Corinthian columns, a large modern transparent glass dome on top reflecting the sky, wide open esplanade, Berlin Germany',
-  teufelsberg:        'artificial hill made of wartime rubble, two large white radome spheres on top like golf balls, peeling graffiti-covered concrete ruins of a Cold War listening station, forest growing around the base, Berlin Germany',
+  teufelsberg:        'forested artificial hill, two large white dome spheres on the summit like giant golf balls, overgrown graffiti-covered concrete structures at the top, lush green trees covering the slopes, panoramic city view, Berlin Germany',
   treptower:          'enormous Soviet war memorial, vast park with tall stone pylons, giant twelve-metre bronze soldier on a central mound holding a child and a lowered sword, solemn stone sarcophagi in rows, Berlin Germany',
   gorlitzer:          'open urban park with patchy grass, bare earth paths, scattered trees, old red brick pavilion building, groups of people gathered in informal clusters, Berlin Germany',
   'karl-marx-allee':  'enormously wide straight boulevard ninety metres across, matching rows of eight-storey socialist-era apartment buildings clad in pale grey and cream ceramic tiles, strict bilateral symmetry, Berlin Germany',
@@ -140,7 +140,7 @@ const LOCATION_VISUALS = {
   tahrir:             'large open circular urban roundabout, large sand-coloured neoclassical museum building with arched windows and columns on one side, elevated flyover road, midday heat haze, Cairo Egypt',
   'khan-khalili':     'narrow bazaar alley, mashrabiya carved stone lattice screens projecting from upper storeys, ornate copper and brass lanterns hanging low overhead, tall mosque minaret above the rooftops, Islamic Cairo Egypt',
   'nile-corniche':    'wide promenade boulevard beside a broad slow brown river, traditional wooden felucca sailboats with large white triangular sails, pale stone buildings on the far bank, Cairo Egypt',
-  'city-of-dead':     'vast walled necropolis, tall ochre plaster domed mausoleums and flat-roofed tomb houses among palm trees, crumbling carved stone facades, sandy ground, Cairo Egypt',
+  'city-of-dead':     'vast walled necropolis, tall ochre and cream plaster domed mausoleums and tomb houses among swaying palm trees, weathered carved stone facades, sandy golden ground, Cairo Egypt',
   giza:               'Great Pyramid of Giza enormous tan limestone mass, Pyramid of Khafre beside it, Great Sphinx pale carved limestone head and body, sandy desert plateau, clear sky, Egypt',
   'al-azhar-park':    'formal terraced garden on a hill, low dark green box hedges and pale gravel paths, distant city skyline with pale stone domes and pencil-thin minarets on the horizon, Cairo Egypt',
 
@@ -161,10 +161,10 @@ const LOCATION_VISUALS = {
   'bourj-hammoud':    'narrow busy market street, tiny jewellery shops side by side, gold rings necklaces chains in small lit window displays, layered signage in Arabic and Armenian scripts, East Beirut Lebanon',
   achrafieh:          'hilly Beirut residential street, ornate 1890s ochre stone buildings with large triple arched windows and decorative iron balconies, steep narrow stone staircase between the levels, Lebanon',
   solidere:           'clean wide downtown street, polished pale limestone neoclassical buildings, large pale blue mosque dome with minarets visible, ancient Roman stone column bases in an open plaza at street level, Beirut Lebanon',
-  'port-beirut':      'blasted industrial port, broken grey concrete grain silos with large collapsed sections, destroyed corrugated metal warehouses, bright blue Mediterranean sea beyond the wreckage, Beirut Lebanon',
+  'port-beirut':      'industrial port waterfront, dramatic tall concrete grain silos partially open to the sky, open warehouse shells, bright blue Mediterranean sea beyond, Beirut Lebanon',
   badaro:             'quiet residential street, 1930s–1940s white plaster Art Deco buildings with curved corner balconies and geometric ornamental facades, mature trees overhanging the pavement, South Beirut Lebanon',
-  shatila:            'extremely dense informal refugee camp, nine-storey concrete buildings crammed together with no gap, narrow dark alleys too tight for sunlight, tangled overhead wires and pipes, Beirut Lebanon',
-  'national-museum':  'large 1930s neoclassical museum building with a colonnaded facade, pale stone, shrapnel scars visible on the lower walls, wide empty plaza in front, Beirut Lebanon',
+  shatila:            'dense informal urban camp, tall concrete buildings packed tightly together, narrow winding alleys with laundry lines strung between buildings, tangled overhead wires, Beirut Lebanon',
+  'national-museum':  'large 1930s neoclassical museum building with a colonnaded facade, pale honey-coloured stone, wide open plaza in front, historic Beirut Lebanon',
 };
 
 /**
@@ -177,7 +177,7 @@ const LOCATION_VISUALS = {
 export function buildStakeholderPrompt(locationName, cityName, ownerText, userText = '', locationId = '') {
   const angle = detectEntityAngle(ownerText);
   const vis = LOCATION_VISUALS[locationId] || `${locationName}, ${cityName}`;
-  const parts = [vis, angle, 'surrealist oil painting, masterpiece, highly detailed, sharp focus, cinematic lighting'];
+  const parts = [vis, angle, 'surrealist oil painting, masterpiece, highly detailed, sharp focus, warm atmospheric light, beautiful, vivid colour'];
   if (userText.trim()) parts.push(userText.trim());
   parts.push('no text, no watermarks, no logos');
   return parts.join(', ');
@@ -186,7 +186,7 @@ export function buildStakeholderPrompt(locationName, cityName, ownerText, userTe
 export function buildPerceptionPrompt(locationName, cityName, characterId, userText = '', locationId = '') {
   const p = PERSPECTIVES[characterId] || FALLBACK;
   const vis = LOCATION_VISUALS[locationId] || `${locationName}, ${cityName}`;
-  const parts = [vis, p.camera, p.style, 'masterpiece, highly detailed, sharp focus, cinematic lighting'];
+  const parts = [vis, p.camera, p.style, 'masterpiece, highly detailed, sharp focus, warm natural light, beautiful, vivid colour'];
   if (userText.trim()) parts.push(userText.trim());
   parts.push('no text, no watermarks, no logos');
   return parts.join(', ');
