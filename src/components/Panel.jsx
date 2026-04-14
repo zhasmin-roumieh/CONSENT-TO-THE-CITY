@@ -9,20 +9,21 @@ import { TYPE_COLORS } from '../lib/utils';
 export default function Panel({
   view, loc, cityKey, tcHtml, ownerData, userTerms, identity, lang,
   counterOfferIdx, character, consentLogCount, collectiveStats,
-  totalAccepts, totalDeclines,
+  totalAccepts, totalDeclines, mapInteracting,
   onAccept, onDecline, onCounterOfferAccept, onCounterOfferDecline,
   onAddTerm, onReset, onReconsider, onIdentitySet,
   onShowConsentLog, onShowFate,
 }) {
   const locColor = loc ? (TYPE_COLORS[loc.type] || '#888888') : '#888888';
   const showTriangle = view !== 'intro' && loc;
+  const orbitClass = mapInteracting && view !== 'intro' ? ' panel--orbiting' : '';
 
   return (
     <>
       {showTriangle && (
-        <div className="panel-triangle" style={{ '--loc-color': locColor }} />
+        <div className={`panel-triangle${mapInteracting ? ' panel-triangle--hidden' : ''}`} style={{ '--loc-color': locColor }} />
       )}
-      <div key={view} className={`panel panel--${view}`} style={{ '--loc-color': locColor }}>
+      <div key={view} className={`panel panel--${view}${orbitClass}`} style={{ '--loc-color': locColor }}>
         {view === 'intro' && <IntroScreen lang={lang} />}
 
         {view === 'terms' && loc && (

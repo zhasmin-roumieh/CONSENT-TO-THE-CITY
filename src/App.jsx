@@ -69,6 +69,7 @@ export default function App() {
   const [perceiveHint, setPerceiveHint] = useState(false);
   const [overlayPerceiveTarget, setOverlayPerceiveTarget] = useState(null);
   const [showGrantedStamp, setShowGrantedStamp] = useState(false);
+  const [mapInteracting, setMapInteracting] = useState(false);
 
   const isDark = theme === 'dark' || (theme === null && systemDark());
   const isRTL = lang === 'ar';
@@ -346,6 +347,7 @@ export default function App() {
           lang={lang}
           isDark={isDark}
           onLocationSelect={selectLocation}
+          onInteract={setMapInteracting}
         />
         <Panel
           view={view}
@@ -372,6 +374,7 @@ export default function App() {
           onIdentitySet={handleIdentitySet}
           onShowConsentLog={() => setShowConsentLog(true)}
           onShowFate={() => setShowFate(true)}
+          mapInteracting={mapInteracting}
         />
 
         {showConsentLog && (

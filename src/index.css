@@ -2987,6 +2987,33 @@ button.hud-card:hover { filter: brightness(1.15); }
 .co-body { transition: font-size 0.3s ease; }
 
 /* ══════════════════════════════════════════════════════════════════════════
+   ORBIT HIDE — panel slides away while user orbits the 3D map
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* Add a smooth transition to all content panels (only triggers on orbit class) */
+.panel--terms,
+.panel--counter-offer,
+.panel--identity,
+.panel--granted,
+.panel--denied {
+  transition: transform 0.26s cubic-bezier(0.4,0,1,1),
+              opacity  0.22s ease;
+}
+
+/* Desktop: slide off to the right */
+.panel--orbiting {
+  transform: translateX(calc(100% + 40px)) !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Triangle hides too */
+.panel-triangle--hidden {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
    MOBILE LAYOUT  ≤ 639 px
    ══════════════════════════════════════════════════════════════════════════ */
 
@@ -3215,6 +3242,13 @@ button.hud-card:hover { filter: brightness(1.15); }
   /* Counter-offer */
   .co-title { font-size: 13px; }
   .co-body  { font-size: 11px; }
+
+  /* ─────────────────────────────────────────
+     ORBIT HIDE (mobile: slide down)
+     ───────────────────────────────────────── */
+  .panel--orbiting {
+    transform: translateY(100%) !important;
+  }
 
   /* ─────────────────────────────────────────
      GRANTED STAMP

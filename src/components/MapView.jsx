@@ -131,7 +131,7 @@ function addBuildingsLayer(map, color) {
   }
 }
 
-export default function MapView({ currentCity, currentLocId, currentLoc, character, lang, isDark, onLocationSelect }) {
+export default function MapView({ currentCity, currentLocId, currentLoc, character, lang, isDark, onLocationSelect, onInteract }) {
   const containerRef = useRef(null);
   const mapRef = useRef(null);
   const characterMarkerRef = useRef(null);
@@ -139,6 +139,8 @@ export default function MapView({ currentCity, currentLocId, currentLoc, charact
   const currentCityRef = useRef(currentCity);
   const currentLocIdRef = useRef(currentLocId);
   const onSelectRef = useRef(onLocationSelect);
+  const onInteractRef = useRef(onInteract);
+  const interactTimerRef = useRef(null);
   const [lineCoords, setLineCoords] = useState(null);
   const [ready, setReady] = useState(false);
   const [show3DHint, setShow3DHint] = useState(false);
@@ -147,6 +149,7 @@ export default function MapView({ currentCity, currentLocId, currentLoc, charact
   useEffect(() => { currentCityRef.current = currentCity; }, [currentCity]);
   useEffect(() => { currentLocIdRef.current = currentLocId; }, [currentLocId]);
   useEffect(() => { onSelectRef.current = onLocationSelect; }, [onLocationSelect]);
+  useEffect(() => { onInteractRef.current = onInteract; }, [onInteract]);
 
   const city = CITIES[currentCity];
   const locColor = currentLoc ? (TYPE_COLORS[currentLoc.type] || '#888888') : null;
@@ -214,9 +217,29 @@ export default function MapView({ currentCity, currentLocId, currentLoc, charact
     });
 
     map.on('move', () => calcLine(map));
+
+    // ── Notify parent when user is actively orbiting/dragging ──────────────
+    const handleInteractStart = () => {
+      clearTimeout(interactTimerRef.current);
+      onInteractRef.current?.(true);
+    };
+    const handleInteractEnd = () => {
+      // Small delay: let user restart orbit without panel flashing back
+      interactTimerRef.current = setTimeout(() => {
+        onInteractRef.current?.(false);
+      }, 350);
+    };
+    map.on('dragstart',   handleInteractStart);
+    map.on('dragend',     handleInteractEnd);
+    map.on('rotatestart', handleInteractStart);
+    map.on('rotateend',   handleInteractEnd);
+    map.on('pitchstart',  handleInteractStart);
+    map.on('pitchend',    handleInteractEnd);
+
     mapRef.current = map;
 
     return () => {
+      clearTimeout(interactTimerRef.current);
       map.remove();
       mapRef.current = null;
       characterMarkerRef.current = null;
