@@ -7,16 +7,16 @@
 // style  = art style keywords (short)
 const PERSPECTIVES = {
   human:  { camera: 'street-level eye height, pedestrian scale, first person view',       style: 'vibrant urban impressionism, warm golden light, rich colour, atmospheric' },
-  fox:    { camera: 'low ground angle, amber dusk light, predator viewpoint',              style: 'warm amber and gold tones, long shadows, impressionistic, beautiful' },
-  pigeon: { camera: 'bird\'s-eye top-down from rooftop height, looking straight down',    style: 'impressionistic, iridescent colours, warm updraft light, joyful' },
-  rat:    { camera: 'extreme worm\'s-eye from below, looking up through drain grates',    style: 'chiaroscuro, industrial textures, dramatic upward light, surprising beauty' },
-  root:   { camera: 'underground cross-section, soil strata, roots, looking up at city', style: 'botanical illustration, warm earthy ochres, mycelium glow, lush' },
-  ghost:  { camera: 'double exposure 1920s and present overlaid, translucent figures',    style: 'sepia and electric blue, long exposure, dreamlike, ethereal' },
-  bot:    { camera: 'overhead surveillance angle, heat map overlay, sensor grid',         style: 'neon cyan wireframe, glitch aesthetic, vivid data visualisation' },
-  cloud:  { camera: 'aerial above storm clouds, city tiny below through gap in cumulus',  style: 'J.M.W. Turner painting, dramatic golden sky, radiant light' },
-  bee:    { camera: 'compound eye hexagonal grid overlay, UV spectrum vision',            style: 'ultraviolet false colour, mandala geometry, fluorescent, vibrant' },
-  spider: { camera: 'corner ceiling angle looking down, silk web geometry overlay',       style: 'baroque, dewdrop optics, ornate, dramatic warm light' },
-  micro:  { camera: 'electron microscope extreme macro, microscopic scale',               style: 'bioluminescent, cellular patterns, vivid colour, scientific wonder' },
+  fox:    { camera: 'low ground angle, amber dusk light, predator viewpoint',              style: 'amber and gold tones, long dramatic shadows, impressionistic' },
+  pigeon: { camera: 'bird\'s-eye top-down from rooftop height, looking straight down',    style: 'impressionistic, iridescent colours, warm updraft light' },
+  rat:    { camera: 'extreme worm\'s-eye from below, looking up through drain grates',    style: 'chiaroscuro, gothic industrial, dark tunnels, rust' },
+  root:   { camera: 'underground cross-section, soil strata, roots, looking up at city', style: 'botanical illustration, earthy ochres, mycelium glow' },
+  ghost:  { camera: 'double exposure 1920s and present overlaid, translucent figures',    style: 'sepia and electric blue, long exposure, haunted, ethereal' },
+  bot:    { camera: 'overhead surveillance angle, heat map overlay, sensor grid',         style: 'neon cyan wireframe, glitch aesthetic, data visualization' },
+  cloud:  { camera: 'aerial above storm clouds, city tiny below through gap in cumulus',  style: 'J.M.W. Turner painting, dramatic sky, golden light' },
+  bee:    { camera: 'compound eye hexagonal grid overlay, UV spectrum vision',            style: 'ultraviolet false colour, mandala geometry, florescent' },
+  spider: { camera: 'corner ceiling angle looking down, silk web geometry overlay',       style: 'baroque, dewdrop optics, gothic, dark' },
+  micro:  { camera: 'electron microscope extreme macro, microscopic scale',               style: 'bioluminescent, cellular patterns, scientific surrealism' },
 };
 
 const FALLBACK = { camera: 'surrealist viewpoint', style: 'painterly surrealism, rich colour' };
@@ -48,10 +48,18 @@ const ENTITY_ANGLES = {
   plant:     'looking up from soil toward light, roots framing sky',
   border:    'threshold split frame, checkpoint, before and after',
   tourist:   'wide-angle postcard view, iconic framing',
+  festival:  'street-level evening view, warm golden lantern light, festive crowds, joyful atmosphere, celebration',
+  morning:   'early morning soft light, golden hour, quiet streets, warm glow, peaceful atmosphere',
+  nature:    'nature close-up, lush green, sunlight through leaves, vibrant living world',
 };
 
 function detectEntityAngle(text) {
   const t = text.toLowerCase();
+  // ── Festive / celebratory — must come before other checks ──────────────────
+  if (/ramadan|eid|festival|celebrat|carnival|feast|party|gathering|night market|street fair|firework|parade|harvest|spring|bloom|cherry blossom/i.test(t)) return ENTITY_ANGLES.festival;
+  if (/morning|sunrise|dawn|breakfast|café|cafe|early hour/i.test(t)) return ENTITY_ANGLES.morning;
+  if (/flower|blossom|garden|park|green|nature|tree canopy|forest|meadow/i.test(t)) return ENTITY_ANGLES.nature;
+  // ── Entity types ───────────────────────────────────────────────────────────
   if (/pigeon|bird|dove|sparrow|seagull|crow|rook|swift|starling/i.test(t)) return ENTITY_ANGLES.bird;
   if (/rat|mouse|rodent|sewer|drain/i.test(t)) return ENTITY_ANGLES.rat;
   if (/stone|rock|concrete|marble|granite|quarri|brick|cobble|pavement|material|mineral/i.test(t)) return ENTITY_ANGLES.stone;
@@ -177,7 +185,7 @@ const LOCATION_VISUALS = {
 export function buildStakeholderPrompt(locationName, cityName, ownerText, userText = '', locationId = '') {
   const angle = detectEntityAngle(ownerText);
   const vis = LOCATION_VISUALS[locationId] || `${locationName}, ${cityName}`;
-  const parts = [vis, angle, 'surrealist oil painting, masterpiece, highly detailed, sharp focus, warm atmospheric light, beautiful, vivid colour'];
+  const parts = [vis, angle, 'surrealist oil painting, masterpiece, highly detailed, sharp focus, cinematic lighting'];
   if (userText.trim()) parts.push(userText.trim());
   parts.push('no text, no watermarks, no logos');
   return parts.join(', ');
@@ -186,7 +194,7 @@ export function buildStakeholderPrompt(locationName, cityName, ownerText, userTe
 export function buildPerceptionPrompt(locationName, cityName, characterId, userText = '', locationId = '') {
   const p = PERSPECTIVES[characterId] || FALLBACK;
   const vis = LOCATION_VISUALS[locationId] || `${locationName}, ${cityName}`;
-  const parts = [vis, p.camera, p.style, 'masterpiece, highly detailed, sharp focus, warm natural light, beautiful, vivid colour'];
+  const parts = [vis, p.camera, p.style, 'masterpiece, highly detailed, sharp focus, cinematic lighting'];
   if (userText.trim()) parts.push(userText.trim());
   parts.push('no text, no watermarks, no logos');
   return parts.join(', ');
