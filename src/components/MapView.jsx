@@ -189,7 +189,9 @@ export default function MapView({ currentCity, currentLocId, currentLoc, charact
       zoom: city.zoom,
       pitch: 0, bearing: 0,
     });
-    map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
+    if (window.innerWidth > 639) {
+      map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
+    }
 
     map.on('load', () => {
       addBuildingsLayer(map, '#888888');
