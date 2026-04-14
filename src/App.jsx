@@ -120,6 +120,7 @@ export default function App() {
   }
 
   function selectLocation(loc) {
+    history.pushState({ panel: true }, '');
     setCurrentLoc(loc);
     setCounterOfferIdx(0);
     setCollectiveStats(null);
@@ -239,6 +240,9 @@ export default function App() {
   }
 
   function handleReset() {
+    // If we pushed a panel state, replace it so the back button doesn't
+    // re-trigger this after a manual close
+    if (history.state?.panel) history.replaceState(null, '');
     setCurrentLoc(null);
     setIdentity(null);
     setView('intro');
@@ -248,8 +252,20 @@ export default function App() {
     function handleKeyDown(e) {
       if (e.key === 'Escape' && view !== 'intro') handleReset();
     }
+    function handlePopState() {
+      // Back button pressed on mobile — close the panel instead of leaving
+      if (view !== 'intro') {
+        setCurrentLoc(null);
+        setIdentity(null);
+        setView('intro');
+      }
+    }
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener('popstate', handlePopState);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('popstate', handlePopState);
+    };
   }, [view]);
 
   useEffect(() => {
