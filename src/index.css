@@ -3118,6 +3118,9 @@ button.hud-card:hover { filter: brightness(1.15); }
   /* Stats panel: hidden */
   .stats-panel { display: none; }
 
+  /* MapLibre navigation control (zoom +/− buttons): hidden */
+  .maplibregl-ctrl-top-right { display: none; }
+
   /* Triangle connector: hidden */
   .panel-triangle { display: none; }
 
