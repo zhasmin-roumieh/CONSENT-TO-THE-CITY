@@ -163,6 +163,8 @@ const LOCATION_VISUALS = {
   solidere:           'clean wide downtown street, polished pale limestone neoclassical buildings, large pale blue mosque dome with minarets visible, ancient Roman stone column bases in an open plaza at street level, Beirut Lebanon',
   'port-beirut':      'blasted industrial port, broken grey concrete grain silos with large collapsed sections, destroyed corrugated metal warehouses, bright blue Mediterranean sea beyond the wreckage, Beirut Lebanon',
   badaro:             'quiet residential street, 1930s–1940s white plaster Art Deco buildings with curved corner balconies and geometric ornamental facades, mature trees overhanging the pavement, South Beirut Lebanon',
+  shatila:            'extremely dense informal refugee camp, nine-storey concrete buildings crammed together with no gap, narrow dark alleys too tight for sunlight, tangled overhead wires and pipes, Beirut Lebanon',
+  'national-museum':  'large 1930s neoclassical museum building with a colonnaded facade, pale stone, shrapnel scars visible on the lower walls, wide empty plaza in front, Beirut Lebanon',
 };
 
 /**

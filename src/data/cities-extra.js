@@ -4009,5 +4009,151 @@ export const BEIRUT = {
         ],
       },
     },
+
+    {
+      id: 'shatila', type: 'district', lat: 33.8647, lng: 35.4844,
+      name: { en: 'Shatila', de: 'Shatila', ru: 'Шатила', ar: 'شاتيلا' },
+      atmo: {
+        en: 'The camp was established in 1949 as a temporary measure. Seventy-five years later, the concrete has grown nine storeys high and the alleys are too narrow for sunlight to reach the ground. Nobody here has legal title to the land beneath their home.',
+        de: 'Das Lager wurde 1949 als vorübergehende Maßnahme eingerichtet. Fünfundsiebzig Jahre später ist der Beton neun Stockwerke hoch gewachsen und die Gassen sind zu eng, damit Sonnenlicht den Boden erreicht. Niemand hier hat einen rechtlichen Anspruch auf das Land unter seinem Zuhause.',
+        ru: 'Лагерь был основан в 1949 году как временная мера. Семьдесят пять лет спустя бетон вырос до девяти этажей, а переулки слишком узки, чтобы солнечный свет достигал земли. Никто здесь не имеет юридического права на землю под своим домом.',
+        ar: 'أُسِّس المخيم عام 1949 كإجراء مؤقت. بعد خمسة وسبعين عاماً، نما الخرسان تسعة طوابق وضاقت الأزقة حتى لا يبلغ ضوء الشمس الأرض. لا أحد هنا يملك سنداً قانونياً بالأرض تحت بيته.',
+      },
+      owners: {
+        en: [
+          'UNRWA holds administrative jurisdiction but has no enforcement power — governance without sovereignty, management without ownership',
+          'The Lebanese state claims territorial sovereignty over the camp but denies its residents citizenship — a jurisdiction exercised as exclusion',
+          'Palestinian families maintain inherited deed claims to original villages inside present-day Israel — a property ownership layer 75 years suspended but never extinguished',
+          'The water and electricity networks, run informally by internal camp committees, assert a parallel infrastructure governance that predates any official utility connection',
+        ],
+        de: [
+          'UNRWA hat administrative Jurisdiktion, aber keine Durchsetzungsmacht — Governance ohne Souveränität, Management ohne Eigentum',
+          'Der libanesische Staat beansprucht territoriale Souveränität über das Lager, verweigert seinen Bewohnern aber die Staatsbürgerschaft — eine als Ausschluss ausgeübte Jurisdiktion',
+          'Palästinensische Familien pflegen ererbte Urkundenforderungen auf ursprüngliche Dörfer im heutigen Israel — eine Eigentumsschicht, 75 Jahre ausgesetzt, aber nie erlöscht',
+          'Die informell von internen Lagerkomitees betriebenen Wasser- und Stromnetze behaupten eine parallele Infrastrukturgovernanz, die jeder offiziellen Versorgungsverbindung vorausgeht',
+        ],
+        ru: [
+          'БАПОР имеет административную юрисдикцию, но не имеет исполнительной власти — управление без суверенитета, менеджмент без собственности',
+          'Ливанское государство претендует на территориальный суверенитет над лагерем, но отказывает его жителям в гражданстве — юрисдикция, осуществляемая как исключение',
+          'Палестинские семьи сохраняют унаследованные претензии на оригинальные деревни на территории нынешнего Израиля — имущественный слой, 75 лет приостановленный, но никогда не погашенный',
+          'Сети водоснабжения и электроснабжения, неформально управляемые внутренними комитетами лагеря, заявляют параллельное управление инфраструктурой, которое предшествует любому официальному подключению',
+        ],
+        ar: [
+          'تمتلك الأونروا الولاية القضائية الإدارية لكن لا قدرة تنفيذية لديها — حوكمة بلا سيادة، إدارة بلا ملكية',
+          'تطالب الدولة اللبنانية بالسيادة الإقليمية على المخيم لكنها تحرم سكانه من الجنسية — ولاية قضائية تُمارَس كإقصاء',
+          'تحتفظ العائلات الفلسطينية بمطالبات صكوك موروثة على قرى أصلية داخل إسرائيل الحالية — طبقة ملكية عقارية معلقة 75 عاماً لكن لم تُطفأ قط',
+          'شبكات المياه والكهرباء التي تديرها بصورة غير رسمية لجان المخيم الداخلية تطالب بحوكمة بنية تحتية موازية سابقة لأي اتصال بمرفق رسمي',
+        ],
+      },
+      ghost: {
+        en: [
+          'The Sabra and Shatila massacre (September 1982) — 3,500 civilians killed over 62 hours — asserts an unresolved sovereignty claim that no political agreement has addressed',
+          'The original Palestinian villages (depopulated 1948) persist as a layer of phantom land ownership beneath every structure built since — deeds without land, land without deeds',
+        ],
+        de: [
+          'Das Massaker von Sabra und Shatila (September 1982) — 3.500 Zivilisten in 62 Stunden getötet — behauptet einen ungeklärten Souveränitätsanspruch, dem kein politisches Abkommen begegnet ist',
+          'Die ursprünglichen palästinensischen Dörfer (1948 entvölkert) bestehen als Schicht phantomhafter Landrechte unter jeder seitdem erbauten Struktur — Urkunden ohne Land, Land ohne Urkunden',
+        ],
+        ru: [
+          'Резня в Сабре и Шатиле (сентябрь 1982 года) — 3500 мирных жителей убиты за 62 часа — заявляет нерешённую претензию на суверенитет, которую не рассмотрело ни одно политическое соглашение',
+          'Оригинальные палестинские деревни (обезлюдевшие в 1948 году) сохраняются как слой фантомного права собственности на землю под каждой построенной с тех пор структурой — документы без земли, земля без документов',
+        ],
+        ar: [
+          'مجزرة صبرا وشاتيلا (سبتمبر 1982) — 3500 مدني قُتلوا في 62 ساعة — تطالب بمطالبة سيادة غير محسومة لم يعالجها أي اتفاق سياسي',
+          'القرى الفلسطينية الأصلية (التي أُفرِّغت عام 1948) تستمر كطبقة ملكية أرض وهمية تحت كل مبنى شُيِّد منذئذٍ — صكوك بلا أرض، أرض بلا صكوك',
+        ],
+      },
+      temporal: {
+        en: [
+          'Daily generator hours (18:00–24:00): electricity governance shifts from the camp committee network to individual household generators — a nightly fragmentation of the power infrastructure',
+          'Ramadan nights: the camp\'s internal economy briefly expands into the alleys — food stalls, gatherings, a temporary reclamation of public space from darkness',
+        ],
+        de: [
+          'Tägliche Generatorstunden (18:00–24:00): Die Stromgovernanz wechselt vom Lagerkomiteenetz zu individuellen Haushaltsgeneratoren — eine nächtliche Fragmentierung der Strominfrastruktur',
+          'Ramadan-Nächte: Die interne Wirtschaft des Lagers dehnt sich kurz in die Gassen aus — Essenstände, Versammlungen, eine vorübergehende Rückeroberung des öffentlichen Raums aus der Dunkelheit',
+        ],
+        ru: [
+          'Ежедневные часы генератора (18:00–24:00): управление электроснабжением переходит от сети комитета лагеря к индивидуальным бытовым генераторам — ночная фрагментация энергетической инфраструктуры',
+          'Ночи Рамадана: внутренняя экономика лагеря ненадолго расширяется в переулки — лотки с едой, собрания, временное возвращение общественного пространства из темноты',
+        ],
+        ar: [
+          'ساعات المولّد اليومية (18:00–24:00): تنتقل حوكمة الكهرباء من شبكة لجنة المخيم إلى مولّدات المنازل الفردية — تشرذم ليلي للبنية التحتية للطاقة',
+          'ليالي رمضان: يتمدد الاقتصاد الداخلي للمخيم مؤقتاً إلى الأزقة — بسطات طعام وتجمعات واسترداد مؤقت للفضاء العام من الظلام',
+        ],
+      },
+    },
+
+    {
+      id: 'national-museum', type: 'monument', lat: 33.8736, lng: 35.5018,
+      name: { en: 'National Museum', de: 'Nationalmuseum', ru: 'Национальный музей', ar: 'المتحف الوطني' },
+      atmo: {
+        en: 'The museum sat directly on the Green Line for fifteen years. The curators walled up the artefacts in concrete to protect them from shelling. When the war ended, they broke the walls open and found everything intact. The building still bears shrapnel marks at eye level.',
+        de: 'Das Museum lag fünfzehn Jahre lang direkt an der Grünen Linie. Die Kuratoren mauerten die Artefakte in Beton ein, um sie vor Beschuss zu schützen. Als der Krieg endete, brachen sie die Wände auf und fanden alles intakt. Das Gebäude trägt noch Splitternarbern in Augenhöhe.',
+        ru: 'Музей пятнадцать лет простоял прямо на Зелёной линии. Хранители замуровали артефакты в бетон, чтобы защитить их от обстрелов. Когда война закончилась, они вскрыли стены и обнаружили всё нетронутым. Здание до сих пор несёт следы осколков на уровне глаз.',
+        ar: 'وقع المتحف مباشرةً على الخط الأخضر لخمسة عشر عاماً. أحكم أمناء المتحف تغليف المقتنيات بالخرسانة حمايةً لها من القصف. حين انتهت الحرب، كسروا الجدران فوجدوا كل شيء سليماً. لا يزال المبنى يحمل آثار الشظايا على ارتفاع العيون.',
+      },
+      owners: {
+        en: [
+          'The Lebanese state holds formal ownership, but the Phoenician, Roman, and Byzantine artefacts inside predate Lebanon by three thousand years — the objects govern the institution, not the reverse',
+          'The Green Line (1975–1990) asserted a de facto territorial division through the building\'s ground floor — a ghost border still detectable in the asymmetric wear patterns of the marble floor',
+          'The concrete cocoons poured around the sarcophagi during the war have never been fully removed — the artefacts retain a layer of wartime protection that is now part of their archaeological record',
+          'Militias from both sides used the building as a sniper position — their ballistic ownership claim is written into the facade at a height of 1.6 metres',
+        ],
+        de: [
+          'Der libanesische Staat hält formales Eigentum, aber die phönizischen, römischen und byzantinischen Artefakte darin sind dreitausend Jahre älter als der Libanon — die Objekte regieren die Institution, nicht umgekehrt',
+          'Die Grüne Linie (1975–1990) behauptete eine faktische Territorialteilung durch das Erdgeschoss des Gebäudes — eine Geistergrenze, die noch in den asymmetrischen Abnutzungsmustern des Marmorbodens erkennbar ist',
+          'Die während des Krieges um die Sarkophage gegossenen Betonkokons wurden nie vollständig entfernt — die Artefakte behalten eine Kriegsschutzschicht, die nun Teil ihrer archäologischen Aufzeichnung ist',
+          'Milizen von beiden Seiten nutzten das Gebäude als Scharfschützenposition — ihr ballistischer Eigentumsanspruch ist in die Fassade auf einer Höhe von 1,6 Metern eingeschrieben',
+        ],
+        ru: [
+          'Ливанское государство владеет формально, но финикийские, римские и византийские артефакты внутри на три тысячи лет старше Ливана — объекты управляют институцией, а не наоборот',
+          'Зелёная линия (1975–1990) утверждала фактическое территориальное разделение через первый этаж здания — призрачная граница, всё ещё обнаруживаемая в асимметричных узорах износа мраморного пола',
+          'Бетонные коконы, залитые вокруг саркофагов во время войны, так и не были полностью удалены — артефакты сохраняют слой военной защиты, ставший частью их археологической записи',
+          'Ополчения с обеих сторон использовали здание как снайперскую позицию — их баллистическая претензия на собственность вписана в фасад на высоте 1,6 метра',
+        ],
+        ar: [
+          'تمتلك الدولة اللبنانية الملكية الرسمية، لكن المقتنيات الفينيقية والرومانية والبيزنطية الداخل تسبق لبنان بثلاثة آلاف عام — المقتنيات هي التي تحكم المؤسسة لا العكس',
+          'أكّد الخط الأخضر (1975–1990) تقسيماً إقليمياً فعلياً عبر الطابق الأرضي للمبنى — حد شبحي لا يزال ملموساً في أنماط التآكل غير المتماثلة لبلاط الرخام',
+          'أغلفة الخرسانة التي صُبَّت حول التوابيت إبان الحرب لم تُزل كلياً قط — تحتفظ المقتنيات بطبقة حماية حربية باتت جزءاً من سجلها الأثري',
+          'استخدمت الميليشيات من الجانبين المبنى موقعاً للقناصة — مطالبتهم الإقليمية الباليستية مكتوبة في الواجهة على ارتفاع 1.6 متر',
+        ],
+      },
+      ghost: {
+        en: [
+          'The Green Line ceasefire boundary (April 1975 – October 1990) passes through the museum\'s central hall — a former front line now hosting school children on field trips',
+          'The artefacts looted during the war (exact inventory unknown) maintain a residual display claim over the empty cases that once held them — absence as ownership',
+        ],
+        de: [
+          'Die Waffenstillstandsgrenze der Grünen Linie (April 1975 – Oktober 1990) verläuft durch die Zentralhalle des Museums — eine ehemalige Front, die jetzt Schulkinder auf Exkursionen beherbergt',
+          'Die während des Krieges gestohlenen Artefakte (genaues Inventar unbekannt) behalten einen verbleibenden Ausstellungsanspruch über die leeren Vitrinen, die sie einst enthielten — Abwesenheit als Eigentum',
+        ],
+        ru: [
+          'Граница перемирия Зелёной линии (апрель 1975 – октябрь 1990) проходит через центральный зал музея — бывшая линия фронта, теперь принимающая школьников на экскурсиях',
+          'Артефакты, разграбленные во время войны (точная инвентаризация неизвестна), сохраняют остаточную выставочную претензию на пустые витрины, в которых они когда-то находились — отсутствие как собственность',
+        ],
+        ar: [
+          'حد وقف إطلاق النار للخط الأخضر (أبريل 1975 – أكتوبر 1990) يمر عبر القاعة المركزية للمتحف — خط مواجهة سابق يستضيف الآن طلاب المدارس في رحلاتهم الميدانية',
+          'المقتنيات المنهوبة إبان الحرب (جردتها الدقيقة مجهولة) تحتفظ بمطالبة عرض متبقية على الخزائن الفارغة التي احتوتها ذات يوم — الغياب بوصفه ملكية',
+        ],
+      },
+      temporal: {
+        en: [
+          'School visit hours (09:00–13:00): Lebanese children stand in front of Phoenician artefacts with no legal connection to either — a daily encounter between contested heritage and stateless objects',
+          'Power cuts (daily): the museum goes dark and the artefacts revert to their original condition — objects that existed for three millennia without electricity briefly reclaim their pre-modern governance',
+        ],
+        de: [
+          'Schulbesuchsstunden (09:00–13:00): Libanesische Kinder stehen vor phönizischen Artefakten ohne rechtlichen Bezug zu beiden — eine tägliche Begegnung zwischen umstrittenem Erbe und staatslosen Objekten',
+          'Stromausfälle (täglich): Das Museum wird dunkel und die Artefakte kehren in ihren ursprünglichen Zustand zurück — Objekte, die drei Jahrtausende ohne Strom existierten, reklamieren kurz ihre vormoderne Governance zurück',
+        ],
+        ru: [
+          'Школьные часы посещения (09:00–13:00): ливанские дети стоят перед финикийскими артефактами без правовой связи ни с теми, ни с другими — ежедневная встреча между спорным наследием и объектами без гражданства',
+          'Отключения электричества (ежедневно): музей погружается в темноту, и артефакты возвращаются к своему первоначальному состоянию — объекты, существовавшие три тысячелетия без электричества, ненадолго возвращают своё досовременное управление',
+        ],
+        ar: [
+          'ساعات الزيارات المدرسية (09:00–13:00): أطفال لبنانيون يقفون أمام مقتنيات فينيقية دون صلة قانونية بأيٍّ منهما — لقاء يومي بين تراث متنازع عليه ومقتنيات بلا دولة',
+          'انقطاعات التيار الكهربائي (يومياً): يغرق المتحف في الظلام وتعود المقتنيات إلى حالتها الأصلية — مقتنيات عاشت ثلاثة آلاف سنة دون كهرباء تستعيد مؤقتاً حوكمتها ما قبل الحداثة',
+        ],
+      },
+    },
   ],
 };
