@@ -1,6 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
+
+// Enable Arabic (and Hebrew) right-to-left text rendering on the map
+maplibregl.setRTLTextPlugin(
+  'https://unpkg.com/@mapbox/mapbox-gl-rtl-text@0.2.3/mapbox-gl-rtl-text.min.js',
+  null,
+  true,
+);
 import { CITIES } from '../data/cities';
 import { TYPE_COLORS } from '../lib/utils';
 

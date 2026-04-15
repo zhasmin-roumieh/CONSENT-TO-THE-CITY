@@ -3429,7 +3429,7 @@ export const BEIRUT = {
       },
     },
     {
-      id: 'gemmayzeh', type: 'district', lat: 33.8893, lng: 35.5136,
+      id: 'gemmayzeh', type: 'district', lat: 33.8970, lng: 35.5095,
       name: { en: 'Gemmayzeh', de: 'Gemmayzeh', ru: 'Жемайзе', ar: 'الجميزة' },
       atmo: {
         en: 'A neighbourhood that rebuilt itself three times: after the civil war, after the 2006 war, after the 2020 explosion. The old buildings tilt at angles that have become normal here. Glass still exists in the walls from August 4th. The bars opened again six months later.',
@@ -3501,7 +3501,7 @@ export const BEIRUT = {
       },
     },
     {
-      id: 'corniche-beirut', type: 'waterfront', lat: 33.8948, lng: 35.4795,
+      id: 'corniche-beirut', type: 'waterfront', lat: 33.9005, lng: 35.4760,
       name: { en: 'Corniche Beirut', de: 'Corniche Beirut', ru: 'Корниш Бейрута', ar: 'كورنيش بيروت' },
       atmo: {
         en: 'A promenade where the city goes to breathe. Fishermen cast lines from the same spots their fathers used. Runners, families, old men with backgammon boards, and the sea. The sea here has a particular restlessness. It knows what is just across the water.',
@@ -3573,7 +3573,7 @@ export const BEIRUT = {
       },
     },
     {
-      id: 'mar-mikhael', type: 'district', lat: 33.8880, lng: 35.5160,
+      id: 'mar-mikhael', type: 'district', lat: 33.8955, lng: 35.5235,
       name: { en: 'Mar Mikhael', de: 'Mar Mikhael', ru: 'Мар Михаэль', ar: 'مار مخايل' },
       atmo: {
         en: 'An Armenian neighbourhood that became a nightlife district that was devastated by an explosion. The blast epicentre was 800 metres from here. The church survived. The bars were rebuilt before the apartments. The neighbourhood is now three things simultaneously and has not decided which one it is.',
