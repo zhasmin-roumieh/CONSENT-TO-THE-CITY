@@ -119,6 +119,7 @@ Your full history of accepted and declined spaces accumulates in a **Consent Log
 - CounterAPI — anonymous visitor counters for collective memory stats (no account required)
 
 **Models at runtime:** Pollinations.ai Flux Realism model (free, no API key required; called on perception generate)
+
 **Notable libraries:** MapLibre GL, Leaflet + react-leaflet (mini world map), react-icons, @mapbox/mapbox-gl-rtl-text (Arabic text rendering)
 
 **Run locally:**
@@ -147,8 +148,7 @@ npm run dev
 > "Can we add an icon which one chooses upon entering to walk as this creature in a city. give option of 10."
 
 **Reflection:**
-[FILL IN: ≤ 150 words. What unlocked progress? Where did the agent get stuck or go sideways? What would you do differently next time?]
-
+It was very interesting to see how AI could expand the limits of design and open up room for any idea, and how relatively fast it performed. I also noticed that when I directly specified what I wanted to see like colorful city names scrolling from left to right, it performed exactly as I desired. I think what really unlocked the progress for me was a constant process of refinement and trial and error. I also always used /btw to make sure that Claude was doing exactly what I needed. However, sometimes the AI agent did get stuck, particularly when it had to connect to external resources for images, links, or AI, or when I was asking it to remove a particular feature from the mobile version of the site. I had to send the same prompt over and over again until I finally uploaded an image of the issue with annotations. Next time, I would give more concrete tasks, still provide multiple tasks at once, include images with annotations, and make more use of the plan command.
 ---
 
 ## Credits, assets, licenses
