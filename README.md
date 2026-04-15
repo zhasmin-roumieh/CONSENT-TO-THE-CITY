@@ -78,7 +78,9 @@ Maya is 24, a Lebanese architecture student on exchange at BTU Cottbus. It's her
 ## Technical implementation
 
 **Frontend:** React 19 + Vite (JavaScript, no TypeScript)
+
 **Hosting & build:** GitHub Pages, built via GitHub Actions workflow (auto-deploys on push to `main`)
+
 **Data sources / APIs:**
 - Wikipedia Pageimages API — location photos fetched at runtime
 - Wikimedia Commons — fallback photo URLs
@@ -86,6 +88,7 @@ Maya is 24, a Lebanese architecture student on exchange at BTU Cottbus. It's her
 - CARTO — vector map tiles (dark and light styles via MapLibre GL)
 
 **Models at runtime:** Flux image generation model (hosted, called via API on stakeholder view)
+
 **Notable libraries:** MapLibre GL, react-icons, @mapbox/mapbox-gl-rtl-text (Arabic text rendering)
 
 **Run locally:**
@@ -105,13 +108,13 @@ npm run dev
 
 **Key prompts (that actually moved the project):**
 
-> "I need us to build a web app where you explore cities on a map and each location has terms and conditions you must consent to before entering, with different ownership layers — current owners, ghost owners, and temporal events."
+> "Before making the app, please keep in mind that it was based on the prompt in @text.txt. I want to ensure that I have multiple cities to choose from and can navigate to different locations. I also need the option to have the app work in English, German, Russian, or Arabic, depending on the selection made by the user."
 
-> "Add Beirut as a full city with locations including Shatila camp, Mar Mikhael, Gemmayzeh, the port explosion site — each with atmospheric descriptions, ownership claims, and ghost claims in English, German, Russian, and Arabic."
+> "Now, I want the whole interface to become nicer and more interactive. Add a title relevant to the city and use a gaming/Minecraft-style font for the title. I want a terms and conditions panel to appear as a floating panel on the map when a user clicks on a circle, not at the bottom as a separate section. I also need a nice-looking description that explains to the user what to do."
 
-> "The consent clauses are too scary and give privacy concerns — replace all of them with fun, poetic, absurdist ones that fit the satirical tone of the project."
+> "How difficult would it be to allow the user to see an AI-generated image when they click on each actor, showing how that actor's conditions affect their perception of a given element in the city? For example, if the actor is a bird, they would see the Eiffel Tower from above, perhaps with some surrealist elements. I would also like the user to be able to write their own custom perception, which would then be translated into a generated image"
 
-> "Add a character selection system where each character (pigeon, rat, ghost, algorithm, etc.) generates a different AI image of the location from their perspective — bird's eye for pigeon, underground cross-section for root, surveillance heatmap for algorithm."
+> "Can we add an icon which one chooses upon entering to walk as this creature in a city. give option of 10."
 
 **Reflection:**
 [FILL IN: ≤ 150 words. What unlocked progress? Where did the agent get stuck or go sideways? What would you do differently next time?]
