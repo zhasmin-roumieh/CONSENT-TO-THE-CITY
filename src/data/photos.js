@@ -91,7 +91,6 @@ export const PHOTOS = {
   'bourj-hammoud':     'https://commons.wikimedia.org/wiki/Special:FilePath/Bourj_Hammoud_Beirut.jpg?width=800',
   shatila:             'https://commons.wikimedia.org/wiki/Special:FilePath/Shatila_refugee_camp.jpg?width=800',
   achrafieh:           'https://commons.wikimedia.org/wiki/Special:FilePath/Achrafieh_Beirut.jpg?width=800',
-  solidere:            'https://commons.wikimedia.org/wiki/Special:FilePath/Nejmeh_Square_Beirut.jpg?width=800',
   'port-beirut':       'https://commons.wikimedia.org/wiki/Special:FilePath/Port_of_Beirut.jpg?width=800',
   badaro:              'https://commons.wikimedia.org/wiki/Special:FilePath/Badaro_Beirut.jpg?width=800',
   'national-museum':   'https://commons.wikimedia.org/wiki/Special:FilePath/National_Museum_of_Beirut.jpg?width=800',
