@@ -63,15 +63,40 @@ Maya is 24, a Lebanese architecture student on exchange at BTU Cottbus. It's her
 
 ## How to use it
 
-1. Open the live app — you land on a splash screen. Press **Enter** to begin.
-2. Choose your **character** — each one sees and inhabits the city differently (Human, Pigeon, Rat, Fox, Ghost, Algorithm, etc.).
-3. Select a **city** from the top bar (Berlin, Beirut, Paris, Tokyo, London, New York, Cairo, Mumbai).
-4. Click any **dot on the map** to select a location. The map tilts into 3D and the panel slides in.
-5. Read the location's atmospheric description and the list of **who claims to own this space** — including stones, pigeons, algorithms, and the dead.
-6. Read your **Terms & Conditions** and choose: **Accept** or **Decline**.
-7. After accepting, view the location through your character's eyes via an **AI-generated image**.
-8. Keep exploring — your consent log tracks every space you've entered or refused.
-9. *Tip: try the same location as a Pigeon, then as an Algorithm — the ownership claims read very differently.*
+**1. The splash screen**
+You land on a wall of scrolling city names in neon colours. Eight cities are clickable — Berlin, Beirut, Paris, Tokyo, London, New York, Cairo, Mumbai. Click one to begin. This is also your only moment of genuine, uncontested choice in the app.
+
+**2. Choose your body**
+A character selection screen appears. You pick who — or what — you are entering the city as: a Human, Pigeon, Fox, Rat, Root system, Ghost, Algorithm, Cloud, Bee, or Microbe. Your character determines how the city is perceived and what AI images get generated later. This choice matters. A pigeon and an algorithm standing at the same corner are not in the same city.
+
+**3. The map**
+You arrive at a 3D map of your city. Coloured dots mark every playable location — the colour codes the type of space (monument, district, waterfront, market, park, etc.). Click any dot. The map tilts, the buildings extrude, and a panel slides in from the right.
+
+**4. Terms & Conditions**
+Before you can enter the space, you are presented with a formal access document. It describes the atmosphere of the location, lists who currently holds a territorial claim over it, and gives you a set of consent clauses — absurdist, poetic, and uncomfortably plausible. You have two options: **Accept** or **Decline**.
+
+**5. If you decline**
+The city doesn't let you go quietly. A counter-offer appears — new terms, slightly different, still requiring your signature. You can decline again. And again. After five refusals, access is fully denied and a full-screen rejection notice appears. You may try again, return to the map, or exit entirely.
+
+**6. If you accept**
+An ACCESS GRANTED stamp flashes on screen. You are asked to register your identity — a name and a role in the city — or enter anonymously. Then the space opens.
+
+**7. Inside the space**
+The access panel reveals the full ownership structure of the location, broken into three layers:
+- **Active claims** — who legally or physically governs the space today
+- **Residual claims** — former owners, demolished structures, unresolved historical disputes
+- **Temporal claims** — time-specific governance events (floods, festivals, curfews, ghost hours)
+
+A live bar chart shows the percentage split between human, non-human, historical, algorithmic, and temporal ownership. You can also drag a **year slider** from 1700 to 2150 to see how the governance of the space shifts across time.
+
+**8. Inscribe your terms**
+At the bottom of the panel, you can write your own clause and add it to the space's governance layer. It is visible to every other visitor for exactly five minutes. The app will tell you why it can't last longer. The reasons are bureaucratic, absurd, and correct.
+
+**9. AI perception**
+Once inside a space, hit **✦ Perceive** at the top of the screen to generate an AI image of the location as seen through your character's eyes — top-down and iridescent for the Pigeon, worm's-eye gothic for the Rat, cold surveillance heatmap for the Algorithm, double-exposed and haunted for the Ghost. You can also click any individual stakeholder in the ownership list to generate an image from their specific perspective. The same location, seen ten different ways, is ten different arguments about what a city is.
+
+**10. Consent log and fate**
+Your full history of accepted and declined spaces accumulates in a **Consent Log**, accessible from the home screen. After enough decisions, a **Fate** screen appears — a verdict on what kind of urban actor you are, based on your pattern of consent.
 
 ---
 
@@ -84,11 +109,10 @@ Maya is 24, a Lebanese architecture student on exchange at BTU Cottbus. It's her
 **Data sources / APIs:**
 - Wikipedia Pageimages API — location photos fetched at runtime
 - Wikimedia Commons — fallback photo URLs
-- Flux image model API — AI-generated character perspective images
+- Pollinations.ai (Flux Realism model) — AI-generated character perspective images, free, no API key required
 - CARTO — vector map tiles (dark and light styles via MapLibre GL)
 
-**Models at runtime:** Flux image generation model (hosted, called via API on stakeholder view)
-
+**Models at runtime:** Pollinations.ai Flux Realism model (free, no API key required; called on perception generate)
 **Notable libraries:** MapLibre GL, react-icons, @mapbox/mapbox-gl-rtl-text (Arabic text rendering)
 
 **Run locally:**
