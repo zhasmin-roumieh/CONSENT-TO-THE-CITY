@@ -26,7 +26,7 @@
 
 - **Live app (GitHub Pages):** https://zhasmin-roumieh.github.io/CONSENT-TO-THE-CITY/
 - **Source repo:** https://github.com/zhasmin-roumieh/CONSENT-TO-THE-CITY
-- **Miro frame:** https://miro.com/app/board/uXjVGCtKivA=/?moveToWidget=[FILL IN: your frame ID]](https://miro.com/app/board/uXjVGCtKivA=/moveToWidget=3458764667736227417&cot=14
+- **Miro frame:** https://miro.com/app/board/uXjVGCtKivA=/moveToWidget=3458764667736227417&cot=14
 - **60 s showreel:** embedded on the Miro frame above
 
 ---
