@@ -1,6 +1,6 @@
 # Consent to the City
 
-*A satirical urban consent simulator where you must sign terms & conditions to enter any public space.*
+*A city simulator where everyone — pigeons, algorithms, and 1923 ghosts — owns the space before you do and has terms to accept.*
 
 ---
 
