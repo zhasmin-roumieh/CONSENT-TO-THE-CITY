@@ -75,9 +75,9 @@ export default function AccessGranted({ loc, cityKey, ownerData, userTerms, iden
     if (!v) return;
     onAddTerm(v);
     setTermInput('');
+    setInscribeMsg(FUNNY_REASONS[Math.floor(Math.random() * FUNNY_REASONS.length)]);
     if (sharedEnabled) {
       await inscribeTerm(loc.id, v, character?.id);
-      setInscribeMsg(FUNNY_REASONS[Math.floor(Math.random() * FUNNY_REASONS.length)]);
       // Refresh list so own term appears in shared section
       const fresh = await fetchLiveTerms(loc.id);
       setLiveTerms(fresh);
