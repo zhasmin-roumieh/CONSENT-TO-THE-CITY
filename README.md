@@ -1,142 +1,119 @@
 # Consent to the City
 
-> *A speculative interactive web application exploring who owns urban space — and what you must agree to in order to enter it.*
+*A satirical urban consent simulator where you must sign terms & conditions to enter any public space.*
 
 ---
 
-## Concept
+## Author & course
 
-**Consent to the City** is an interactive urban simulation built for the studio *[Your Studio Name]* at Bauhaus-Universität Weimar. It asks a simple but unsettling question: **what are the real terms and conditions of entering a public space?**
-
-Every time you step into a street, a square, or a park, you implicitly consent to a complex web of ownership claims — by governments, corporations, historical ghosts, non-human inhabitants, and algorithms. This app makes those invisible agreements visible, absurd, and personal.
-
-You choose a city, select a character (human, pigeon, rat, algorithm, ghost, etc.), click on a location, and are presented with a formal **Terms & Conditions** document you must sign before entering. The clauses shift depending on who you are, who owns the space, and what kind of entity is asking for your consent.
-
----
-
-## Live Site
-
-**[https://zhasmin-roumieh.github.io/CONSENT-TO-THE-CITY/](https://zhasmin-roumieh.github.io/CONSENT-TO-THE-CITY/)**
+**Author:** Zhasmin Roumieh
+**Studio:** Prompt City — Urban Vision Wolfsburg 2026
+**Course:** IUDD Master, SoSe 2026
+**Chair:** Informatics in Architecture and Urbanism (InfAU), Faculty of Architecture and Urbanism, Bauhaus-Universität Weimar
+**Teaching staff:** Reinhard König, Martin Bielik, Sven Schneider, Egor Gaydukov, Egor Gavrilov
+**Exercise:** Urban Absurdities (Nonsense Project)
+**Submission date:** 2026-04-16
 
 ---
 
-## Features
+## Links
 
-| Feature | Description |
-|---|---|
-| **8 cities** | Berlin, Beirut, Paris, Tokyo, London, New York, Cairo, Mumbai |
-| **80+ locations** | Each with unique ownership layers and atmospheric descriptions |
-| **10 characters** | Human, Pigeon, Fox, Rat, Root, Ghost, Algorithm, Cloud, Bee, Spider |
-| **Consent system** | Unique T&C generated per location — accept, decline, or counter-offer |
-| **Ownership layers** | Current owners, ghost owners, temporal events — visualised as stacked claims |
-| **AI image generation** | Each stakeholder's view of a location rendered through an AI image model |
-| **4 languages** | English, Deutsch, Русский, العربية (with full RTL layout for Arabic) |
-| **3D map** | Buildings extrude in 3D when you enter a location |
-| **Dark / light mode** | Toggle or follows system preference |
-| **Consent log** | Your full history of accepted and declined spaces |
+- **Live app (GitHub Pages):** https://zhasmin-roumieh.github.io/CONSENT-TO-THE-CITY/
+- **Source repo:** https://github.com/zhasmin-roumieh/CONSENT-TO-THE-CITY
+- **Miro frame:** https://miro.com/app/board/uXjVGCtKivA=/?moveToWidget=[FILL IN: your frame ID]
+- **60 s showreel:** embedded on the Miro frame above
 
 ---
 
-## Characters
+## The task
 
-Each character sees the city differently and generates a different perspective image:
-
-- **Human** — street-level eye height
-- **Pigeon** — top-down bird's eye
-- **Fox** — low amber dusk angle
-- **Rat** — worm's eye from below
-- **Root** — underground cross-section
-- **Ghost** — double exposure of past and present
-- **Algorithm** — surveillance heat map overhead
-- **Cloud** — aerial above storm clouds
-- **Bee** — compound eye UV spectrum
-- **Spider** — ceiling corner looking down
+Nonsense Project is a two-weeks long task designed to get familiar with application of coding agents in building apps, tools and projects that investigate unique ways of working with urban context. I was randomly assigned one urban paradox and one constraint from the studio's Nonsense Ideas deck and built a working web app that answers this combination. The process is documented here and in a 60-second showreel.
 
 ---
 
-## Ownership System
+## Theme & constraint
 
-Each location has three layers of ownership claims:
+**Theme (Urban Absurdity):**
+[FILL IN: Paste the theme exactly as drawn.]
 
-1. **Current owners** — who legally or physically controls the space today
-2. **Ghost owners** — former claims that were never legally resolved
-3. **Temporal events** — time-specific governance shifts (tidal flooding, festivals, curfews)
-
-The ownership claims are deliberately non-human: stones, pigeons, algorithms, mycelium networks, and dead border guards all assert territory.
+**Constraint (Playful Limitation):**
+[FILL IN: Paste the constraint exactly as drawn.]
 
 ---
 
-## Academic Context
+## Concept and User Story
 
-- **Programme:** Master of Science in [Your Programme]
-- **University:** Bauhaus-Universität Weimar
-- **Studio:** The Prompt City — Summer 2026
-- **Tutor:** [Tutor Name]
-- **Student:** Zhasmin Roumieh
+**Concept:**
+[FILL IN: 100–150 words. What the app is, how it reads the theme, where the constraint actually bites. No technical details here.]
+
+**User story:**
+[FILL IN: 100–200 words. A small narrative about one specific imagined user — who they are, why they open the app, what they do step by step, what they see and feel, what they take away.]
 
 ---
 
-## Run Locally
+## How to use it
 
+1. Open the live app — you land on a splash screen. Press **Enter** to begin.
+2. Choose your **character** — each one sees and inhabits the city differently (Human, Pigeon, Rat, Fox, Ghost, Algorithm, etc.).
+3. Select a **city** from the top bar (Berlin, Beirut, Paris, Tokyo, London, New York, Cairo, Mumbai).
+4. Click any **dot on the map** to select a location. The map tilts into 3D and the panel slides in.
+5. Read the location's atmospheric description and the list of **who claims to own this space** — including stones, pigeons, algorithms, and the dead.
+6. Read your **Terms & Conditions** and choose: **Accept**, **Decline**, or negotiate a **Counter-offer**.
+7. After accepting, view the location through your character's eyes via an **AI-generated image**.
+8. Keep exploring — your consent log tracks every space you've entered or refused.
+9. *Tip: try the same location as a Pigeon, then as an Algorithm — the ownership claims read very differently.*
+
+---
+
+## Technical implementation
+
+**Frontend:** React 19 + Vite (JavaScript, no TypeScript)
+**Hosting & build:** GitHub Pages, built via GitHub Actions workflow (auto-deploys on push to `main`)
+**Data sources / APIs:**
+- Wikipedia Pageimages API — location photos fetched at runtime
+- Wikimedia Commons — fallback photo URLs
+- Flux image model API — AI-generated character perspective images
+- CARTO — vector map tiles (dark and light styles via MapLibre GL)
+
+**Models at runtime:** Flux image generation model (hosted, called via API on stakeholder view)
+**Notable libraries:** MapLibre GL, react-icons, @mapbox/mapbox-gl-rtl-text (Arabic text rendering)
+
+**Run locally:**
 ```bash
-# Clone the repository
 git clone https://github.com/zhasmin-roumieh/CONSENT-TO-THE-CITY.git
 cd CONSENT-TO-THE-CITY/consent-to-the-city
-
-# Install dependencies
 npm install
-
-# Start development server
 npm run dev
-```
-
-Then open [http://localhost:5173](http://localhost:5173)
-
----
-
-## Tech Stack
-
-| Layer | Tool |
-|---|---|
-| Framework | [React 19](https://react.dev) + [Vite](https://vite.dev) |
-| Map | [MapLibre GL](https://maplibre.org) with CARTO tiles |
-| Icons | [react-icons](https://react-icons.github.io) |
-| Fonts | [Orbitron](https://fonts.google.com/specimen/Orbitron) (UI) + Noto Sans Arabic (RTL) |
-| AI images | Flux image model via API |
-| Hosting | GitHub Pages (auto-deploy on push to `main`) |
-| Language | JavaScript (no TypeScript) |
-
----
-
-## Project Structure
-
-```
-src/
-├── components/       UI screens (map, panel, modals, consent flow)
-├── data/
-│   ├── cities.js     Base city + location data
-│   ├── cities-extra.js  Extended locations for Berlin & Beirut
-│   ├── consentItems.js  The consent clauses pool
-│   ├── photos.js     Fallback photo URLs per location
-│   └── wikiTitles.js Wikipedia article titles for location photos
-├── lib/
-│   ├── useLocationPhoto.js  Fetches location photos (Wikipedia API + fallback)
-│   └── perceptionPrompts.js AI image prompt builder per character
-└── i18n/
-    └── ui.js         All UI strings in 4 languages
+# open http://localhost:5173
 ```
 
 ---
 
-## Deployment
+## Working with AI
 
-The site deploys automatically to GitHub Pages on every push to `main` via GitHub Actions. No manual steps needed.
+**Coding agents used:** Claude Code, model `claude-sonnet-4-6`
+
+**Key prompts (that actually moved the project):**
+
+> "I need us to build a web app where you explore cities on a map and each location has terms and conditions you must consent to before entering, with different ownership layers — current owners, ghost owners, and temporal events."
+
+> "Add Beirut as a full city with locations including Shatila camp, Mar Mikhael, Gemmayzeh, the port explosion site — each with atmospheric descriptions, ownership claims, and ghost claims in English, German, Russian, and Arabic."
+
+> "The consent clauses are too scary and give privacy concerns — replace all of them with fun, poetic, absurdist ones that fit the satirical tone of the project."
+
+> "Add a character selection system where each character (pigeon, rat, ghost, algorithm, etc.) generates a different AI image of the location from their perspective — bird's eye for pigeon, underground cross-section for root, surveillance heatmap for algorithm."
+
+**Reflection:**
+[FILL IN: ≤ 150 words. What unlocked progress? Where did the agent get stuck or go sideways? What would you do differently next time?]
 
 ---
 
-## References & Inspirations
+## Credits, assets, licenses
 
-- Henri Lefebvre, *The Right to the City* (1968)
-- Don Mitchell, *The Right to the City: Social Justice and the Fight for Public Space* (2003)
-- Keller Easterling, *Extrastatecraft: The Power of Infrastructure Space* (2014)
-- The terms and conditions of every app you have ever agreed to without reading
+**Fonts:** Orbitron (Google Fonts, OFL); Noto Sans Arabic (Google Fonts, OFL)
+**Map tiles:** CARTO Dark Matter & Positron (CC BY 3.0)
+**Location photos:** Wikipedia / Wikimedia Commons (CC BY-SA, per file)
+**AI images:** Generated at runtime via Flux model — not stored in the repository
+**Data:** Location descriptions, ownership claims, and consent clauses written for this project
+**Third-party code:** MapLibre GL (BSD-3-Clause); React (MIT); Vite (MIT); react-icons (MIT)
+**This repo:** MIT
