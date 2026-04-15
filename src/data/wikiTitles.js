@@ -87,7 +87,7 @@ export const WIKI_TITLES = {
   raouche:             'Raouché',
   'bourj-hammoud':     'Bourj Hammoud',
   achrafieh:           'Achrafieh',
-  solidere:            'Solidere',
+  solidere:            'Nejmeh Square',
   'port-beirut':       'Port of Beirut',
   badaro:              'Badaro, Beirut',
   shatila:             'Shatila refugee camp',
