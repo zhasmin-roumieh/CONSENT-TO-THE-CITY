@@ -153,9 +153,15 @@ It was very interesting to see how AI could expand the limits of design and open
 ## Credits, assets, licenses
 
 **Fonts:** Orbitron (Google Fonts, OFL); Noto Sans Arabic (Google Fonts, OFL)
+
 **Map tiles:** CARTO Dark Matter & Positron (CC BY 3.0)
+
 **Location photos:** Wikipedia / Wikimedia Commons (CC BY-SA, per file)
+
 **AI images:** Generated at runtime via Flux model — not stored in the repository
+
 **Data:** Location descriptions, ownership claims, and consent clauses written for this project
+
 **Third-party code:** MapLibre GL (BSD-3-Clause); React (MIT); Vite (MIT); react-icons (MIT)
+
 **This repo:** MIT
