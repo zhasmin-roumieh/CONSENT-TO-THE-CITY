@@ -1,16 +1,21 @@
 import { useState, useEffect } from 'react';
 import { WIKI_TITLES } from '../data/wikiTitles';
+import { PHOTOS } from '../data/photos';
 
 // Fetches the Wikipedia thumbnail for a location.
-// Uses the Pageimages API so we can request a specific size directly
-// without hacking the URL — much more reliable than the summary endpoint.
+// Falls back to the static PHOTOS entry if the API returns nothing.
 export function useLocationPhoto(locId) {
   const [src, setSrc] = useState(null);
 
   useEffect(() => {
     setSrc(null);
+    const directSrc = PHOTOS[locId] || null;
     const title = WIKI_TITLES[locId];
-    if (!title) return;
+
+    if (!title) {
+      if (directSrc) setSrc(directSrc);
+      return;
+    }
 
     let cancelled = false;
 
@@ -22,7 +27,7 @@ export function useLocationPhoto(locId) {
         prop: 'pageimages',
         format: 'json',
         pithumbsize: 800,
-        origin: '*',   // required for browser CORS requests
+        origin: '*',
       });
 
     fetch(url)
@@ -30,12 +35,12 @@ export function useLocationPhoto(locId) {
       .then(data => {
         if (cancelled) return;
         const pages = data.query?.pages;
-        if (!pages) return;
+        if (!pages) { if (directSrc) setSrc(directSrc); return; }
         const page = Object.values(pages)[0];
         const imgSrc = page?.thumbnail?.source;
-        if (imgSrc) setSrc(imgSrc);
+        setSrc(imgSrc || directSrc || null);
       })
-      .catch(() => {});
+      .catch(() => { if (!cancelled) setSrc(directSrc); });
 
     return () => { cancelled = true; };
   }, [locId]);
