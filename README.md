@@ -50,7 +50,11 @@ You must treat non-human actors as active stakeholders.
 ## Concept and User Story
 
 **Concept:**
-[FILL IN: 100–150 words. What the app is, how it reads the theme, where the constraint actually bites. No technical details here.]
+Every city runs on invisible agreements : who owns the pavement, who governs the air above a rooftop, who holds the right to a  shadow cast at 3am. Consent to the City takes the urban paradox of unresolved ownership and makes it unbearably literal. When  you try to enter any public space, you are served a formal Terms & Conditions document you must sign before proceeding.
+
+But the constraint bites immediately: non-human actors are treated as full stakeholders. The pigeon has filed a territorial  claim. The algorithm has pre-optimised your route. A ghost from 1923 still holds the deed. The stone was quarried before the city existed and answers to no one.
+
+You can accept, decline, or walk away — but you can also fight back. Write your own terms and impose them on the space, for exactly five minutes. The city will remember. It is already building an opinion about you.
 
 **User story:**
 [FILL IN: 100–200 words. A small narrative about one specific imagined user — who they are, why they open the app, what they do step by step, what they see and feel, what they take away.]
