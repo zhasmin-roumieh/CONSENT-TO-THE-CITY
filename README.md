@@ -26,7 +26,7 @@
 
 - **Live app (GitHub Pages):** https://zhasmin-roumieh.github.io/CONSENT-TO-THE-CITY/
 - **Source repo:** https://github.com/zhasmin-roumieh/CONSENT-TO-THE-CITY
-- **Miro frame:** https://miro.com/app/board/uXjVGCtKivA=/?moveToWidget=[FILL IN: your frame ID]
+- **Miro frame:** https://miro.com/app/board/uXjVGCtKivA=/?moveToWidget=[FILL IN: your frame ID]](https://miro.com/app/board/uXjVGCtKivA=/moveToWidget=3458764667736227417&cot=14
 - **60 s showreel:** embedded on the Miro frame above
 
 ---
@@ -40,10 +40,10 @@ Nonsense Project is a two-weeks long task designed to get familiar with applicat
 ## Theme & constraint
 
 **Theme (Urban Absurdity):**
-[FILL IN: Paste the theme exactly as drawn.]
+In this city, nobody knows who owns what anymore.
 
 **Constraint (Playful Limitation):**
-[FILL IN: Paste the constraint exactly as drawn.]
+You must treat non-human actors as active stakeholders. 
 
 ---
 
