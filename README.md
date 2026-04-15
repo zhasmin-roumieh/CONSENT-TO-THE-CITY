@@ -40,9 +40,11 @@ Nonsense Project is a two-weeks long task designed to get familiar with applicat
 ## Theme & constraint
 
 **Theme (Urban Absurdity):**
+
 In this city, nobody knows who owns what anymore.
 
 **Constraint (Playful Limitation):**
+
 You must treat non-human actors as active stakeholders. 
 
 ---
