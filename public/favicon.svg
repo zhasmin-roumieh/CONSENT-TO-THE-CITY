@@ -1,17 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-  <defs>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&amp;display=swap');
-    </style>
-  </defs>
   <rect width="32" height="32" fill="#000"/>
-  <text
-    x="16" y="24"
-    font-family="Orbitron, sans-serif"
-    font-size="22"
-    font-weight="700"
+  <!--
+    Orbitron-style C:
+    - Outer ring radius 12, inner radius 7 (5px bold wall), center (16,16)
+    - Gap on the right, flat horizontal cuts at y=10 and y=22
+    - Outer endpoints: x = 16 + sqrt(12²-6²) = 26.39
+    - Inner endpoints: x = 16 + sqrt(7²-6²)  = 19.61
+    Path: outer top → large CCW arc → outer bottom → inner bottom → large CW arc → inner top → close
+  -->
+  <path
+    d="M 26.39 10
+       A 12 12 0 1 0 26.39 22
+       L 19.61 22
+       A 7 7 0 1 1 19.61 10
+       Z"
     fill="#fff"
-    text-anchor="middle"
-    dominant-baseline="auto"
-  >C</text>
+  />
 </svg>
