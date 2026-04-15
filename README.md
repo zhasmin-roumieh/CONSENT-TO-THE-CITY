@@ -114,10 +114,12 @@ Your full history of accepted and declined spaces accumulates in a **Consent Log
 - Wikipedia Pageimages API — location photos fetched at runtime
 - Wikimedia Commons — fallback photo URLs
 - Pollinations.ai (Flux Realism model) — AI-generated character perspective images, free, no API key required
-- CARTO — vector map tiles (dark and light styles via MapLibre GL)
+- CARTO — vector map tiles (dark and light styles via MapLibre GL and Leaflet)
+- OpenStreetMap — base geodata underlying all CARTO tiles (© OpenStreetMap contributors)
+- CounterAPI — anonymous visitor counters for collective memory stats (no account required)
 
 **Models at runtime:** Pollinations.ai Flux Realism model (free, no API key required; called on perception generate)
-**Notable libraries:** MapLibre GL, react-icons, @mapbox/mapbox-gl-rtl-text (Arabic text rendering)
+**Notable libraries:** MapLibre GL, Leaflet + react-leaflet (mini world map), react-icons, @mapbox/mapbox-gl-rtl-text (Arabic text rendering)
 
 **Run locally:**
 ```bash
