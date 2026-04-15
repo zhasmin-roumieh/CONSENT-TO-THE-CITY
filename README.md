@@ -72,7 +72,7 @@ You land on a wall of scrolling city names in neon colours. Eight cities are cli
 A character selection screen appears. You pick who — or what — you are entering the city as: a Human, Pigeon, Fox, Rat, Root system, Ghost, Algorithm, Cloud, Bee, or Microbe. Your character determines how the city is perceived and what AI images get generated later. This choice matters. A pigeon and an algorithm standing at the same corner are not in the same city.
 
 **3. The map**
-You arrive at a 3D map of your city. Coloured dots mark every playable location — the colour codes the type of space (monument, district, waterfront, market, park, etc.). Click any dot. The map tilts, the buildings extrude, and a panel slides in from the right.
+You arrive at a map of your city and you can always change the city. Coloured dots mark every playable location. Click any dot. The map tilts, the buildings extrude, and a panel slides in from the right.
 
 **4. Terms & Conditions**
 Before you can enter the space, you are presented with a formal access document. It describes the atmosphere of the location, lists who currently holds a territorial claim over it, and gives you a set of consent clauses — absurdist, poetic, and uncomfortably plausible. You have two options: **Accept** or **Decline**.
@@ -90,6 +90,8 @@ The access panel reveals the full ownership structure of the location, broken in
 - **Temporal claims** — time-specific governance events (floods, festivals, curfews, ghost hours)
 
 A live bar chart shows the percentage split between human, non-human, historical, algorithmic, and temporal ownership. You can also drag a **year slider** from 1700 to 2150 to see how the governance of the space shifts across time.
+
+The terms also appear as floating panels in the 3D.
 
 **8. Inscribe your terms**
 At the bottom of the panel, you can write your own clause and add it to the space's governance layer. It is visible to every other visitor for exactly five minutes. The app will tell you why it can't last longer. The reasons are bureaucratic, absurd, and correct.
