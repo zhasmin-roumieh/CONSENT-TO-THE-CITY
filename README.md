@@ -7,11 +7,17 @@
 ## Author & course
 
 **Author:** Zhasmin Roumieh
+
 **Studio:** Prompt City — Urban Vision Wolfsburg 2026
+
 **Course:** IUDD Master, SoSe 2026
+
 **Chair:** Informatics in Architecture and Urbanism (InfAU), Faculty of Architecture and Urbanism, Bauhaus-Universität Weimar
+
 **Teaching staff:** Reinhard König, Martin Bielik, Sven Schneider, Egor Gaydukov, Egor Gavrilov
+
 **Exercise:** Urban Absurdities (Nonsense Project)
+
 **Submission date:** 2026-04-16
 
 ---
