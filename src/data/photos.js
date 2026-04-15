@@ -76,4 +76,5 @@ export const PHOTOS = {
   'mar-mikhael':    'https://commons.wikimedia.org/wiki/Special:FilePath/Mar_Mikhael_Beirut.jpg?width=800',
   'raouche':        'https://commons.wikimedia.org/wiki/Special:FilePath/Raouche_Pigeons_Rock_Beirut.jpg?width=800',
   'bourj-hammoud':  'https://commons.wikimedia.org/wiki/Special:FilePath/Bourj_Hammoud_Beirut.jpg?width=800',
+  shatila:          'https://commons.wikimedia.org/wiki/Special:FilePath/Shatila_refugee_camp.jpg?width=800',
 };
